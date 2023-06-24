@@ -681,6 +681,33 @@ Transform:
   m_Father: {fileID: 489280546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1350395787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8062203635239618726, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8062203635460635413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &1350395790 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 8062203635239618722, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8062203635460635413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1350395791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350395787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4f7adabcb9a264397067f49e9aa32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 1350395790}
+  agent: {fileID: 0}
+  drag: 0.3
 --- !u!1 &1975748392
 GameObject:
   m_ObjectHideFlags: 3
@@ -776,6 +803,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1986913215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5009468972583274404, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 8062203635460635413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8062203635460635413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -783,10 +816,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 601914093850426366, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601914093850426366, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601914093850426366, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337491706088458406, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337491706088458406, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3337491706088458406, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.205683
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905750885641974989, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905750885641974989, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905750885641974989, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
-      propertyPath: <Force>k__BackingField
+      propertyPath: <Attacks>k__BackingField.Array.data[0].Model
       value: 
+      objectReference: {fileID: 1986913215}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].Model
+      value: 
+      objectReference: {fileID: 1986913215}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].Model
+      value: 
+      objectReference: {fileID: 1986913215}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[0].<ComboStateIndex>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[1].<ComboStateIndex>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<ComboStateIndex>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<MaxComboAttackTime>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <Attacks>k__BackingField.Array.data[2].<MinComboAttackTime>k__BackingField
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8062203635239618721, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
@@ -847,6 +960,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995079222632494332, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995079222632494332, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.07813009
+      objectReference: {fileID: 0}
+    - target: {fileID: 8995079222632494332, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29c30bd884e038f42ac514f40eb9a0ff, type: 3}

@@ -23,8 +23,12 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        if (stateMachine.InputReader.IsAttacking)
+        {
+            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
 
-
+            return;
+        }
 
         Vector3 movemnt = CalculateMovement();
 

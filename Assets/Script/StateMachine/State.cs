@@ -20,7 +20,7 @@ public abstract class State
     public abstract void Exit();
 
     /// <summary>
-    /// 計算目前攻擊動畫進度(%數)
+    /// 計算目前攻擊動畫進度(0-1)
     /// </summary>
     protected float GetNormalizedTime(Animator animator, string tagName)
     {

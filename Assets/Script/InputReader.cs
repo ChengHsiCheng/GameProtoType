@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 
 public class InputReader : MonoBehaviour, Controls.IPlayerActions
 {
+    public bool IsAttacking { get; private set; }
+
     private Controls controls;
-    public Vector2 MovementValue { get; private set; } // 表示角色的移動輸入值
+    public Vector2 MovementValue { get; private set; }
 
     public event Action RollEvent;
-
     private void Start()
     {
         controls = new Controls();
@@ -37,5 +38,17 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             return;
 
         RollEvent?.Invoke();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            IsAttacking = true;
+        }
+        else if (context.canceled)
+        {
+            IsAttacking = false;
+        }
     }
 }

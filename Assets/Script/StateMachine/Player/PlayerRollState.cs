@@ -27,7 +27,7 @@ public class PlayerRollState : PlayerBaseState
 
         if (normalizedTime <= 0.4)
         {
-            Move(stateMachine.transform.forward * 10, deltaTime);
+            Move(stateMachine.transform.forward * stateMachine.rollSpeed, deltaTime);
         }
 
         if (normalizedTime >= 0.6f)
