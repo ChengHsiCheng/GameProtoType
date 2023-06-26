@@ -12,7 +12,7 @@ public class ForceReceiver : MonoBehaviour
     private Vector3 impact; // impact的向量
     private float verticaVelocity; // 垂直速度
 
-    public Vector3 Movement => impact + Vector3.up * verticaVelocity; // 總運動向量，包括影響力和垂直速度的組合
+    [SerializeField] public Vector3 Movement => impact + Vector3.up * verticaVelocity; // 總運動向量，包括影響力和垂直速度的組合
 
     private void Update()
     {

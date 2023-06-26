@@ -12,6 +12,8 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
 
     public event Action RollEvent;
+    public event Action SkillEvent;
+
     private void Start()
     {
         controls = new Controls();
@@ -50,5 +52,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         {
             IsAttacking = false;
         }
+    }
+
+    public void OnSkill(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        SkillEvent?.Invoke();
     }
 }
