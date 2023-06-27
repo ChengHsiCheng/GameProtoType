@@ -10,6 +10,8 @@ public class PlayerMovingState : PlayerBaseState
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
 
+    private float _moveSmooth;
+
     public PlayerMovingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -81,4 +83,5 @@ public class PlayerMovingState : PlayerBaseState
         return forward * stateMachine.InputReader.MovementValue.y +
             right * stateMachine.InputReader.MovementValue.x;
     }
+
 }
