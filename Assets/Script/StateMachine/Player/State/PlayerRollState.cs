@@ -25,6 +25,8 @@ public class PlayerRollState : PlayerBaseState
 
         timer += deltaTime;
 
+        // 判斷是否可以操作
+
         if (normalizedTime <= 0.4)
         {
             Move(stateMachine.transform.forward * stateMachine.rollSpeed, deltaTime);

@@ -13,11 +13,17 @@ public abstract class PlayerBaseState : State
         this.stateMachine = stateMachine;
     }
 
+    /// <summary>
+    /// 移動(沒有水平位移)
+    /// </summary>
     protected void Move(float deltaTime)
     {
         Move(Vector3.zero, deltaTime);
     }
 
+    /// <summary>
+    /// 移動(有水平位移)
+    /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
         stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);

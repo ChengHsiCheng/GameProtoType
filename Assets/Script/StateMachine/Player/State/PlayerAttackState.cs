@@ -10,13 +10,13 @@ public class PlayerAttackState : PlayerBaseState
 
     public PlayerAttackState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
-        stateMachine.InputReader.RollEvent += OnRoll;
-
         attack = stateMachine.Attacks[attackIndex];
     }
 
     public override void Enter()
     {
+        stateMachine.InputReader.RollEvent += OnRoll;
+
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
         stateMachine.Weapon.SetAttack(attack.Damage);
@@ -58,6 +58,9 @@ public class PlayerAttackState : PlayerBaseState
         attack.Model.transform.position = stateMachine.transform.position;
     }
 
+    /// <summary>
+    /// 嘗試繼續攻擊
+    /// </summary>
     private void TryComboAttack(float normalizedTime)
     {
         if (attack.ComboStateIndex == -1)
@@ -68,6 +71,9 @@ public class PlayerAttackState : PlayerBaseState
         stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.ComboStateIndex));
     }
 
+    /// <summary>
+    /// 翻滾
+    /// </summary>
     void OnRoll()
     {
         if (!canAction)

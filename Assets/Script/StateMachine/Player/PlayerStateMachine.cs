@@ -12,6 +12,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Attack[] Attacks { get; private set; }
 
     [field: SerializeField] public float moveSpeed { get; private set; }
+    [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public float RollTime { get; private set; } // 躲避時間

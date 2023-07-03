@@ -11,6 +11,7 @@ public class PlayerMovingState : PlayerBaseState
     private const float CrossFadeDuration = 0.1f;
 
     private float _moveSmooth;
+    private float moveSpeedAdd;
 
     public PlayerMovingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
@@ -21,6 +22,8 @@ public class PlayerMovingState : PlayerBaseState
         stateMachine.InputReader.RollEvent += OnRoll;
 
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
+
+        _moveSmooth = stateMachine.moveSmooth;
     }
 
     public override void Tick(float deltaTime)
@@ -34,14 +37,17 @@ public class PlayerMovingState : PlayerBaseState
 
         Vector3 movemnt = CalculateMovement();
 
-        Move(movemnt * stateMachine.moveSpeed, deltaTime);
+        moveSpeedAdd = CalculateMoveAcceleration(movemnt, deltaTime);
+
+        Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
             return;
         }
-        stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
+
+        stateMachine.Animator.SetFloat(MoveSpeedString, moveSpeedAdd, 0, deltaTime);
 
         FaceMovementDirection(movemnt, deltaTime);
     }
@@ -56,6 +62,9 @@ public class PlayerMovingState : PlayerBaseState
         stateMachine.SwitchState(new PlayerRollState(stateMachine));
     }
 
+    /// <summary>
+    /// 面向移動方向
+    /// </summary>
     private void FaceMovementDirection(Vector3 movemnt, float deltaTime)
     {
         // 使用插值的方式將角色的旋轉逐漸調整為面向移動方向
@@ -84,4 +93,19 @@ public class PlayerMovingState : PlayerBaseState
             right * stateMachine.InputReader.MovementValue.x;
     }
 
+    /// <summary>
+    /// 計算移動加速度
+    /// </summary>
+    private float CalculateMoveAcceleration(Vector3 movemnt, float deltaTime)
+    {
+        if (movemnt == Vector3.zero)
+        {
+            _moveSmooth = stateMachine.moveSmooth;
+            return 0;
+        }
+
+        _moveSmooth = Mathf.Min(_moveSmooth + _moveSmooth * deltaTime, 1);
+
+        return _moveSmooth;
+    }
 }
