@@ -31,7 +31,7 @@ public class Boss01IdleState : Boss01BaseState
 
         if (timer >= transitionTime)
         {
-            stateMachine.SwitchState(new Boss01TransitionState(stateMachine, 1));
+            stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
         }
     }
 

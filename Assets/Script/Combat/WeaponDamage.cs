@@ -7,7 +7,7 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private Collider myCollider;
     private int damage; // 傷害
 
-    [SerializeField] private List<Collider> alreadyCollidedWith = new List<Collider>(); // 已經碰撞過的碰撞器列表
+    [SerializeField] private List<GameObject> alreadyCollidedWith = new List<GameObject>(); // 已經碰撞過的碰撞器列表
 
     /// <summary>
     /// 啟用時
@@ -22,10 +22,10 @@ public class WeaponDamage : MonoBehaviour
         if (other == myCollider)
             return;
 
-        if (alreadyCollidedWith.Contains(other))
+        if (alreadyCollidedWith.Contains(other.gameObject))
             return;
 
-        alreadyCollidedWith.Add(other);
+        alreadyCollidedWith.Add(other.gameObject);
 
         if (other.TryGetComponent<Health>(out Health health))
         {

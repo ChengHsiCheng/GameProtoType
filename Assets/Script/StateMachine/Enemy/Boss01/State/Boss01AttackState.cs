@@ -21,14 +21,13 @@ public class Boss01AttackState : Boss01BaseState
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
-        UnityEngine.Debug.Log(normalizedTime);
 
         if (normalizedTime < 1f)
         {
             return;
         }
         UnityEngine.Debug.Log("Switch");
-        stateMachine.SwitchState(new Boss01TransitionState(stateMachine, 1f));
+        stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
     }
 
     public override void Exit()

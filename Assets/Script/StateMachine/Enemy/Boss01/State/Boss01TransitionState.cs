@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Boss01TransitionState : Boss01BaseState
 {
-    private float transitionTime;
 
-    public Boss01TransitionState(Boss01StateMachine stateMachine, float transitionTime) : base(stateMachine)
+    public Boss01TransitionState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
-        this.transitionTime = transitionTime;
     }
 
     public override void Enter()
@@ -31,16 +29,22 @@ public class Boss01TransitionState : Boss01BaseState
     {
         int ranVal = Random.Range(0, 100);
 
-        if (ranVal <= 50)
+        if (IsInMeleeRange())
         {
-            stateMachine.SwitchState(new Boss01IdleState(stateMachine, transitionTime));
-            Debug.Log("Idle");
+            if (ranVal <= 50)
+            {
+                stateMachine.SwitchState(new Boss01IdleState(stateMachine, 1));
+                Debug.Log("Idle");
+            }
+            else
+            {
+                stateMachine.SwitchState(new Boss01AttackState(stateMachine, 0));
+                Debug.Log("Attack");
+            }
         }
         else
         {
-            stateMachine.SwitchState(new Boss01AttackState(stateMachine, 0));
-            Debug.Log("Attack");
+            stateMachine.SwitchState(new Boss01ChaseState(stateMachine));
         }
-
     }
 }
