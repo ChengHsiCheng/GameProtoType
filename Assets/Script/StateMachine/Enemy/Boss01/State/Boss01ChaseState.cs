@@ -54,7 +54,7 @@ public class Boss01ChaseState : Boss01BaseState
             stateMachine.Agent.destination = stateMachine.Player.transform.position;
 
             // 根據導航代理的期望速度移動敵人
-            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.movementSpeed, deltaTime);
         }
 
         // 將導航代理的速度設置為敵人的控制器速度，以使動畫同步

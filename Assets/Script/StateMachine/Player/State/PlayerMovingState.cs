@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovingState : PlayerBaseState
 {
@@ -28,6 +30,11 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SceneManager.LoadScene(0);
+            return;
+        }
         if (stateMachine.InputReader.IsAttacking)
         {
             stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));

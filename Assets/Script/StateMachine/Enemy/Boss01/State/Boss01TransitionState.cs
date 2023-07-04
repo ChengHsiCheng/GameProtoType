@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum AttackIndex
+{
+    ForwardAttack, RotateAttack, BackAttack
+}
+
 public class Boss01TransitionState : Boss01BaseState
 {
 
@@ -29,17 +34,26 @@ public class Boss01TransitionState : Boss01BaseState
     {
         int ranVal = Random.Range(0, 100);
 
+        if (stateMachine.cooldownTime > 0)
+        {
+            stateMachine.SwitchState(new Boss01IdleState(stateMachine, stateMachine.cooldownTime));
+
+            return;
+        }
+
         if (IsInMeleeRange())
         {
-            if (ranVal <= 50)
+            if (GetPlayerAngle() <= 30)
             {
-                stateMachine.SwitchState(new Boss01IdleState(stateMachine, 1));
-                Debug.Log("Idle");
+                stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.ForwardAttack)));
+            }
+            else if (GetPlayerAngle() <= 150)
+            {
+                stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.RotateAttack)));
             }
             else
             {
-                stateMachine.SwitchState(new Boss01AttackState(stateMachine, 0));
-                Debug.Log("Attack");
+                stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.BackAttack)));
             }
         }
         else
