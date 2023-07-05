@@ -8,16 +8,20 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
-    [field: SerializeField] public Attack[] Attacks { get; private set; }
+    [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
 
-    [field: SerializeField] public float MovementSpeed { get; private set; }
-    [field: SerializeField] public float MeleeRange { get; private set; } // 近戰攻擊範圍
+    [field: SerializeField] public float movementSpeed { get; private set; }
+    [field: SerializeField] public float rotationSpeed { get; private set; }
+    [field: SerializeField] public float meleeRange { get; private set; } // 近戰攻擊範圍
 
-    [field: SerializeField] public GameObject Player { get; private set; }
+    public float cooldownTime;
+
+    public GameObject Player { get; private set; }
 
     private void Start()
     {
-        Player = GameObject.Find("Player");
+        GameManager gameManager = GameManager.GetInstance();
+        Player = gameManager.GetPlayer();
 
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
@@ -29,6 +33,6 @@ public class Boss01StateMachine : StateMachine
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, MeleeRange);
+        Gizmos.DrawWireSphere(transform.position, meleeRange);
     }
 }

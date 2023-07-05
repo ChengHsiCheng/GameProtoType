@@ -35,19 +35,31 @@ public abstract class Boss01BaseState : State
         if (stateMachine.Player == null)
             return;
 
-        Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
-        lookPos.y = 0;
+        // Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
+        // lookPos.y = 0;
 
-        stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+        // stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+
+        Vector3 playerPosition = stateMachine.Player.transform.position;
+
+        Vector3 direction = playerPosition - stateMachine.transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+        stateMachine.transform.rotation = Quaternion.Lerp(stateMachine.transform.rotation, targetRotation, stateMachine.rotationSpeed * Time.deltaTime);
     }
 
     protected bool IsInMeleeRange()
     {
         // 計算敵人和玩家之間的距離的平方
         float PlayerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
-        Debug.Log(PlayerDistanceSqr <= stateMachine.MeleeRange * stateMachine.MeleeRange);
         // 判斷敵人是否在追蹤範圍內，距離平方是否小於等於攻擊範圍的平方
-        return PlayerDistanceSqr <= stateMachine.MeleeRange * stateMachine.MeleeRange;
+        return PlayerDistanceSqr <= stateMachine.meleeRange * stateMachine.meleeRange;
+    }
+
+    public float GetPlayerAngle()
+    {
+        Vector3 direction = stateMachine.Player.transform.position - stateMachine.transform.position;
+        float angle = Vector3.Angle(stateMachine.transform.forward, direction);
+        return angle;
     }
 
     protected void BackTransitionState()

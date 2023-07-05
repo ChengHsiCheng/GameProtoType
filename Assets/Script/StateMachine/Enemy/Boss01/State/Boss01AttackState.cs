@@ -6,7 +6,7 @@ using UnityEngine;
 public class Boss01AttackState : Boss01BaseState
 {
     private float previousFrameTime; // 上一幀的正規化時間
-    private Attack attack; // 攻擊的資訊
+    private EnemyAttack attack; // 攻擊的資訊
 
     public Boss01AttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
@@ -32,5 +32,6 @@ public class Boss01AttackState : Boss01BaseState
 
     public override void Exit()
     {
+        stateMachine.cooldownTime = attack.CooldownTime;
     }
 }

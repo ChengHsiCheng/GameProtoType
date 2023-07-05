@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4534678691539918903}
   - component: {fileID: 479652512712090848}
   - component: {fileID: 8795529320508668751}
+  - component: {fileID: 380123221}
   - component: {fileID: 7777648136756578713}
   - component: {fileID: 4831265758711982321}
-  - component: {fileID: 380123221}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -77,6 +77,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!65 &380123221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534678691539918896}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 4, z: 5}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!114 &7777648136756578713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,14 +108,20 @@ MonoBehaviour:
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: ForwardAttack
     <TransitionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 0
-    <MaxComboAttackTime>k__BackingField: 0
-    <MinComboAttackTime>k__BackingField: 0
     <Damage>k__BackingField: 0
-    Model: {fileID: 0}
-  <MovementSpeed>k__BackingField: 3
-  <MeleeRange>k__BackingField: 5
-  <Player>k__BackingField: {fileID: 0}
+    <CooldownTime>k__BackingField: 0
+  - <AnimationName>k__BackingField: RotateAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <Damage>k__BackingField: 0
+    <CooldownTime>k__BackingField: 1
+  - <AnimationName>k__BackingField: BackAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <Damage>k__BackingField: 0
+    <CooldownTime>k__BackingField: 2
+  <movementSpeed>k__BackingField: 3
+  <rotationSpeed>k__BackingField: 5
+  <meleeRange>k__BackingField: 5
+  cooldownTime: 0
 --- !u!114 &4831265758711982321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,19 +135,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
---- !u!65 &380123221
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4534678691539918896}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 4, z: 5}
-  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1001 &4161071171192248608
 PrefabInstance:
   m_ObjectHideFlags: 0

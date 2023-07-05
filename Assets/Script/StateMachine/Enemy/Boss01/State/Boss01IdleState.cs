@@ -37,5 +37,6 @@ public class Boss01IdleState : Boss01BaseState
 
     public override void Exit()
     {
+        stateMachine.cooldownTime = 0;
     }
 }
