@@ -35,16 +35,13 @@ public abstract class Boss01BaseState : State
         if (stateMachine.Player == null)
             return;
 
-        // Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
-        // lookPos.y = 0;
-
-        // stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
-
         Vector3 playerPosition = stateMachine.Player.transform.position;
 
         Vector3 direction = playerPosition - stateMachine.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-        stateMachine.transform.rotation = Quaternion.Lerp(stateMachine.transform.rotation, targetRotation, stateMachine.rotationSpeed * Time.deltaTime);
+
+        stateMachine.transform.rotation = Quaternion.RotateTowards(stateMachine.transform.rotation, targetRotation, stateMachine.rotationSpeed * Time.deltaTime);
+
     }
 
     protected bool IsInMeleeRange()

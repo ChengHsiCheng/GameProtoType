@@ -4,7 +4,7 @@ using UnityEngine;
 
 enum AttackIndex
 {
-    ForwardAttack, RotateAttack, BackAttack
+    ForwardAttack, RotateAttack, BackAttack, JumpAttack
 }
 
 public class Boss01TransitionState : Boss01BaseState
@@ -32,7 +32,7 @@ public class Boss01TransitionState : Boss01BaseState
     /// </summary>
     private void DetermineAction()
     {
-        int ranVal = Random.Range(0, 100);
+        // int ranVal = Random.Range(0, 100);
 
         if (stateMachine.cooldownTime > 0)
         {
@@ -47,18 +47,32 @@ public class Boss01TransitionState : Boss01BaseState
             {
                 stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.ForwardAttack)));
             }
-            else if (GetPlayerAngle() <= 150)
-            {
-                stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.RotateAttack)));
-            }
             else
             {
-                stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.BackAttack)));
+                int ranVal = Random.Range(0, 100);
+
+                if (ranVal <= 70)
+                {
+                    stateMachine.SwitchState(new Boss01RotateState(stateMachine));
+                }
+                else
+                {
+                    if (GetPlayerAngle() <= 150)
+                    {
+                        stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.RotateAttack)));
+                    }
+                    else
+                    {
+                        stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.BackAttack)));
+                    }
+                }
             }
         }
         else
         {
-            stateMachine.SwitchState(new Boss01ChaseState(stateMachine));
+            stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.JumpAttack)));
+
+            // stateMachine.SwitchState(new Boss01ChaseState(stateMachine));
         }
     }
 }

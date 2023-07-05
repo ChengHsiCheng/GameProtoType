@@ -38,10 +38,12 @@ public class Boss01ChaseState : Boss01BaseState
     {
         if (stateMachine.Agent.isOnNavMesh)
         {
-            stateMachine.Agent.ResetPath(); // 重置導航路徑
+            // 重置導航路徑
+            stateMachine.Agent.ResetPath();
         }
 
-        stateMachine.Agent.velocity = Vector3.zero; // 停止導航代理的運動
+        // 停止導航代理的運動
+        stateMachine.Agent.velocity = Vector3.zero;
     }
 
     /// <summary>
