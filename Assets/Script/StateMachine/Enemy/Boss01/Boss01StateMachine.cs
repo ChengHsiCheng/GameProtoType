@@ -8,11 +8,13 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
+    [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
 
     [field: SerializeField] public float movementSpeed { get; private set; }
     [field: SerializeField] public float rotationSpeed { get; private set; }
     [field: SerializeField] public float meleeRange { get; private set; } // 近戰攻擊範圍
+    [field: SerializeField] public float jumpAttackMoveSpeed { get; private set; }
 
     public float cooldownTime;
 

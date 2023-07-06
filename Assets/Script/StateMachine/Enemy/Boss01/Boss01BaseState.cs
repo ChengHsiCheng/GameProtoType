@@ -24,7 +24,7 @@ public abstract class Boss01BaseState : State
     /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
-        stateMachine.Controller.Move(motion * deltaTime);
+        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
     }
 
     /// <summary>

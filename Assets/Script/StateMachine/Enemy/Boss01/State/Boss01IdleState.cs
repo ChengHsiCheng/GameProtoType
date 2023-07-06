@@ -27,12 +27,13 @@ public class Boss01IdleState : Boss01BaseState
     {
         timer += deltaTime;
 
-        stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
-
         if (timer >= transitionTime)
         {
             stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
+            return;
         }
+
+        stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
     }
 
     public override void Exit()

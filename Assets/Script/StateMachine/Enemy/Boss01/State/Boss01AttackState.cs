@@ -10,6 +10,7 @@ public class Boss01AttackState : Boss01BaseState
 
     private Vector3 PlayerPos;
 
+
     public Boss01AttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
         attack = stateMachine.Attacks[attackIndex];
@@ -38,6 +39,4 @@ public class Boss01AttackState : Boss01BaseState
     {
         stateMachine.cooldownTime = attack.CooldownTime;
     }
-
-
 }
