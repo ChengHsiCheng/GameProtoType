@@ -23,7 +23,24 @@ public class Boss01RotateState : Boss01BaseState
     {
         if (GetPlayerAngle() <= 10)
         {
-            stateMachine.SwitchState(new Boss01AttackState(stateMachine, ((int)AttackIndex.ForwardAttack)));
+            if (IsInMeleeRange())
+            {
+                int r = Random.Range(0, 100);
+
+                if (r <= 50)
+                {
+                    stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
+                }
+                else
+                {
+                    // 逃跑狀態
+                }
+            }
+            else
+            {
+                // 遠程攻擊
+            }
+
             return;
         }
 

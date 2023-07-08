@@ -8,9 +8,6 @@ public class Boss01AttackState : Boss01BaseState
     private float previousFrameTime; // 上一幀的正規化時間
     private EnemyAttack attack; // 攻擊的資訊
 
-    private Vector3 PlayerPos;
-
-
     public Boss01AttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
         attack = stateMachine.Attacks[attackIndex];
@@ -19,24 +16,53 @@ public class Boss01AttackState : Boss01BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
-
-        PlayerPos = stateMachine.Player.transform.position;
     }
 
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
 
+        if (attack.AnimationName == "ChargeAttack")
+        {
+            ChargeToTarget(deltaTime);
+        }
+
         if (normalizedTime < 1f)
         {
             return;
         }
 
-        stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
+        BackTransitionState();
     }
 
     public override void Exit()
     {
         stateMachine.cooldownTime = attack.CooldownTime;
+
+        if (stateMachine.Agent.isOnNavMesh)
+        {
+            // 重置導航路徑
+            stateMachine.Agent.ResetPath();
+        }
+
+        // 停止導航代理的運動
+        stateMachine.Agent.velocity = Vector3.zero;
+    }
+
+    /// <summary>
+    /// 往玩家移動
+    /// </summary>
+    protected void ChargeToTarget(float deltaTime)
+    {
+        if (stateMachine.Agent.isOnNavMesh)
+        {
+            stateMachine.Agent.destination = stateMachine.transform.position + stateMachine.transform.forward;
+
+            // 根據導航代理的期望速度移動敵人
+            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.chargeSpeed, deltaTime);
+        }
+
+        // 將導航代理的速度設置為敵人的控制器速度，以使動畫同步
+        stateMachine.Agent.velocity = stateMachine.Controller.velocity;
     }
 }

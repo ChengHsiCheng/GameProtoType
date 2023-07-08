@@ -29,7 +29,9 @@ public class Boss01ChaseState : Boss01BaseState
 
         FacePlayer();
 
-        MoveToPlayer(deltaTime);
+        Vector3 playerPos = stateMachine.Player.transform.position;
+
+        MoveToTarget(playerPos, deltaTime);
 
         stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
     }
@@ -46,20 +48,4 @@ public class Boss01ChaseState : Boss01BaseState
         stateMachine.Agent.velocity = Vector3.zero;
     }
 
-    /// <summary>
-    /// 往玩家移動
-    /// </summary>
-    protected void MoveToPlayer(float deltaTime)
-    {
-        if (stateMachine.Agent.isOnNavMesh)
-        {
-            stateMachine.Agent.destination = stateMachine.Player.transform.position;
-
-            // 根據導航代理的期望速度移動敵人
-            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.movementSpeed, deltaTime);
-        }
-
-        // 將導航代理的速度設置為敵人的控制器速度，以使動畫同步
-        stateMachine.Agent.velocity = stateMachine.Controller.velocity;
-    }
 }

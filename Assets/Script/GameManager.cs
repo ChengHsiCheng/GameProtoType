@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private SceneController sceneController;
 
     private void Awake()
     {
@@ -34,9 +35,14 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (player == null)
+        if (!player)
         {
-            player = GameObject.Find("Player");
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        if (!sceneController)
+        {
+            sceneController = GameObject.Find("SceneController").GetComponent<SceneController>();
         }
     }
 
@@ -48,5 +54,10 @@ public class GameManager : MonoBehaviour
     public GameObject GetPlayer()
     {
         return player;
+    }
+
+    public SceneController GetSceneController()
+    {
+        return sceneController;
     }
 }
