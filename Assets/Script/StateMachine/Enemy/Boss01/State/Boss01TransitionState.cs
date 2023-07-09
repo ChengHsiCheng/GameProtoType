@@ -34,7 +34,7 @@ public class Boss01TransitionState : Boss01BaseState
             return;
         }
 
-        stateMachine.SwitchState(new Boss01EscapeState(stateMachine, stateMachine.Scene.escapePoint));
+        stateMachine.SwitchState(new Boss01DieState(stateMachine));
         return;
         /*
 
