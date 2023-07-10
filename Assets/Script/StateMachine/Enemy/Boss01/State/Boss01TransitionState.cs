@@ -34,7 +34,7 @@ public class Boss01TransitionState : Boss01BaseState
             return;
         }
 
-        stateMachine.SwitchState(new Boss01DieState(stateMachine));
+        stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
         return;
         /*
 

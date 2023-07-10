@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    private static GameManager instance;
+    public static GameObject player;
+    public static SceneController sceneController; // 場景控制器
+}
+
+/*
+public static class GameManager : MonoBehaviour
+{
+    private static GameManager instance; // 場景上的GameManager
 
     [SerializeField] private GameObject player;
-    [SerializeField] private SceneController sceneController;
+    [SerializeField] private SceneController sceneController; // 場景控制器
 
     private void Awake()
     {
+        // 切換場景時不會被刪除
         if (instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -19,8 +27,8 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
 
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -35,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // 切換場景時取得場景上的Player跟SceneController
         if (!player)
         {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -46,18 +55,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 取得GameManager物件
+    /// </summary>
     public static GameManager GetInstance()
     {
         return instance;
     }
 
+    /// <summary>
+    /// 取得Player物件
+    /// </summary>
     public GameObject GetPlayer()
     {
         return player;
     }
 
+    /// <summary>
+    /// 取得SceneController物件
+    /// </summary>
     public SceneController GetSceneController()
     {
         return sceneController;
     }
-}
+}*/

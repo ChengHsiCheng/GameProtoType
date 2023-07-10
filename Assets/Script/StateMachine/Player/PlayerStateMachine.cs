@@ -19,6 +19,11 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float RollLength { get; private set; } // 躲避距離
     public Transform MainCameraTransform { get; private set; }
 
+    private void Awake()
+    {
+        GameManager.player = this.gameObject;
+    }
+
     private void Start()
     {
         SwitchState(new PlayerMovingState(this));
