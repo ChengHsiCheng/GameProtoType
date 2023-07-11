@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,20 +26,22 @@ public class Boss01RotateState : Boss01BaseState
         {
             if (IsInMeleeRange())
             {
-                int r = Random.Range(0, 100);
-
-                if (r <= 50)
-                {
-                    stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
-                }
-                else
-                {
-                    // 逃跑狀態
-                }
+                stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
             }
             else
             {
-                // 遠程攻擊
+                switch (Random.Range(0, 70))
+                {
+                    case < 40:
+                        stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ChargeAttack));
+                        break;
+                    case < 70:
+                        stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
+                        break;
+                    case < 100:
+                        // 吐舌攻擊
+                        break;
+                }
             }
 
             return;

@@ -34,41 +34,41 @@ public class Boss01TransitionState : Boss01BaseState
             return;
         }
 
-        stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
-        return;
-        /*
-
         // 在近距離攻擊範圍內
         if (IsInMeleeRange())
         {
-            // 取得玩家方位
+            // 玩家在前方
             if (GetPlayerAngle() <= 30)
             {
                 stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
                 return;
             }
 
-            if (GetPlayerAngle() <= 150)
+            if (GetPlayerAngle() > 30)
             {
-                if (Random.Range(0, 100) <= 70)
+                // 隨機數
+                switch (Random.Range(0, 100))
                 {
-                    stateMachine.SwitchState(new Boss01RotateState(stateMachine));
-                    return;
+                    case < 30:
+                        stateMachine.SwitchState(new Boss01RotateState(stateMachine));
+                        break;
+                    case < 60:
+                        stateMachine.SwitchState(new Boss01EscapeState(stateMachine, stateMachine.Scene.escapePoint));
+                        break;
+                    case < 100:
+                        {
+                            // 玩家在側邊
+                            if (GetPlayerAngle() < 150)
+                            {
+                                stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.RotateAttack));
+                            }
+                            else
+                            {
+                                stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.BackAttack));
+                            }
+                            break;
+                        }
                 }
-
-                stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.RotateAttack));
-                return;
-            }
-
-            if (GetPlayerAngle() > 150)
-            {
-                if (Random.Range(0, 100) <= 70)
-                {
-                    stateMachine.SwitchState(new Boss01RotateState(stateMachine));
-                    return;
-                }
-
-                stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.BackAttack));
                 return;
             }
 
@@ -77,8 +77,16 @@ public class Boss01TransitionState : Boss01BaseState
         // 在近距離攻擊範圍外
         if (!IsInMeleeRange())
         {
-            stateMachine.SwitchState(new Boss01ChaseState(stateMachine));
-            // stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ChargeAttack));
-        }*/
+            if (Random.Range(0, 100) < 40)
+            {
+                stateMachine.SwitchState(new Boss01ChaseState(stateMachine));
+                return;
+            }
+            else
+            {
+                stateMachine.SwitchState(new Boss01RotateState(stateMachine));
+                return;
+            }
+        }
     }
 }

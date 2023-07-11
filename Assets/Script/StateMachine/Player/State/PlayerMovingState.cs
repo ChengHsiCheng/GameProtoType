@@ -22,6 +22,7 @@ public class PlayerMovingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.InputReader.RollEvent += OnRoll;
+        stateMachine.InputReader.SkillEvent += UesSkill;
 
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
 
@@ -67,6 +68,11 @@ public class PlayerMovingState : PlayerBaseState
     void OnRoll()
     {
         stateMachine.SwitchState(new PlayerRollState(stateMachine));
+    }
+
+    void UesSkill()
+    {
+
     }
 
     /// <summary>

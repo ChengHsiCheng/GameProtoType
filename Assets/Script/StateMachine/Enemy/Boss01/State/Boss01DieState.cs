@@ -7,6 +7,7 @@ public class Boss01DieState : Boss01BaseState
     private readonly int DieAnimatorString = Animator.StringToHash("Die");
     private const float AnimatorDampTime = 0.1f;
 
+
     public Boss01DieState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -14,6 +15,8 @@ public class Boss01DieState : Boss01BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(DieAnimatorString, AnimatorDampTime);
+
+        // 通關腳本
     }
 
     public override void Tick(float deltaTime)

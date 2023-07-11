@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class StateMachine : MonoBehaviour
 {
     private State currentState; // 目前的State
+    [SerializeField] protected bool canMove = true;
 
     /// <summary>
     /// 切換State
@@ -21,6 +22,11 @@ public abstract class StateMachine : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+            return;
         currentState?.Tick(Time.deltaTime);
     }
+
+    public abstract void SetCanMove(bool value);
+
 }

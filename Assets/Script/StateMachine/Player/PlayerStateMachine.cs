@@ -31,5 +31,7 @@ public class PlayerStateMachine : StateMachine
         MainCameraTransform = Camera.main.transform;
     }
 
-
+    public override void SetCanMove(bool value)
+    {
+    }
 }

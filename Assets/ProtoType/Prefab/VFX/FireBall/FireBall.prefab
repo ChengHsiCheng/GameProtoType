@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1484659900322953321}
   - component: {fileID: 1484659900322953318}
   - component: {fileID: 2113342410620223302}
-  m_Layer: 0
+  - component: {fileID: 1386841270}
+  m_Layer: 9
   m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +49,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.71
-  m_Center: {x: -0.7, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1484659900322953318
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -161,6 +162,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1386841270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764707990421930959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64da13ba695f224d94d0aa20a0c7027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitVFX: {fileID: 6187320555837547482, guid: 6ad2a746d22b7464486e163176ddda64, type: 3}
 --- !u!1 &1764707991379675874
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +186,7 @@ GameObject:
   - component: {fileID: 1764707991379675875}
   - component: {fileID: 1764707991379675877}
   - component: {fileID: 1764707991379675876}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VEG_FireMagic_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,14 +200,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764707991379675874}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1764707990421930944}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!2083052967 &1764707991379675877
 VisualEffect:
   m_ObjectHideFlags: 0
@@ -282,7 +296,7 @@ GameObject:
   - component: {fileID: 1534939770247211879}
   - component: {fileID: 4864019211765719521}
   - component: {fileID: 102971094911159869}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: VEG_FireMagic_ProjectileTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,14 +310,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5665965861508540516}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1764707990421930944}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!2083052967 &4864019211765719521
 VisualEffect:
   m_ObjectHideFlags: 0
