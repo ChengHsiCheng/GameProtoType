@@ -31,11 +31,6 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            SceneManager.LoadScene(0);
-            return;
-        }
         if (stateMachine.InputReader.IsAttacking)
         {
             stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
@@ -63,6 +58,8 @@ public class PlayerMovingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.RollEvent -= OnRoll;
+        stateMachine.InputReader.SkillEvent -= UesSkill;
+
     }
 
     void OnRoll()
@@ -72,7 +69,10 @@ public class PlayerMovingState : PlayerBaseState
 
     void UesSkill()
     {
-
+        foreach (StateMachine enemy in GameManager.enemys)
+        {
+            enemy.SetCanMove(false, 1);
+        }
     }
 
     /// <summary>

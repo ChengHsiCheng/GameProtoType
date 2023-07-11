@@ -10,6 +10,7 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
     public Boss01SceneController Scene { get; private set; }
@@ -79,12 +80,18 @@ public class Boss01StateMachine : StateMachine
 
     public override void SetCanMove(bool value)
     {
-        canMove = value;
+        SetCanMove(value, 0);
+    }
+    public override void SetCanMove(bool canMove, float freezeTime)
+    {
+        this.canMove = canMove;
+        this.freezeTime = freezeTime;
 
-        if (value)
-            Animator.SetFloat("AnimationSpeed", 1);
-        else
-            Animator.SetFloat("AnimationSpeed", 0);
+        int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
 
+        Material.material.SetFloat("Petrifaction", intValue);
+        Material.material.SetFloat("_Petrifaction", intValue);
+
+        Animator.SetFloat("AnimationSpeed", intValue);
     }
 }

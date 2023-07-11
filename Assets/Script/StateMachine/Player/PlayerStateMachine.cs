@@ -34,4 +34,7 @@ public class PlayerStateMachine : StateMachine
     public override void SetCanMove(bool value)
     {
     }
+    public override void SetCanMove(bool value, float time)
+    {
+    }
 }

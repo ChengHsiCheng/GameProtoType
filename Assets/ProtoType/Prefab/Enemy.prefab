@@ -135,11 +135,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cc47a6b3c82cd4791c9e80533b45e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
   <Animator>k__BackingField: {fileID: 8377560254352234870}
   <Controller>k__BackingField: {fileID: 8795529320508668751}
   <Agent>k__BackingField: {fileID: 479652512712090848}
   <ForceReceiver>k__BackingField: {fileID: 1781951524}
   <Health>k__BackingField: {fileID: 4831265758711982321}
+  <Material>k__BackingField: {fileID: 8377560254356481974}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: ForwardAttack
     <TransitionDuration>k__BackingField: 0.1
@@ -1216,6 +1218,12 @@ PrefabInstance:
 --- !u!95 &8377560254352234870 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9500000, guid: f14db21b5e70e3d4ab6f0e158099a341,
+    type: 3}
+  m_PrefabInstance: {fileID: 8377560254359563286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8377560254356481974 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: f14db21b5e70e3d4ab6f0e158099a341,
     type: 3}
   m_PrefabInstance: {fileID: 8377560254359563286}
   m_PrefabAsset: {fileID: 0}

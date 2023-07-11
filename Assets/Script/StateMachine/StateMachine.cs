@@ -7,6 +7,9 @@ public abstract class StateMachine : MonoBehaviour
     private State currentState; // 目前的State
     [SerializeField] protected bool canMove = true;
 
+    protected float freezeTime;
+    private float timer;
+
     /// <summary>
     /// 切換State
     /// </summary>
@@ -22,11 +25,24 @@ public abstract class StateMachine : MonoBehaviour
 
     void Update()
     {
-        if (!canMove)
+        if (canMove)
+        {
+            currentState?.Tick(Time.deltaTime);
             return;
-        currentState?.Tick(Time.deltaTime);
+        }
+
+        if (timer >= freezeTime)
+        {
+            SetCanMove(true);
+            timer = 0;
+            return;
+        }
+
+        timer += Time.deltaTime;
     }
 
     public abstract void SetCanMove(bool value);
+
+    public abstract void SetCanMove(bool value, float time);
 
 }
