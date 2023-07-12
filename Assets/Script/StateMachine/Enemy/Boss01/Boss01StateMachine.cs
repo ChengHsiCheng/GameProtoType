@@ -11,6 +11,8 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
+    [field: SerializeField] public BarController Bar { get; private set; }
+    [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
     public Boss01SceneController Scene { get; private set; }
@@ -61,6 +63,11 @@ public class Boss01StateMachine : StateMachine
     private void HandleTakeDamage()
     {
         Animator.SetTrigger("GetHit");
+
+        float healthPercent = Health.health / Health.maxHealth;
+        Debug.Log(healthPercent);
+
+        Bar.SetBar(healthPercent);
     }
 
     /// <summary>
@@ -89,9 +96,9 @@ public class Boss01StateMachine : StateMachine
 
         int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
 
-        Material.material.SetFloat("Petrifaction", intValue);
         Material.material.SetFloat("_Petrifaction", intValue);
 
         Animator.SetFloat("AnimationSpeed", intValue);
     }
+
 }

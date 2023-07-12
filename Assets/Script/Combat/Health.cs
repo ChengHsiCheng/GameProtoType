@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100; // 最大血量值
-    private int health; // 當前血量值
+    [field: SerializeField] public float maxHealth { get; private set; } // 最大血量值
+    public float health { get; private set; } // 當前血量值
     private bool isInvulnerable; // 是否無敵
     public event Action OnTakeDamage; // 受到傷害事件
     public event Action OnDie; // 死亡事件
@@ -48,6 +48,5 @@ public class Health : MonoBehaviour
         }
 
         Debug.Log(health);
-
     }
 }

@@ -22,7 +22,7 @@ public class Boss01RotateState : Boss01BaseState
 
     public override void Tick(float deltaTime)
     {
-        if (GetPlayerAngle() <= 10)
+        if (GetPlayerAngle() <= 5)
         {
             if (IsInMeleeRange())
             {

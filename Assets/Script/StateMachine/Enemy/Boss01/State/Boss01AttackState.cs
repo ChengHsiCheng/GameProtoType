@@ -49,9 +49,6 @@ public class Boss01AttackState : Boss01BaseState
         stateMachine.Agent.velocity = Vector3.zero;
     }
 
-    /// <summary>
-    /// 往玩家移動
-    /// </summary>
     protected void ChargeToTarget(float deltaTime)
     {
         if (stateMachine.Agent.isOnNavMesh)
