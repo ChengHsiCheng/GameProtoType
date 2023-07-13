@@ -30,7 +30,7 @@ public class Boss01RotateState : Boss01BaseState
             }
             else
             {
-                switch (Random.Range(0, 70))
+                switch (Random.Range(0, 100))
                 {
                     case < 40:
                         stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ChargeAttack));
@@ -39,7 +39,7 @@ public class Boss01RotateState : Boss01BaseState
                         stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
                         break;
                     case < 100:
-                        // 吐舌攻擊
+                        stateMachine.SwitchState(new Boss01TongueSkillState(stateMachine));
                         break;
                 }
             }

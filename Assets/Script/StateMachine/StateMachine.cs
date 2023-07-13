@@ -20,7 +20,6 @@ public abstract class StateMachine : MonoBehaviour
         currentState = newState;
         currentState?.Enter();
 
-        // Debug.Log(newState);
     }
 
     void Update()

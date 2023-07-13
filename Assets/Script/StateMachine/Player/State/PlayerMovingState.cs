@@ -42,7 +42,6 @@ public class PlayerMovingState : PlayerBaseState
 
         moveSpeedAdd = CalculateMoveAcceleration(movemnt, deltaTime);
 
-        Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {
@@ -53,6 +52,13 @@ public class PlayerMovingState : PlayerBaseState
         stateMachine.Animator.SetFloat(MoveSpeedString, moveSpeedAdd, 0, deltaTime);
 
         FaceMovementDirection(movemnt, deltaTime);
+
+        if (!DashRayCastHit())
+        {
+            return;
+        }
+
+        Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
     }
 
     public override void Exit()

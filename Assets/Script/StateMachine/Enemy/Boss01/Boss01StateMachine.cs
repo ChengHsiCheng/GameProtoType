@@ -9,7 +9,7 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
-    [field: SerializeField] public Health Health { get; private set; }
+    [field: SerializeField] public Boss01Info Health { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public BarController Bar { get; private set; }
     [field: SerializeField] public Collider Collider { get; private set; }

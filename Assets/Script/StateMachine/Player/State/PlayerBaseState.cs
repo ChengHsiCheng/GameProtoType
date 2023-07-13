@@ -7,6 +7,8 @@ public abstract class PlayerBaseState : State
     protected PlayerStateMachine stateMachine;
     protected float moveSmooth = 0.4f;
 
+    private Vector3 lastMovement;
+
     // 在new時取得stateMachine
     public PlayerBaseState(PlayerStateMachine stateMachine)
     {
@@ -26,7 +28,22 @@ public abstract class PlayerBaseState : State
     /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
-        // stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
-        stateMachine.Rigidbody.MovePosition(stateMachine.transform.position += ((motion + stateMachine.ForceReceiver.Movement) * deltaTime));
+        Vector3 movePos = stateMachine.transform.position += ((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+
+        Debug.Log("Move");
+
+        lastMovement = stateMachine.ForceReceiver.Movement;
+        stateMachine.Rigidbody.MovePosition(movePos);
+    }
+
+    protected bool DashRayCastHit()
+    {
+        RaycastHit hit;
+        Debug.DrawRay(stateMachine.transform.position, stateMachine.transform.forward, Color.red);
+        if (Physics.Raycast(stateMachine.transform.position, stateMachine.transform.forward, out hit, 1f))
+        {
+            return false;
+        }
+        return true;
     }
 }

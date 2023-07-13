@@ -29,6 +29,9 @@ public class PlayerRollState : PlayerBaseState
 
         if (normalizedTime <= 0.4)
         {
+            if (!DashRayCastHit())
+                return;
+
             Move(stateMachine.transform.forward * stateMachine.rollSpeed, deltaTime);
         }
 

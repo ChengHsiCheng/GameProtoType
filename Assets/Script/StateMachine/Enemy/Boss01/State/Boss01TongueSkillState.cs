@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss01FireBreathSkillState : Boss01BaseState
+public class Boss01TongueSkillState : Boss01BaseState
 {
-    private readonly int FireBreathSkillHash = Animator.StringToHash("FireBreathSkill");
+    private readonly int TongueSkillHash = Animator.StringToHash("TongueSkill");
     private const float CrossFadeDuration = 0.1f;
 
     bool isUesSkill;
@@ -12,26 +12,24 @@ public class Boss01FireBreathSkillState : Boss01BaseState
 
     EnemySkill skill;
 
-    public Boss01FireBreathSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
+    public Boss01TongueSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
     }
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(FireBreathSkillHash, CrossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(TongueSkillHash, CrossFadeDuration);
 
-        skill = stateMachine.Skills[0];
-
-
+        skill = stateMachine.Skills[1];
     }
 
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime > 0.6f && !isUesSkill)
+        if (normalizedTime > 0.5f && !isUesSkill)
         {
-            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, new Quaternion(0, 0, 180, 0));
+            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, stateMachine.transform.rotation);
 
             isUesSkill = true;
         }
@@ -47,5 +45,4 @@ public class Boss01FireBreathSkillState : Boss01BaseState
     public override void Exit()
     {
     }
-
 }
