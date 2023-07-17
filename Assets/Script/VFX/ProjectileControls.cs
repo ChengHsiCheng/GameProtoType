@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.VFX;
 using UnityEngine;
 
-public class VFXControls : MonoBehaviour
+public class ProjectileControls : MonoBehaviour
 {
     private float liveTime = 3;
     private float timer;

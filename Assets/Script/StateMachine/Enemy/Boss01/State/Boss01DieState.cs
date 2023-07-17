@@ -16,6 +16,8 @@ public class Boss01DieState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(DieAnimatorString, AnimatorDampTime);
 
+        stateMachine.Collider.enabled = false;
+
         // 通關腳本
     }
 

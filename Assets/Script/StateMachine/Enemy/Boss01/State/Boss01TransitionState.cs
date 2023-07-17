@@ -34,6 +34,10 @@ public class Boss01TransitionState : Boss01BaseState
             return;
         }
 
+        stateMachine.SwitchState(new Boss01FireStormChargeState(stateMachine));
+        return;
+
+
         // 在近距離攻擊範圍內
         if (IsInMeleeRange())
         {

@@ -2,32 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss01FireBreathSkillState : Boss01BaseState
+public class Boss01FireStormSkillState : Boss01BaseState
 {
-    private readonly int FireBreathSkillHash = Animator.StringToHash("FireBreathSkill");
-    private const float CrossFadeDuration = 0.1f;
+    private readonly int FireStormSkillString = Animator.StringToHash("FireStormSkill");
+    private const float AnimatorDampTime = 0.1f;
 
     bool isUesSkill;
     float timer;
 
     EnemySkill skill;
 
-    public Boss01FireBreathSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
+    public Boss01FireStormSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
     }
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(FireBreathSkillHash, CrossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(FireStormSkillString, AnimatorDampTime);
 
-        skill = stateMachine.Skills[0];
+        skill = stateMachine.Skills[2];
     }
 
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime > 0.6f && !isUesSkill)
+        if (normalizedTime > 0.2f && !isUesSkill)
         {
             Vector3 insPos = skill.spawnPoint.position;
             insPos.y = 0;
