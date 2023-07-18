@@ -21,6 +21,8 @@ public class Boss01FireBreathSkillState : Boss01BaseState
         stateMachine.Animator.CrossFadeInFixedTime(FireBreathSkillHash, CrossFadeDuration);
 
         skill = stateMachine.Skills[0];
+
+
     }
 
     public override void Tick(float deltaTime)
@@ -29,10 +31,7 @@ public class Boss01FireBreathSkillState : Boss01BaseState
 
         if (normalizedTime > 0.6f && !isUesSkill)
         {
-            Vector3 insPos = skill.spawnPoint.position;
-            insPos.y = 0;
-
-            GameObject.Instantiate(skill.skill, insPos, Quaternion.identity);
+            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, new Quaternion(0, 0, 180, 0));
 
             isUesSkill = true;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class StateMachine : MonoBehaviour
 {
     private State currentState; // 目前的State
-    [SerializeField] protected bool canMove = true;
+    [SerializeField] public bool canMove { get; protected set; } = true;
 
     protected float freezeTime;
     private float timer;
@@ -20,6 +20,7 @@ public abstract class StateMachine : MonoBehaviour
         currentState = newState;
         currentState?.Enter();
 
+        Debug.Log(newState);
     }
 
     void Update()

@@ -22,7 +22,10 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public float chargeSpeed { get; private set; }
     [field: SerializeField] public float meleeRange { get; private set; } // 近戰攻擊範圍
     [field: SerializeField] public float jumpAttackMoveSpeed { get; private set; }
+    [field: SerializeField] public int Stage { get; private set; } = 0;
 
+    public int nowStage = 0;
+    public bool beAttack;
     public float cooldownTime = 2;
 
     public GameObject Player { get; private set; }
@@ -68,6 +71,10 @@ public class Boss01StateMachine : StateMachine
         Debug.Log(healthPercent);
 
         Bar.SetBar(healthPercent);
+
+        CheckStageTransition();
+
+        beAttack = true;
     }
 
     /// <summary>
@@ -76,6 +83,41 @@ public class Boss01StateMachine : StateMachine
     private void HandleDie()
     {
         SwitchState(new Boss01DieState(this));
+    }
+
+    /// <summary>
+    /// 判斷切換狀態
+    /// </summary>
+    private void CheckStageTransition()
+    {
+        if (Stage == 3)
+            return;
+
+        float healthPercent = Health.health / Health.maxHealth;
+
+        switch (Stage)
+        {
+            case 0:
+                if (healthPercent >= 0.75f)
+                {
+                    return;
+                }
+                break;
+            case 1:
+                if (healthPercent >= 0.50f)
+                {
+                    return;
+                }
+                break;
+            case 2:
+                if (healthPercent >= 0.25f)
+                {
+                    return;
+                }
+                break;
+        }
+
+        Stage += 1;
     }
 
     // 在場景中以紅色繪製出敵人的追擊範圍
@@ -89,6 +131,7 @@ public class Boss01StateMachine : StateMachine
     {
         SetCanMove(value, 0);
     }
+
     public override void SetCanMove(bool canMove, float freezeTime)
     {
         this.canMove = canMove;
@@ -100,5 +143,6 @@ public class Boss01StateMachine : StateMachine
 
         Animator.SetFloat("AnimationSpeed", intValue);
     }
+
 
 }

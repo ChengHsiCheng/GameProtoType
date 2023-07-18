@@ -16,10 +16,20 @@ public class Boss01FireStormChargeState : Boss01BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(FireStormChargeString, AnimatorDampTime);
+
+        stateMachine.beAttack = false;
     }
 
     public override void Tick(float deltaTime)
     {
+        if (stateMachine.beAttack)
+        {
+            stateMachine.SwitchState(new Boss01StiffState(stateMachine));
+        }
+
+        if (!stateMachine.canMove)
+            return;
+
         if (timer >= 3)
         {
             stateMachine.SwitchState(new Boss01FireStormSkillState(stateMachine));
