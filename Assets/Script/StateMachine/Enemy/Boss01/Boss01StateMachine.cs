@@ -13,6 +13,7 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public BarController Bar { get; private set; }
     [field: SerializeField] public Collider Collider { get; private set; }
+    [field: SerializeField] public WeaponDamage[] Weapon { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
     public Boss01SceneController Scene { get; private set; }

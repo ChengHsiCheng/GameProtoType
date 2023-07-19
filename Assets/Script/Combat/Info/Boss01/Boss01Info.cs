@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss01Info : MonoBehaviour, Health
+public class Boss01Info : MonoBehaviour, Info, Health
 {
     [field: SerializeField] public float maxHealth { get; private set; }
     public float health { get; private set; }
@@ -22,7 +22,7 @@ public class Boss01Info : MonoBehaviour, Health
         this.isInvulnerable = isInvunerable;
     }
 
-    public void DealDamage(float damage)
+    public void DealHealthDamage(float damage)
     {
         if (health <= 0)
             return;

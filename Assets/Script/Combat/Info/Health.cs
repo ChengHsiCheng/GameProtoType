@@ -7,11 +7,6 @@ public interface Health
 {
     float maxHealth { get; }
     float health { get; }
-    bool isDead { get; }
-    bool isInvulnerable { get; set; }
     event Action OnTakeDamage;
-    event Action OnDie;
-
-    void SetInvulnerable(bool isInvunerable);
-    void DealDamage(float damage);
+    void DealHealthDamage(float damage);
 }

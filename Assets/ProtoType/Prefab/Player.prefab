@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5995981eb517a84bac716ec3d1a2c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myCollider: {fileID: 0}
+  myCollider: {fileID: 2080221946}
   alreadyCollidedWith: []
 --- !u!1 &8062203635239618726
 GameObject:
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f97110ee7efd304ca9454e5cf1ae8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 1
   <InputReader>k__BackingField: {fileID: 8062203635239618723}
   <Rigidbody>k__BackingField: {fileID: 2080221945}
   <Animator>k__BackingField: {fileID: 8882550430775878866}
@@ -233,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
+  <maxSan>k__BackingField: 0
 --- !u!1 &8853467488158409598
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53964549cdedf2e498b3fb886bfc9aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponLogic: {fileID: 4644412982043613105}
+  weaponLogic:
+  - {fileID: 4644412982043613105}
 --- !u!114 &8575987633689787934
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,15 +7,19 @@ public class Boss01AttackState : Boss01BaseState
 {
     private float previousFrameTime; // 上一幀的正規化時間
     private EnemyAttack attack; // 攻擊的資訊
+    private WeaponDamage weapon;
 
     public Boss01AttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
         attack = stateMachine.Attacks[attackIndex];
+        weapon = stateMachine.Weapon[attackIndex];
     }
 
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+
+        weapon.SetAttack(attack.Damage);
     }
 
     public override void Tick(float deltaTime)

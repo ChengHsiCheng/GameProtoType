@@ -6,6 +6,7 @@ public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
     private int damage; // 傷害
+    private int sanDamage;
 
     [SerializeField] private List<GameObject> alreadyCollidedWith = new List<GameObject>(); // 已經碰撞過的碰撞器列表
 
@@ -29,7 +30,15 @@ public class WeaponDamage : MonoBehaviour
 
         if (other.TryGetComponent<Health>(out Health health))
         {
-            health.DealDamage(damage);
+            health.DealHealthDamage(damage);
+        }
+
+        if (sanDamage == 0)
+            return;
+
+        if (other.TryGetComponent<San>(out San san))
+        {
+            san.DealSanDamage(sanDamage);
         }
     }
 
@@ -38,6 +47,15 @@ public class WeaponDamage : MonoBehaviour
     /// </summary>
     public void SetAttack(int damage)
     {
+        SetAttack(damage, 0);
+    }
+
+    /// <summary>
+    /// 設定攻擊參數
+    /// </summary>
+    public void SetAttack(int damage, int sanDamage)
+    {
         this.damage = damage;
+        this.sanDamage = sanDamage;
     }
 }

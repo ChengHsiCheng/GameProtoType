@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class WeaponHendler : MonoBehaviour
 {
-    [SerializeField] private GameObject weaponLogic;
+    [SerializeField] private GameObject[] weaponLogic;
 
     /// <summary>
     /// 開啟武器碰撞
     /// </summary>
-    public void EnableWeapon()
+    public void EnableWeapon(int Index)
     {
-        weaponLogic?.SetActive(true);
+        weaponLogic[Index]?.SetActive(true);
     }
 
     /// <summary>
     /// 關閉武器碰撞
     /// </summary>
-    public void DisableWeapon()
+    public void DisableWeapon(int Index)
     {
-        weaponLogic?.SetActive(false);
+        weaponLogic[Index]?.SetActive(false);
     }
 }

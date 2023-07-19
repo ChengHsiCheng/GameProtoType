@@ -3,14 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour, Health
+public class PlayerInfo : MonoBehaviour, Info, Health, San
 {
     [field: SerializeField] public float maxHealth { get; private set; }
     public float health { get; private set; }
+    [field: SerializeField] public float maxSan { get; private set; }
+    public float san { get; private set; }
+
     public bool isDead => health <= 0;
     public bool isInvulnerable { get; set; }
+
     public event Action OnTakeDamage;
     public event Action OnDie;
+    public event Action OnTakeSanDamage;
 
     private void Start()
     {
@@ -22,7 +27,7 @@ public class PlayerInfo : MonoBehaviour, Health
         this.isInvulnerable = isInvunerable;
     }
 
-    public void DealDamage(float damage)
+    public void DealHealthDamage(float damage)
     {
         if (health <= 0)
             return;
@@ -40,5 +45,23 @@ public class PlayerInfo : MonoBehaviour, Health
         }
 
         Debug.Log(health);
+    }
+
+    public void DealSanDamage(float damage)
+    {
+        if (san <= 0)
+            return;
+
+        if (isInvulnerable)
+            return;
+
+        san = Mathf.Max(san - damage, 0);
+
+        if (san <= 0)
+        {
+            OnTakeSanDamage?.Invoke();
+        }
+
+        Debug.Log("San=" + " " + san);
     }
 }
