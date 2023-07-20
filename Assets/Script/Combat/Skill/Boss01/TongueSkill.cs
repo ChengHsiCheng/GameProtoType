@@ -12,10 +12,13 @@ public class TongueSkill : Skill
     private bool keepMoving = true;
     private bool isMovingToEnd = true; // 指示物件是否正在向終點移動
 
+    [SerializeField] private int damage; // 傷害
+    [SerializeField] private int sanDamage;
+
     private void Start()
     {
         originPos = transform.position;
-        targetPos = RayCastHit();
+        targetPos = RayCastHit() + transform.forward;
     }
 
     private void Update()
@@ -40,15 +43,37 @@ public class TongueSkill : Skill
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Player")
+            return;
+
+        if (other.TryGetComponent<Health>(out Health health))
+        {
+            health.DealHealthDamage(damage);
+        }
+
+        if (other.TryGetComponent<San>(out San san))
+        {
+            san.DealSanDamage(sanDamage);
+        }
+
+        if (keepMoving)
+        {
+            isMovingToEnd = !isMovingToEnd;
+            keepMoving = false;
+            return;
+        }
+    }
+
     protected Vector3 RayCastHit()
     {
         RaycastHit hit;
-        int layerMask = LayerMask.GetMask("Default");
+        int layerMask = LayerMask.GetMask("Default", "Player");
 
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 50, layerMask))
         {
-            Debug.Log(hit.point);
             return hit.point;
         }
         return Vector3.zero;

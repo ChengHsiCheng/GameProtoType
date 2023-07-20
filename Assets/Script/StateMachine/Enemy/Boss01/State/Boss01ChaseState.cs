@@ -31,7 +31,7 @@ public class Boss01ChaseState : Boss01BaseState
 
         Vector3 playerPos = stateMachine.Player.transform.position;
 
-        MoveToTarget(playerPos, deltaTime);
+        MoveToTarget(playerPos, stateMachine.movementSpeed, deltaTime);
 
         stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
     }

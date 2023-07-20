@@ -18,6 +18,7 @@ public class Boss01StateMachine : StateMachine
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
     public Boss01SceneController Scene { get; private set; }
 
+    [field: SerializeField] public float escapeSpeed { get; private set; }
     [field: SerializeField] public float movementSpeed { get; private set; }
     [field: SerializeField] public float rotationSpeed { get; private set; }
     [field: SerializeField] public float chargeSpeed { get; private set; }

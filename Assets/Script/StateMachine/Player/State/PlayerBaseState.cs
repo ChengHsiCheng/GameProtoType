@@ -38,7 +38,7 @@ public abstract class PlayerBaseState : State
     {
         RaycastHit hit;
         Debug.DrawRay(stateMachine.transform.position, stateMachine.transform.forward, Color.red);
-        if (Physics.Raycast(stateMachine.transform.position, stateMachine.transform.forward, out hit, 1f))
+        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out hit, 1f))
         {
             return false;
         }

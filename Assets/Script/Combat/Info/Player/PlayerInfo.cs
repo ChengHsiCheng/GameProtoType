@@ -20,6 +20,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     private void Start()
     {
         health = maxHealth;
+        san = maxSan;
     }
 
     public void SetInvulnerable(bool isInvunerable)
@@ -44,7 +45,8 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
             OnDie?.Invoke();
         }
 
-        Debug.Log(health);
+        Debug.Log("Hp=" + " " + health);
+
     }
 
     public void DealSanDamage(float damage)
@@ -57,9 +59,11 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
         san = Mathf.Max(san - damage, 0);
 
+        OnTakeSanDamage?.Invoke();
+
         if (san <= 0)
         {
-            OnTakeSanDamage?.Invoke();
+            // sanCheck
         }
 
         Debug.Log("San=" + " " + san);

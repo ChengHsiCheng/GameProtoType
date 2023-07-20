@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4529934667268578446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.215, y: 0.644, z: -1.542}
-  m_LocalScale: {x: 0.5, y: 0.2, z: 0.3}
+  m_LocalScale: {x: 2, y: 0.2, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,4 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  speed: 80
+  speed: 20
+  damage: 20
+  sanDamage: 10

@@ -19,7 +19,7 @@ public class Boss01AttackState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
-        weapon.SetAttack(attack.Damage);
+        weapon.SetAttack(attack.Damage, attack.SanDamage);
     }
 
     public override void Tick(float deltaTime)

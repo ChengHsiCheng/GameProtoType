@@ -40,7 +40,7 @@ public class Boss01EscapeState : Boss01BaseState
             return;
         }
 
-        MoveToTarget(targetPos, deltaTime);
+        MoveToTarget(targetPos, stateMachine.escapeSpeed, deltaTime);
 
         stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
     }

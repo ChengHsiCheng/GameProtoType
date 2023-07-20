@@ -93,14 +93,14 @@ public abstract class Boss01BaseState : State
     /// <summary>
     /// 往玩家移動
     /// </summary>
-    protected void MoveToTarget(Vector3 targetPos, float deltaTime)
+    protected void MoveToTarget(Vector3 targetPos, float movementSpeed, float deltaTime)
     {
         if (stateMachine.Agent.isOnNavMesh)
         {
             stateMachine.Agent.destination = targetPos;
 
             // 根據導航代理的期望速度移動敵人
-            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.movementSpeed, deltaTime);
+            Move(stateMachine.Agent.desiredVelocity.normalized * movementSpeed, deltaTime);
         }
 
         stateMachine.Agent.nextPosition = stateMachine.transform.position;

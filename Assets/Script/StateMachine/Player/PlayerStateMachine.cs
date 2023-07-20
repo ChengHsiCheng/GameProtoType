@@ -8,6 +8,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
+    [field: SerializeField] public PlayerInfo Health { get; private set; }
+    [field: SerializeField] public BarController HpBar { get; private set; }
+    [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
 
@@ -31,10 +34,54 @@ public class PlayerStateMachine : StateMachine
         MainCameraTransform = Camera.main.transform;
     }
 
-    public override void SetCanMove(bool value)
+    /// <summary>
+    /// 被啟用時執行
+    /// </summary>
+    private void OnEnable()
     {
+        Health.OnTakeDamage += HandleTakeDamage;
+        Health.OnTakeSanDamage += SanTakeDamage;
+        Health.OnDie += HandleDie;
     }
-    public override void SetCanMove(bool value, float time)
+
+    /// <summary>
+    /// 被停用時執行
+    /// </summary>
+    private void OnDisable()
     {
+        Health.OnTakeDamage -= HandleTakeDamage;
+        Health.OnTakeSanDamage -= SanTakeDamage;
+        Health.OnDie -= HandleDie;
     }
+
+    /// <summary>
+    /// 切換到受擊狀態
+    /// </summary>
+    private void HandleTakeDamage()
+    {
+        float healthPercent = Health.health / Health.maxHealth;
+
+        HpBar.SetBar(healthPercent);
+    }
+
+    /// <summary>
+    /// 切換到受擊狀態
+    /// </summary>
+    private void SanTakeDamage()
+    {
+        float sanPercent = Health.san / Health.maxSan;
+
+        SanBar.SetBar(sanPercent);
+    }
+
+    /// <summary>
+    /// 切換到死亡狀態
+    /// </summary>
+    private void HandleDie()
+    {
+        // SwitchState(new Boss01DieState(this));
+    }
+
+    public override void SetCanMove(bool value) { }
+    public override void SetCanMove(bool value, float time) { }
 }
