@@ -29,7 +29,7 @@ public class Boss01TongueSkillState : Boss01BaseState
 
         if (normalizedTime > 0.5f && !isUesSkill)
         {
-            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, stateMachine.transform.rotation);
+            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, stateMachine.transform.rotation).UseSkill();
 
             isUesSkill = true;
         }

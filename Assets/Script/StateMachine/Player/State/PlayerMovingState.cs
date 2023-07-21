@@ -75,10 +75,7 @@ public class PlayerMovingState : PlayerBaseState
 
     void UesSkill()
     {
-        foreach (StateMachine enemy in GameManager.enemys)
-        {
-            enemy.SetCanMove(false, 1);
-        }
+        stateMachine.SwitchState(new PlayerSkillState(stateMachine));
     }
 
     /// <summary>

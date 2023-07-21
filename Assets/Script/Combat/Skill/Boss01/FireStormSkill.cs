@@ -6,12 +6,11 @@ public class FireStormSkill : Skill
 {
     [SerializeField] private TrackProjectileControls fireStorm;
 
-    void Start()
+    public override void UseSkill()
     {
         TrackProjectileControls iFireStorm = Instantiate(fireStorm, transform.position, transform.rotation);
         iFireStorm.SetValue(3, 10, GameManager.player);
 
         Destroy(gameObject);
     }
-
 }

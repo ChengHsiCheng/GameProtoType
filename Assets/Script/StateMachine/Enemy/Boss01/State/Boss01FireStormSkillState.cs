@@ -32,7 +32,7 @@ public class Boss01FireStormSkillState : Boss01BaseState
             Vector3 insPos = skill.spawnPoint.position;
             insPos.y = 0;
 
-            GameObject.Instantiate(skill.skill, insPos, Quaternion.identity);
+            GameObject.Instantiate(skill.skill, insPos, Quaternion.identity).UseSkill();
 
             isUesSkill = true;
         }

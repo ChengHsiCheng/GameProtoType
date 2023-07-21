@@ -7,7 +7,7 @@ public class FireBreathSkill : Skill
 {
     [SerializeField] private ProjectileControls fireBall;
 
-    void Start()
+    public override void UseSkill()
     {
         StartCoroutine(FireBallRain());
 
@@ -33,4 +33,5 @@ public class FireBreathSkill : Skill
         Destroy(gameObject);
 
     }
+
 }

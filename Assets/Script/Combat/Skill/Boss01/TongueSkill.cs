@@ -15,7 +15,7 @@ public class TongueSkill : Skill
     [SerializeField] private int damage; // 傷害
     [SerializeField] private int sanDamage;
 
-    private void Start()
+    public override void UseSkill()
     {
         originPos = transform.position;
         targetPos = RayCastHit() + transform.forward;
@@ -78,4 +78,5 @@ public class TongueSkill : Skill
         }
         return Vector3.zero;
     }
+
 }

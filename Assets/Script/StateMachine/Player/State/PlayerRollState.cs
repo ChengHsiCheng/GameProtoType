@@ -7,9 +7,6 @@ public class PlayerRollState : PlayerBaseState
     private readonly int RollHash = Animator.StringToHash("Roll");
     private const float CrossFadeDuration = 0.1f;
 
-    float timer;
-
-
     public PlayerRollState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -25,8 +22,6 @@ public class PlayerRollState : PlayerBaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Roll");
 
-        timer += deltaTime;
-
         // 判斷是否可以操作
 
         if (normalizedTime <= 0.4)
@@ -37,14 +32,21 @@ public class PlayerRollState : PlayerBaseState
             Move(stateMachine.transform.forward * stateMachine.rollSpeed, deltaTime);
         }
 
-        if (normalizedTime >= 0.6f)
-        {
-            if (stateMachine.InputReader.MovementValue == Vector2.zero && normalizedTime <= 0.9f)
-                return;
+        if (normalizedTime <= 0.6f)
+            return;
 
+        if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 0.9f)
+        {
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
+            return;
         }
 
+        if (stateMachine.InputReader.IsAttacking)
+        {
+            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
+
+            return;
+        }
     }
 
     public override void Exit()

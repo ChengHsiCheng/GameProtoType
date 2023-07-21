@@ -13,13 +13,12 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
+    [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
 
     [field: SerializeField] public float moveSpeed { get; private set; }
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
-    [field: SerializeField] public float RollTime { get; private set; } // 躲避時間
-    [field: SerializeField] public float RollLength { get; private set; } // 躲避距離
     public Transform MainCameraTransform { get; private set; }
 
     private void Awake()
@@ -62,6 +61,8 @@ public class PlayerStateMachine : StateMachine
         float healthPercent = Health.health / Health.maxHealth;
 
         HpBar.SetBar(healthPercent);
+
+        SwitchState(new PlayerImpactState(this));
     }
 
     /// <summary>
@@ -72,6 +73,7 @@ public class PlayerStateMachine : StateMachine
         float sanPercent = Health.san / Health.maxSan;
 
         SanBar.SetBar(sanPercent);
+
     }
 
     /// <summary>
@@ -79,7 +81,8 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void HandleDie()
     {
-        // SwitchState(new Boss01DieState(this));
+        SwitchState(new PlayerDieState(this));
+
     }
 
     public override void SetCanMove(bool value) { }
