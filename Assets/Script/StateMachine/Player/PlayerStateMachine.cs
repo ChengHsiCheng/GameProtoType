@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
+    [field: SerializeField] public bool canAction { get; private set; }
     public Transform MainCameraTransform { get; private set; }
 
     private void Awake()
@@ -40,7 +42,12 @@ public class PlayerStateMachine : StateMachine
     {
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnTakeSanDamage += SanTakeDamage;
+        Health.OnHpHealing += OnHpHealing;
         Health.OnDie += HandleDie;
+
+        InputReader.RollEvent += OnRoll;
+        InputReader.SkillEvent += OnSkill;
+        InputReader.HealEvent += OnHeal;
     }
 
     /// <summary>
@@ -50,7 +57,46 @@ public class PlayerStateMachine : StateMachine
     {
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnTakeSanDamage -= SanTakeDamage;
+        Health.OnHpHealing -= OnHpHealing;
         Health.OnDie -= HandleDie;
+
+        InputReader.RollEvent += OnRoll;
+        InputReader.SkillEvent += OnSkill;
+        InputReader.HealEvent += OnHeal;
+    }
+
+    public void SetCanAction(bool value)
+    {
+        canAction = value;
+    }
+
+    private void OnHeal()
+    {
+        if (!canAction)
+            return;
+
+        if (currentState is PlayerMovingState)
+            return;
+
+        PlayerMovingState movingState = new PlayerMovingState(this);
+        SwitchState(movingState);
+        movingState.OnDrink();
+    }
+
+    private void OnSkill()
+    {
+        if (!canAction)
+            return;
+
+        SwitchState(new PlayerSkillState(this));
+    }
+
+    private void OnRoll()
+    {
+        if (!canAction)
+            return;
+
+        SwitchState(new PlayerRollState(this));
     }
 
     /// <summary>
@@ -58,9 +104,7 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void HandleTakeDamage()
     {
-        float healthPercent = Health.health / Health.maxHealth;
-
-        HpBar.SetBar(healthPercent);
+        UpdateUI();
 
         SwitchState(new PlayerImpactState(this));
     }
@@ -70,10 +114,21 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void SanTakeDamage()
     {
+        UpdateUI();
+    }
+
+    private void OnHpHealing()
+    {
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        float healthPercent = Health.health / Health.maxHealth;
         float sanPercent = Health.san / Health.maxSan;
 
+        HpBar.SetBar(healthPercent);
         SanBar.SetBar(sanPercent);
-
     }
 
     /// <summary>
@@ -82,9 +137,9 @@ public class PlayerStateMachine : StateMachine
     private void HandleDie()
     {
         SwitchState(new PlayerDieState(this));
-
     }
 
     public override void SetCanMove(bool value) { }
     public override void SetCanMove(bool value, float time) { }
+
 }

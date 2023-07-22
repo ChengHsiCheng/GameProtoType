@@ -15,14 +15,18 @@ public class PlayerMovingState : PlayerBaseState
     private float _moveSmooth;
     private float moveSpeedAdd;
 
+    private float drinkTimer;
+    private bool isDrink;
+
     public PlayerMovingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
 
     public override void Enter()
     {
-        stateMachine.InputReader.RollEvent += OnRoll;
-        stateMachine.InputReader.SkillEvent += UesSkill;
+        stateMachine.SetCanAction(true);
+
+        stateMachine.InputReader.HealEvent += OnDrink;
 
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
 
@@ -31,7 +35,7 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (stateMachine.InputReader.IsAttacking)
+        if (stateMachine.InputReader.IsAttacking && stateMachine.canAction)
         {
             stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
 
@@ -49,33 +53,42 @@ public class PlayerMovingState : PlayerBaseState
             return;
         }
 
+        if (isDrink)
+            moveSpeedAdd = moveSpeedAdd * 0.5f;
+
         stateMachine.Animator.SetFloat(MoveSpeedString, moveSpeedAdd, 0, deltaTime);
 
         FaceMovementDirection(movemnt, deltaTime);
 
-        if (!DashRayCastHit())
+        if (!MoveRayCastHit())
         {
             return;
         }
 
         Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
+
+        if (drinkTimer + 1.5f <= Time.time && isDrink)
+        {
+            stateMachine.Health.Healing(20);
+            stateMachine.SetCanAction(true);
+            isDrink = false;
+        }
     }
 
     public override void Exit()
     {
-        stateMachine.InputReader.RollEvent -= OnRoll;
-        stateMachine.InputReader.SkillEvent -= UesSkill;
-
+        stateMachine.InputReader.HealEvent -= OnDrink;
     }
 
-    void OnRoll()
+    public void OnDrink()
     {
-        stateMachine.SwitchState(new PlayerRollState(stateMachine));
-    }
+        if (!stateMachine.canAction)
+            return;
 
-    void UesSkill()
-    {
-        stateMachine.SwitchState(new PlayerSkillState(stateMachine));
+        drinkTimer = Time.time;
+        stateMachine.SetCanAction(false);
+        isDrink = true;
+        stateMachine.Animator.SetTrigger("Drink");
     }
 
     /// <summary>

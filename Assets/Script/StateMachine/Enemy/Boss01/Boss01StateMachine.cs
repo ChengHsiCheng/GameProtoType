@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Boss01StateMachine : StateMachine
+public class Boss01StateMachine : StateMachine, Enemy
 {
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
@@ -132,6 +132,9 @@ public class Boss01StateMachine : StateMachine
     public override void SetCanMove(bool value)
     {
         SetCanMove(value, 0);
+
+        Material.material.SetFloat("_Petrifaction", 1);
+
     }
 
     public override void SetCanMove(bool canMove, float freezeTime)
@@ -141,10 +144,13 @@ public class Boss01StateMachine : StateMachine
 
         int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
 
-        Material.material.SetFloat("_Petrifaction", intValue);
-
         Animator.SetFloat("AnimationSpeed", intValue);
     }
 
+    public void BePetrify()
+    {
+        SetCanMove(false, 3f);
 
+        Material.material.SetFloat("_Petrifaction", 0);
+    }
 }

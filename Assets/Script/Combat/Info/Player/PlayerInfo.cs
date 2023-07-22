@@ -16,6 +16,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public event Action OnTakeDamage;
     public event Action OnDie;
     public event Action OnTakeSanDamage;
+    public event Action OnHpHealing;
 
     private void Start()
     {
@@ -37,7 +38,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
             return;
 
         health = Mathf.Max(health - damage, 0);
-
         OnTakeDamage?.Invoke();
 
         if (health <= 0)
@@ -47,6 +47,14 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
         Debug.Log("Hp=" + " " + health);
 
+    }
+
+    public void Healing(float value)
+    {
+        health = Mathf.Min(health + value, maxHealth);
+        OnHpHealing?.Invoke();
+
+        Debug.Log("Hp=" + " " + health);
     }
 
     public void DealSanDamage(float damage)

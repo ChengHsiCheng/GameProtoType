@@ -8,5 +8,6 @@ public interface Health
     float maxHealth { get; }
     float health { get; }
     event Action OnTakeDamage;
+    event Action OnHpHealing;
     void DealHealthDamage(float damage);
 }

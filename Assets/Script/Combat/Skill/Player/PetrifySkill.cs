@@ -6,9 +6,9 @@ public class PetrifySkill : Skill
 {
     public override void UseSkill()
     {
-        foreach (StateMachine enemy in GameManager.enemys)
+        foreach (Enemy enemy in GameManager.enemys)
         {
-            enemy.SetCanMove(false, 1);
+            enemy.BePetrify();
         }
     }
 }

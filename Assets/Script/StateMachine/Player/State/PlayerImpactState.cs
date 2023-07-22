@@ -13,6 +13,8 @@ public class PlayerImpactState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.SetCanAction(false);
+
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }
 
@@ -20,10 +22,7 @@ public class PlayerImpactState : PlayerBaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Impact");
 
-        if (normalizedTime <= 0.9f)
-            return;
-
-        stateMachine.SwitchState(new PlayerMovingState(stateMachine));
+        CheckInput(normalizedTime, 0.9f);
     }
 
     public override void Exit()

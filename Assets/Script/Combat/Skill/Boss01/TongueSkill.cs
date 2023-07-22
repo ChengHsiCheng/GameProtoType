@@ -69,7 +69,7 @@ public class TongueSkill : Skill
     protected Vector3 RayCastHit()
     {
         RaycastHit hit;
-        int layerMask = LayerMask.GetMask("Default", "Player");
+        int layerMask = LayerMask.GetMask("Default");
 
 
         if (Physics.Raycast(transform.position, transform.forward, out hit, 50, layerMask))

@@ -18,6 +18,8 @@ public class PlayerSkillState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.SetCanAction(false);
+
         stateMachine.Animator.CrossFadeInFixedTime(SkillCastLoopHash, CrossFadeDuration);
 
         skill = stateMachine.Skills[0];
@@ -36,13 +38,12 @@ public class PlayerSkillState : PlayerBaseState
             return;
         }
 
-        if (isUseSkill && normalizedTime >= 0.9f)
-        {
-            stateMachine.SwitchState(new PlayerMovingState(stateMachine));
-            return;
-        }
-
         timer += deltaTime;
+
+        if (isUseSkill)
+        {
+            CheckInput(normalizedTime, 0.8f);
+        }
     }
 
     public override void Exit()

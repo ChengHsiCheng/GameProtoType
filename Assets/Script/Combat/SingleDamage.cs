@@ -10,10 +10,13 @@ public class SingleDamage : MonoBehaviour
     private Health health { get => GameManager.player.GetComponent<Health>(); }
     private San san { get => GameManager.player.GetComponent<San>(); }
 
-    private bool hasDamaged;
+    private bool hasDamaged = false;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hasDamaged)
+            return;
+
         if (other.tag == "Player")
         {
             health.DealHealthDamage(damage);

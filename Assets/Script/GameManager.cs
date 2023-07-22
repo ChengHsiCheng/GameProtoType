@@ -7,7 +7,7 @@ public static class GameManager
 {
     public static GameObject player;
     public static SceneController sceneController; // 場景控制器
-    public static List<StateMachine> enemys = new List<StateMachine>();
+    public static List<Enemy> enemys = new List<Enemy>();
 }
 
 /*

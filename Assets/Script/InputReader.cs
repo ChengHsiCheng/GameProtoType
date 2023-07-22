@@ -13,6 +13,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action SkillEvent;
+    public event Action HealEvent;
 
     private void Start()
     {
@@ -60,5 +61,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             return;
 
         SkillEvent?.Invoke();
+    }
+
+    public void OnHeal(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        HealEvent?.Invoke();
     }
 }

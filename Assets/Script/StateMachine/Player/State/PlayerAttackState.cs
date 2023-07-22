@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAttackState : PlayerBaseState
 {
     private float previousFrameTime; // 上一幀的正規化時間
-    private bool canAction;
     private Attack attack; // 攻擊的資訊
 
     public PlayerAttackState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
@@ -15,7 +14,7 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.InputReader.RollEvent += OnRoll;
+        stateMachine.SetCanAction(false);
 
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
@@ -38,7 +37,7 @@ public class PlayerAttackState : PlayerBaseState
 
         if (normalizedTime >= attack.MinComboAttackTime && !canAction)
         {
-            canAction = true;
+            stateMachine.SetCanAction(true);
         }
 
         if (!canAction)
@@ -53,8 +52,6 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Exit()
     {
-        stateMachine.InputReader.RollEvent -= OnRoll;
-
         attack.Model.transform.position = stateMachine.transform.position;
     }
 
@@ -71,14 +68,4 @@ public class PlayerAttackState : PlayerBaseState
         stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.ComboStateIndex));
     }
 
-    /// <summary>
-    /// 翻滾
-    /// </summary>
-    void OnRoll()
-    {
-        if (!canAction)
-            return;
-
-        stateMachine.SwitchState(new PlayerRollState(stateMachine));
-    }
 }

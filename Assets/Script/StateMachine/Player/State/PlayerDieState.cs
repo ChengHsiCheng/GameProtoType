@@ -14,6 +14,7 @@ public class PlayerDieState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.SetCanAction(false);
         stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeDuration);
     }
 

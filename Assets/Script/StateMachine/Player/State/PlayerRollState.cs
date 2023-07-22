@@ -13,6 +13,8 @@ public class PlayerRollState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.SetCanAction(false);
+
         stateMachine.Animator.CrossFadeInFixedTime(RollHash, CrossFadeDuration);
 
         stateMachine.Health.SetInvulnerable(true);
@@ -26,27 +28,15 @@ public class PlayerRollState : PlayerBaseState
 
         if (normalizedTime <= 0.4)
         {
-            if (!DashRayCastHit())
+            if (!MoveRayCastHit())
                 return;
 
             Move(stateMachine.transform.forward * stateMachine.rollSpeed, deltaTime);
         }
 
-        if (normalizedTime <= 0.6f)
-            return;
+        CheckInput(normalizedTime, 0.6f);
 
-        if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 0.9f)
-        {
-            stateMachine.SwitchState(new PlayerMovingState(stateMachine));
-            return;
-        }
 
-        if (stateMachine.InputReader.IsAttacking)
-        {
-            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
-
-            return;
-        }
     }
 
     public override void Exit()

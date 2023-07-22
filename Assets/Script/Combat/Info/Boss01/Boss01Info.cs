@@ -11,6 +11,7 @@ public class Boss01Info : MonoBehaviour, Info, Health
     public bool isInvulnerable { get; set; }
     public event Action OnTakeDamage;
     public event Action OnDie;
+    public event Action OnHpHealing;
 
     private void Start()
     {

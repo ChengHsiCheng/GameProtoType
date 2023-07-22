@@ -9,6 +9,9 @@ public abstract class PlayerBaseState : State
 
     private Vector3 lastMovement;
 
+    protected bool canAction => stateMachine.canAction;
+
+
     // 在new時取得stateMachine
     public PlayerBaseState(PlayerStateMachine stateMachine)
     {
@@ -34,7 +37,7 @@ public abstract class PlayerBaseState : State
         stateMachine.Rigidbody.MovePosition(movePos);
     }
 
-    protected bool DashRayCastHit()
+    protected bool MoveRayCastHit()
     {
         RaycastHit hit;
         Debug.DrawRay(stateMachine.transform.position, stateMachine.transform.forward, Color.red);
@@ -43,5 +46,28 @@ public abstract class PlayerBaseState : State
             return false;
         }
         return true;
+    }
+
+    protected void CheckInput(float normalizedTime, float outNormalizedTime)
+    {
+        if (normalizedTime >= outNormalizedTime && !canAction)
+        {
+            stateMachine.SetCanAction(true);
+        }
+
+        if (!canAction)
+            return;
+
+        if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 1f)
+        {
+            stateMachine.SwitchState(new PlayerMovingState(stateMachine));
+            return;
+        }
+
+        if (stateMachine.InputReader.IsAttacking)
+        {
+            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
+            return;
+        }
     }
 }
