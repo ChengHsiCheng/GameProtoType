@@ -9,7 +9,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
-    [field: SerializeField] public PlayerInfo Health { get; private set; }
+    [field: SerializeField] public PlayerInfo Info { get; private set; }
     [field: SerializeField] public BarController HpBar { get; private set; }
     [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
@@ -21,6 +21,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public bool canAction { get; private set; }
+    public float sanScalingDamage { get; private set; } = 1;
     public Transform MainCameraTransform { get; private set; }
 
     private void Awake()
@@ -40,11 +41,12 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void OnEnable()
     {
-        Health.OnTakeDamage += HandleTakeDamage;
-        Health.OnTakeSanDamage += SanTakeDamage;
-        Health.OnHpHealing += OnHpHealing;
-        Health.OnDie += HandleDie;
+        Info.OnTakeDamage += HandleTakeDamage;
+        Info.OnTakeSanDamage += SanTakeDamage;
+        Info.OnHpHealing += OnHpHealing;
+        Info.OnDie += HandleDie;
 
+        InputReader.TogglePauseEvent += TogglePause;
         InputReader.RollEvent += OnRoll;
         InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
@@ -55,14 +57,15 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void OnDisable()
     {
-        Health.OnTakeDamage -= HandleTakeDamage;
-        Health.OnTakeSanDamage -= SanTakeDamage;
-        Health.OnHpHealing -= OnHpHealing;
-        Health.OnDie -= HandleDie;
+        Info.OnTakeDamage -= HandleTakeDamage;
+        Info.OnTakeSanDamage -= SanTakeDamage;
+        Info.OnHpHealing -= OnHpHealing;
+        Info.OnDie -= HandleDie;
 
-        InputReader.RollEvent += OnRoll;
-        InputReader.SkillEvent += OnSkill;
-        InputReader.HealEvent += OnHeal;
+        InputReader.TogglePauseEvent -= TogglePause;
+        InputReader.RollEvent -= OnRoll;
+        InputReader.SkillEvent -= OnSkill;
+        InputReader.HealEvent -= OnHeal;
     }
 
     public void SetCanAction(bool value)
@@ -99,6 +102,11 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerRollState(this));
     }
 
+    private void TogglePause()
+    {
+        GameManager.TogglePause();
+    }
+
     /// <summary>
     /// 切換到受擊狀態
     /// </summary>
@@ -115,6 +123,21 @@ public class PlayerStateMachine : StateMachine
     private void SanTakeDamage()
     {
         UpdateUI();
+
+        float sanPercent = Info.san / Info.maxSan;
+
+        switch (sanPercent)
+        {
+            case 1:
+                sanScalingDamage = 1;
+                break;
+            case > 0.3f:
+                sanScalingDamage = 0;
+                break;
+            default:
+                sanScalingDamage = -0.2f;
+                break;
+        }
     }
 
     private void OnHpHealing()
@@ -124,8 +147,8 @@ public class PlayerStateMachine : StateMachine
 
     private void UpdateUI()
     {
-        float healthPercent = Health.health / Health.maxHealth;
-        float sanPercent = Health.san / Health.maxSan;
+        float healthPercent = Info.health / Info.maxHealth;
+        float sanPercent = Info.san / Info.maxSan;
 
         HpBar.SetBar(healthPercent);
         SanBar.SetBar(sanPercent);
@@ -142,4 +165,9 @@ public class PlayerStateMachine : StateMachine
     public override void SetCanMove(bool value) { }
     public override void SetCanMove(bool value, float time) { }
 
+    public override void OnGameTogglePause(bool isPause)
+    {
+        int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
+        Animator.SetFloat("AnimationSpeed", intValue);
+    }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 
 public static class GameManager
@@ -8,6 +9,35 @@ public static class GameManager
     public static GameObject player;
     public static SceneController sceneController; // 場景控制器
     public static List<Enemy> enemys = new List<Enemy>();
+
+    public static bool isPauseGame = false;
+
+    public static void TogglePause()
+    {
+        isPauseGame = !isPauseGame;
+
+        sceneController.SetPauseMeun(isPauseGame);
+
+        StateMachine[] stateMachines = GameObject.FindObjectsOfType<StateMachine>();
+
+        foreach (StateMachine stateMachine in stateMachines)
+        {
+            stateMachine.OnGameTogglePause(isPauseGame);
+            Debug.Log(stateMachine.name);
+        }
+
+        VisualEffect[] vfxs = GameObject.FindObjectsOfType<VisualEffect>();
+
+        foreach (VisualEffect vfx in vfxs)
+        {
+            vfx.pause = isPauseGame;
+        }
+    }
+
+    public static void TogglePause(bool isPause)
+    {
+        TogglePause();
+    }
 }
 
 /*

@@ -21,6 +21,9 @@ public class ProjectileControls : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.isPauseGame)
+            return;
+
         if (timer >= liveTime)
         {
             VFXCleaner();

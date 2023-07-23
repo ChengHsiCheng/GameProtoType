@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-    public GameObject player;
-    // Start is called before the first frame update
+    public RectTransform pointer;
+    public RectTransform pointer02;
+
     void Start()
     {
 
@@ -14,12 +16,19 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = player.transform.position - transform.position;
-        direction.y = 0;
-        direction.Normalize();
+        pointer.localEulerAngles = new Vector3(0, 0, pointer.eulerAngles.z + 20 * Time.realtimeSinceStartup);
+        pointer02.localEulerAngles = new Vector3(0, 0, pointer02.eulerAngles.z - 20 * Time.realtimeSinceStartup);
 
-        float angle = Vector3.Angle(transform.forward, direction);
-
-        Debug.Log(angle);
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (pointer.eulerAngles.z > pointer02.eulerAngles.z - 10 && pointer.eulerAngles.z < pointer02.eulerAngles.z + 10)
+            {
+                Debug.Log("W");
+            }
+            else
+            {
+                Debug.Log("F");
+            }
+        }
     }
 }

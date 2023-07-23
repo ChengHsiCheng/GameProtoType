@@ -676,7 +676,7 @@ MonoBehaviour:
   <Rigidbody>k__BackingField: {fileID: 2080221945}
   <Animator>k__BackingField: {fileID: 8882550430775878866}
   <ForceReceiver>k__BackingField: {fileID: 1350395791}
-  <Health>k__BackingField: {fileID: 8553720373103377966}
+  <Info>k__BackingField: {fileID: 8553720373103377966}
   <HpBar>k__BackingField: {fileID: 8036512598182053970}
   <SanBar>k__BackingField: {fileID: 1725354042426514945}
   <Weapon>k__BackingField: {fileID: 6078049451270060355}
@@ -710,6 +710,8 @@ MonoBehaviour:
   <moveSmooth>k__BackingField: 0.55
   <rollSpeed>k__BackingField: 18
   <RotationDamping>k__BackingField: 25
+  <sanScalingDamage>k__BackingField: 0
+  <canAction>k__BackingField: 0
 --- !u!114 &8553720373103377966
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -71,6 +71,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""d67e5708-03b1-45a6-b0a7-66fc28959a5c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,45 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4ba247f-2073-4be7-8311-7373ebd52486"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Menu"",
+            ""id"": ""50b1f212-a9f4-4b69-9a9c-86ef2d558cf8"",
+            ""actions"": [
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""a5f1668e-e840-4e1f-849b-46bbf6d6cf55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""39444e52-4697-4a2b-8e2f-2461c9d301f1"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -268,6 +316,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
         m_Player_Heal = m_Player.FindAction("Heal", throwIfNotFound: true);
+        m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_StartGame = m_Menu.FindAction("StartGame", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +384,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Skill;
     private readonly InputAction m_Player_Heal;
+    private readonly InputAction m_Player_ESC;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -341,6 +394,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Skill => m_Wrapper.m_Player_Skill;
         public InputAction @Heal => m_Wrapper.m_Player_Heal;
+        public InputAction @ESC => m_Wrapper.m_Player_ESC;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +419,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Heal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
                 @Heal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
                 @Heal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
+                @ESC.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
+                @ESC.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
+                @ESC.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -384,10 +441,46 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Heal.started += instance.OnHeal;
                 @Heal.performed += instance.OnHeal;
                 @Heal.canceled += instance.OnHeal;
+                @ESC.started += instance.OnESC;
+                @ESC.performed += instance.OnESC;
+                @ESC.canceled += instance.OnESC;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Menu
+    private readonly InputActionMap m_Menu;
+    private IMenuActions m_MenuActionsCallbackInterface;
+    private readonly InputAction m_Menu_StartGame;
+    public struct MenuActions
+    {
+        private @Controls m_Wrapper;
+        public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StartGame => m_Wrapper.m_Menu_StartGame;
+        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
+        public void SetCallbacks(IMenuActions instance)
+        {
+            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            {
+                @StartGame.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
+            }
+            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
+            }
+        }
+    }
+    public MenuActions @Menu => new MenuActions(this);
     private int m_KeybordMouseSchemeIndex = -1;
     public InputControlScheme KeybordMouseScheme
     {
@@ -413,5 +506,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnSkill(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
+        void OnESC(InputAction.CallbackContext context);
+    }
+    public interface IMenuActions
+    {
+        void OnStartGame(InputAction.CallbackContext context);
     }
 }

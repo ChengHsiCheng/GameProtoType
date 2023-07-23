@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
-    private int damage; // 傷害
-    private int sanDamage;
+    private float damage; // 傷害
+    private float sanDamage;
 
     [SerializeField] private List<GameObject> alreadyCollidedWith = new List<GameObject>(); // 已經碰撞過的碰撞器列表
 
@@ -45,7 +45,7 @@ public class WeaponDamage : MonoBehaviour
     /// <summary>
     /// 設定攻擊參數
     /// </summary>
-    public void SetAttack(int damage)
+    public void SetAttack(float damage)
     {
         SetAttack(damage, 0);
     }
@@ -53,7 +53,7 @@ public class WeaponDamage : MonoBehaviour
     /// <summary>
     /// 設定攻擊參數
     /// </summary>
-    public void SetAttack(int damage, int sanDamage)
+    public void SetAttack(float damage, int sanDamage)
     {
         this.damage = damage;
         this.sanDamage = sanDamage;

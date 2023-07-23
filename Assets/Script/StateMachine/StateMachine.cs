@@ -20,11 +20,14 @@ public abstract class StateMachine : MonoBehaviour
         currentState = newState;
         currentState?.Enter();
 
-        Debug.Log(newState);
+        // Debug.Log(newState);
     }
 
     void Update()
     {
+        if (GameManager.isPauseGame)
+            return;
+
         if (canMove)
         {
             currentState?.Tick(Time.deltaTime);
@@ -44,5 +47,7 @@ public abstract class StateMachine : MonoBehaviour
     public abstract void SetCanMove(bool value);
 
     public abstract void SetCanMove(bool value, float time);
+
+    public abstract void OnGameTogglePause(bool isPause);
 
 }

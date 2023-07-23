@@ -69,7 +69,7 @@ public class PlayerMovingState : PlayerBaseState
 
         if (drinkTimer + 1.5f <= Time.time && isDrink)
         {
-            stateMachine.Health.Healing(20);
+            stateMachine.Info.Healing(20);
             stateMachine.SetCanAction(true);
             isDrink = false;
         }

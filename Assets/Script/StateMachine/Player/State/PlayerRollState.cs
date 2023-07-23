@@ -17,7 +17,7 @@ public class PlayerRollState : PlayerBaseState
 
         stateMachine.Animator.CrossFadeInFixedTime(RollHash, CrossFadeDuration);
 
-        stateMachine.Health.SetInvulnerable(true);
+        stateMachine.Info.SetInvulnerable(true);
     }
 
     public override void Tick(float deltaTime)
@@ -41,6 +41,6 @@ public class PlayerRollState : PlayerBaseState
 
     public override void Exit()
     {
-        stateMachine.Health.SetInvulnerable(false);
+        stateMachine.Info.SetInvulnerable(false);
     }
 }

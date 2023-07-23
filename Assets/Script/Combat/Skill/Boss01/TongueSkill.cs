@@ -23,6 +23,9 @@ public class TongueSkill : Skill
 
     private void Update()
     {
+        if (GameManager.isPauseGame)
+            return;
+
         // 根據 isMovingToEnd 的值選擇目標位置
         Vector3 targetPosition = isMovingToEnd ? targetPos : originPos;
 

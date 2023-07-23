@@ -153,4 +153,10 @@ public class Boss01StateMachine : StateMachine, Enemy
 
         Material.material.SetFloat("_Petrifaction", 0);
     }
+
+    public override void OnGameTogglePause(bool isPause)
+    {
+        int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
+        Animator.SetFloat("AnimationSpeed", intValue);
+    }
 }

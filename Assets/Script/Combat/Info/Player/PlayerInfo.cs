@@ -76,4 +76,9 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
         Debug.Log("San=" + " " + san);
     }
+
+    private void SanCheck()
+    {
+        GameManager.TogglePause(true);
+    }
 }

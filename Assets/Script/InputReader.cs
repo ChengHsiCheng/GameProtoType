@@ -14,6 +14,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action RollEvent;
     public event Action SkillEvent;
     public event Action HealEvent;
+    public event Action TogglePauseEvent;
 
     private void Start()
     {
@@ -69,5 +70,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
             return;
 
         HealEvent?.Invoke();
+    }
+
+    public void OnESC(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        TogglePauseEvent?.Invoke();
     }
 }
