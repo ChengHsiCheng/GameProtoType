@@ -10,20 +10,31 @@ public static class GameManager
     public static SceneController sceneController; // 場景控制器
     public static List<Enemy> enemys = new List<Enemy>();
 
+    public static int nowScene;
+
     public static bool isPauseGame = false;
 
     public static void TogglePause()
     {
         isPauseGame = !isPauseGame;
 
-        sceneController.SetPauseMeun(isPauseGame);
+        PauseGame();
+    }
 
+    public static void TogglePause(bool isPause)
+    {
+        isPauseGame = isPause;
+
+        PauseGame();
+    }
+
+    static void PauseGame()
+    {
         StateMachine[] stateMachines = GameObject.FindObjectsOfType<StateMachine>();
 
         foreach (StateMachine stateMachine in stateMachines)
         {
             stateMachine.OnGameTogglePause(isPauseGame);
-            Debug.Log(stateMachine.name);
         }
 
         VisualEffect[] vfxs = GameObject.FindObjectsOfType<VisualEffect>();
@@ -32,11 +43,6 @@ public static class GameManager
         {
             vfx.pause = isPauseGame;
         }
-    }
-
-    public static void TogglePause(bool isPause)
-    {
-        TogglePause();
     }
 }
 

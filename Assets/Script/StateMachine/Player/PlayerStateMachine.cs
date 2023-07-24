@@ -10,9 +10,9 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public PlayerInfo Info { get; private set; }
-    [field: SerializeField] public BarController HpBar { get; private set; }
-    [field: SerializeField] public BarController SanBar { get; private set; }
+    [field: SerializeField] public PlayerUIManager UIManager { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
+    [field: SerializeField] public SanCheck SanCheck { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
 
@@ -21,6 +21,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
     [field: SerializeField] public bool canAction { get; private set; }
+    private bool isSanCheck;
     public float sanScalingDamage { get; private set; } = 1;
     public Transform MainCameraTransform { get; private set; }
 
@@ -43,6 +44,7 @@ public class PlayerStateMachine : StateMachine
     {
         Info.OnTakeDamage += HandleTakeDamage;
         Info.OnTakeSanDamage += SanTakeDamage;
+        Info.OnSanCheck += OnSanCheck;
         Info.OnHpHealing += OnHpHealing;
         Info.OnDie += HandleDie;
 
@@ -50,6 +52,9 @@ public class PlayerStateMachine : StateMachine
         InputReader.RollEvent += OnRoll;
         InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
+
+        SanCheck.SuccessEvent += SanCheckSuccess;
+        SanCheck.FailEvent += SanCheckFail;
     }
 
     /// <summary>
@@ -59,6 +64,7 @@ public class PlayerStateMachine : StateMachine
     {
         Info.OnTakeDamage -= HandleTakeDamage;
         Info.OnTakeSanDamage -= SanTakeDamage;
+        Info.OnSanCheck -= OnSanCheck;
         Info.OnHpHealing -= OnHpHealing;
         Info.OnDie -= HandleDie;
 
@@ -66,6 +72,9 @@ public class PlayerStateMachine : StateMachine
         InputReader.RollEvent -= OnRoll;
         InputReader.SkillEvent -= OnSkill;
         InputReader.HealEvent -= OnHeal;
+
+        SanCheck.SuccessEvent -= SanCheckSuccess;
+        SanCheck.FailEvent -= SanCheckFail;
     }
 
     public void SetCanAction(bool value)
@@ -104,7 +113,10 @@ public class PlayerStateMachine : StateMachine
 
     private void TogglePause()
     {
+        if (isSanCheck)
+            return;
         GameManager.TogglePause();
+        GameManager.sceneController.SetPauseMeun(GameManager.isPauseGame);
     }
 
     /// <summary>
@@ -140,6 +152,33 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
+    private void OnSanCheck()
+    {
+        isSanCheck = true;
+
+        UIManager.SetSanCheckBar(true);
+        GameManager.TogglePause(true);
+    }
+
+    private void SanCheckSuccess()
+    {
+        isSanCheck = false;
+
+        UIManager.SetSanCheckBar(false);
+        GameManager.TogglePause(false);
+        Info.SanCheckSuccess();
+        UpdateUI();
+    }
+
+    private void SanCheckFail()
+    {
+        isSanCheck = false;
+
+        UIManager.SetSanCheckBar(false);
+        GameManager.TogglePause(false);
+        HandleDie();
+    }
+
     private void OnHpHealing()
     {
         UpdateUI();
@@ -150,8 +189,8 @@ public class PlayerStateMachine : StateMachine
         float healthPercent = Info.health / Info.maxHealth;
         float sanPercent = Info.san / Info.maxSan;
 
-        HpBar.SetBar(healthPercent);
-        SanBar.SetBar(sanPercent);
+        UIManager.SetHpBar(healthPercent);
+        UIManager.SetSanBar(sanPercent);
     }
 
     /// <summary>

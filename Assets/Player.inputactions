@@ -2,7 +2,7 @@
     "name": "Player",
     "maps": [
         {
-            "name": "Player",
+            "name": "CombatLevel",
             "id": "51ba6249-b9f6-4477-b292-5c9ee2f9ec4d",
             "actions": [
                 {
@@ -223,34 +223,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "ESC",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Menu",
-            "id": "50b1f212-a9f4-4b69-9a9c-86ef2d558cf8",
-            "actions": [
-                {
-                    "name": "StartGame",
-                    "type": "Button",
-                    "id": "a5f1668e-e840-4e1f-849b-46bbf6d6cf55",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "39444e52-4697-4a2b-8e2f-2461c9d301f1",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "StartGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

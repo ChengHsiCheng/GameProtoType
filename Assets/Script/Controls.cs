@@ -24,7 +24,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     ""name"": ""Player"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""CombatLevel"",
             ""id"": ""51ba6249-b9f6-4477-b292-5c9ee2f9ec4d"",
             ""actions"": [
                 {
@@ -249,34 +249,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Menu"",
-            ""id"": ""50b1f212-a9f4-4b69-9a9c-86ef2d558cf8"",
-            ""actions"": [
-                {
-                    ""name"": ""StartGame"",
-                    ""type"": ""Button"",
-                    ""id"": ""a5f1668e-e840-4e1f-849b-46bbf6d6cf55"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""39444e52-4697-4a2b-8e2f-2461c9d301f1"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""StartGame"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
@@ -309,17 +281,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-        m_Player_Skill = m_Player.FindAction("Skill", throwIfNotFound: true);
-        m_Player_Heal = m_Player.FindAction("Heal", throwIfNotFound: true);
-        m_Player_ESC = m_Player.FindAction("ESC", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_StartGame = m_Menu.FindAction("StartGame", throwIfNotFound: true);
+        // CombatLevel
+        m_CombatLevel = asset.FindActionMap("CombatLevel", throwIfNotFound: true);
+        m_CombatLevel_Move = m_CombatLevel.FindAction("Move", throwIfNotFound: true);
+        m_CombatLevel_Roll = m_CombatLevel.FindAction("Roll", throwIfNotFound: true);
+        m_CombatLevel_Attack = m_CombatLevel.FindAction("Attack", throwIfNotFound: true);
+        m_CombatLevel_Skill = m_CombatLevel.FindAction("Skill", throwIfNotFound: true);
+        m_CombatLevel_Heal = m_CombatLevel.FindAction("Heal", throwIfNotFound: true);
+        m_CombatLevel_ESC = m_CombatLevel.FindAction("ESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -376,54 +345,54 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Roll;
-    private readonly InputAction m_Player_Attack;
-    private readonly InputAction m_Player_Skill;
-    private readonly InputAction m_Player_Heal;
-    private readonly InputAction m_Player_ESC;
-    public struct PlayerActions
+    // CombatLevel
+    private readonly InputActionMap m_CombatLevel;
+    private ICombatLevelActions m_CombatLevelActionsCallbackInterface;
+    private readonly InputAction m_CombatLevel_Move;
+    private readonly InputAction m_CombatLevel_Roll;
+    private readonly InputAction m_CombatLevel_Attack;
+    private readonly InputAction m_CombatLevel_Skill;
+    private readonly InputAction m_CombatLevel_Heal;
+    private readonly InputAction m_CombatLevel_ESC;
+    public struct CombatLevelActions
     {
         private @Controls m_Wrapper;
-        public PlayerActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Roll => m_Wrapper.m_Player_Roll;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
-        public InputAction @Skill => m_Wrapper.m_Player_Skill;
-        public InputAction @Heal => m_Wrapper.m_Player_Heal;
-        public InputAction @ESC => m_Wrapper.m_Player_ESC;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public CombatLevelActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_CombatLevel_Move;
+        public InputAction @Roll => m_Wrapper.m_CombatLevel_Roll;
+        public InputAction @Attack => m_Wrapper.m_CombatLevel_Attack;
+        public InputAction @Skill => m_Wrapper.m_CombatLevel_Skill;
+        public InputAction @Heal => m_Wrapper.m_CombatLevel_Heal;
+        public InputAction @ESC => m_Wrapper.m_CombatLevel_ESC;
+        public InputActionMap Get() { return m_Wrapper.m_CombatLevel; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(CombatLevelActions set) { return set.Get(); }
+        public void SetCallbacks(ICombatLevelActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_CombatLevelActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Roll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
-                @Roll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
-                @Roll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRoll;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Skill.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkill;
-                @Skill.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkill;
-                @Skill.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSkill;
-                @Heal.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
-                @Heal.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
-                @Heal.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeal;
-                @ESC.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
-                @ESC.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
-                @ESC.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnESC;
+                @Move.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnMove;
+                @Roll.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnRoll;
+                @Attack.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnAttack;
+                @Skill.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSkill;
+                @Skill.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSkill;
+                @Skill.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSkill;
+                @Heal.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnHeal;
+                @Heal.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnHeal;
+                @Heal.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnHeal;
+                @ESC.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
+                @ESC.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
+                @ESC.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_CombatLevelActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -447,40 +416,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
-
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_StartGame;
-    public struct MenuActions
-    {
-        private @Controls m_Wrapper;
-        public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @StartGame => m_Wrapper.m_Menu_StartGame;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void SetCallbacks(IMenuActions instance)
-        {
-            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
-            {
-                @StartGame.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
-                @StartGame.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
-                @StartGame.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnStartGame;
-            }
-            m_Wrapper.m_MenuActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @StartGame.started += instance.OnStartGame;
-                @StartGame.performed += instance.OnStartGame;
-                @StartGame.canceled += instance.OnStartGame;
-            }
-        }
-    }
-    public MenuActions @Menu => new MenuActions(this);
+    public CombatLevelActions @CombatLevel => new CombatLevelActions(this);
     private int m_KeybordMouseSchemeIndex = -1;
     public InputControlScheme KeybordMouseScheme
     {
@@ -499,7 +435,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface ICombatLevelActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
@@ -507,9 +443,5 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSkill(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
-    }
-    public interface IMenuActions
-    {
-        void OnStartGame(InputAction.CallbackContext context);
     }
 }

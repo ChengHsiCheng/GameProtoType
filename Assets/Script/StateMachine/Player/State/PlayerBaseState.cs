@@ -40,8 +40,10 @@ public abstract class PlayerBaseState : State
     protected bool MoveRayCastHit()
     {
         RaycastHit hit;
+        LayerMask layerMaskToCheck = LayerMask.GetMask("Default", "Enemy");
+
         Debug.DrawRay(stateMachine.transform.position, stateMachine.transform.forward, Color.red);
-        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out hit, 1f))
+        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out hit, 1f, layerMaskToCheck))
         {
             return false;
         }

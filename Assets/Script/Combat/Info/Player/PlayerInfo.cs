@@ -17,6 +17,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public event Action OnDie;
     public event Action OnTakeSanDamage;
     public event Action OnHpHealing;
+    public event Action OnSanCheck;
 
     private void Start()
     {
@@ -71,14 +72,16 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
         if (san <= 0)
         {
-            // sanCheck
+            OnSanCheck?.Invoke();
         }
 
         Debug.Log("San=" + " " + san);
     }
 
-    private void SanCheck()
+    public void SanCheckSuccess()
     {
-        GameManager.TogglePause(true);
+        maxHealth = 1;
+        health = 1;
     }
+
 }
