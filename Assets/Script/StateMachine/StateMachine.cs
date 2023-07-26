@@ -28,13 +28,7 @@ public abstract class StateMachine : MonoBehaviour
         if (GameManager.isPauseGame)
             return;
 
-        if (canMove)
-        {
-            currentState?.Tick(Time.deltaTime);
-            return;
-        }
-
-        if (timer >= freezeTime)
+        if (timer >= freezeTime && freezeTime != 0)
         {
             SetCanMove(true);
             timer = 0;
@@ -42,6 +36,12 @@ public abstract class StateMachine : MonoBehaviour
         }
 
         timer += Time.deltaTime;
+
+        if (canMove)
+        {
+            currentState?.Tick(Time.deltaTime);
+            return;
+        }
     }
 
     public abstract void SetCanMove(bool value);
