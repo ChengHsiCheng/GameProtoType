@@ -19,7 +19,7 @@ public class SingleDamage : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            health.DealHealthDamage(damage);
+            health.DealHealthDamage(damage, true);
             san.DealSanDamage(sanDamage);
 
             hasDamaged = true;

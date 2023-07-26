@@ -13,7 +13,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public bool isDead => health <= 0;
     public bool isInvulnerable { get; set; }
 
-    public event Action OnTakeDamage;
+    public event Action<bool> OnTakeDamage;
     public event Action OnDie;
     public event Action OnTakeSanDamage;
     public event Action OnHpHealing;
@@ -30,7 +30,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         this.isInvulnerable = isInvunerable;
     }
 
-    public void DealHealthDamage(float damage)
+    public void DealHealthDamage(float damage, bool isInpact)
     {
         if (health <= 0)
             return;
@@ -39,7 +39,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
             return;
 
         health = Mathf.Max(health - damage, 0);
-        OnTakeDamage?.Invoke();
+        OnTakeDamage?.Invoke(isInpact);
 
         if (health <= 0)
         {

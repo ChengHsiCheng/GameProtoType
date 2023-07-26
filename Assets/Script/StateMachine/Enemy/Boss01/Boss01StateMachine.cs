@@ -28,7 +28,7 @@ public class Boss01StateMachine : StateMachine, Enemy
 
     public int nowStage = 0;
     public bool beAttack;
-    public float cooldownTime = 2;
+    public float cooldownTime = 3;
 
     public GameObject Player { get; private set; }
 
@@ -65,7 +65,7 @@ public class Boss01StateMachine : StateMachine, Enemy
     /// <summary>
     /// 切換到受擊狀態
     /// </summary>
-    private void HandleTakeDamage()
+    private void HandleTakeDamage(bool isInpact)
     {
         Animator.SetTrigger("GetHit");
 
@@ -144,7 +144,7 @@ public class Boss01StateMachine : StateMachine, Enemy
 
         int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
 
-        Animator.SetFloat("AnimationSpeed", intValue);
+        Animator?.SetFloat("AnimationSpeed", intValue);
     }
 
     public void BePetrify()
@@ -156,6 +156,12 @@ public class Boss01StateMachine : StateMachine, Enemy
 
     public override void OnGameTogglePause(bool isPause)
     {
+        if (!isPause && freezeTime != 0)
+        {
+            return;
+        }
+
+
         int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
         Animator.SetFloat("AnimationSpeed", intValue);
     }

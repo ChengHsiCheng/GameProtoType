@@ -9,7 +9,7 @@ public class Boss01Info : MonoBehaviour, Info, Health
     public float health { get; private set; }
     public bool isDead => health <= 0;
     public bool isInvulnerable { get; set; }
-    public event Action OnTakeDamage;
+    public event Action<bool> OnTakeDamage;
     public event Action OnDie;
     public event Action OnHpHealing;
 
@@ -23,7 +23,7 @@ public class Boss01Info : MonoBehaviour, Info, Health
         this.isInvulnerable = isInvunerable;
     }
 
-    public void DealHealthDamage(float damage)
+    public void DealHealthDamage(float damage, bool isInpact)
     {
         if (health <= 0)
             return;
@@ -33,7 +33,7 @@ public class Boss01Info : MonoBehaviour, Info, Health
 
         health = Mathf.Max(health - damage, 0);
 
-        OnTakeDamage?.Invoke();
+        OnTakeDamage?.Invoke(isInpact);
 
         if (health <= 0)
         {

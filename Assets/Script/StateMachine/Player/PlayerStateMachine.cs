@@ -105,6 +105,9 @@ public class PlayerStateMachine : StateMachine
 
     private void OnRoll()
     {
+        if (GameManager.isPauseGame)
+            return;
+
         if (!canAction)
             return;
 
@@ -122,11 +125,12 @@ public class PlayerStateMachine : StateMachine
     /// <summary>
     /// 切換到受擊狀態
     /// </summary>
-    private void HandleTakeDamage()
+    private void HandleTakeDamage(bool isInpact)
     {
         UpdateUI();
 
-        SwitchState(new PlayerImpactState(this));
+        if (isInpact)
+            SwitchState(new PlayerImpactState(this));
     }
 
     /// <summary>

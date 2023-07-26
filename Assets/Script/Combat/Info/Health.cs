@@ -7,7 +7,7 @@ public interface Health
 {
     float maxHealth { get; }
     float health { get; }
-    event Action OnTakeDamage;
+    event Action<bool> OnTakeDamage;
     event Action OnHpHealing;
-    void DealHealthDamage(float damage);
+    void DealHealthDamage(float damage, bool isInpact);
 }

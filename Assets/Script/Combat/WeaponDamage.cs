@@ -30,7 +30,7 @@ public class WeaponDamage : MonoBehaviour
 
         if (other.TryGetComponent<Health>(out Health health))
         {
-            health.DealHealthDamage(damage);
+            health.DealHealthDamage(damage, true);
         }
 
         if (sanDamage == 0)

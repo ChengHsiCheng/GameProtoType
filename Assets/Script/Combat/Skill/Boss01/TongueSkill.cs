@@ -53,7 +53,7 @@ public class TongueSkill : Skill
 
         if (other.TryGetComponent<Health>(out Health health))
         {
-            health.DealHealthDamage(damage);
+            health.DealHealthDamage(damage, true);
         }
 
         if (other.TryGetComponent<San>(out San san))

@@ -43,6 +43,16 @@ public static class GameManager
         {
             vfx.pause = isPauseGame;
         }
+
+        ParticleSystem[] particles = GameObject.FindObjectsOfType<ParticleSystem>();
+
+        foreach (ParticleSystem particle in particles)
+        {
+            if (isPauseGame)
+                particle.Pause();
+            else
+                particle.Play();
+        }
     }
 }
 

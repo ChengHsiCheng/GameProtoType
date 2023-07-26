@@ -10,7 +10,7 @@ public class ProjectileControls : MonoBehaviour
     private float moveSpeed = 1;
     private Vector3 projectileDir = Vector3.up;
 
-    [SerializeField] private GameObject hitVFX;
+    [SerializeField] private GameObject[] hitVFX;
 
     VisualEffect[] VFXs;
 
@@ -36,10 +36,13 @@ public class ProjectileControls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!hitVFX)
+        if (hitVFX.Length == 0)
             return;
 
-        Instantiate(hitVFX, transform.position, Quaternion.identity);
+        for (int i = 0; i < hitVFX.Length; i++)
+        {
+            Instantiate(hitVFX[i], transform.position, Quaternion.identity);
+        }
         VFXCleaner();
     }
 

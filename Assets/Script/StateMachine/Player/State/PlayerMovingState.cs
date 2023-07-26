@@ -46,15 +46,13 @@ public class PlayerMovingState : PlayerBaseState
 
         moveSpeedAdd = CalculateMoveAcceleration(movemnt, deltaTime);
 
+        Drink();
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
             return;
         }
-
-        if (isDrink)
-            moveSpeedAdd = moveSpeedAdd * 0.5f;
 
         stateMachine.Animator.SetFloat(MoveSpeedString, moveSpeedAdd, 0, deltaTime);
 
@@ -66,18 +64,39 @@ public class PlayerMovingState : PlayerBaseState
         }
 
         Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
-
-        if (drinkTimer + 1.5f <= Time.time && isDrink)
-        {
-            stateMachine.Info.Healing(20);
-            stateMachine.SetCanAction(true);
-            isDrink = false;
-        }
     }
 
     public override void Exit()
     {
         stateMachine.InputReader.HealEvent -= OnDrink;
+
+        if (stateMachine.Animator.GetBool("Drink"))
+        {
+            stateMachine.Animator.SetBool("Drink", false);
+        }
+    }
+
+    private void Drink()
+    {
+        if (!isDrink)
+        {
+            return;
+        }
+
+        if (drinkTimer + 0.5f <= Time.time)
+        {
+            stateMachine.SetCanAction(false);
+        }
+
+        moveSpeedAdd = moveSpeedAdd * 0.5f;
+
+        if (drinkTimer + 2f <= Time.time && isDrink)
+        {
+            stateMachine.Info.Healing(20);
+            stateMachine.SetCanAction(true);
+            isDrink = false;
+            stateMachine.Animator.SetBool("Drink", false);
+        }
     }
 
     public void OnDrink()
@@ -86,9 +105,8 @@ public class PlayerMovingState : PlayerBaseState
             return;
 
         drinkTimer = Time.time;
-        stateMachine.SetCanAction(false);
         isDrink = true;
-        stateMachine.Animator.SetTrigger("Drink");
+        stateMachine.Animator.SetBool("Drink", true);
     }
 
     /// <summary>

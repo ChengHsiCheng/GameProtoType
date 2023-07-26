@@ -757,6 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304c1df2e97193e4585868bfca27bf43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planeDir: 2
   <HpBar>k__BackingField: {fileID: 8036512598182053970}
   <SanBar>k__BackingField: {fileID: 1725354042426514945}
   <SanCheck>k__BackingField: {fileID: 7154203249667979889}
@@ -1142,6 +1143,7 @@ MonoBehaviour:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 1
+    <minCancelTime>k__BackingField: 0.3
     <MaxComboAttackTime>k__BackingField: 1
     <MinComboAttackTime>k__BackingField: 0.5
     <Damage>k__BackingField: 10
@@ -1149,6 +1151,7 @@ MonoBehaviour:
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 2
+    <minCancelTime>k__BackingField: 0.3
     <MaxComboAttackTime>k__BackingField: 1
     <MinComboAttackTime>k__BackingField: 0.5
     <Damage>k__BackingField: 10
@@ -1156,6 +1159,7 @@ MonoBehaviour:
   - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 0
+    <minCancelTime>k__BackingField: 0.3
     <MaxComboAttackTime>k__BackingField: 1
     <MinComboAttackTime>k__BackingField: 0.5
     <Damage>k__BackingField: 10
@@ -1164,6 +1168,7 @@ MonoBehaviour:
   - <ChargeTime>k__BackingField: 1
     <skill>k__BackingField: {fileID: 1168455174057430770, guid: 2d7ef479d55fe1247bd1ba6b8ba3feee,
       type: 3}
+    <sanCost>k__BackingField: 20
   <moveSpeed>k__BackingField: 7
   <moveSmooth>k__BackingField: 0.55
   <rollSpeed>k__BackingField: 18

@@ -14,6 +14,7 @@ public class VFXLiveTime : MonoBehaviour
 
         timer += Time.deltaTime;
 
+
         if (timer >= liveTime)
         {
             Destroy(gameObject);
