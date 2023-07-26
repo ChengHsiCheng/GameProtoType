@@ -33,18 +33,17 @@ public class PlayerAttackState : PlayerBaseState
             }
         }
 
-        if (normalizedTime >= attack.MinComboAttackTime && !canAction)
-        {
-            stateMachine.SetCanAction(true);
-        }
+        if (normalizedTime <= attack.minCancelTime)
+            return;
 
-        if (normalizedTime >= attack.minCancelTime && normalizedTime <= attack.MinComboAttackTime)
+        if (normalizedTime <= attack.MinComboAttackTime)
         {
             stateMachine.SetCanAction(false);
+            return;
         }
 
         if (!canAction)
-            return;
+            stateMachine.SetCanAction(true);
 
         if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 1f)
         {
