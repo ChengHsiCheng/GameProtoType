@@ -101,6 +101,8 @@ public abstract class Boss01BaseState : State
 
             // 根據導航代理的期望速度移動敵人
             Move(stateMachine.Agent.desiredVelocity.normalized * movementSpeed, deltaTime);
+
+            Debug.Log("move");
         }
 
         stateMachine.Agent.nextPosition = stateMachine.transform.position;

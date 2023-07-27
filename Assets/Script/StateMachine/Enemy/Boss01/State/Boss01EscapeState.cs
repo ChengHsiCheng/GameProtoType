@@ -13,7 +13,7 @@ public class Boss01EscapeState : Boss01BaseState
     private GameObject[] escapePoint;
     private Vector3 targetPos;
 
-    private float timer;
+    private bool isFace = false;
 
     public Boss01EscapeState(Boss01StateMachine stateMachine, GameObject[] escapePoint) : base(stateMachine)
     {
@@ -30,15 +30,19 @@ public class Boss01EscapeState : Boss01BaseState
 
     public override void Tick(float deltaTime)
     {
-        timer += deltaTime;
+        Vector3 pos = stateMachine.transform.position;
+        pos.y = 0;
 
-        if (GetTargetAngle(targetPos) >= 5)
+        if (GetTargetAngle(targetPos) >= 5 && !isFace)
         {
             FaceTarget();
             return;
         }
 
-        if (Vector3.Distance(stateMachine.transform.position, targetPos) <= 1 || timer >= 3)
+        if (!isFace)
+            isFace = true;
+
+        if (Vector3.Distance(pos, targetPos) <= 1)
         {
             BackTransitionState();
             return;
