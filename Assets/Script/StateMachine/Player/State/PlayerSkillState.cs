@@ -18,6 +18,9 @@ public class PlayerSkillState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.SetCanCancel(true);
+        stateMachine.SetCanAction(false);
+
         stateMachine.Animator.CrossFadeInFixedTime(SkillCastLoopHash, CrossFadeDuration);
 
         skill = stateMachine.Skills[0];
@@ -27,9 +30,9 @@ public class PlayerSkillState : PlayerBaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime >= 0.3f)
+        if (normalizedTime >= 0.5f && stateMachine.canCancel)
         {
-            stateMachine.SetCanAction(false);
+            stateMachine.SetCanCancel(false);
         }
 
         if (timer >= skill.ChargeTime && !isUseSkill)
@@ -53,6 +56,8 @@ public class PlayerSkillState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.SetCanCancel(true);
+        stateMachine.SetCanAction(true);
     }
 
 }

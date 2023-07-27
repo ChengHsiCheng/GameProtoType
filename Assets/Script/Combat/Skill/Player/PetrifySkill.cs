@@ -9,6 +9,8 @@ public class PetrifySkill : Skill
         foreach (Enemy enemy in GameManager.enemys)
         {
             enemy.BePetrify();
+
+            Debug.Log(enemy);
         }
     }
 }

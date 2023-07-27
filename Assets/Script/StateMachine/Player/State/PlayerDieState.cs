@@ -20,6 +20,7 @@ public class PlayerDieState : PlayerBaseState
         stateMachine.UIManager.SetDiedUI(true);
 
         stateMachine.SetCanAction(false);
+        stateMachine.SetCanCancel(false);
         stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeDuration);
     }
 

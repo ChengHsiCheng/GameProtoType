@@ -22,7 +22,6 @@ public class Test : MonoBehaviour
         if (other.tag == "Player")
         {
             GameManager.nowScene = 1;
-            Debug.Log(GameManager.nowScene);
 
             SceneManager.LoadScene(1);
         }

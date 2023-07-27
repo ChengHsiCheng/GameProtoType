@@ -20,7 +20,10 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
-    [field: SerializeField] public bool canAction { get; private set; }
+
+    public bool canAction { get; private set; } = true;
+    [field: SerializeField] public bool canCancel { get; private set; } = true;
+
     private bool isSanCheck;
     public float sanScalingDamage { get; private set; } = 1;
     public Transform MainCameraTransform { get; private set; }
@@ -82,6 +85,11 @@ public class PlayerStateMachine : StateMachine
         canAction = value;
     }
 
+    public void SetCanCancel(bool value)
+    {
+        canCancel = value;
+    }
+
     private void OnHeal()
     {
         if (!canAction)
@@ -108,7 +116,7 @@ public class PlayerStateMachine : StateMachine
         if (GameManager.isPauseGame)
             return;
 
-        if (!canAction)
+        if (!canAction && !canCancel)
             return;
 
         SwitchState(new PlayerRollState(this));

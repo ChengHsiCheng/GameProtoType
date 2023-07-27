@@ -15,6 +15,8 @@ public class PlayerRollState : PlayerBaseState
     {
         stateMachine.SetCanAction(false);
 
+        stateMachine.SetCanCancel(false);
+
         stateMachine.Animator.CrossFadeInFixedTime(RollHash, CrossFadeDuration);
 
         stateMachine.Info.SetInvulnerable(true);
@@ -42,5 +44,7 @@ public class PlayerRollState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.Info.SetInvulnerable(false);
+
+        stateMachine.SetCanCancel(true);
     }
 }

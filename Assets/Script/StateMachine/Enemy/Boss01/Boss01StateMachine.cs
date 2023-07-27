@@ -34,9 +34,9 @@ public class Boss01StateMachine : StateMachine, Enemy
 
     private void Start()
     {
+        GameManager.enemys.Add(this);
         Player = GameManager.player;
         Scene = GameManager.sceneController.GetComponent<Boss01SceneController>();
-        GameManager.enemys.Add(this);
 
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
@@ -144,7 +144,7 @@ public class Boss01StateMachine : StateMachine, Enemy
 
         int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
 
-        Animator?.SetFloat("AnimationSpeed", intValue);
+        Animator.SetFloat("AnimationSpeed", intValue);
     }
 
     public void BePetrify()

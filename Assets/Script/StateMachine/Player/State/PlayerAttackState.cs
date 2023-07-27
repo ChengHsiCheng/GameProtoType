@@ -14,6 +14,8 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.SetCanAction(false);
+
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
         stateMachine.Weapon.SetAttack(attack.Damage + (attack.Damage * stateMachine.sanScalingDamage));
@@ -36,11 +38,11 @@ public class PlayerAttackState : PlayerBaseState
         if (normalizedTime <= attack.minCancelTime)
             return;
 
+        if (stateMachine.canCancel)
+            stateMachine.SetCanCancel(false);
+
         if (normalizedTime <= attack.MinComboAttackTime)
-        {
-            stateMachine.SetCanAction(false);
             return;
-        }
 
         if (!canAction)
             stateMachine.SetCanAction(true);
@@ -55,6 +57,8 @@ public class PlayerAttackState : PlayerBaseState
     public override void Exit()
     {
         attack.Model.transform.position = stateMachine.transform.position;
+
+        stateMachine.SetCanCancel(true);
     }
 
     /// <summary>
