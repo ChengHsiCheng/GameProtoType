@@ -1144,24 +1144,24 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 1
     <minCancelTime>k__BackingField: 0.3
-    <MaxComboAttackTime>k__BackingField: 1
-    <MinComboAttackTime>k__BackingField: 0.5
+    <MaxComboAttackTime>k__BackingField: 0.9
+    <MinComboAttackTime>k__BackingField: 0.45
     <Damage>k__BackingField: 10
     Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 2
     <minCancelTime>k__BackingField: 0.3
-    <MaxComboAttackTime>k__BackingField: 1
-    <MinComboAttackTime>k__BackingField: 0.5
+    <MaxComboAttackTime>k__BackingField: 0.7
+    <MinComboAttackTime>k__BackingField: 0.4
     <Damage>k__BackingField: 10
     Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 0
     <minCancelTime>k__BackingField: 0.3
-    <MaxComboAttackTime>k__BackingField: 1
-    <MinComboAttackTime>k__BackingField: 0.5
+    <MaxComboAttackTime>k__BackingField: 0.9
+    <MinComboAttackTime>k__BackingField: 0.7
     <Damage>k__BackingField: 10
     Model: {fileID: 5009468972583274404}
   <Skills>k__BackingField:
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   <moveSmooth>k__BackingField: 0.55
   <rollSpeed>k__BackingField: 18
   <RotationDamping>k__BackingField: 25
-  <canAction>k__BackingField: 1
+  <canCancel>k__BackingField: 1
 --- !u!114 &8553720373103377966
 MonoBehaviour:
   m_ObjectHideFlags: 0
