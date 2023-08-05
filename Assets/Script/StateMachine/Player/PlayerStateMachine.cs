@@ -203,6 +203,8 @@ public class PlayerStateMachine : StateMachine
 
         UIManager.SetHpBar(healthPercent);
         UIManager.SetSanBar(sanPercent);
+
+        GameManager.sceneController.SetVolume(1 - sanPercent);
     }
 
     /// <summary>

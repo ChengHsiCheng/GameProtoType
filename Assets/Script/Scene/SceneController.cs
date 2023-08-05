@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
     [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private Volume volume;
 
     private void Awake()
     {
@@ -33,5 +35,13 @@ public class SceneController : MonoBehaviour
     public void SetPauseMeun(bool isPause)
     {
         PauseMenu.SetActive(isPause);
+    }
+
+    public void SetVolume(float volume)
+    {
+        if (!volume)
+            return;
+
+        this.volume.weight = volume;
     }
 }
