@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 221aa5fc1cf20c547a0f3aa2e5e813b6
+guid: 7b11123902bd03641b89d4de6a1744d2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CharacterBody01_Default01
+    second: {fileID: 2100000, guid: f2796e05edfe2f843b39c7fb1313e3c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_CharacterSword01_Default01
+    second: {fileID: 2100000, guid: f2796e05edfe2f843b39c7fb1313e3c4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -47,7 +57,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
