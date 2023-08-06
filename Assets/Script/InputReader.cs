@@ -15,6 +15,7 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public event Action SkillEvent;
     public event Action HealEvent;
     public event Action TogglePauseEvent;
+    public event Action SanCheckEvent;
 
     private void Start()
     {
@@ -78,5 +79,13 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
             return;
 
         TogglePauseEvent?.Invoke();
+    }
+
+    public void OnSanCheck(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        SanCheckEvent?.Invoke();
     }
 }

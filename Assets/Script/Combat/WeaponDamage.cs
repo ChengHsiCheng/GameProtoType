@@ -8,6 +8,7 @@ public class WeaponDamage : MonoBehaviour
     private float damage; // 傷害
     private float sanDamage;
 
+    [SerializeField] private GameObject hitVFX;
     [SerializeField] private List<GameObject> alreadyCollidedWith = new List<GameObject>(); // 已經碰撞過的碰撞器列表
 
     /// <summary>
@@ -27,6 +28,11 @@ public class WeaponDamage : MonoBehaviour
             return;
 
         alreadyCollidedWith.Add(other.gameObject);
+
+        if (hitVFX)
+        {
+            Instantiate(hitVFX, other.ClosestPoint(transform.position), Quaternion.identity);
+        }
 
         if (other.TryGetComponent<Health>(out Health health))
         {

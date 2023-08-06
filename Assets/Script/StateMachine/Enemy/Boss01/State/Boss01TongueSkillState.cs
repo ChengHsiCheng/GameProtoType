@@ -21,6 +21,8 @@ public class Boss01TongueSkillState : Boss01BaseState
         stateMachine.Animator.CrossFadeInFixedTime(TongueSkillHash, CrossFadeDuration);
 
         skill = stateMachine.Skills[1];
+
+        stateMachine.cooldownTime = skill.CooldownTime;
     }
 
     public override void Tick(float deltaTime)

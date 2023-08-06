@@ -21,6 +21,8 @@ public class Boss01FireStormSkillState : Boss01BaseState
         stateMachine.Animator.CrossFadeInFixedTime(FireStormSkillString, AnimatorDampTime);
 
         skill = stateMachine.Skills[2];
+
+        stateMachine.cooldownTime = skill.CooldownTime;
     }
 
     public override void Tick(float deltaTime)

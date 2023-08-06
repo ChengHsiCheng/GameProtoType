@@ -12,6 +12,8 @@ public class Attack
     [field: SerializeField, HeaderAttribute("最小取消動作時間(0-1)")] public float minCancelTime { get; private set; } // 連擊攻擊時間
     [field: SerializeField, HeaderAttribute("最大連擊攻擊時間(0-1)")] public float MaxComboAttackTime { get; private set; } // 連擊攻擊時間
     [field: SerializeField, HeaderAttribute("最小連擊攻擊時間(0-1)")] public float MinComboAttackTime { get; private set; } // 連擊攻擊時間
+    [field: SerializeField, HeaderAttribute("移動時間(0-1)")] public float MoveTime { get; private set; } // 移動時間
+    [field: SerializeField, HeaderAttribute("移動力量")] public float MoveForce { get; private set; } // 移動力量
     [field: SerializeField, HeaderAttribute("傷害值")] public int Damage { get; private set; } // 傷害值
 
     public GameObject Model;

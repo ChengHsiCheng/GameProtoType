@@ -33,19 +33,19 @@ public class SanCheck : MonoBehaviour
         counter += 100 * Time.deltaTime;
         pointer01.localEulerAngles = new Vector3(0, 0, ranStart + counter);
         pointer02.localEulerAngles = new Vector3(0, 0, ranStart - counter);
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+    public void OnCheck()
+    {
+        if (pointer01.eulerAngles.z > pointer02.eulerAngles.z - 20 && pointer01.eulerAngles.z < pointer02.eulerAngles.z + 20)
         {
-            if (pointer01.eulerAngles.z > pointer02.eulerAngles.z - 20 && pointer01.eulerAngles.z < pointer02.eulerAngles.z + 20)
-            {
-                Debug.Log("S");
-                SuccessEvent?.Invoke();
-            }
-            else
-            {
-                Debug.Log("F");
-                FailEvent?.Invoke();
-            }
+            Debug.Log("S");
+            SuccessEvent?.Invoke();
+        }
+        else
+        {
+            Debug.Log("F");
+            FailEvent?.Invoke();
         }
     }
 }

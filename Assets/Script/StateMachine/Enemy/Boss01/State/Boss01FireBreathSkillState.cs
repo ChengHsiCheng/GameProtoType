@@ -22,7 +22,7 @@ public class Boss01FireBreathSkillState : Boss01BaseState
 
         skill = stateMachine.Skills[0];
 
-
+        stateMachine.cooldownTime = skill.CooldownTime;
     }
 
     public override void Tick(float deltaTime)

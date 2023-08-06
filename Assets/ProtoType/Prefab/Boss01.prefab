@@ -467,32 +467,35 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 1
+    <CooldownTime>k__BackingField: 1.5
   - <AnimationName>k__BackingField: BackAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 1
+    <CooldownTime>k__BackingField: 2
   - <AnimationName>k__BackingField: ChargeAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 1
+    <CooldownTime>k__BackingField: 2
   <Skills>k__BackingField:
   - <SkillName>k__BackingField: FireBall
     <skill>k__BackingField: {fileID: 7779793749199280209, guid: e09382d57bdd27749af778f2c6289542,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 490158672}
+    <CooldownTime>k__BackingField: 2
   - <SkillName>k__BackingField: Tongue
     <skill>k__BackingField: {fileID: 4529934667268578441, guid: 89b3c0dc1e4f3a24e8e0f4b9c061ea59,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 5033923780464984940}
+    <CooldownTime>k__BackingField: 2
   - <SkillName>k__BackingField: FireStorm
     <skill>k__BackingField: {fileID: 2008181008732081653, guid: 351d052934a0cc44b82adba1236eacc7,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 6243078887803070670}
+    <CooldownTime>k__BackingField: 2
   <escapeSpeed>k__BackingField: 10
-  <movementSpeed>k__BackingField: 3
+  <movementSpeed>k__BackingField: 7
   <rotationSpeed>k__BackingField: 180
   <chargeSpeed>k__BackingField: 20
   <meleeRange>k__BackingField: 5
@@ -513,10 +516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4f7adabcb9a264397067f49e9aa32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 8795529320508668751}
   agent: {fileID: 479652512712090848}
   drag: 0.3
-  gravity: 15
 --- !u!114 &1629449738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827dbaac8bd4f1043a8b89ea2b68a62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 700
+  <maxHealth>k__BackingField: 500
 --- !u!54 &6209219265078310198
 Rigidbody:
   m_ObjectHideFlags: 0

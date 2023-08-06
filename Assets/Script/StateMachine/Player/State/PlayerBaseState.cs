@@ -9,7 +9,7 @@ public abstract class PlayerBaseState : State
 
     private Vector3 lastMovement;
 
-    protected bool canAction => stateMachine.canAction;
+    protected bool CanAction => stateMachine.canAction;
 
 
     // 在new時取得stateMachine
@@ -31,19 +31,21 @@ public abstract class PlayerBaseState : State
     /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
-        Vector3 movePos = stateMachine.transform.position += ((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+        Vector3 movePos = stateMachine.transform.position += (motion + stateMachine.ForceReceiver.Movement) * deltaTime;
 
         lastMovement = stateMachine.ForceReceiver.Movement;
-        stateMachine.Rigidbody.MovePosition(movePos);
+
+        Debug.Log(lastMovement);
+
+        stateMachine.Rigidbody.MovePosition(movePos + lastMovement);
     }
 
     protected bool MoveRayCastHit()
     {
-        RaycastHit hit;
         LayerMask layerMaskToCheck = LayerMask.GetMask("Default", "Enemy");
 
         Debug.DrawRay(stateMachine.transform.position, stateMachine.transform.forward, Color.red);
-        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out hit, 1f, layerMaskToCheck))
+        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out _, 1f, layerMaskToCheck))
         {
             return false;
         }
@@ -52,12 +54,12 @@ public abstract class PlayerBaseState : State
 
     protected void CheckInput(float normalizedTime, float outNormalizedTime)
     {
-        if (normalizedTime >= outNormalizedTime && !canAction)
+        if (normalizedTime >= outNormalizedTime && !CanAction)
         {
             stateMachine.SetCanAction(true);
         }
 
-        if (!canAction)
+        if (!CanAction)
             return;
 
         if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 1f)

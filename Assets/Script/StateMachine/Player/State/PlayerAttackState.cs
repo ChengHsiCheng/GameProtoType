@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerBaseState
 {
-    private float previousFrameTime; // 上一幀的正規化時間
-    private Attack attack; // 攻擊的資訊
+    private readonly float previousFrameTime; // 上一幀的正規化時間
+    private readonly Attack attack; // 攻擊的資訊
+    private bool isMoved;
+
 
     public PlayerAttackState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
@@ -24,6 +26,14 @@ public class PlayerAttackState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+
+        Move(deltaTime);
+
+        if (!isMoved && normalizedTime > attack.MoveTime)
+        {
+            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.MoveForce);
+            isMoved = true;
+        }
 
         if (normalizedTime >= previousFrameTime && normalizedTime < 1f)
         {
@@ -44,7 +54,7 @@ public class PlayerAttackState : PlayerBaseState
         if (normalizedTime <= attack.MinComboAttackTime)
             return;
 
-        if (!canAction)
+        if (!CanAction)
             stateMachine.SetCanAction(true);
 
         if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 1f)

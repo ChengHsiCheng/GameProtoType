@@ -1115,10 +1115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4f7adabcb9a264397067f49e9aa32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
   agent: {fileID: 0}
-  drag: 0.3
-  gravity: 0
+  drag: 0.1
 --- !u!114 &8062203635239618720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,6 +1144,8 @@ MonoBehaviour:
     <minCancelTime>k__BackingField: 0.3
     <MaxComboAttackTime>k__BackingField: 0.9
     <MinComboAttackTime>k__BackingField: 0.45
+    <MoveTime>k__BackingField: 0.24
+    <MoveForce>k__BackingField: 10
     <Damage>k__BackingField: 10
     Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack2
@@ -1154,6 +1154,8 @@ MonoBehaviour:
     <minCancelTime>k__BackingField: 0.3
     <MaxComboAttackTime>k__BackingField: 0.7
     <MinComboAttackTime>k__BackingField: 0.4
+    <MoveTime>k__BackingField: 0.15
+    <MoveForce>k__BackingField: 10
     <Damage>k__BackingField: 10
     Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack3
@@ -1162,6 +1164,8 @@ MonoBehaviour:
     <minCancelTime>k__BackingField: 0.3
     <MaxComboAttackTime>k__BackingField: 0.9
     <MinComboAttackTime>k__BackingField: 0.7
+    <MoveTime>k__BackingField: 0.22
+    <MoveForce>k__BackingField: 15
     <Damage>k__BackingField: 10
     Model: {fileID: 5009468972583274404}
   <Skills>k__BackingField:
@@ -1171,7 +1175,7 @@ MonoBehaviour:
     <sanCost>k__BackingField: 20
   <moveSpeed>k__BackingField: 7
   <moveSmooth>k__BackingField: 0.55
-  <rollSpeed>k__BackingField: 18
+  <rollSpeed>k__BackingField: 15
   <RotationDamping>k__BackingField: 25
   <canCancel>k__BackingField: 1
 --- !u!114 &8553720373103377966

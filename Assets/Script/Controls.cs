@@ -80,6 +80,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SanCheck"",
+                    ""type"": ""Button"",
+                    ""id"": ""72cb478d-a3d5-469a-965c-ced846189445"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""ESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b604179e-4293-44e9-9038-ebebc53d606a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""SanCheck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9be02315-88ab-49a3-b063-1dcaa66567eb"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""SanCheck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -289,6 +320,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_CombatLevel_Skill = m_CombatLevel.FindAction("Skill", throwIfNotFound: true);
         m_CombatLevel_Heal = m_CombatLevel.FindAction("Heal", throwIfNotFound: true);
         m_CombatLevel_ESC = m_CombatLevel.FindAction("ESC", throwIfNotFound: true);
+        m_CombatLevel_SanCheck = m_CombatLevel.FindAction("SanCheck", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -354,6 +386,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_CombatLevel_Skill;
     private readonly InputAction m_CombatLevel_Heal;
     private readonly InputAction m_CombatLevel_ESC;
+    private readonly InputAction m_CombatLevel_SanCheck;
     public struct CombatLevelActions
     {
         private @Controls m_Wrapper;
@@ -364,6 +397,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Skill => m_Wrapper.m_CombatLevel_Skill;
         public InputAction @Heal => m_Wrapper.m_CombatLevel_Heal;
         public InputAction @ESC => m_Wrapper.m_CombatLevel_ESC;
+        public InputAction @SanCheck => m_Wrapper.m_CombatLevel_SanCheck;
         public InputActionMap Get() { return m_Wrapper.m_CombatLevel; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -391,6 +425,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ESC.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
                 @ESC.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
                 @ESC.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
+                @SanCheck.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSanCheck;
+                @SanCheck.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSanCheck;
+                @SanCheck.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSanCheck;
             }
             m_Wrapper.m_CombatLevelActionsCallbackInterface = instance;
             if (instance != null)
@@ -413,6 +450,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ESC.started += instance.OnESC;
                 @ESC.performed += instance.OnESC;
                 @ESC.canceled += instance.OnESC;
+                @SanCheck.started += instance.OnSanCheck;
+                @SanCheck.performed += instance.OnSanCheck;
+                @SanCheck.canceled += instance.OnSanCheck;
             }
         }
     }
@@ -443,5 +483,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSkill(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
+        void OnSanCheck(InputAction.CallbackContext context);
     }
 }

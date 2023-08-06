@@ -55,6 +55,7 @@ public class PlayerStateMachine : StateMachine
         InputReader.RollEvent += OnRoll;
         InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
+        InputReader.SanCheckEvent += OnSanCheckCheck;
 
         SanCheck.SuccessEvent += SanCheckSuccess;
         SanCheck.FailEvent += SanCheckFail;
@@ -75,6 +76,7 @@ public class PlayerStateMachine : StateMachine
         InputReader.RollEvent -= OnRoll;
         InputReader.SkillEvent -= OnSkill;
         InputReader.HealEvent -= OnHeal;
+        InputReader.SanCheckEvent -= OnSanCheckCheck;
 
         SanCheck.SuccessEvent -= SanCheckSuccess;
         SanCheck.FailEvent -= SanCheckFail;
@@ -172,6 +174,14 @@ public class PlayerStateMachine : StateMachine
         GameManager.TogglePause(true);
     }
 
+    private void OnSanCheckCheck()
+    {
+        if (!isSanCheck)
+            return;
+
+        SanCheck.OnCheck();
+    }
+
     private void SanCheckSuccess()
     {
         isSanCheck = false;
@@ -204,7 +214,11 @@ public class PlayerStateMachine : StateMachine
         UIManager.SetHpBar(healthPercent);
         UIManager.SetSanBar(sanPercent);
 
-        GameManager.sceneController.SetVolume(1 - sanPercent);
+        if (sanPercent != 0)
+            GameManager.sceneController.SetVolume((1 - sanPercent) * 0.8f);
+        else
+            GameManager.sceneController.SetVolume(0);
+
     }
 
     /// <summary>
