@@ -39,7 +39,7 @@ public class SceneController : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        if (!volume)
+        if (!this.volume)
             return;
 
         this.volume.weight = volume;

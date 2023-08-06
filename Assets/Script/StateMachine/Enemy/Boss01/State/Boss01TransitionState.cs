@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Boss01TransitionState : Boss01BaseState
 {
     public Boss01TransitionState(Boss01StateMachine stateMachine) : base(stateMachine)
@@ -27,17 +26,17 @@ public class Boss01TransitionState : Boss01BaseState
     /// </summary>
     private void DetermineAction()
     {
-        // 是否在攻擊冷卻狀態
-        if (stateMachine.cooldownTime > 0)
-        {
-            stateMachine.SwitchState(new Boss01IdleState(stateMachine, stateMachine.cooldownTime));
-            return;
-        }
-
         if (stateMachine.Stage != stateMachine.nowStage)
         {
             stateMachine.nowStage += 1;
             stateMachine.SwitchState(new Boss01FireStormChargeState(stateMachine));
+            return;
+        }
+
+        // 是否在攻擊冷卻狀態
+        if (stateMachine.cooldownTime > 0)
+        {
+            stateMachine.SwitchState(new Boss01IdleState(stateMachine, stateMachine.cooldownTime));
             return;
         }
 

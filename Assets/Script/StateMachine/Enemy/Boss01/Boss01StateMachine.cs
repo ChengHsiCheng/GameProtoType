@@ -92,7 +92,7 @@ public class Boss01StateMachine : StateMachine, Enemy
     /// </summary>
     private void CheckStageTransition()
     {
-        if (Stage == 3)
+        if (Stage == 2)
             return;
 
         float healthPercent = Health.health / Health.maxHealth;
@@ -100,19 +100,13 @@ public class Boss01StateMachine : StateMachine, Enemy
         switch (Stage)
         {
             case 0:
-                if (healthPercent >= 0.75f)
+                if (healthPercent >= 0.66f)
                 {
                     return;
                 }
                 break;
             case 1:
-                if (healthPercent >= 0.50f)
-                {
-                    return;
-                }
-                break;
-            case 2:
-                if (healthPercent >= 0.25f)
+                if (healthPercent >= 0.33f)
                 {
                     return;
                 }
