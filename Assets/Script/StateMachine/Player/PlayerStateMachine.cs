@@ -118,7 +118,7 @@ public class PlayerStateMachine : StateMachine
         if (GameManager.isPauseGame)
             return;
 
-        if (!canAction && !canCancel)
+        if (!canAction || !canCancel)
             return;
 
         SwitchState(new PlayerRollState(this));

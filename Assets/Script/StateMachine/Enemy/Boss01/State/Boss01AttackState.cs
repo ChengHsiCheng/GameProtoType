@@ -36,6 +36,12 @@ public class Boss01AttackState : Boss01BaseState
             return;
         }
 
+        if (attack.AnimationName == "SlapAttack" && Random.Range(0, 100) < 50)
+        {
+            stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.SlapAttack));
+            return;
+        }
+
         BackTransitionState();
     }
 

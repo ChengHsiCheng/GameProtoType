@@ -30,16 +30,13 @@ public class PlayerRollState : PlayerBaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Roll");
 
-        if (normalizedTime <= 0.2)
+        if (normalizedTime <= 0.2 && stateMachine.InputReader.MovementValue != Vector2.zero)
         {
             FaceMovementDirection(faceDis, deltaTime);
         }
 
         if (normalizedTime <= 0.4)
         {
-            if (!MoveRayCastHit())
-                return;
-
             Move(stateMachine.transform.forward * stateMachine.rollSpeed, deltaTime);
         }
 

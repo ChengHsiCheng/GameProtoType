@@ -31,11 +31,14 @@ public abstract class PlayerBaseState : State
     /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
+        if (!MoveRayCastHit())
+        {
+            return;
+        }
+
         Vector3 movePos = stateMachine.transform.position += (motion + stateMachine.ForceReceiver.Movement) * deltaTime;
 
         lastMovement = stateMachine.ForceReceiver.Movement;
-
-        Debug.Log(lastMovement);
 
         stateMachine.Rigidbody.MovePosition(movePos + lastMovement);
     }
@@ -44,8 +47,8 @@ public abstract class PlayerBaseState : State
     {
         LayerMask layerMaskToCheck = LayerMask.GetMask("Default", "Enemy");
 
-        Debug.DrawRay(stateMachine.transform.position, stateMachine.transform.forward, Color.red);
-        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out _, 1f, layerMaskToCheck))
+        Debug.DrawRay(stateMachine.transform.position + Vector3.up, stateMachine.transform.forward, Color.red);
+        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 1f), stateMachine.transform.forward, out _, 1f, layerMaskToCheck))
         {
             return false;
         }

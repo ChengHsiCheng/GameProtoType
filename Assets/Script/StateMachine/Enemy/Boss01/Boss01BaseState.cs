@@ -8,7 +8,7 @@ public abstract class Boss01BaseState : State
 {
     protected enum AttackIndex
     {
-        ForwardAttack, RotateAttack, BackAttack, ChargeAttack
+        ForwardAttack, SlapAttack, RotateAttack, BackAttack, ChargeAttack
     }
 
     protected Boss01StateMachine stateMachine;

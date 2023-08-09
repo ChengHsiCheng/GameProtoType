@@ -58,11 +58,6 @@ public class PlayerMovingState : PlayerBaseState
 
         FaceMovementDirection(movemnt, deltaTime);
 
-        if (!MoveRayCastHit())
-        {
-            return;
-        }
-
         Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
     }
 

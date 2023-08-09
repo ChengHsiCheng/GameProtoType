@@ -12,6 +12,8 @@ public class WeaponHendler : MonoBehaviour
     public void EnableWeapon(int Index)
     {
         weaponLogic[Index]?.SetActive(true);
+
+        Debug.Log("ON");
     }
 
     /// <summary>
@@ -20,5 +22,7 @@ public class WeaponHendler : MonoBehaviour
     public void DisableWeapon(int Index)
     {
         weaponLogic[Index]?.SetActive(false);
+
+        Debug.Log("OFF");
     }
 }

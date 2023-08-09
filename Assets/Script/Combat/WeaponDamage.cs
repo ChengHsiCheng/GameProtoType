@@ -32,6 +32,7 @@ public class WeaponDamage : MonoBehaviour
         if (hitVFX)
         {
             Instantiate(hitVFX, other.ClosestPoint(transform.position), Quaternion.identity);
+            Debug.Log(other);
         }
 
         if (other.TryGetComponent<Health>(out Health health))

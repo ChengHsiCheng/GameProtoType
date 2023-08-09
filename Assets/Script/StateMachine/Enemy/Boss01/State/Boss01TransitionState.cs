@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,8 +47,17 @@ public class Boss01TransitionState : Boss01BaseState
             // 玩家在前方
             if (GetPlayerAngle() <= 30)
             {
-                stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
+                switch (Random.Range(0, 100))
+                {
+                    case < 50:
+                        stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
+                        break;
+                    case < 100:
+                        stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.SlapAttack));
+                        break;
+                }
                 return;
+
             }
 
             if (GetPlayerAngle() > 30)

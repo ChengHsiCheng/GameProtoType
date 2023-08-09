@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 7534961677611394137}
   - component: {fileID: 521592334977888240}
   - component: {fileID: 6078049451270060355}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: WeaponLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,6 +838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCollider: {fileID: 2080221946}
+  hitVFX: {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
   alreadyCollidedWith: []
 --- !u!1 &5169831266151652750
 GameObject:
