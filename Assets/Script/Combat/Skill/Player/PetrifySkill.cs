@@ -13,4 +13,8 @@ public class PetrifySkill : Skill
             Debug.Log(enemy);
         }
     }
+
+    public override void UseSkill(GameObject target)
+    {
+    }
 }

@@ -36,6 +36,7 @@ public class ProjectileControls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         if (hitVFX.Length == 0)
             return;
 

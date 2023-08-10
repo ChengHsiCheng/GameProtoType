@@ -22,9 +22,10 @@ public class Boss01FireStormChargeState : Boss01BaseState
 
     public override void Tick(float deltaTime)
     {
-        if (stateMachine.beAttack)
+        if (stateMachine.beAttack && GetPlayerAngle() <= 30)
         {
             stateMachine.SwitchState(new Boss01StiffState(stateMachine));
+            return;
         }
 
         if (!stateMachine.canMove)

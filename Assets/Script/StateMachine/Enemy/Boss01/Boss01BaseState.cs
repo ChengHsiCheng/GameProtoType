@@ -37,7 +37,7 @@ public abstract class Boss01BaseState : State
     /// <summary>
     /// 面對玩家
     /// </summary>
-    protected void FacePlayer()
+    protected void FacePlayer(float rotationSpeed)
     {
         if (stateMachine.Player == null)
             return;
@@ -47,8 +47,7 @@ public abstract class Boss01BaseState : State
         Vector3 direction = playerPosition - stateMachine.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
 
-        stateMachine.transform.rotation = Quaternion.RotateTowards(stateMachine.transform.rotation, targetRotation, stateMachine.rotationSpeed * Time.deltaTime);
-
+        stateMachine.transform.rotation = Quaternion.RotateTowards(stateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
     /// <summary>

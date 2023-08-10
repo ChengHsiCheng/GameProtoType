@@ -49,7 +49,7 @@ public class Boss01RotateState : Boss01BaseState
 
         stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
 
-        FacePlayer();
+        FacePlayer(stateMachine.rotationSpeed);
     }
 
     public override void Exit()

@@ -83,5 +83,8 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         maxHealth = 1;
         health = 1;
     }
+    void OnDrawGizmos()
+    {
 
+    }
 }

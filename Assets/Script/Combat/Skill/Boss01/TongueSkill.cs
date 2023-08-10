@@ -21,6 +21,10 @@ public class TongueSkill : Skill
         targetPos = RayCastHit() + transform.forward;
     }
 
+    public override void UseSkill(GameObject target)
+    {
+    }
+
     private void Update()
     {
         if (GameManager.isPauseGame)

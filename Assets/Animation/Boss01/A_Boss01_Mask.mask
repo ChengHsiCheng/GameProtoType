@@ -8,4 +8,64 @@ AvatarMask:
   m_PrefabAsset: {fileID: 0}
   m_Name: A_Boss01_Mask
   m_Mask: 00000000000000000000000001000000010000000100000001000000010000000100000000000000000000000000000000000000
-  m_Elements: []
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Boss_Armature
+    m_Weight: 0
+  - m_Path: Boss_Armature/Root
+    m_Weight: 0
+  - m_Path: Boss_Armature/Root/Hips
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Hips/Hips_end
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.L
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.L/Calf.L
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.L/Calf.L/Toe.L
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.L/Calf.L/Toe.L/Toe.L_end
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.R
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.R/Calf.R
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.R/Calf.R/Toe.R
+    m_Weight: 1
+  - m_Path: Boss_Armature/Root/Thigh.R/Calf.R/Toe.R/Toe.R_end
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01
+    m_Weight: 0
+  - m_Path: Boss_Armature/Spine.01/Bicep.L
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.L/Foream.L
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.L/Foream.L/Hand.L
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.L/Foream.L/Hand.L/Hand.L_end
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.R
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.R/Foream.R
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.R/Foream.R/Hand.R
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Bicep.R/Foream.R/Hand.R/Hand.R_end
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Spine.02
+    m_Weight: 0
+  - m_Path: Boss_Armature/Spine.01/Spine.02/Mouth.down
+    m_Weight: 0
+  - m_Path: Boss_Armature/Spine.01/Spine.02/Mouth.down/Mouth.down_end
+    m_Weight: 0
+  - m_Path: Boss_Armature/Spine.01/Spine.02/Mouth.top
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Spine.02/Mouth.top/Mouth.top_end
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Throat
+    m_Weight: 1
+  - m_Path: Boss_Armature/Spine.01/Throat/Throat_end
+    m_Weight: 1
+  - m_Path: MS_Boss01_Default01
+    m_Weight: 0

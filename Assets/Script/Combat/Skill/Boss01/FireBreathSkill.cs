@@ -9,6 +9,7 @@ public class FireBreathSkill : Skill
     [SerializeField] private GameObject warningArea;
 
     [SerializeField] private float fireBallSpeed;
+    [SerializeField] private float radius;
 
     private float timer;
     private float count;
@@ -17,6 +18,10 @@ public class FireBreathSkill : Skill
     {
         ProjectileControls iFireBall = Instantiate(fireBall, transform.position, transform.rotation);
         iFireBall.SetValue(3, fireBallSpeed, Vector3.up);
+    }
+
+    public override void UseSkill(GameObject target)
+    {
     }
 
     private void Update()
@@ -52,11 +57,13 @@ public class FireBreathSkill : Skill
 
     private void ShotFrieBall()
     {
-        float ranX = Random.Range(-20f, 20f);
-        float ranZ = Random.Range(-20f, 20f);
+        // 圓形隨機範圍
+        Vector2 randomPoint = Random.insideUnitCircle * radius;
+        Vector3 spawnPosition = new Vector3(randomPoint.x, 0f, randomPoint.y) + transform.position;
+        spawnPosition.y = 20;
 
-        ProjectileControls iFireBall = Instantiate(fireBall, new Vector3(ranX, 20, ranZ), Quaternion.identity);
-        Instantiate(warningArea, new Vector3(ranX, 0.1f, ranZ), warningArea.transform.rotation);
+        ProjectileControls iFireBall = Instantiate(fireBall, spawnPosition, Quaternion.identity);
+        Instantiate(warningArea, spawnPosition, warningArea.transform.rotation);
         iFireBall.SetValue(5, fireBallSpeed, Vector3.down);
     }
 

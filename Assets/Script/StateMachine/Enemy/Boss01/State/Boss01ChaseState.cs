@@ -27,7 +27,7 @@ public class Boss01ChaseState : Boss01BaseState
             return;
         }
 
-        FacePlayer();
+        FacePlayer(stateMachine.rotationSpeed);
 
         Vector3 playerPos = stateMachine.Player.transform.position;
 

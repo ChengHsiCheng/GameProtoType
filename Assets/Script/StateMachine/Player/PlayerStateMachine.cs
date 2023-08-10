@@ -118,7 +118,7 @@ public class PlayerStateMachine : StateMachine
         if (GameManager.isPauseGame)
             return;
 
-        if (!canAction || !canCancel)
+        if (!canCancel)
             return;
 
         SwitchState(new PlayerRollState(this));
@@ -236,5 +236,12 @@ public class PlayerStateMachine : StateMachine
     {
         int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
         Animator.SetFloat("AnimationSpeed", intValue);
+    }
+
+    // 在場景中以紅色繪製出敵人的追擊範圍
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 15);
     }
 }

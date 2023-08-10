@@ -8,8 +8,12 @@ public class FireStormSkill : Skill
 
     public override void UseSkill()
     {
+    }
+
+    public override void UseSkill(GameObject target)
+    {
         TrackProjectileControls iFireStorm = Instantiate(fireStorm, transform.position, transform.rotation);
-        iFireStorm.SetValue(3, 10, GameManager.player);
+        iFireStorm.SetValue(3, 10, target);
 
         Destroy(gameObject);
     }

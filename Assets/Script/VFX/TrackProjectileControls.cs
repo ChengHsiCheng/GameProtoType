@@ -19,8 +19,6 @@ public class TrackProjectileControls : MonoBehaviour
     private void Start()
     {
         VFXs = GetComponentsInChildren<VisualEffect>();
-
-        projectileTarget = GameManager.player;
     }
 
     private void Update()
@@ -33,9 +31,9 @@ public class TrackProjectileControls : MonoBehaviour
         timer += Time.deltaTime;
 
         projectileDir = projectileTarget.transform.position - transform.position;
-        projectileDir.y = 0;
 
         transform.position += projectileDir * moveSpeed * Time.deltaTime;
+        transform.rotation = projectileTarget.transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)

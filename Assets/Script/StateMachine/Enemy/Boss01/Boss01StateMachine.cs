@@ -119,8 +119,18 @@ public class Boss01StateMachine : StateMachine, Enemy
     // 在場景中以紅色繪製出敵人的追擊範圍
     private void OnDrawGizmosSelected()
     {
+        // 計算角色面向往右 15 度的向量
+        Quaternion rotation = Quaternion.Euler(0, 30, 0);
+        Quaternion rotation02 = Quaternion.Euler(0, -30, 0);
+        Vector3 direction = rotation * transform.forward * 5;
+        Vector3 direction02 = rotation02 * transform.forward * 5;
+
+        // 設定 Gizmos 顏色
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, meleeRange);
+
+        // 繪製線段，起點為角色位置，終點為角色位置 + 計算出的方向向量
+        Gizmos.DrawLine(transform.position, transform.position + direction);
+        Gizmos.DrawLine(transform.position, transform.position + direction02);
     }
 
     public override void SetCanMove(bool value)
