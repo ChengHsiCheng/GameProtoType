@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class WeaponHendler : MonoBehaviour
 {
     [SerializeField] private GameObject[] weaponLogic;
@@ -9,7 +10,7 @@ public class WeaponHendler : MonoBehaviour
     /// <summary>
     /// 開啟武器碰撞
     /// </summary>
-    public void EnableWeapon(int Index)
+    protected void EnableWeapon(int Index)
     {
         weaponLogic[Index]?.SetActive(true);
 
@@ -19,7 +20,7 @@ public class WeaponHendler : MonoBehaviour
     /// <summary>
     /// 關閉武器碰撞
     /// </summary>
-    public void DisableWeapon(int Index)
+    private void DisableWeapon(int Index)
     {
         weaponLogic[Index]?.SetActive(false);
 

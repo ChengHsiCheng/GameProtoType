@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public abstract class Boss01BaseState : State
 {
     protected enum AttackIndex
@@ -34,7 +32,7 @@ public abstract class Boss01BaseState : State
     {
         lastMovement = stateMachine.ForceReceiver.Movement;
 
-        stateMachine.Controller.Move(motion * deltaTime + stateMachine.ForceReceiver.Movement);
+        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
     }
 
     /// <summary>

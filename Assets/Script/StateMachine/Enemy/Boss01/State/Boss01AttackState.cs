@@ -8,6 +8,7 @@ public class Boss01AttackState : Boss01BaseState
     private float previousFrameTime; // 上一幀的正規化時間
     private EnemyAttack attack; // 攻擊的資訊
     private WeaponDamage weapon;
+    private bool isMoved;
 
     public Boss01AttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
@@ -25,6 +26,10 @@ public class Boss01AttackState : Boss01BaseState
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+
+        Move(deltaTime);
+
+        AttackMove(normalizedTime);
 
         if (attack.AnimationName == "ChargeAttack")
         {
@@ -57,6 +62,44 @@ public class Boss01AttackState : Boss01BaseState
 
         // 停止導航代理的運動
         stateMachine.Agent.velocity = Vector3.zero;
+    }
+
+    private void AttackMove(float normalizedTime)
+    {
+        if (attack.AnimationName == "SlapAttack")
+        {
+            SetSlapAttackMove(normalizedTime);
+            return;
+        }
+
+        if (!isMoved && normalizedTime > attack.MoveTime)
+        {
+            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.MoveForce);
+            isMoved = true;
+        }
+    }
+
+    private void SetSlapAttackMove(float normalizedTime)
+    {
+        UnityEngine.Debug.Log("AA");
+        if (normalizedTime > 0.76f)
+        {
+            if (isMoved)
+            {
+                stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.MoveForce);
+                isMoved = false;
+            }
+            return;
+        }
+
+        if (normalizedTime > 0.53f)
+        {
+            if (!isMoved)
+            {
+                stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.MoveForce);
+                isMoved = true;
+            }
+        }
     }
 
     protected void ChargeToTarget(float deltaTime)
