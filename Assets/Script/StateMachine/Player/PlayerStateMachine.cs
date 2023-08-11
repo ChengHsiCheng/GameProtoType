@@ -53,7 +53,7 @@ public class PlayerStateMachine : StateMachine
 
         InputReader.TogglePauseEvent += TogglePause;
         InputReader.RollEvent += OnRoll;
-        InputReader.SkillEvent += OnSkill;
+        // InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
         InputReader.SanCheckEvent += OnSanCheckCheck;
 
@@ -74,7 +74,7 @@ public class PlayerStateMachine : StateMachine
 
         InputReader.TogglePauseEvent -= TogglePause;
         InputReader.RollEvent -= OnRoll;
-        InputReader.SkillEvent -= OnSkill;
+        // InputReader.SkillEvent -= OnSkill;
         InputReader.HealEvent -= OnHeal;
         InputReader.SanCheckEvent -= OnSanCheckCheck;
 

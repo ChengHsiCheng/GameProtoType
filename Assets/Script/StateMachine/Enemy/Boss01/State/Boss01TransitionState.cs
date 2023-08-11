@@ -27,9 +27,6 @@ public class Boss01TransitionState : Boss01BaseState
     /// </summary>
     private void DetermineAction()
     {
-        stateMachine.SwitchState(new Boss01FireStormChargeState(stateMachine));
-        return;
-
         if (stateMachine.Stage != stateMachine.nowStage)
         {
             stateMachine.nowStage += 1;

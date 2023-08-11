@@ -63,6 +63,8 @@ public class FireBreathSkill : Skill
         spawnPosition.y = 20;
 
         ProjectileControls iFireBall = Instantiate(fireBall, spawnPosition, Quaternion.identity);
+
+        spawnPosition.y = 0;
         Instantiate(warningArea, spawnPosition, warningArea.transform.rotation);
         iFireBall.SetValue(5, fireBallSpeed, Vector3.down);
     }

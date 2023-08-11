@@ -78,9 +78,19 @@ public class PlayerMovingState : PlayerBaseState
             return;
         }
 
-        if (drinkTimer + 0.5f <= Time.time)
+        if (stateMachine.canAction)
         {
             stateMachine.SetCanAction(false);
+        }
+
+        if (drinkTimer + 0.5f >= Time.time && !stateMachine.canCancel)
+        {
+            stateMachine.SetCanCancel(true);
+        }
+
+        if (drinkTimer + 0.5f <= Time.time && stateMachine.canCancel)
+        {
+            stateMachine.SetCanCancel(false);
         }
 
         moveSpeedAdd = moveSpeedAdd * 0.5f;
@@ -89,6 +99,7 @@ public class PlayerMovingState : PlayerBaseState
         {
             stateMachine.Info.Healing(20);
             stateMachine.SetCanAction(true);
+            stateMachine.SetCanCancel(true);
             isDrink = false;
             stateMachine.Animator.SetBool("Drink", false);
         }

@@ -12,6 +12,7 @@ public abstract class Boss01BaseState : State
     }
 
     protected Boss01StateMachine stateMachine;
+    private Vector3 lastMovement;
 
     public Boss01BaseState(Boss01StateMachine stateMachine)
     {
@@ -31,7 +32,9 @@ public abstract class Boss01BaseState : State
     /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
-        stateMachine.Controller.Move(motion * deltaTime); //  + stateMachine.ForceReceiver.Movement
+        lastMovement = stateMachine.ForceReceiver.Movement;
+
+        stateMachine.Controller.Move(motion * deltaTime + stateMachine.ForceReceiver.Movement);
     }
 
     /// <summary>

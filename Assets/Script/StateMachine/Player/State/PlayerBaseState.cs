@@ -40,7 +40,7 @@ public abstract class PlayerBaseState : State
 
         lastMovement = stateMachine.ForceReceiver.Movement;
 
-        stateMachine.Rigidbody.MovePosition(movePos + lastMovement);
+        stateMachine.Rigidbody.MovePosition((movePos + lastMovement) * deltaTime);
     }
 
     protected bool MoveRayCastHit()
