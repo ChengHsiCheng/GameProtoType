@@ -38,9 +38,7 @@ public abstract class PlayerBaseState : State
 
         Vector3 movePos = stateMachine.transform.position += (motion + stateMachine.ForceReceiver.Movement) * deltaTime;
 
-        lastMovement = stateMachine.ForceReceiver.Movement;
-
-        stateMachine.Rigidbody.MovePosition((movePos + lastMovement) * deltaTime);
+        stateMachine.Rigidbody.MovePosition(movePos);
     }
 
     protected bool MoveRayCastHit()

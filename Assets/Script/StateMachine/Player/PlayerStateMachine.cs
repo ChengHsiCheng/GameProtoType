@@ -53,7 +53,7 @@ public class PlayerStateMachine : StateMachine
 
         InputReader.TogglePauseEvent += TogglePause;
         InputReader.RollEvent += OnRoll;
-        // InputReader.SkillEvent += OnSkill;
+        InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
         InputReader.SanCheckEvent += OnSanCheckCheck;
 
@@ -74,7 +74,7 @@ public class PlayerStateMachine : StateMachine
 
         InputReader.TogglePauseEvent -= TogglePause;
         InputReader.RollEvent -= OnRoll;
-        // InputReader.SkillEvent -= OnSkill;
+        InputReader.SkillEvent -= OnSkill;
         InputReader.HealEvent -= OnHeal;
         InputReader.SanCheckEvent -= OnSanCheckCheck;
 
@@ -108,6 +108,9 @@ public class PlayerStateMachine : StateMachine
     private void OnSkill()
     {
         if (!canAction)
+            return;
+
+        if (Info.san == 0)
             return;
 
         SwitchState(new PlayerSkillState(this));
@@ -217,7 +220,7 @@ public class PlayerStateMachine : StateMachine
         if (sanPercent != 0)
             GameManager.sceneController.SetVolume((1 - sanPercent) * 0.8f);
         else
-            GameManager.sceneController.SetVolume(0);
+            GameManager.sceneController.SetVolume(1);
 
     }
 

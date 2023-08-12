@@ -29,7 +29,7 @@ public class Boss01TongueSkillState : Boss01BaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime > 0.5f && !isUesSkill)
+        if (normalizedTime > 0.39f && !isUesSkill)
         {
             GameObject.Instantiate(skill.skill, skill.spawnPoint.position, stateMachine.transform.rotation).UseSkill();
 

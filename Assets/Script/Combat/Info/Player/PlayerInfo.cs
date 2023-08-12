@@ -45,9 +45,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         {
             OnDie?.Invoke();
         }
-
-        Debug.Log("Hp=" + " " + health);
-
     }
 
     public void Healing(float value)

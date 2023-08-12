@@ -39,7 +39,5 @@ public class Boss01Info : MonoBehaviour, Info, Health
         {
             OnDie?.Invoke();
         }
-
-        Debug.Log(health);
     }
 }

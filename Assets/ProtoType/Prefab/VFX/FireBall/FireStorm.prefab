@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1139565163769376883}
   - component: {fileID: 1139565163769376882}
   - component: {fileID: 2059639421128820190}
-  - component: {fileID: 7854087229056628517}
+  - component: {fileID: 1836973479}
   m_Layer: 0
   m_Name: FireStorm
   m_TagString: Untagged
@@ -60,22 +60,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b347abc912a113a4f83fa1f9aca4a381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  sanDamage: 0
-  damageTime: 3
---- !u!65 &7854087229056628517
-BoxCollider:
+  trigger: {fileID: 1836973479}
+  damage: 1
+  sanDamage: 1
+--- !u!114 &1836973479
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139565163769376881}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3, y: 10, z: 3}
-  m_Center: {x: 0, y: 5, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb2710b8f8a159429f3da899ae0f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsInRadius>k__BackingField: 0
+  Radius: 10
+  viewAngleStep: 20
+  angle: 45
+  startAngle: 0
 --- !u!1001 &7137830799128767334
 PrefabInstance:
   m_ObjectHideFlags: 0

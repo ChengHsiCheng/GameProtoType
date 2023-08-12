@@ -35,6 +35,16 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public void OnMove(InputAction.CallbackContext context)
     {
         MovementValue = context.ReadValue<Vector2>();
+
+        if (context.control.device is Keyboard)
+        {
+            GameManager.controlMethod = ControlMethod.Keyboard;
+        }
+
+        if (context.control.device is Gamepad)
+        {
+            GameManager.controlMethod = ControlMethod.Gamepad;
+        }
     }
 
     public void OnRoll(InputAction.CallbackContext context)

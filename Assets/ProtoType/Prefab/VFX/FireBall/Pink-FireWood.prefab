@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 7539522403395165279}
   - component: {fileID: 1537371253302441760}
   - component: {fileID: 8699431766442527871}
+  - component: {fileID: -3667180039213674275}
   - component: {fileID: 5325363789135663285}
   m_Layer: 11
   m_Name: Pink-FireWood
@@ -176,9 +177,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b347abc912a113a4f83fa1f9aca4a381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0.1
-  sanDamage: 0.1
-  damageTime: 3
+  trigger: {fileID: -3667180039213674275}
+  damage: 0.25
+  sanDamage: 0.25
+--- !u!114 &-3667180039213674275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539522403395165278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3334b7bc8c537c644ac4ec0088c922f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsInRadius>k__BackingField: 0
 --- !u!135 &5325363789135663285
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class WeaponHendler : MonoBehaviour
 {
     [SerializeField] private GameObject[] weaponLogic;
+
+    public event Action MoveEvent;
 
     /// <summary>
     /// 開啟武器碰撞
@@ -25,5 +28,10 @@ public class WeaponHendler : MonoBehaviour
         weaponLogic[Index]?.SetActive(false);
 
         Debug.Log("OFF");
+    }
+
+    protected void AttackMove()
+    {
+        MoveEvent?.Invoke();
     }
 }

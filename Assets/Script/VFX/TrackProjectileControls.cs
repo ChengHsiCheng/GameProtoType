@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 public class TrackProjectileControls : MonoBehaviour
 {
 
-    private float liveTime = 3;
+    private float liveTime = 100;
     private float timer;
     private float moveSpeed = 10;
     private GameObject projectileTarget;

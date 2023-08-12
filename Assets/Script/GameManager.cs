@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 
+public enum ControlMethod
+{
+    Keyboard, Gamepad
+}
+
 public static class GameManager
 {
     public static GameObject player;
     public static SceneController sceneController; // 場景控制器
     public static List<Enemy> enemys = new List<Enemy>();
+    public static ControlMethod controlMethod;
 
     public static int nowScene;
 

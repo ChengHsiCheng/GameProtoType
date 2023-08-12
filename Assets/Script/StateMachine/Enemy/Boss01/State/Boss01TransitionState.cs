@@ -57,7 +57,6 @@ public class Boss01TransitionState : Boss01BaseState
                         break;
                 }
                 return;
-
             }
 
             if (GetPlayerAngle() > 30)

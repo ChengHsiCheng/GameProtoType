@@ -5,10 +5,9 @@ using UnityEngine;
 public abstract class StateMachine : MonoBehaviour
 {
     protected State currentState { get; private set; } // 目前的State
-    [SerializeField] public bool canMove { get; protected set; } = true;
+    [field: SerializeField] public bool canMove { get; protected set; } = true;
 
-    protected float freezeTime;
-    private float timer;
+    [SerializeField] protected float freezeTime;
 
     /// <summary>
     /// 切換State
@@ -20,7 +19,7 @@ public abstract class StateMachine : MonoBehaviour
         currentState = newState;
         currentState?.Enter();
 
-        Debug.Log(newState);
+        //  Debug.Log(newState);
     }
 
     void Update()
@@ -28,14 +27,11 @@ public abstract class StateMachine : MonoBehaviour
         if (GameManager.isPauseGame)
             return;
 
-        if (timer >= freezeTime && freezeTime != 0)
+        if (Time.time >= freezeTime && !canMove)
         {
             SetCanMove(true);
-            timer = 0;
             return;
         }
-
-        timer += Time.deltaTime;
 
         if (canMove)
         {

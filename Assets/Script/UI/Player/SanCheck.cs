@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SanCheck : MonoBehaviour
 {
     public RectTransform pointer01;
     public RectTransform pointer02;
+    public Text text;
 
     private float counter;
     int ranStart;
@@ -20,6 +22,16 @@ public class SanCheck : MonoBehaviour
         counter = 0;
         pointer01.localEulerAngles = new Vector3(0, 0, ranStart);
         pointer02.localEulerAngles = new Vector3(0, 0, ranStart);
+
+        if (GameManager.controlMethod == ControlMethod.Keyboard)
+        {
+            text.text = "Press Space !!";
+        }
+
+        if (GameManager.controlMethod == ControlMethod.Gamepad)
+        {
+            text.text = "Press B !!";
+        }
     }
 
     void Update()

@@ -13,11 +13,13 @@ public class Boss01StateMachine : StateMachine, Enemy
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public BarController Bar { get; private set; }
     [field: SerializeField] public Collider Collider { get; private set; }
+    [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
     [field: SerializeField] public WeaponDamage[] Weapon { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
     public Boss01SceneController Scene { get; private set; }
 
+    [field: SerializeField] public float MoveForce { get; private set; }
     [field: SerializeField] public float escapeSpeed { get; private set; }
     [field: SerializeField] public float movementSpeed { get; private set; }
     [field: SerializeField] public float rotationSpeed { get; private set; }
@@ -51,6 +53,8 @@ public class Boss01StateMachine : StateMachine, Enemy
     {
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnDie += HandleDie;
+
+        WeaponHendler.MoveEvent += OnAttackMove;
     }
 
     /// <summary>
@@ -60,6 +64,18 @@ public class Boss01StateMachine : StateMachine, Enemy
     {
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnDie -= HandleDie;
+
+        WeaponHendler.MoveEvent -= OnAttackMove;
+    }
+
+    private void OnAttackMove()
+    {
+        ForceReceiver.AddForce(transform.forward * MoveForce);
+    }
+
+    public void SetMoveForce(float value)
+    {
+        MoveForce = value;
     }
 
     /// <summary>
@@ -70,13 +86,15 @@ public class Boss01StateMachine : StateMachine, Enemy
         Animator.SetTrigger("GetHit");
 
         float healthPercent = Health.health / Health.maxHealth;
-        Debug.Log(healthPercent);
 
         Bar.SetBar(healthPercent);
 
         CheckStageTransition();
 
-        beAttack = true;
+        if (GetPlayerAngle() <= 30)
+        {
+            beAttack = true;
+        }
     }
 
     /// <summary>
@@ -138,13 +156,12 @@ public class Boss01StateMachine : StateMachine, Enemy
         SetCanMove(value, 0);
 
         Material.material.SetFloat("_Petrifaction", 1);
-
     }
 
     public override void SetCanMove(bool canMove, float freezeTime)
     {
         this.canMove = canMove;
-        this.freezeTime = freezeTime;
+        this.freezeTime = Time.time + freezeTime;
 
         int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
 
@@ -168,5 +185,15 @@ public class Boss01StateMachine : StateMachine, Enemy
 
         int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
         Animator.SetFloat("AnimationSpeed", intValue);
+    }
+
+    /// <summary>
+    /// 取得自身面向與玩家的角度
+    /// </summary>
+    public float GetPlayerAngle()
+    {
+        Vector3 direction = Player.transform.position - transform.position;
+        float angle = Vector3.Angle(transform.forward, direction);
+        return angle;
     }
 }
