@@ -10,6 +10,8 @@ public class Boss01ChaseState : Boss01BaseState
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
 
+    private bool isFace;
+
     public Boss01ChaseState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -28,6 +30,15 @@ public class Boss01ChaseState : Boss01BaseState
         }
 
         FacePlayer(stateMachine.rotationSpeed);
+
+        if (!isFace)
+        {
+            if (GetPlayerAngle() < 15)
+            {
+                isFace = true;
+            }
+            return;
+        }
 
         Vector3 playerPos = stateMachine.Player.transform.position;
 
