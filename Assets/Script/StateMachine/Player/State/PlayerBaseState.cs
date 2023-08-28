@@ -75,4 +75,36 @@ public abstract class PlayerBaseState : State
             return;
         }
     }
+
+
+    /// <summary>
+    /// 面向移動方向
+    /// </summary>
+    protected void FaceMovementDirection(Vector3 movemnt, float deltaTime)
+    {
+        // 使用插值的方式將角色的旋轉逐漸調整為面向移動方向
+        stateMachine.transform.rotation = Quaternion.Lerp(
+            stateMachine.transform.rotation,
+            Quaternion.LookRotation(movemnt),
+            deltaTime * stateMachine.RotationDamping);
+    }
+
+    /// <summary>
+    /// 計算玩家移動向量
+    /// </summary>
+    protected Vector3 CalculateMovement()
+    {
+        Vector3 forward = stateMachine.MainCameraTransform.forward;
+        Vector3 right = stateMachine.MainCameraTransform.right;
+
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        // 根據玩家輸入的移動值和相機的前方與右方向量計算最終的移動向量
+        return forward * stateMachine.InputReader.MovementValue.y +
+            right * stateMachine.InputReader.MovementValue.x;
+    }
 }

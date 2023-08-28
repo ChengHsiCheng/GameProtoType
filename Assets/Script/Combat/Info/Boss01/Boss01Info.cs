@@ -16,6 +16,8 @@ public class Boss01Info : MonoBehaviour, Info, Health
     private void Start()
     {
         health = maxHealth;
+
+        OnHpHealing?.Invoke();
     }
 
     public void SetInvulnerable(bool isInvunerable)

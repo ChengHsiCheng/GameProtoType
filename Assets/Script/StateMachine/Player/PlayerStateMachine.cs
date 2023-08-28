@@ -97,12 +97,7 @@ public class PlayerStateMachine : StateMachine
         if (!canAction)
             return;
 
-        if (currentState is PlayerMovingState)
-            return;
-
-        PlayerMovingState movingState = new PlayerMovingState(this);
-        SwitchState(movingState);
-        movingState.OnDrink();
+        SwitchState(new PlayerHealState(this));
     }
 
     private void OnSkill()

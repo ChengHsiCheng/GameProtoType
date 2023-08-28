@@ -15,9 +15,6 @@ public class PlayerMovingState : PlayerBaseState
     private float _moveSmooth;
     private float moveSpeedAdd;
 
-    private float drinkTimer;
-    private bool isDrink;
-
     public PlayerMovingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -25,8 +22,6 @@ public class PlayerMovingState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.SetCanAction(true);
-
-        stateMachine.InputReader.HealEvent += OnDrink;
 
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
 
@@ -46,8 +41,6 @@ public class PlayerMovingState : PlayerBaseState
 
         moveSpeedAdd = CalculateMoveAcceleration(movemnt, deltaTime);
 
-        Drink();
-
         if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {
             stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
@@ -63,87 +56,7 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void Exit()
     {
-        stateMachine.InputReader.HealEvent -= OnDrink;
 
-        if (stateMachine.Animator.GetBool("Drink"))
-        {
-            stateMachine.Animator.SetBool("Drink", false);
-        }
-    }
-
-    private void Drink()
-    {
-        if (!isDrink)
-        {
-            return;
-        }
-
-        if (stateMachine.canAction)
-        {
-            stateMachine.SetCanAction(false);
-        }
-
-        if (drinkTimer + 0.5f >= Time.time && !stateMachine.canCancel)
-        {
-            stateMachine.SetCanCancel(true);
-        }
-
-        if (drinkTimer + 0.5f <= Time.time && stateMachine.canCancel)
-        {
-            stateMachine.SetCanCancel(false);
-        }
-
-        moveSpeedAdd = moveSpeedAdd * 0.5f;
-
-        if (drinkTimer + 2f <= Time.time && isDrink)
-        {
-            stateMachine.Info.Healing(20);
-            stateMachine.SetCanAction(true);
-            stateMachine.SetCanCancel(true);
-            isDrink = false;
-            stateMachine.Animator.SetBool("Drink", false);
-        }
-    }
-
-    public void OnDrink()
-    {
-        if (!stateMachine.canAction)
-            return;
-
-        drinkTimer = Time.time;
-        isDrink = true;
-        stateMachine.Animator.SetBool("Drink", true);
-    }
-
-    /// <summary>
-    /// 面向移動方向
-    /// </summary>
-    private void FaceMovementDirection(Vector3 movemnt, float deltaTime)
-    {
-        // 使用插值的方式將角色的旋轉逐漸調整為面向移動方向
-        stateMachine.transform.rotation = Quaternion.Lerp(
-            stateMachine.transform.rotation,
-            Quaternion.LookRotation(movemnt),
-            deltaTime * stateMachine.RotationDamping);
-    }
-
-    /// <summary>
-    /// 計算玩家移動向量
-    /// </summary>
-    private Vector3 CalculateMovement()
-    {
-        Vector3 forward = stateMachine.MainCameraTransform.forward;
-        Vector3 right = stateMachine.MainCameraTransform.right;
-
-        forward.y = 0;
-        right.y = 0;
-
-        forward.Normalize();
-        right.Normalize();
-
-        // 根據玩家輸入的移動值和相機的前方與右方向量計算最終的移動向量
-        return forward * stateMachine.InputReader.MovementValue.y +
-            right * stateMachine.InputReader.MovementValue.x;
     }
 
     /// <summary>

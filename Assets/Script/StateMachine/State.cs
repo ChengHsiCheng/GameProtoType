@@ -43,4 +43,17 @@ public abstract class State
         }
     }
 
+    /// <summary>
+    /// 計算目前攻擊動畫進度(0-1)
+    /// </summary>
+    protected bool GetAnimatorState(Animator animator, string tag)
+    {
+        AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (currentInfo.IsTag(tag))
+            return true;
+
+        return false;
+    }
+
 }

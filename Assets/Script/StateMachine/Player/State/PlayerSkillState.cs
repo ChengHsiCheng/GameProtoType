@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerSkillState : PlayerBaseState
 {
-    private readonly int SkillCastLoopHash = Animator.StringToHash("CastLoop");
-    private readonly int SkillCastHash = Animator.StringToHash("Cast");
-    private const float CrossFadeDuration = 0.1f;
-    PlayerSkill skill;
+    private readonly int MoveSpeedString = Animator.StringToHash("MoveSpeed");
+    private readonly int MovingBlendTreeHash = Animator.StringToHash("MovingBlendTree");
 
+    private const float AnimatorDampTime = 0.1f;
+    private const float CrossFadeDuration = 0.1f;
+
+    private float moveSpeedAdd = 0.5f;
     private float timer;
     private bool isUseSkill;
+
+    PlayerSkill skill;
 
     public PlayerSkillState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
@@ -21,13 +25,21 @@ public class PlayerSkillState : PlayerBaseState
         stateMachine.SetCanCancel(true);
         stateMachine.SetCanAction(false);
 
-        stateMachine.Animator.CrossFadeInFixedTime(SkillCastLoopHash, CrossFadeDuration);
-
         skill = stateMachine.Skills[0];
+
+        stateMachine.Animator.SetTrigger("OnCastLoop");
+
+        if (GetAnimatorState(stateMachine.Animator, "Move"))
+        {
+            return;
+        }
+
+        stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
     {
+        // 技能
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
         if (normalizedTime >= 0.5f && stateMachine.canCancel)
@@ -39,19 +51,30 @@ public class PlayerSkillState : PlayerBaseState
         {
             skill.skill.UseSkill();
             isUseSkill = true;
-            stateMachine.Animator.CrossFadeInFixedTime(SkillCastHash, CrossFadeDuration);
-
+            stateMachine.Animator.SetTrigger("OnCast");
             stateMachine.Info.DealSanDamage(skill.sanCost);
 
+            stateMachine.SwitchState(new PlayerMovingState(stateMachine));
+            //
             return;
         }
 
         timer += deltaTime;
 
-        if (isUseSkill)
+        // 移動
+        Vector3 movemnt = CalculateMovement();
+
+        if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {
-            CheckInput(normalizedTime, 0.8f);
+            stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
+            return;
         }
+
+        stateMachine.Animator.SetFloat(MoveSpeedString, moveSpeedAdd, 0, deltaTime);
+
+        FaceMovementDirection(movemnt, deltaTime);
+
+        Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
     }
 
     public override void Exit()
@@ -59,5 +82,4 @@ public class PlayerSkillState : PlayerBaseState
         stateMachine.SetCanCancel(true);
         stateMachine.SetCanAction(true);
     }
-
 }
