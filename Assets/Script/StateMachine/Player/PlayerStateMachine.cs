@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerStateMachine : StateMachine
 {
@@ -13,6 +14,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerUIManager UIManager { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
     [field: SerializeField] public SanCheck SanCheck { get; private set; }
+    [field: SerializeField] public Volume volume { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
 
@@ -137,6 +139,8 @@ public class PlayerStateMachine : StateMachine
     {
         UpdateUI();
 
+        UIManager.BeAttack();
+
         if (isInpact)
             SwitchState(new PlayerImpactState(this));
     }
@@ -213,9 +217,9 @@ public class PlayerStateMachine : StateMachine
         UIManager.SetSanBar(sanPercent);
 
         if (sanPercent != 0)
-            GameManager.sceneController.SetVolume((1 - sanPercent) * 0.8f);
+            SetVolume((1 - sanPercent) * 0.8f);
         else
-            GameManager.sceneController.SetVolume(1);
+            SetVolume(1);
 
     }
 
@@ -227,6 +231,14 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerDieState(this));
     }
 
+    public void SetVolume(float volume)
+    {
+        if (!this.volume)
+            return;
+
+        this.volume.weight = volume;
+    }
+
     public override void SetCanMove(bool value) { }
     public override void SetCanMove(bool value, float time) { }
 
@@ -234,12 +246,5 @@ public class PlayerStateMachine : StateMachine
     {
         int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
         Animator.SetFloat("AnimationSpeed", intValue);
-    }
-
-    // 在場景中以紅色繪製出敵人的追擊範圍
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 15);
     }
 }

@@ -15,14 +15,15 @@ public class Boss01EscapeState : Boss01BaseState
 
     private bool isFace = false;
 
-    public Boss01EscapeState(Boss01StateMachine stateMachine, GameObject[] escapePoint) : base(stateMachine)
+    public Boss01EscapeState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
-        this.escapePoint = escapePoint;
     }
 
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
+
+        escapePoint = stateMachine.Scene.escapePoint;
 
         targetPos = GetFarthestEscapePoint();
         targetPos.y = 0;

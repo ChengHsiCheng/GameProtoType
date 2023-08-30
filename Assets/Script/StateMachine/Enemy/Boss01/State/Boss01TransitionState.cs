@@ -49,11 +49,17 @@ public class Boss01TransitionState : Boss01BaseState
             {
                 switch (Random.Range(0, 100))
                 {
-                    case < 50:
+                    case < 30:
                         stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
                         break;
-                    case < 100:
+                    case < 60:
                         stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.SlapAttack));
+                        break;
+                    case < 80:
+                        stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.RotateAttack));
+                        break;
+                    case < 100:
+                        stateMachine.SwitchState(new Boss01EscapeState(stateMachine));
                         break;
                 }
                 return;
@@ -68,7 +74,7 @@ public class Boss01TransitionState : Boss01BaseState
                         stateMachine.SwitchState(new Boss01RotateState(stateMachine));
                         break;
                     case < 60:
-                        stateMachine.SwitchState(new Boss01EscapeState(stateMachine, stateMachine.Scene.escapePoint));
+                        stateMachine.SwitchState(new Boss01EscapeState(stateMachine));
                         break;
                     case < 100:
                         {
