@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[Serializable]
+public struct ObjectEntry
+{
+    public string name;
+    public GameObject gameObject;
+}
+
 public class PlayerStateMachine : StateMachine
 {
     [field: SerializeField] public InputReader InputReader { get; private set; }
@@ -17,6 +24,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Volume volume { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
+    [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
+
 
     [field: SerializeField] public float moveSpeed { get; private set; }
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
@@ -239,6 +248,21 @@ public class PlayerStateMachine : StateMachine
         this.volume.weight = volume;
     }
 
+    // 使用名稱查找對應的物件
+    public GameObject GetVFXByName(string objectName)
+    {
+        ObjectEntry entry = VFXList.Find(e => e.name == objectName);
+        if (entry.gameObject != null)
+        {
+            return entry.gameObject;
+        }
+        else
+        {
+            Debug.LogWarning("找不到名為 " + objectName + " 的物件。");
+            return null;
+        }
+    }
+
     public override void SetCanMove(bool value) { }
     public override void SetCanMove(bool value, float time) { }
 
@@ -247,4 +271,5 @@ public class PlayerStateMachine : StateMachine
         int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
         Animator.SetFloat("AnimationSpeed", intValue);
     }
+
 }

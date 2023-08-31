@@ -44,6 +44,7 @@ public class PlayerHealState : PlayerBaseState
         {
             stateMachine.Animator.SetTrigger("OnCast");
             stateMachine.Info.Healing(30);
+            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Heal"), stateMachine.transform);
 
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
 
