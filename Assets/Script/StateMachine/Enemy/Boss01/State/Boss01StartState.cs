@@ -14,6 +14,9 @@ public class Boss01StartState : Boss01BaseState
 
     public override void Tick(float deltaTime)
     {
+        // 開場動作
+
+        stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
     }
 
     public override void Exit()

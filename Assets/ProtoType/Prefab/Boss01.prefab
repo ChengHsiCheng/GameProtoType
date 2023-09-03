@@ -452,6 +452,7 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: 8377560254356481974}
   <Bar>k__BackingField: {fileID: 8999925204351923622}
   <Collider>k__BackingField: {fileID: 380123221}
+  <WeaponHendler>k__BackingField: {fileID: 0}
   <Weapon>k__BackingField:
   - {fileID: 2935916575296169946}
   - {fileID: 4140740617680413119}
@@ -463,21 +464,29 @@ MonoBehaviour:
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <CooldownTime>k__BackingField: 1
+    <MoveTime>k__BackingField: 0
+    <MoveForce>k__BackingField: 0
   - <AnimationName>k__BackingField: RotateAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <CooldownTime>k__BackingField: 1.5
+    <MoveTime>k__BackingField: 0
+    <MoveForce>k__BackingField: 0
   - <AnimationName>k__BackingField: BackAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <CooldownTime>k__BackingField: 2
+    <MoveTime>k__BackingField: 0
+    <MoveForce>k__BackingField: 0
   - <AnimationName>k__BackingField: ChargeAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <CooldownTime>k__BackingField: 2
+    <MoveTime>k__BackingField: 0
+    <MoveForce>k__BackingField: 0
   <Skills>k__BackingField:
   - <SkillName>k__BackingField: FireBall
     <skill>k__BackingField: {fileID: 7779793749199280209, guid: e09382d57bdd27749af778f2c6289542,
@@ -494,12 +503,14 @@ MonoBehaviour:
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 6243078887803070670}
     <CooldownTime>k__BackingField: 2
+  <MoveForce>k__BackingField: 0
   <escapeSpeed>k__BackingField: 10
   <movementSpeed>k__BackingField: 7
   <rotationSpeed>k__BackingField: 180
   <chargeSpeed>k__BackingField: 20
   <meleeRange>k__BackingField: 5
   <jumpAttackMoveSpeed>k__BackingField: 10
+  <getHitImpulseSource>k__BackingField: 0
   <Stage>k__BackingField: 0
   nowStage: 0
   beAttack: 0
@@ -1782,6 +1793,14 @@ PrefabInstance:
       value: 9.692761
       objectReference: {fileID: 0}
     - target: {fileID: 400082, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6383279
+      objectReference: {fileID: 0}
+    - target: {fileID: 400082, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.71189576
+      objectReference: {fileID: 0}
+    - target: {fileID: 400082, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -33.189896
       objectReference: {fileID: 0}
@@ -1792,6 +1811,14 @@ PrefabInstance:
     - target: {fileID: 400082, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.088508
+      objectReference: {fileID: 0}
+    - target: {fileID: 400084, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1605407
+      objectReference: {fileID: 0}
+    - target: {fileID: 400084, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.24489036
       objectReference: {fileID: 0}
     - target: {fileID: 400084, guid: f14db21b5e70e3d4ab6f0e158099a341, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

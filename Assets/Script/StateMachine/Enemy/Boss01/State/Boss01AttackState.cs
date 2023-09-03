@@ -33,7 +33,7 @@ public class Boss01AttackState : Boss01BaseState
         if (normalizedTime < 1f)
             return;
 
-        if (attack.AnimationName == "SlapAttack" && Random.Range(0, 100) < 50)
+        if (attack.AnimationName == "SlapAttack" && Random.Range(0, 100) < 30)
         {
             stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
             return;

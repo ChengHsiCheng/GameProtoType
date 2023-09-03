@@ -13,6 +13,7 @@ public class PlayerSkillState : PlayerBaseState
     private float moveSpeedAdd = 0.5f;
     private float timer;
     private bool isUseSkill;
+    private bool isPlayAnimator;
 
     PlayerSkill skill;
 
@@ -29,6 +30,7 @@ public class PlayerSkillState : PlayerBaseState
 
         stateMachine.Animator.SetTrigger("OnCastLoop");
 
+
         if (GetAnimatorState(stateMachine.Animator, "Move"))
         {
             return;
@@ -39,28 +41,46 @@ public class PlayerSkillState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        // 技能
-        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
+        timer += deltaTime;
 
-        if (normalizedTime >= 0.5f && stateMachine.canCancel)
+        if (timer + 1 >= skill.ChargeTime && !isPlayAnimator)
+        {
+            stateMachine.BookAnimator.SetTrigger("UseSkill");
+            isPlayAnimator = true;
+            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Skill"), stateMachine.BookTransform);
+        }
+
+        if (timer >= 0.5f && stateMachine.canCancel)
         {
             stateMachine.SetCanCancel(false);
         }
 
         if (timer >= skill.ChargeTime && !isUseSkill)
         {
-            skill.skill.UseSkill();
-            isUseSkill = true;
-            stateMachine.Animator.SetTrigger("OnCast");
-            stateMachine.Info.DealSanDamage(skill.sanCost);
-
+            UseSkill();
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
-            //
+
             return;
         }
+        Moving(deltaTime);
+    }
 
-        timer += deltaTime;
+    public override void Exit()
+    {
+        stateMachine.SetCanCancel(true);
+        stateMachine.SetCanAction(true);
+    }
 
+    private void UseSkill()
+    {
+        skill.skill.UseSkill();
+        isUseSkill = true;
+        stateMachine.Animator.SetTrigger("OnCast");
+        stateMachine.Info.DealSanDamage(skill.sanCost);
+    }
+
+    private void Moving(float deltaTime)
+    {
         // 移動
         Vector3 movemnt = CalculateMovement();
 
@@ -75,11 +95,5 @@ public class PlayerSkillState : PlayerBaseState
         FaceMovementDirection(movemnt, deltaTime);
 
         Move(movemnt * moveSpeedAdd * stateMachine.moveSpeed, deltaTime);
-    }
-
-    public override void Exit()
-    {
-        stateMachine.SetCanCancel(true);
-        stateMachine.SetCanAction(true);
     }
 }
