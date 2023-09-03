@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class StateMachine : MonoBehaviour
 {
     protected State currentState { get; private set; } // 目前的State
-    [field: SerializeField] public bool canMove { get; protected set; } = true;
+    public bool canMove { get; protected set; } = true;
 
-    [SerializeField] protected float freezeTime;
+    protected float freezeTime;
 
     /// <summary>
     /// 切換State

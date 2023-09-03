@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,11 +27,12 @@ public class Boss01StateMachine : StateMachine, Enemy
     [field: SerializeField] public float chargeSpeed { get; private set; }
     [field: SerializeField] public float meleeRange { get; private set; } // 近戰攻擊範圍
     [field: SerializeField] public float jumpAttackMoveSpeed { get; private set; }
+    [field: SerializeField] public float getHitImpulseSource { get; private set; }
     [field: SerializeField] public int Stage { get; private set; } = 0;
 
     public int nowStage = 0;
     public bool beAttack;
-    public float cooldownTime = 3;
+    public float cooldownTime;
 
     public GameObject Player { get; private set; }
 
@@ -43,7 +45,7 @@ public class Boss01StateMachine : StateMachine, Enemy
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
 
-        SwitchState(new Boss01TransitionState(this));
+        SwitchState(new Boss01StartState(this));
     }
 
     /// <summary>

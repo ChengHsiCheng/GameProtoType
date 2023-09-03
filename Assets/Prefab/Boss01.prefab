@@ -1788,8 +1788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6cc47a6b3c82cd4791c9e80533b45e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <canMove>k__BackingField: 1
-  freezeTime: 0
   <Animator>k__BackingField: {fileID: 859996049}
   <Controller>k__BackingField: {fileID: 4862094916316984643}
   <Agent>k__BackingField: {fileID: 3869439706243337978}
@@ -1864,6 +1862,7 @@ MonoBehaviour:
   <chargeSpeed>k__BackingField: 20
   <meleeRange>k__BackingField: 5
   <jumpAttackMoveSpeed>k__BackingField: 10
+  <getHitImpulseSource>k__BackingField: 2
   <Stage>k__BackingField: 0
   nowStage: 0
   beAttack: 0
