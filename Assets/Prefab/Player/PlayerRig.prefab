@@ -731,8 +731,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4457296702026716635}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.148, y: 1.048, z: 1.416}
+  m_LocalRotation: {x: -0, y: 0.9898436, z: -0, w: -0.14216086}
+  m_LocalPosition: {x: 0.64, y: 1.048, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -740,7 +740,7 @@ Transform:
   - {fileID: 2883993317576481959}
   m_Father: {fileID: 3538165117998946884}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 196.346, z: 0}
 --- !u!114 &3538165116919870368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,8 +927,29 @@ PrefabInstance:
       objectReference: {fileID: 1898558163}
     - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
+      propertyPath: <BookTransform>k__BackingField
+      value: 
+      objectReference: {fileID: 3931834960304066401}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.data[1].name
+      value: Skill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.data[1].gameObject
+      value: 
+      objectReference: {fileID: 3782832333112710400, guid: fc83b8c96a6e186409d077550df36fd7,
+        type: 3}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
       propertyPath: <Skills>k__BackingField.Array.data[0].<sanCost>k__BackingField
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8062203635239618721, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
