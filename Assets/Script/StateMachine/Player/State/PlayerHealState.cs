@@ -12,6 +12,7 @@ public class PlayerHealState : PlayerBaseState
 
     private float moveSpeedAdd = 0.5f;
     private float timer;
+    private bool isPlayAnimator;
 
     public PlayerHealState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
@@ -34,6 +35,15 @@ public class PlayerHealState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
+
+        if (!isPlayAnimator)
+        {
+            stateMachine.Book.PlayerAnimation();
+            isPlayAnimator = true;
+
+            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("HealVFX"), stateMachine.Book.transform);
+
+        }
 
         if (timer > 0.5f && stateMachine.canCancel)
         {

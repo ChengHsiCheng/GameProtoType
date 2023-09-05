@@ -45,9 +45,16 @@ public class PlayerSkillState : PlayerBaseState
 
         if (timer + 1 >= skill.ChargeTime && !isPlayAnimator)
         {
-            stateMachine.BookAnimator.SetTrigger("UseSkill");
+            stateMachine.Book.PlayerAnimation();
             isPlayAnimator = true;
-            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Skill"), stateMachine.BookTransform);
+
+            switch (skill.name)
+            {
+                case "PetrochemicalSkill":
+                    MonoBehaviour.Instantiate(stateMachine.GetVFXByName("PetrochemicalSkillVFX"), stateMachine.Book.transform);
+                    break;
+
+            }
         }
 
         if (timer >= 0.5f && stateMachine.canCancel)

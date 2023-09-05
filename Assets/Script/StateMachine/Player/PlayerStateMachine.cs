@@ -16,8 +16,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public InputReader InputReader { get; private set; }
     [field: SerializeField] public Rigidbody Rigidbody { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
-    [field: SerializeField] public Animator BookAnimator { get; private set; }
-    [field: SerializeField] public Transform BookTransform { get; private set; }
+    [field: SerializeField] public BookController Book { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public PlayerInfo Info { get; private set; }
     [field: SerializeField] public PlayerUIManager UIManager { get; private set; }

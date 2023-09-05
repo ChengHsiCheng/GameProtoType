@@ -715,8 +715,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3931834960304066401}
   - component: {fileID: 3538165116919870368}
-  - component: {fileID: 3538165116919870371}
   - component: {fileID: 1898558163}
+  - component: {fileID: 3538165116919870371}
+  - component: {fileID: 2725023029232386802}
   m_Layer: 0
   m_Name: MS_Book01_Default01
   m_TagString: Untagged
@@ -768,26 +769,6 @@ MonoBehaviour:
   - {fileID: 861694321456979973}
   - {fileID: 574937989225848919}
   - {fileID: 3264911542022484741}
---- !u!114 &3538165116919870371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4457296702026716635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78359d9f804fa8f4b826994b46e67895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1301649176037451195}
-  faceTarget: {fileID: 3538165117836084978}
-  rotationSpeed: 360
-  followSpeed: 10
-  minimumDistance: 2
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!95 &1898558163
 Animator:
   serializedVersion: 5
@@ -808,6 +789,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &3538165116919870371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457296702026716635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78359d9f804fa8f4b826994b46e67895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8259758576121188279}
+  faceTarget: {fileID: 3538165117836084978}
+  rotationSpeed: 360
+  followSpeed: 10
+  minimumDistance: 2
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &2725023029232386802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457296702026716635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbaf4ae4b04bfaa4099c1b1ccf1da834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1898558163}
 --- !u!1 &6440838015625034516
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,35 +936,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
-      propertyPath: <BookAnimator>k__BackingField
+      propertyPath: <Book>k__BackingField
       value: 
-      objectReference: {fileID: 1898558163}
-    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: <BookTransform>k__BackingField
-      value: 
-      objectReference: {fileID: 3931834960304066401}
-    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: <VFXList>k__BackingField.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: <VFXList>k__BackingField.Array.data[1].name
-      value: Skill
-      objectReference: {fileID: 0}
-    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: <VFXList>k__BackingField.Array.data[1].gameObject
-      value: 
-      objectReference: {fileID: 3782832333112710400, guid: fc83b8c96a6e186409d077550df36fd7,
-        type: 3}
-    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: <Skills>k__BackingField.Array.data[0].<sanCost>k__BackingField
-      value: 20
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2725023029232386802}
     - target: {fileID: 8062203635239618721, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -1023,15 +1011,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29c30bd884e038f42ac514f40eb9a0ff, type: 3}
---- !u!4 &1301649176037451195 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5541897145243282408, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 6843401122265058899}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3538165117836084978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8062203635239618721, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 6843401122265058899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8259758576121188279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3195352011875729892, guid: 29c30bd884e038f42ac514f40eb9a0ff,
     type: 3}
   m_PrefabInstance: {fileID: 6843401122265058899}
   m_PrefabAsset: {fileID: 0}
