@@ -9,6 +9,7 @@ public class WeaponHendler : MonoBehaviour
     [SerializeField] private GameObject[] weaponLogic;
 
     public event Action MoveEvent;
+    public event Action<string> VFXEvent;
 
     /// <summary>
     /// 開啟武器碰撞
@@ -26,8 +27,14 @@ public class WeaponHendler : MonoBehaviour
         weaponLogic[Index]?.SetActive(false);
     }
 
-    protected void AttackMove()
+    private void AttackMove()
     {
         MoveEvent?.Invoke();
     }
+
+    private void PlayVFX(string name)
+    {
+        VFXEvent?.Invoke(name);
+    }
+
 }

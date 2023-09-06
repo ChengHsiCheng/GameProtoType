@@ -18,6 +18,8 @@ public class Boss01StateMachine : StateMachine, Enemy
     [field: SerializeField] public WeaponDamage[] Weapon { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
+    [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
+    [field: SerializeField] public List<ObjectEntry> VFXPosList { get; private set; } = new List<ObjectEntry>();
     public Boss01SceneController Scene { get; private set; }
 
     [field: SerializeField] public float MoveForce { get; private set; }
@@ -57,6 +59,7 @@ public class Boss01StateMachine : StateMachine, Enemy
         Health.OnDie += HandleDie;
 
         WeaponHendler.MoveEvent += OnAttackMove;
+        WeaponHendler.VFXEvent += OnPlayerVFX;
     }
 
     /// <summary>
@@ -68,6 +71,7 @@ public class Boss01StateMachine : StateMachine, Enemy
         Health.OnDie -= HandleDie;
 
         WeaponHendler.MoveEvent -= OnAttackMove;
+        WeaponHendler.VFXEvent -= OnPlayerVFX;
     }
 
     private void OnAttackMove()
@@ -197,5 +201,40 @@ public class Boss01StateMachine : StateMachine, Enemy
         Vector3 direction = Player.transform.position - transform.position;
         float angle = Vector3.Angle(transform.forward, direction);
         return angle;
+    }
+
+    protected void OnPlayerVFX(string name)
+    {
+        Instantiate(GetVFXByName(name), GetVFXPosByName(name).position, GetVFXPosByName(name).rotation);
+    }
+
+    // 使用名稱查找對應的物件
+    private GameObject GetVFXByName(string objectName)
+    {
+        ObjectEntry entry = VFXList.Find(e => e.name == objectName);
+        if (entry.gameObject != null)
+        {
+            return entry.gameObject;
+        }
+        else
+        {
+            Debug.LogWarning("找不到名為 " + objectName + " 的物件。");
+            return null;
+        }
+    }
+
+    // 使用名稱查找對應的物件
+    private Transform GetVFXPosByName(string objectName)
+    {
+        ObjectEntry entry = VFXPosList.Find(e => e.name == objectName);
+        if (entry.gameObject != null)
+        {
+            return entry.gameObject.transform;
+        }
+        else
+        {
+            Debug.LogWarning("找不到名為 " + objectName + " 的物件。");
+            return null;
+        }
     }
 }

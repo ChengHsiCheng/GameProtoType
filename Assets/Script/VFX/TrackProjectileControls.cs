@@ -42,7 +42,6 @@ public class TrackProjectileControls : MonoBehaviour
             return;
 
         Instantiate(hitVFX, transform.position, Quaternion.identity);
-        VFXCleaner();
     }
 
     private void VFXCleaner()
@@ -51,7 +50,8 @@ public class TrackProjectileControls : MonoBehaviour
         {
             vfx.Stop();
         }
-        Destroy(gameObject);
+
+        Destroy(gameObject, 0.5f);
     }
 
     public void SetValue(float liveTime, float moveSpeed, GameObject projectileTarget)

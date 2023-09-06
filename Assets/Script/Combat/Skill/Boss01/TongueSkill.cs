@@ -6,12 +6,12 @@ public class TongueSkill : Skill
 {
     [SerializeField] private Vector3 originPos;
     [SerializeField] private Vector3 targetPos;
+    private Vector3 destination;
 
-    public float speed = 20f; // 移動速度
+    private bool isGoing;
+    private bool isBacking;
 
-    private bool keepMoving = true;
-    private bool isMovingToEnd = true; // 指示物件是否正在向終點移動
-
+    [SerializeField] float speed = 20f; // 移動速度
     [SerializeField] private int damage; // 傷害
     [SerializeField] private int sanDamage;
 
@@ -19,6 +19,9 @@ public class TongueSkill : Skill
     {
         originPos = transform.position;
         targetPos = RayCastHit() + transform.forward;
+        destination = targetPos;
+
+        isGoing = true;
     }
 
     public override void UseSkill(GameObject target)
@@ -30,23 +33,32 @@ public class TongueSkill : Skill
         if (GameManager.isPauseGame)
             return;
 
-        // 根據 isMovingToEnd 的值選擇目標位置
-        Vector3 targetPosition = isMovingToEnd ? targetPos : originPos;
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            UseSkill();
+        }
+
+        if (!isGoing && !isBacking)
+            return;
 
         // 使用 MoveTowards 方法使物件向目標位置移動
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
 
         // 檢查物件是否到達目標位置
-        if (transform.position == targetPosition)
+        if (transform.position == destination)
         {
-            if (keepMoving)
+            if (isGoing)
             {
-                isMovingToEnd = !isMovingToEnd;
-                keepMoving = false;
+                isGoing = false;
+                destination = originPos;
+                isBacking = true;
                 return;
             }
 
-            Destroy(gameObject);
+            if (isBacking)
+            {
+                isBacking = false;
+            }
         }
     }
 
@@ -65,11 +77,11 @@ public class TongueSkill : Skill
             san.DealSanDamage(sanDamage);
         }
 
-        if (keepMoving)
+        if (isGoing)
         {
-            isMovingToEnd = !isMovingToEnd;
-            keepMoving = false;
-            return;
+            isGoing = false;
+            destination = originPos;
+            isBacking = true;
         }
     }
 
