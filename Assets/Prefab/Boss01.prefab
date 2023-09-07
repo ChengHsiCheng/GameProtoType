@@ -1680,7 +1680,6 @@ GameObject:
   - component: {fileID: 5094822338158363118}
   - component: {fileID: 8551229439175067173}
   - component: {fileID: 1508005180626134690}
-  - component: {fileID: 4620622059716005056}
   m_Layer: 7
   m_Name: Boss01
   m_TagString: Enemy
@@ -1792,7 +1791,7 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 4862094916316984643}
   <Agent>k__BackingField: {fileID: 3869439706243337978}
   <ForceReceiver>k__BackingField: {fileID: 1508005180626134690}
-  <Health>k__BackingField: {fileID: 4620622059716005056}
+  <Health>k__BackingField: {fileID: 0}
   <Material>k__BackingField: {fileID: 4766712929534916897}
   <Bar>k__BackingField: {fileID: 2408013582094256317}
   <Collider>k__BackingField: {fileID: 9032812005765100955}
@@ -1855,6 +1854,18 @@ MonoBehaviour:
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 7008696656237054646}
     <CooldownTime>k__BackingField: 2
+  <VFXList>k__BackingField:
+  - name: RotateAttackVFX
+    gameObject: {fileID: 1674257501065642006, guid: 16ec3e8c54bef9045a03c992f907c9cb,
+      type: 3}
+  - name: RotateAttackVFX
+    gameObject: {fileID: 234993126553790158, guid: b6d0162ffe8f6f0419b27fd0b6a1de81,
+      type: 3}
+  <VFXPosList>k__BackingField:
+  - name: RotateAttackVFX
+    gameObject: {fileID: 4694884472409282379}
+  - name: BackAttackVFX
+    gameObject: {fileID: 5000642728226294941}
   <MoveForce>k__BackingField: 0
   <escapeSpeed>k__BackingField: 10
   <movementSpeed>k__BackingField: 7
@@ -1881,19 +1892,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 3869439706243337978}
   drag: 0.2
---- !u!114 &4620622059716005056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7667736142582948790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 827dbaac8bd4f1043a8b89ea2b68a62c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 500
 --- !u!1 &7682688040860946109
 GameObject:
   m_ObjectHideFlags: 0
