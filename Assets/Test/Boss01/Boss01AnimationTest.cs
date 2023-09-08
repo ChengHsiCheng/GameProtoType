@@ -14,7 +14,7 @@ public class Boss01AnimationTest : MonoBehaviour
     {
         Vector3 vfxPos = GetVFXPosByName(name).position;
         vfxPos.y = 0;
-        nowVFX = Instantiate(GetVFXByName(name), GetVFXByName(name).transform.position, Quaternion.identity).GetComponent<VFXLiveTime>();
+        nowVFX = Instantiate(GetVFXByName(name), GetVFXPosByName(name).transform).GetComponent<VFXLiveTime>();
     }
 
     private void DestroyVFX()

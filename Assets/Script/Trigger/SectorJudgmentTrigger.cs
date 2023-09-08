@@ -3,65 +3,64 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+using UnityEditor;
+
 public class SectorJudgmentTrigger : Trigger
 {
-    public float Radius = 10f; // 視野距離
-    public float viewAngleStep = 20; // 射線數量
-    public float angle = 45;
-    public float startAngle = 0;
+    //扇形角度
+    [SerializeField] private float angle = 80f;
+    //扇形半径
+    [SerializeField] private float radius = 3.5f;
+    private Transform target;
+
+    private void Start()
+    {
+        target = GameManager.player.transform;
+    }
 
     private void Update()
     {
-        LookAround();
+        IsInRadius = IsInRange(angle, radius, transform, target);
     }
 
-    public void LookAround()
+    /// <summary>
+    /// 判断target是否在扇形区域内
+    /// </summary>
+    /// <param name="sectorAngle">扇形角度</param>
+    /// <param name="sectorRadius">扇形半径</param>
+    /// <param name="attacker">攻击者的transform信息</param>
+    /// <param name="target">目标</param>
+    /// <returns>目标target在扇形区域内返回true 否则返回false</returns>
+    public bool IsInRange(float sectorAngle, float sectorRadius, Transform attacker, Transform target)
     {
-        // 射線從左邊開始，角度為-45;
-        Vector3 forwardLeft = Quaternion.Euler(0, -(angle / 2) + startAngle, 0) * transform.forward * Radius;
+        //攻击者位置指向目标位置的向量
+        Vector3 direction = target.position - attacker.position;
+        direction.y = 0;
+        //点乘积结果
+        float dot = Vector3.Dot(direction.normalized, transform.forward);
+        //反余弦计算角度
+        float offsetAngle = Mathf.Acos(dot) * Mathf.Rad2Deg;
+        return offsetAngle < sectorAngle * .5f && direction.magnitude < sectorRadius;
+    }
 
-        for (int i = 0; i <= viewAngleStep; i++)
-        {
+    private void OnDrawGizmos()
+    {
+        Handles.color = IsInRadius ? Color.cyan : Color.red;
 
-            // 射線由forwardLeft基礎點偏轉
-            Vector3 vector = Quaternion.Euler(0, (angle / viewAngleStep) * i, 0) * forwardLeft;
+        float halfAngle = angle / 2f;
 
+        // 计算扇形的两个边缘点
+        Vector3 direction = transform.forward;
 
-            // 建立射線
-            Ray ray = new Ray(transform.position, vector);
-            RaycastHit hits = new RaycastHit();
+        Vector3 leftVertex = transform.position + Quaternion.AngleAxis(-halfAngle, Vector3.up) * direction * radius;
+        Vector3 rightVertex = transform.position + Quaternion.AngleAxis(halfAngle, Vector3.up) * direction * radius;
 
-            // Layer 碰撞偵測
-            int mask = LayerMask.GetMask("Player");
-            Physics.Raycast(ray, out hits, mask);
+        // 绘制扇形的边缘线
+        Handles.DrawLine(transform.position, leftVertex);
+        Handles.DrawLine(transform.position, rightVertex);
 
-            // targets位置 + vector = 射線最終位置
-            Vector3 pos = transform.position + vector;
-            Debug.DrawLine(transform.position, pos, Color.red);
+        // 绘制扇形的弧线
+        Handles.DrawWireArc(transform.position, Vector3.up, Quaternion.Euler(0, -halfAngle, 0) * direction, angle, radius);
 
-            // 射線碰撞到，就當碰撞點
-            if (hits.transform != null)
-                pos = hits.point;
-
-            Debug.DrawLine(transform.position, pos, Color.red);
-
-            // 碰到敵人在處理
-            if (hits.transform != null && hits.transform.gameObject.layer.Equals(LayerMask.NameToLayer("Player")))
-            {
-                // 射線長度
-                float value = Vector3.Distance(transform.position, hits.collider.transform.position);
-
-                Debug.Log(hits.collider.gameObject + "距離: " + value);
-
-
-                if (value <= Radius)
-                {
-                    IsInRadius = true;
-                    return;
-                }
-            }
-        }
-
-        IsInRadius = false;
     }
 }

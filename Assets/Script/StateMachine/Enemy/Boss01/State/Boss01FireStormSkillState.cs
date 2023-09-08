@@ -11,8 +11,9 @@ public class Boss01FireStormSkillState : Boss01BaseState
     bool isUesSkill;
     float timer;
 
-    private EnemySkill skill;
+    private EnemySkill skill_i;
     private VFXLiveTime vfx;
+    private Skill skill;
 
     public Boss01FireStormSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
@@ -22,17 +23,18 @@ public class Boss01FireStormSkillState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(FireStormSkillString, AnimatorDampTime);
 
-        skill = stateMachine.Skills[2];
+        skill_i = stateMachine.Skills[2];
 
-        stateMachine.cooldownTime = skill.CooldownTime;
+        stateMachine.cooldownTime = skill_i.CooldownTime;
 
         vfx = stateMachine.PlayVFX("FireStormSkillVFX");
+
+        skill = GameObject.Instantiate(skill_i.skill, skill_i.spawnPoint);
+        skill.UseSkill();
     }
 
     public override void Tick(float deltaTime)
     {
-        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
-
         timer += deltaTime;
 
         if (GetPlayerAngle() >= 5)
@@ -54,12 +56,6 @@ public class Boss01FireStormSkillState : Boss01BaseState
             stateMachine.Animator.SetFloat("Turn", 0, AnimatorDampTime, deltaTime);
         }
 
-        if (normalizedTime > 0.2f && !isUesSkill)
-        {
-            GameObject.Instantiate(skill.skill, skill.spawnPoint).UseSkill();
-            isUesSkill = true;
-        }
-
         if (timer < SKillDurationTime)
         {
             return;
@@ -71,8 +67,8 @@ public class Boss01FireStormSkillState : Boss01BaseState
     public override void Exit()
     {
         stateMachine.Animator.SetFloat("Turn", 0);
-
         vfx.Stop();
+        skill.DestroySkill();
     }
 
     /// <summary>

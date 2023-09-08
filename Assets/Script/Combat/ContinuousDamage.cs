@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ContinuousDamage : MonoBehaviour
+public class ContinuousDamage : Damage
 {
-    [SerializeField] private Trigger trigger;
-    [SerializeField] private float damage; // 傷害
-    [SerializeField] private float sanDamage;
-
     private float timer;
 
     private Health health { get => GameManager.player.GetComponent<Health>(); }
@@ -21,13 +17,13 @@ public class ContinuousDamage : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer < 0.05f)
-            return;
-
-        timer -= 0.05f;
-
         if (!trigger.IsInRadius)
             return;
+
+        if (timer < 0.1f)
+            return;
+
+        timer -= 0.1f;
 
         health.DealHealthDamage(damage, false);
         san.DealSanDamage(sanDamage);

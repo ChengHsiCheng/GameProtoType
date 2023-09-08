@@ -24,6 +24,8 @@ public static class GameManager
     {
         isPauseGame = !isPauseGame;
 
+        Debug.Log(isPauseGame);
+
         PauseGame();
     }
 

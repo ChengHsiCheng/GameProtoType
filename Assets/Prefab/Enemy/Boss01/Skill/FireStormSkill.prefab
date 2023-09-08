@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2097905386505601506}
   - component: {fileID: 2008181008732081653}
+  - component: {fileID: 5269547726050414326}
+  - component: {fileID: 3203589871694856714}
   m_Layer: 0
   m_Name: FireStormSkill
   m_TagString: Untagged
@@ -44,6 +46,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc29980050485342add1e66ea21f261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireStorm: {fileID: 1139565163769376882, guid: fcc9a4f009002764ab08bd4c6853a051,
-    type: 3}
-  vfx: {fileID: 1154747579816197141, guid: 70986bfb2f7a35149ba57bdaf8101ce8, type: 3}
+  damage: 1
+  sanDamage: 1
+  damageType: {fileID: 5269547726050414326}
+--- !u!114 &5269547726050414326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468755006996992379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b347abc912a113a4f83fa1f9aca4a381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 3203589871694856714}
+--- !u!114 &3203589871694856714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468755006996992379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb2710b8f8a159429f3da899ae0f97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsInRadius>k__BackingField: 0
+  angle: 45
+  radius: 10
