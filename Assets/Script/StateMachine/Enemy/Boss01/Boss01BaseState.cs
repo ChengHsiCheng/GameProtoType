@@ -32,7 +32,7 @@ public abstract class Boss01BaseState : State
     {
         lastMovement = stateMachine.ForceReceiver.Movement;
 
-        stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+        stateMachine.Controller.Move((motion + lastMovement) * deltaTime);
     }
 
     /// <summary>

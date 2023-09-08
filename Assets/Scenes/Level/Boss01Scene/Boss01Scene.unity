@@ -676,6 +676,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1740731472, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 379602204410068827, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
         type: 3}
       propertyPath: m_RootOrder
@@ -746,8 +750,71 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss01
       objectReference: {fileID: 0}
+    - target: {fileID: 7667736142582948790, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXPosList>k__BackingField.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.data[2].name
+      value: FireStormChargeVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.data[3].name
+      value: FireStormSkillVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXPosList>k__BackingField.Array.data[2].name
+      value: FireStormChargeVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXPosList>k__BackingField.Array.data[3].name
+      value: FireStormSkillVFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.data[2].gameObject
+      value: 
+      objectReference: {fileID: 7169841425136522048, guid: 95ddb5d420e56ec4ebd7e03866449840,
+        type: 3}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXList>k__BackingField.Array.data[3].gameObject
+      value: 
+      objectReference: {fileID: 2384278768801043302, guid: 70986bfb2f7a35149ba57bdaf8101ce8,
+        type: 3}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXPosList>k__BackingField.Array.data[2].gameObject
+      value: 
+      objectReference: {fileID: 1633555250}
+    - target: {fileID: 8551229439175067173, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: <VFXPosList>k__BackingField.Array.data[3].gameObject
+      value: 
+      objectReference: {fileID: 1633555250}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac, type: 3}
+--- !u!1 &1633555250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5711333716432900821, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+    type: 3}
+  m_PrefabInstance: {fileID: 1633555249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1667552939
 GameObject:
   m_ObjectHideFlags: 0

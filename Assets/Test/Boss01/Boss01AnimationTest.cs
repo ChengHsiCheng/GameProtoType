@@ -8,17 +8,20 @@ public class Boss01AnimationTest : MonoBehaviour
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public List<ObjectEntry> VFXPosList { get; private set; } = new List<ObjectEntry>();
 
-    private VisualEffect nowVFX;
+    private VFXLiveTime nowVFX;
 
     private void OnPlayerVFX(string name)
     {
         Vector3 vfxPos = GetVFXPosByName(name).position;
         vfxPos.y = 0;
-        nowVFX = Instantiate(GetVFXByName(name), GetVFXByName(name).transform.position, Quaternion.identity).GetComponent<VisualEffect>();
+        nowVFX = Instantiate(GetVFXByName(name), GetVFXByName(name).transform.position, Quaternion.identity).GetComponent<VFXLiveTime>();
     }
 
     private void DestroyVFX()
     {
+        if (!nowVFX)
+            return;
+
         nowVFX.Stop();
         Destroy(nowVFX.gameObject, 0.5f);
     }

@@ -20,10 +20,6 @@ public class FireBreathSkill : Skill
         iFireBall.SetValue(3, fireBallSpeed, Vector3.up);
     }
 
-    public override void UseSkill(GameObject target)
-    {
-    }
-
     private void Update()
     {
         if (GameManager.isPauseGame)

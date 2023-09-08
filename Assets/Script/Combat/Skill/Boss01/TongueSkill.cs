@@ -24,10 +24,6 @@ public class TongueSkill : Skill
         isGoing = true;
     }
 
-    public override void UseSkill(GameObject target)
-    {
-    }
-
     private void Update()
     {
         if (GameManager.isPauseGame)

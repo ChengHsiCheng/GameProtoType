@@ -35,7 +35,7 @@ public class Boss01RotateState : Boss01BaseState
                     case < 40:
                         stateMachine.SwitchState(new Boss01ChargeAttackState(stateMachine, (int)AttackIndex.ChargeAttack));
                         break;
-                    case < 70:
+                    case < 41:
                         stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
                         break;
                     case < 100:

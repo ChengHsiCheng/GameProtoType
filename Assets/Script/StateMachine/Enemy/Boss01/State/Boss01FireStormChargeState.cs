@@ -7,6 +7,8 @@ public class Boss01FireStormChargeState : Boss01BaseState
     private readonly int FireStormChargeString = Animator.StringToHash("FireStormCharge");
     private const float AnimatorDampTime = 0.1f;
 
+    private VFXLiveTime vfx;
+
     private float timer;
 
     public Boss01FireStormChargeState(Boss01StateMachine stateMachine) : base(stateMachine)
@@ -18,6 +20,8 @@ public class Boss01FireStormChargeState : Boss01BaseState
         stateMachine.Animator.CrossFadeInFixedTime(FireStormChargeString, AnimatorDampTime);
 
         stateMachine.beAttack = false;
+
+        vfx = stateMachine.PlayVFX("FireStormChargeVFX");
     }
 
     public override void Tick(float deltaTime)
@@ -43,6 +47,7 @@ public class Boss01FireStormChargeState : Boss01BaseState
 
     public override void Exit()
     {
+        vfx.Stop();
     }
 
 }

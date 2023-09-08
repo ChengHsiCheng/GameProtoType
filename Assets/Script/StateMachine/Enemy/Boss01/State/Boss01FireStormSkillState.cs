@@ -6,11 +6,13 @@ public class Boss01FireStormSkillState : Boss01BaseState
 {
     private readonly int FireStormSkillString = Animator.StringToHash("FireStormSkill");
     private const float AnimatorDampTime = 0.1f;
+    private const float SKillDurationTime = 5f;
 
     bool isUesSkill;
     float timer;
 
-    EnemySkill skill;
+    private EnemySkill skill;
+    private VFXLiveTime vfx;
 
     public Boss01FireStormSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
@@ -23,6 +25,8 @@ public class Boss01FireStormSkillState : Boss01BaseState
         skill = stateMachine.Skills[2];
 
         stateMachine.cooldownTime = skill.CooldownTime;
+
+        vfx = stateMachine.PlayVFX("FireStormSkillVFX");
     }
 
     public override void Tick(float deltaTime)
@@ -52,15 +56,11 @@ public class Boss01FireStormSkillState : Boss01BaseState
 
         if (normalizedTime > 0.2f && !isUesSkill)
         {
-            Vector3 insPos = skill.spawnPoint.position;
-            insPos.y = 0;
-
-            GameObject.Instantiate(skill.skill, insPos, Quaternion.identity).UseSkill(skill.spawnPoint.gameObject);
-
+            GameObject.Instantiate(skill.skill, skill.spawnPoint).UseSkill();
             isUesSkill = true;
         }
 
-        if (timer < 3f)
+        if (timer < SKillDurationTime)
         {
             return;
         }
@@ -71,6 +71,8 @@ public class Boss01FireStormSkillState : Boss01BaseState
     public override void Exit()
     {
         stateMachine.Animator.SetFloat("Turn", 0);
+
+        vfx.Stop();
     }
 
     /// <summary>

@@ -59,7 +59,7 @@ public class Boss01StateMachine : StateMachine, Enemy
         Health.OnDie += HandleDie;
 
         WeaponHendler.MoveEvent += OnAttackMove;
-        WeaponHendler.VFXEvent += OnPlayerVFX;
+        WeaponHendler.VFXEvent += OnPlayVFX;
     }
 
     /// <summary>
@@ -71,7 +71,7 @@ public class Boss01StateMachine : StateMachine, Enemy
         Health.OnDie -= HandleDie;
 
         WeaponHendler.MoveEvent -= OnAttackMove;
-        WeaponHendler.VFXEvent -= OnPlayerVFX;
+        WeaponHendler.VFXEvent -= OnPlayVFX;
     }
 
     private void OnAttackMove()
@@ -203,13 +203,18 @@ public class Boss01StateMachine : StateMachine, Enemy
         return angle;
     }
 
-    protected void OnPlayerVFX(string name)
+    public void OnPlayVFX(string name)
     {
-        Instantiate(GetVFXByName(name), GetVFXPosByName(name).position, GetVFXPosByName(name).rotation);
+        Instantiate(GetVFXByName(name), GetVFXPosByName(name));
+    }
+
+    public VFXLiveTime PlayVFX(string name)
+    {
+        return Instantiate(GetVFXByName(name), GetVFXPosByName(name)).GetComponent<VFXLiveTime>();
     }
 
     // 使用名稱查找對應的物件
-    private GameObject GetVFXByName(string objectName)
+    public GameObject GetVFXByName(string objectName)
     {
         ObjectEntry entry = VFXList.Find(e => e.name == objectName);
         if (entry.gameObject != null)
@@ -223,8 +228,8 @@ public class Boss01StateMachine : StateMachine, Enemy
         }
     }
 
-    // 使用名稱查找對應的物件
-    private Transform GetVFXPosByName(string objectName)
+    // 使用名稱查找對應的位置
+    public Transform GetVFXPosByName(string objectName)
     {
         ObjectEntry entry = VFXPosList.Find(e => e.name == objectName);
         if (entry.gameObject != null)

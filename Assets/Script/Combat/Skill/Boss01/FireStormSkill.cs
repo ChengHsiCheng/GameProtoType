@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class FireStormSkill : Skill
 {
-    [SerializeField] private TrackProjectileControls fireStorm;
+    [SerializeField] private VFXLiveTime vfx;
 
     public override void UseSkill()
     {
-    }
-
-    public override void UseSkill(GameObject target)
-    {
-        TrackProjectileControls iFireStorm = Instantiate(fireStorm, transform.position, transform.rotation);
-        iFireStorm.SetValue(3, 10, target);
-
-        Destroy(gameObject);
     }
 }

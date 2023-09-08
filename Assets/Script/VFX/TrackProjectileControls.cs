@@ -5,7 +5,7 @@ using UnityEngine.VFX;
 
 public class TrackProjectileControls : MonoBehaviour
 {
-
+    [SerializeField] VFXLiveTime LiveTime;
     private float liveTime = 100;
     private float timer;
     private float moveSpeed = 10;
@@ -19,14 +19,16 @@ public class TrackProjectileControls : MonoBehaviour
     private void Start()
     {
         VFXs = GetComponentsInChildren<VisualEffect>();
+
+        LiveTime.SetLiveTime(liveTime);
     }
 
     private void Update()
     {
-        if (timer >= liveTime)
-        {
-            VFXCleaner();
-        }
+        // if (timer >= liveTime)
+        // {
+        //     VFXCleaner();
+        // }
 
         timer += Time.deltaTime;
 
@@ -44,15 +46,15 @@ public class TrackProjectileControls : MonoBehaviour
         Instantiate(hitVFX, transform.position, Quaternion.identity);
     }
 
-    private void VFXCleaner()
-    {
-        foreach (VisualEffect vfx in VFXs)
-        {
-            vfx.Stop();
-        }
+    // private void VFXCleaner()
+    // {
+    //     foreach (VisualEffect vfx in VFXs)
+    //     {
+    //         vfx.Stop();
+    //     }
 
-        Destroy(gameObject, 0.5f);
-    }
+    //     Destroy(gameObject, 0.5f);
+    // }
 
     public void SetValue(float liveTime, float moveSpeed, GameObject projectileTarget)
     {
