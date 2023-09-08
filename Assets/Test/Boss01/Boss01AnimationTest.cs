@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Boss01AnimationTest : MonoBehaviour
 {
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public List<ObjectEntry> VFXPosList { get; private set; } = new List<ObjectEntry>();
 
-    protected void OnPlayerVFX(string name)
+    private VisualEffect nowVFX;
+
+    private void OnPlayerVFX(string name)
     {
         Vector3 vfxPos = GetVFXPosByName(name).position;
         vfxPos.y = 0;
-        Instantiate(GetVFXByName(name), vfxPos, Quaternion.identity);
+        nowVFX = Instantiate(GetVFXByName(name), GetVFXByName(name).transform.position, Quaternion.identity).GetComponent<VisualEffect>();
+    }
+
+    private void DestroyVFX()
+    {
+        nowVFX.Stop();
+        Destroy(nowVFX.gameObject, 0.5f);
     }
 
     // 使用名稱查找對應的物件
