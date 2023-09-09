@@ -17,7 +17,6 @@ public class PlayerUIManager : UIManager
 
     private void Update()
     {
-
         if (HurtUI.color.a != 0)
         {
             hurtUIAlpha = Mathf.Max(hurtUIAlpha - Time.deltaTime * hurtUIAlphaDecayRate, 0);
