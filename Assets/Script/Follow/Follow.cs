@@ -30,7 +30,6 @@ public class Follow : MonoBehaviour
         {
             // 如果有障礙物，則避免碰撞，將移動方向調整為右側（或左側，根據需要）
             transform.position += (target.position - transform.position - transform.right * 3) * Time.deltaTime * followSpeed;
-            Debug.Log("HIT!!");
             return;
         }
 

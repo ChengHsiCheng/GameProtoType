@@ -8,7 +8,6 @@ public class Boss01FireStormSkillState : Boss01BaseState
     private const float AnimatorDampTime = 0.1f;
     private const float SKillDurationTime = 5f;
 
-    bool isUesSkill;
     float timer;
 
     private EnemySkill skill_i;

@@ -37,7 +37,6 @@ public class Boss01EscapeState : Boss01BaseState
         if (GetTargetAngle(targetPos) >= 5 && !isFace)
         {
             FaceTarget();
-            Debug.Log("Angle");
             return;
         }
 

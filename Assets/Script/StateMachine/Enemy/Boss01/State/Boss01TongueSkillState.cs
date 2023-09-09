@@ -8,9 +8,10 @@ public class Boss01TongueSkillState : Boss01BaseState
     private const float CrossFadeDuration = 0.1f;
 
     bool isUesSkill;
-    float timer;
+    bool isDestroySkill;
 
-    EnemySkill skill;
+    private EnemySkill skill_i;
+    private Skill skill;
 
     public Boss01TongueSkillState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
@@ -20,18 +21,20 @@ public class Boss01TongueSkillState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(TongueSkillHash, CrossFadeDuration);
 
-        skill = stateMachine.Skills[1];
+        skill_i = stateMachine.Skills[1];
 
-        stateMachine.cooldownTime = skill.CooldownTime;
+        stateMachine.cooldownTime = skill_i.CooldownTime;
+
     }
 
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime > 0.39f && !isUesSkill)
+        if (normalizedTime > 0.2f && !isUesSkill)
         {
-            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, stateMachine.transform.rotation).UseSkill();
+            skill = GameObject.Instantiate(skill_i.skill, skill_i.spawnPoint);
+            skill.UseSkill();
 
             isUesSkill = true;
         }
@@ -46,5 +49,6 @@ public class Boss01TongueSkillState : Boss01BaseState
 
     public override void Exit()
     {
+        skill.DestroySkill();
     }
 }

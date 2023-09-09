@@ -10,5 +10,6 @@ public abstract class Skill : MonoBehaviour
     public virtual void SkillUpdate() { }
 
     public virtual void UseSkill() { }
+
     public virtual void DestroySkill() { }
 }

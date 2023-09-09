@@ -481,7 +481,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnSkill(InputAction.CallbackContext context);
-        void  OnHeal(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
         void OnSanCheck(InputAction.CallbackContext context);
     }
