@@ -21,6 +21,8 @@ public class Boss01ChargeAttackState : Boss01BaseState
         weapon.SetAttack(attack.Damage, attack.SanDamage);
 
         weapon.gameObject.SetActive(true);
+
+        stateMachine.PlayVFX("ChargeSkillVFX");
     }
 
     public override void Tick(float deltaTime)

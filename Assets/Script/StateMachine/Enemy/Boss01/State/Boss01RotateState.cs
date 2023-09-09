@@ -18,6 +18,7 @@ public class Boss01RotateState : Boss01BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
+
     }
 
     public override void Tick(float deltaTime)
@@ -35,7 +36,7 @@ public class Boss01RotateState : Boss01BaseState
                     case < 40:
                         stateMachine.SwitchState(new Boss01ChargeAttackState(stateMachine, (int)AttackIndex.ChargeAttack));
                         break;
-                    case < 41:
+                    case < 60:
                         stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
                         break;
                     case < 100:
