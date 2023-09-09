@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // [SerializeField] private float planeDir;
+    [SerializeField] private float planeDir;
 
-    // private Canvas canvas
-    // {
-    //     get => this.GetComponent<Canvas>();
-    // }
+    private Canvas canvas
+    {
+        get => this.GetComponent<Canvas>();
+    }
 
-    // private void OnEnable()
-    // {
-    //     canvas.worldCamera = Camera.main;
-    //     canvas.planeDistance = planeDir;
-    // }
+    private void OnEnable()
+    {
+        canvas.worldCamera = Camera.main;
+        canvas.planeDistance = planeDir;
+    }
 }
