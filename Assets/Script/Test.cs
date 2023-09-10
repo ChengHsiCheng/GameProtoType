@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Test : MonoBehaviour
 {
@@ -19,9 +18,7 @@ public class Test : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.nowScene = 1;
-
-            SceneManager.LoadScene(1);
+            GameManager.SwitchScene("Boss01Scene");
         }
     }
 }

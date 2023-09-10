@@ -31,8 +31,7 @@ public class PlayerDieState : PlayerBaseState
 
         if (Input.anyKeyDown && timer >= 1)
         {
-            Debug.Log(GameManager.nowScene);
-            SceneManager.LoadScene(GameManager.nowScene);
+            GameManager.SwitchScene(GameManager.nowScene);
         }
     }
 
