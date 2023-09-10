@@ -16,9 +16,13 @@ public static class GameManager
     public static List<Enemy> enemys = new List<Enemy>();
     public static ControlMethod controlMethod;
 
-    public static string nowScene;
+    public static string nowScene { private set; get; }
 
-    public static bool isPauseGame = false;
+    public static int screenHorizontal { private set; get; }
+    public static int screenVertical { private set; get; }
+
+    public static bool isPauseGame { private set; get; } = false;
+    public static bool isFullScreen { private set; get; } = false;
 
     public static void TogglePause()
     {
@@ -67,5 +71,22 @@ public static class GameManager
     {
         SceneManager.LoadScene(sceneName);
         nowScene = sceneName;
+    }
+
+    public static void SetScreenMod(bool _isFullScreen)
+    {
+        isFullScreen = _isFullScreen;
+        SetScreenResolution(screenHorizontal, screenVertical);
+
+        Debug.Log(isFullScreen);
+    }
+
+    public static void SetScreenResolution(int horizontal, int vertical)
+    {
+        Screen.SetResolution(horizontal, vertical, isFullScreen);
+        screenHorizontal = horizontal;
+        screenVertical = vertical;
+
+        Debug.Log(screenHorizontal + " , " + screenVertical);
     }
 }
