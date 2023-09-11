@@ -1,13 +1,16 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 
-public class SettingController : MonoBehaviour
+public class SettingController : UIManager
 {
     [SerializeField] private Volume volume;
+    [SerializeField] private AudioMixer mixer;
+    [SerializeField] private GameObject settingUI;
     private ColorAdjustments brightness;
 
     private void Start()
@@ -17,7 +20,18 @@ public class SettingController : MonoBehaviour
 
     public void SetBrightness(float volume)
     {
-        brightness.postExposure.value = volume;
+        if (brightness)
+            brightness.postExposure.value = volume;
+    }
+
+    public void SetAudioVolume(float volume)
+    {
+        mixer.SetFloat("AudioVolume", volume);
+    }
+
+    public void SetSettingUI(bool isActive)
+    {
+        settingUI.SetActive(isActive);
     }
 
     public void SetScreenResolution(int i)
@@ -33,8 +47,22 @@ public class SettingController : MonoBehaviour
         }
     }
 
-    public void SetFullScreen(bool isFullScreen)
+    public void SetScreenMod(int i)
     {
-        GameManager.SetScreenMod(isFullScreen);
+        switch (i)
+        {
+            case 0:
+                GameManager.SetScreenMod(FullScreenMode.FullScreenWindow);
+                break;
+            case 1:
+                GameManager.SetScreenMod(FullScreenMode.ExclusiveFullScreen);
+                break;
+            case 2:
+                GameManager.SetScreenMod(FullScreenMode.Windowed);
+                break;
+            case 3:
+                GameManager.SetScreenMod(FullScreenMode.MaximizedWindow);
+                break;
+        }
     }
 }

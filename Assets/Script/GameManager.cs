@@ -22,7 +22,7 @@ public static class GameManager
     public static int screenVertical { private set; get; }
 
     public static bool isPauseGame { private set; get; } = false;
-    public static bool isFullScreen { private set; get; } = false;
+    public static FullScreenMode screenMode { private set; get; }
 
     public static void TogglePause()
     {
@@ -73,17 +73,17 @@ public static class GameManager
         nowScene = sceneName;
     }
 
-    public static void SetScreenMod(bool _isFullScreen)
+    public static void SetScreenMod(FullScreenMode _screenMode)
     {
-        isFullScreen = _isFullScreen;
-        SetScreenResolution(screenHorizontal, screenVertical);
+        screenMode = _screenMode;
+        Screen.fullScreenMode = screenMode;
 
-        Debug.Log(isFullScreen);
+        Debug.Log(screenMode);
     }
 
     public static void SetScreenResolution(int horizontal, int vertical)
     {
-        Screen.SetResolution(horizontal, vertical, isFullScreen);
+        Screen.SetResolution(horizontal, vertical, screenMode);
         screenHorizontal = horizontal;
         screenVertical = vertical;
 

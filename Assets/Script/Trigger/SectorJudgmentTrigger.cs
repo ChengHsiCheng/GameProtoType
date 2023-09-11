@@ -43,24 +43,24 @@ public class SectorJudgmentTrigger : Trigger
         return offsetAngle < sectorAngle * .5f && direction.magnitude < sectorRadius;
     }
 
-    private void OnDrawGizmos()
-    {
-        Handles.color = IsInRadius ? Color.cyan : Color.red;
+    // private void OnDrawGizmos()
+    // {
+    //     Handles.color = IsInRadius ? Color.cyan : Color.red;
 
-        float halfAngle = angle / 2f;
+    //     float halfAngle = angle / 2f;
 
-        // 计算扇形的两个边缘点
-        Vector3 direction = transform.forward;
+    //     // 计算扇形的两个边缘点
+    //     Vector3 direction = transform.forward;
 
-        Vector3 leftVertex = transform.position + Quaternion.AngleAxis(-halfAngle, Vector3.up) * direction * radius;
-        Vector3 rightVertex = transform.position + Quaternion.AngleAxis(halfAngle, Vector3.up) * direction * radius;
+    //     Vector3 leftVertex = transform.position + Quaternion.AngleAxis(-halfAngle, Vector3.up) * direction * radius;
+    //     Vector3 rightVertex = transform.position + Quaternion.AngleAxis(halfAngle, Vector3.up) * direction * radius;
 
-        // 绘制扇形的边缘线
-        Handles.DrawLine(transform.position, leftVertex);
-        Handles.DrawLine(transform.position, rightVertex);
+    //     // 绘制扇形的边缘线
+    //     Handles.DrawLine(transform.position, leftVertex);
+    //     Handles.DrawLine(transform.position, rightVertex);
 
-        // 绘制扇形的弧线
-        Handles.DrawWireArc(transform.position, Vector3.up, Quaternion.Euler(0, -halfAngle, 0) * direction, angle, radius);
+    //     // 绘制扇形的弧线
+    //     Handles.DrawWireArc(transform.position, Vector3.up, Quaternion.Euler(0, -halfAngle, 0) * direction, angle, radius);
 
-    }
+    // }
 }

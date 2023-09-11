@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private float planeDir;
+    [SerializeField] private float planeDir = 2;
 
     private Canvas canvas
     {

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMuenController : MonoBehaviour
+public class MainMuenController : UIManager
 {
     [SerializeField] Animator animator;
+    [SerializeField] SettingController setting;
 
     string switchScene;
 
@@ -13,6 +14,11 @@ public class MainMuenController : MonoBehaviour
     {
         animator.SetTrigger("Switch");
         switchScene = sceneName;
+    }
+
+    public void OnSetting()
+    {
+        setting.SetSettingUI(true);
     }
 
     public void QuitGame()
