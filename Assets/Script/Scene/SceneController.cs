@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    [SerializeField] private GameObject PauseMenu;
 
     private void Awake()
     {
@@ -31,8 +30,4 @@ public class SceneController : MonoBehaviour
         GameManager.enemys.Clear();
     }
 
-    public void SetPauseMeun(bool isPause)
-    {
-        PauseMenu.SetActive(isPause);
-    }
 }

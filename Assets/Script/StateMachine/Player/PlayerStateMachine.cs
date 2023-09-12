@@ -20,6 +20,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
 
+    [SerializeField] private InterfaceController interfaceController;
 
     [field: SerializeField] public float moveSpeed { get; private set; }
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
@@ -131,8 +132,9 @@ public class PlayerStateMachine : StateMachine
     {
         if (isSanCheck)
             return;
+
         GameManager.TogglePause();
-        GameManager.sceneController.SetPauseMeun(GameManager.isPauseGame);
+        interfaceController.SetPauseMenu(GameManager.isPauseGame);
     }
 
     /// <summary>

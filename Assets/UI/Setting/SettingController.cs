@@ -1,6 +1,7 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -13,25 +14,37 @@ public class SettingController : UIManager
     [SerializeField] private GameObject settingUI;
     private ColorAdjustments brightness;
 
+    [SerializeField] private Slider brightnessSlider;
+    [SerializeField] private Slider audioVolumeSlider;
+
     private void Start()
     {
         volume.profile.TryGet<ColorAdjustments>(out brightness);
+
+        SetBrightness(GameManager.brightness);
+        SetAudioVolume(GameManager.audioVolume);
+
+        brightnessSlider.value = GameManager.brightness;
+        audioVolumeSlider.value = GameManager.audioVolume;
     }
 
     public void SetBrightness(float volume)
     {
-        if (brightness)
-            brightness.postExposure.value = volume;
+        GameManager.SetBrightness(volume);
+        brightness.postExposure.value = GameManager.brightness;
     }
 
     public void SetAudioVolume(float volume)
     {
-        mixer.SetFloat("AudioVolume", volume);
+        GameManager.SetAudioVolume(volume);
+        mixer.SetFloat("AudioVolume", GameManager.audioVolume);
     }
 
     public void SetSettingUI(bool isActive)
     {
         settingUI.SetActive(isActive);
+
+        GameManager.SetIsSetting(isActive);
     }
 
     public void SetScreenResolution(int i)

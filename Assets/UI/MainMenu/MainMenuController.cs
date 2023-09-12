@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMuenController : UIManager
+public class MainMenuController : UIManager
 {
     [SerializeField] Animator animator;
     [SerializeField] SettingController setting;
