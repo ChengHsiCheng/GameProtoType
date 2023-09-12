@@ -10,9 +10,8 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         GameManager.sceneController = this;
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
     }
-
 
     private void Start()
     {

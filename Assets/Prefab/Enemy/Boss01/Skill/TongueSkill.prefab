@@ -74,7 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7579511548345479835}
   - component: {fileID: 8616585166332048598}
-  - component: {fileID: 8616585166332048597}
+  - component: {fileID: 4138446450763563851}
+  - component: {fileID: 742128476019075764}
   m_Layer: 11
   m_Name: Tongue.01
   m_TagString: Untagged
@@ -109,9 +110,23 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.1, z: 0.01}
+  m_Size: {x: 0.008, y: 0.1, z: 0.008}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8616585166332048597
+--- !u!114 &4138446450763563851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3888863479017966600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c1830b392f3a646ae00bb0e8f252cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  sanDamage: 35
+--- !u!114 &742128476019075764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,15 +184,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e602ee23ba58c41a6310fb96c44629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  sanDamage: 1
   originPos: {x: 0, y: 0, z: 0}
   targetPos: {x: 0, y: 0, z: 0}
   tongue: {fileID: 7579511548345479835}
   isGoing: 0
   isBacking: 0
-  speed: 1.5
-  trigger: {fileID: 8616585166332048597}
+  speed: 70
+  trigger: {fileID: 742128476019075764}
 --- !u!1 &8087109643968911604
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 955565033013966085}
   - component: {fileID: 8254371210966326133}
   - component: {fileID: 8254371210966326132}
+  - component: {fileID: 1180949829446179332}
   m_Layer: 9
   m_Name: VFX_FireBall01_Ball01
   m_TagString: Untagged
@@ -175,3 +176,18 @@ MonoBehaviour:
   vfxs:
   - {fileID: 8254371210966326130}
   particles: []
+--- !u!114 &1180949829446179332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254371210966326135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f72ffb4518c86649b0abc31341d41ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 0}
+  damage: 20
+  sanDamage: 10

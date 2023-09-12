@@ -41,7 +41,7 @@ public class TongueSkill : Skill
 
         if (isBacking)
         {
-            tongue.position = Vector3.MoveTowards(tongue.position, destination, speed);
+            tongue.position = Vector3.MoveTowards(tongue.position, destination, speed * Time.deltaTime);
             if (Vector3.Distance(tongue.position, originPos) < 0.01f)
             {
                 isBacking = false;
@@ -51,7 +51,7 @@ public class TongueSkill : Skill
 
         if (isGoing)
         {
-            tongue.position = Vector3.MoveTowards(tongue.position, destination, speed);
+            tongue.position = Vector3.MoveTowards(tongue.position, destination, speed * Time.deltaTime);
             if (Vector3.Distance(tongue.position, targetPos) < 0.01f)
             {
                 destination = originPos;
@@ -66,16 +66,6 @@ public class TongueSkill : Skill
     {
         if (other.tag != "Player")
             return;
-
-        if (other.TryGetComponent<Health>(out Health health))
-        {
-            health.DealHealthDamage(damage, true);
-        }
-
-        if (other.TryGetComponent<San>(out San san))
-        {
-            san.DealSanDamage(sanDamage);
-        }
 
         if (isGoing)
         {

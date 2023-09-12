@@ -19,6 +19,7 @@ public class PauseMenuController : UIManager
 
     public void OnMenu()
     {
+        GameManager.TogglePause(false);
         GameManager.SwitchScene("MainMenu");
     }
 }

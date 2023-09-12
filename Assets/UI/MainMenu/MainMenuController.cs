@@ -7,13 +7,26 @@ public class MainMenuController : UIManager
 {
     [SerializeField] Animator animator;
     [SerializeField] SettingController setting;
+    [SerializeField] SlideshowContorller slideshow;
 
     string switchScene;
+
+    private void OnEnable()
+    {
+        slideshow.OnSwicthScene += OnSwitchScene;
+    }
+
+    public void OnNewGmae()
+    {
+        slideshow.OnStart();
+    }
 
     public void OnSwitchScene(string sceneName)
     {
         animator.SetTrigger("Switch");
         switchScene = sceneName;
+
+        Debug.Log(switchScene);
     }
 
     public void OnSetting()

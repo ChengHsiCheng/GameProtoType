@@ -51,7 +51,7 @@ public class PlayerAttackState : PlayerBaseState
         if (stateMachine.canCancel)
             stateMachine.SetCanCancel(false);
 
-        if (normalizedTime <= attack.MinComboAttackTime)
+        if (normalizedTime < attack.MinComboAttackTime + 0.1f)
             return;
 
         if (!CanAction)
@@ -78,6 +78,7 @@ public class PlayerAttackState : PlayerBaseState
     {
         if (attack.ComboStateIndex == -1)
             return;
+
         if (normalizedTime < attack.MinComboAttackTime || normalizedTime > attack.MaxComboAttackTime)
             return;
 

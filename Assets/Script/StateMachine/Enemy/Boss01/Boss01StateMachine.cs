@@ -22,14 +22,12 @@ public class Boss01StateMachine : StateMachine, Enemy
     [field: SerializeField] public List<ObjectEntry> VFXPosList { get; private set; } = new List<ObjectEntry>();
     public Boss01SceneController Scene { get; private set; }
 
-    [field: SerializeField] public float MoveForce { get; private set; }
+    public float MoveForce { get; private set; }
     [field: SerializeField] public float escapeSpeed { get; private set; }
     [field: SerializeField] public float movementSpeed { get; private set; }
     [field: SerializeField] public float rotationSpeed { get; private set; }
     [field: SerializeField] public float chargeSpeed { get; private set; }
     [field: SerializeField] public float meleeRange { get; private set; } // 近戰攻擊範圍
-    [field: SerializeField] public float jumpAttackMoveSpeed { get; private set; }
-    [field: SerializeField] public float getHitImpulseSource { get; private set; }
     [field: SerializeField] public int Stage { get; private set; } = 0;
 
     public int nowStage = 0;
@@ -143,18 +141,8 @@ public class Boss01StateMachine : StateMachine, Enemy
     // 在場景中以紅色繪製出敵人的追擊範圍
     private void OnDrawGizmosSelected()
     {
-        // 計算角色面向往右 15 度的向量
-        Quaternion rotation = Quaternion.Euler(0, 30, 0);
-        Quaternion rotation02 = Quaternion.Euler(0, -30, 0);
-        Vector3 direction = rotation * transform.forward * 5;
-        Vector3 direction02 = rotation02 * transform.forward * 5;
-
-        // 設定 Gizmos 顏色
         Gizmos.color = Color.red;
-
-        // 繪製線段，起點為角色位置，終點為角色位置 + 計算出的方向向量
-        Gizmos.DrawLine(transform.position, transform.position + direction);
-        Gizmos.DrawLine(transform.position, transform.position + direction02);
+        Gizmos.DrawWireSphere(transform.position, meleeRange);
     }
 
     public override void SetCanMove(bool value)
