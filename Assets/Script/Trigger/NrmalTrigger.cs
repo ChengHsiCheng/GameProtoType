@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxTrigger : Trigger
+public class NrmalTrigger : Trigger
 {
     private void OnTriggerEnter(Collider other)
     {

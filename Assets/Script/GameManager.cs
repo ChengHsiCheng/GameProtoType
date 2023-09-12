@@ -81,6 +81,11 @@ public static class GameManager
 
     public static void SwitchScene(string sceneName)
     {
+        if (nowScene == null)
+        {
+            sceneName = SceneManager.GetActiveScene().name;
+        }
+
         SceneManager.LoadScene(sceneName);
         nowScene = sceneName;
     }

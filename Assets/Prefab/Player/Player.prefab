@@ -1027,7 +1027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3111727879778648896
 Transform:
   m_ObjectHideFlags: 0
@@ -1085,6 +1085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCollider: {fileID: 2080221946}
+  Collider: {fileID: 7534961677611394137}
   hitVFX: {fileID: 6192724089161036641, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
   alreadyCollidedWith: []
 --- !u!1 &4852221872911118797
@@ -2748,7 +2749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponLogic:
-  - {fileID: 4644412982043613105}
+  - {fileID: 6078049451270060355}
 --- !u!114 &8575987633689787934
 MonoBehaviour:
   m_ObjectHideFlags: 0

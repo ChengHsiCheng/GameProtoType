@@ -31,7 +31,7 @@ public class Boss01FireBreathSkillState : Boss01BaseState
 
         if (normalizedTime > 0.6f && !isUesSkill)
         {
-            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, new Quaternion(0, 0, 180, 0)).UseSkill();
+            GameObject.Instantiate(skill.skill, skill.spawnPoint.position, new Quaternion(0, 0, 90, 0)).UseSkill();
 
             isUesSkill = true;
         }

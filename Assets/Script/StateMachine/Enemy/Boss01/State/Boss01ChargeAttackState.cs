@@ -20,7 +20,7 @@ public class Boss01ChargeAttackState : Boss01BaseState
 
         weapon.SetAttack(attack.Damage, attack.SanDamage);
 
-        weapon.gameObject.SetActive(true);
+        weapon.SetCollider(true);
 
         stateMachine.PlayVFX("ChargeSkillVFX");
     }
@@ -55,7 +55,8 @@ public class Boss01ChargeAttackState : Boss01BaseState
         // 停止導航代理的運動
         stateMachine.Agent.velocity = Vector3.zero;
 
-        weapon.gameObject.SetActive(false);
+        weapon.SetCollider(false);
+
     }
 
     protected void ChargeToTarget(float deltaTime)

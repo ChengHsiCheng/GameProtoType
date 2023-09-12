@@ -17,7 +17,7 @@ public class FireBreathSkill : Skill
     public override void UseSkill()
     {
         ProjectileControls iFireBall = Instantiate(fireBall, transform.position, transform.rotation);
-        iFireBall.SetValue(3, fireBallSpeed, Vector3.up);
+        iFireBall.SetValue(fireBallSpeed, Vector3.up);
     }
 
     private void Update()
@@ -59,11 +59,11 @@ public class FireBreathSkill : Skill
         Vector3 spawnPosition = new Vector3(randomPoint.x, 0f, randomPoint.y);
         spawnPosition.y = 20;
 
-        ProjectileControls iFireBall = Instantiate(fireBall, spawnPosition, Quaternion.identity);
+        ProjectileControls iFireBall = Instantiate(fireBall, spawnPosition, new Quaternion(0, 0, -90, 0));
 
         spawnPosition.y = 0;
         Instantiate(warningArea, spawnPosition, warningArea.transform.rotation);
-        iFireBall.SetValue(5, fireBallSpeed, Vector3.down);
+        iFireBall.SetValue(fireBallSpeed, Vector3.down);
     }
 
 }

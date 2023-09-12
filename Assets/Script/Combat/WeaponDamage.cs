@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
+    [SerializeField] private Collider Collider;
     private float damage; // 傷害
     private float sanDamage;
 
@@ -14,10 +15,6 @@ public class WeaponDamage : MonoBehaviour
     /// <summary>
     /// 啟用時
     /// </summary>
-    private void OnEnable()
-    {
-        alreadyCollidedWith.Clear();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,6 +43,15 @@ public class WeaponDamage : MonoBehaviour
         {
             san.DealSanDamage(sanDamage);
         }
+    }
+
+    public void SetCollider(bool isEnabled)
+    {
+        Collider.enabled = isEnabled;
+
+        if (isEnabled)
+            alreadyCollidedWith.Clear();
+
     }
 
     /// <summary>

@@ -7,7 +7,6 @@ public class Boss01AttackState : Boss01BaseState
 {
     private EnemyAttack attack; // 攻擊的資訊
     private WeaponDamage weapon;
-    private bool isMoved;
 
     public Boss01AttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {

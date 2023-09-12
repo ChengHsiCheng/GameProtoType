@@ -6,8 +6,8 @@ public class Damage : MonoBehaviour
 {
     [SerializeField] protected Trigger trigger;
 
-    protected float damage = 1; // 傷害
-    protected float sanDamage = 1;
+    [SerializeField] protected float damage = 1; // 傷害
+    [SerializeField] protected float sanDamage = 1;
 
     public void SetDamage(float damage)
     {

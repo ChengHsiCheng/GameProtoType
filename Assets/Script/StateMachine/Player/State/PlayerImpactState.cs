@@ -16,6 +16,8 @@ public class PlayerImpactState : PlayerBaseState
         stateMachine.SetCanAction(false);
 
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
+
+        stateMachine.Weapon.SetCollider(false);
     }
 
     public override void Tick(float deltaTime)

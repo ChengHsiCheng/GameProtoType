@@ -5,60 +5,41 @@ using UnityEngine;
 
 public class ProjectileControls : MonoBehaviour
 {
-    private float liveTime = 3;
-    private float timer;
     private float moveSpeed = 1;
-    private Vector3 projectileDir = Vector3.up;
+    private Vector3 projectileDir;
 
     [SerializeField] private GameObject[] hitVFX;
+    [SerializeField] private VFXLiveTime vfx;
 
-    VisualEffect[] VFXs;
-
-    private void Start()
-    {
-        VFXs = GetComponentsInChildren<VisualEffect>();
-    }
 
     private void Update()
     {
         if (GameManager.isPauseGame)
             return;
 
-        if (timer >= liveTime)
-        {
-            VFXCleaner();
-        }
-
-        timer += Time.deltaTime;
-
         transform.position += projectileDir * moveSpeed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        Debug.Log(other);
+
         if (hitVFX.Length == 0)
             return;
 
+        Vector3 pos = transform.position;
+        pos.y = 0;
+
         for (int i = 0; i < hitVFX.Length; i++)
         {
-            Instantiate(hitVFX[i], transform.position, Quaternion.identity);
+            Instantiate(hitVFX[i], pos, Quaternion.identity);
         }
-        VFXCleaner();
+
+        vfx.Stop();
     }
 
-    private void VFXCleaner()
+    public void SetValue(float moveSpeed, Vector3 projectileDir)
     {
-        foreach (VisualEffect vfx in VFXs)
-        {
-            vfx.Stop();
-        }
-        Destroy(gameObject);
-    }
-
-    public void SetValue(float liveTime, float moveSpeed, Vector3 projectileDir)
-    {
-        this.liveTime = liveTime;
         this.moveSpeed = moveSpeed;
         this.projectileDir = projectileDir;
     }

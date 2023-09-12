@@ -32,7 +32,6 @@ public class PlayerUIManager : UIManager
         hurtUIAlpha = Mathf.Min(hurtUIAlpha + 60, 180);
         float a = hurtUIAlpha / 255;
         HurtUI.color = new Color(HurtUI.color.r, HurtUI.color.g, HurtUI.color.b, a);
-        Debug.Log("BeAttack " + hurtUIAlpha);
     }
 
     public void SetHpBar(float value)

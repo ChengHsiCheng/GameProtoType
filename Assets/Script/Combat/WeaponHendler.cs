@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class WeaponHendler : MonoBehaviour
 {
-    [SerializeField] private GameObject[] weaponLogic;
+    [SerializeField] private WeaponDamage[] weaponLogic;
 
     public event Action MoveEvent;
     public event Action<string> VFXEvent;
@@ -16,7 +16,7 @@ public class WeaponHendler : MonoBehaviour
     /// </summary>
     protected void EnableWeapon(int Index)
     {
-        weaponLogic[Index]?.SetActive(true);
+        weaponLogic[Index]?.SetCollider(true);
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ public class WeaponHendler : MonoBehaviour
     /// </summary>
     private void DisableWeapon(int Index)
     {
-        weaponLogic[Index]?.SetActive(false);
+        weaponLogic[Index]?.SetCollider(false);
     }
 
     private void AttackMove()
