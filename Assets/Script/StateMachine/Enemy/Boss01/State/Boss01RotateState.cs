@@ -33,10 +33,10 @@ public class Boss01RotateState : Boss01BaseState
             {
                 switch (Random.Range(0, 100))
                 {
-                    case < 1:
+                    case < 40:
                         stateMachine.SwitchState(new Boss01ChargeAttackState(stateMachine, (int)AttackIndex.ChargeAttack));
                         break;
-                    case < 2:
+                    case < 70:
                         stateMachine.SwitchState(new Boss01FireBreathSkillState(stateMachine));
                         break;
                     case < 100:
