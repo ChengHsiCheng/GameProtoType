@@ -98,7 +98,7 @@ public class Boss01TransitionState : Boss01BaseState
         // 在近距離攻擊範圍外
         if (!IsInMeleeRange())
         {
-            if (Random.Range(0, 100) < 0)
+            if (Random.Range(0, 100) < 40)
             {
                 stateMachine.SwitchState(new Boss01ChaseState(stateMachine));
                 return;
