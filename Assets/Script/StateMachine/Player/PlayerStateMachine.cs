@@ -39,6 +39,7 @@ public class PlayerStateMachine : StateMachine
         GameManager.player = this.gameObject;
     }
 
+
     private void Start()
     {
         SwitchState(new PlayerMovingState(this));
@@ -248,6 +249,7 @@ public class PlayerStateMachine : StateMachine
     public GameObject GetVFXByName(string objectName)
     {
         ObjectEntry entry = VFXList.Find(e => e.name == objectName);
+
         if (entry.gameObject != null)
         {
             return entry.gameObject;
