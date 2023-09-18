@@ -198,6 +198,8 @@ public class PlayerStateMachine : StateMachine
         GameManager.TogglePause(false);
         Info.SanCheckSuccess();
         UpdateUI();
+
+        Info.SetInvulnerable(true, 1);
     }
 
     private void SanCheckFail()

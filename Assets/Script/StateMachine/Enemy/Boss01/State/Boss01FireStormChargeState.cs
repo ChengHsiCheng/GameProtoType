@@ -48,6 +48,7 @@ public class Boss01FireStormChargeState : Boss01BaseState
     public override void Exit()
     {
         vfx.Stop();
+        Debug.Log("Stop");
     }
 
 }

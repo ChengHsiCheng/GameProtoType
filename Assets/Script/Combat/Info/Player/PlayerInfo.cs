@@ -9,6 +9,8 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public float health { get; private set; }
     [field: SerializeField] public float maxSan { get; private set; }
     public float san { get; private set; }
+    private float timer;
+    private float invulnerableTime;
 
     public bool isDead => health <= 0;
     public bool isInvulnerable { get; set; }
@@ -24,6 +26,29 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     {
         health = maxHealth;
         san = maxSan;
+    }
+
+    private void Update()
+    {
+        if (GameManager.isPauseGame)
+            return;
+
+        if (isInvulnerable == false || invulnerableTime == 0)
+            return;
+
+        timer += Time.deltaTime;
+
+        if (timer >= invulnerableTime)
+        {
+            isInvulnerable = false;
+            invulnerableTime = 0;
+        }
+    }
+
+    public void SetInvulnerable(bool isInvunerable, float time)
+    {
+        invulnerableTime = time;
+        SetInvulnerable(isInvunerable);
     }
 
     public void SetInvulnerable(bool isInvunerable)
@@ -86,9 +111,5 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     {
         maxHealth = 1;
         health = 1;
-    }
-    void OnDrawGizmos()
-    {
-
     }
 }
