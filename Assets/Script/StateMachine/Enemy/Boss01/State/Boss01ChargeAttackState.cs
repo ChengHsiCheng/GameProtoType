@@ -44,7 +44,7 @@ public class Boss01ChargeAttackState : Boss01BaseState
     {
         Debug.Log(weapon.gameObject);
 
-        stateMachine.cooldownTime = attack.CooldownTime;
+        stateMachine.cooldownTime = Random.Range(attack.MinCooldownTime, attack.MaxCooldownTime);
 
         if (stateMachine.Agent.isOnNavMesh)
         {

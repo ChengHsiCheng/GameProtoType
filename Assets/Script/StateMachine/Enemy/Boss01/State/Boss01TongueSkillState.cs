@@ -23,7 +23,7 @@ public class Boss01TongueSkillState : Boss01BaseState
 
         skill_i = stateMachine.Skills[1];
 
-        stateMachine.cooldownTime = skill_i.CooldownTime;
+        stateMachine.cooldownTime = Random.Range(skill_i.MinCooldownTime, skill_i.MaxCooldownTime);
 
     }
 

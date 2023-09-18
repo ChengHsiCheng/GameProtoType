@@ -12,6 +12,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
     public bool isDead => health <= 0;
     public bool isInvulnerable { get; set; }
+    [SerializeField] private bool Invulnerable;
 
     public event Action<bool> OnTakeDamage;
     public event Action OnDie;
@@ -33,6 +34,9 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public void DealHealthDamage(float damage, bool isInpact)
     {
         if (health <= 0)
+            return;
+
+        if (Invulnerable)
             return;
 
         if (isInvulnerable)
@@ -58,6 +62,9 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public void DealSanDamage(float damage)
     {
         if (san <= 0)
+            return;
+
+        if (Invulnerable)
             return;
 
         if (isInvulnerable)

@@ -31,6 +31,13 @@ public class Boss01EscapeState : Boss01BaseState
 
     public override void Tick(float deltaTime)
     {
+        if (stateMachine.Stage != stateMachine.nowStage)
+        {
+            stateMachine.nowStage += 1;
+            stateMachine.SwitchState(new Boss01FireStormChargeState(stateMachine));
+            return;
+        }
+
         Vector3 pos = stateMachine.transform.position;
         pos.y = 0;
 

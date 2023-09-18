@@ -24,7 +24,7 @@ public class Boss01FireStormSkillState : Boss01BaseState
 
         skill_i = stateMachine.Skills[2];
 
-        stateMachine.cooldownTime = skill_i.CooldownTime;
+        stateMachine.cooldownTime = Random.Range(skill_i.MinCooldownTime, skill_i.MaxCooldownTime);
 
         vfx = stateMachine.PlayVFX("FireStormSkillVFX");
 

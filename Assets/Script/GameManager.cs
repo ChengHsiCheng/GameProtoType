@@ -81,8 +81,8 @@ public static class GameManager
 
     public static void SwitchScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
         nowScene = sceneName;
+        SceneManager.LoadScene(sceneName);
     }
 
     public static void SetScreenMod(FullScreenMode _screenMode)

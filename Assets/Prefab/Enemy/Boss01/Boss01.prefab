@@ -1873,35 +1873,40 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 30
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 0
+    <MaxCooldownTime>k__BackingField: 0.5
+    <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0.23
     <MoveForce>k__BackingField: 7
   - <AnimationName>k__BackingField: SlapAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 25
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 0
-    <MoveTime>k__BackingField: 0
+    <MaxCooldownTime>k__BackingField: 0
+    <MinCooldownTime>k__BackingField: 0.5
+    <MoveTime>k__BackingField: 1
     <MoveForce>k__BackingField: 3
   - <AnimationName>k__BackingField: RotateAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 35
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 0.5
+    <MaxCooldownTime>k__BackingField: 0.5
+    <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0
     <MoveForce>k__BackingField: 0
   - <AnimationName>k__BackingField: BackAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 40
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 0.5
+    <MaxCooldownTime>k__BackingField: 0.5
+    <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0.34
     <MoveForce>k__BackingField: -7
   - <AnimationName>k__BackingField: ChargeAttack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 30
     <SanDamage>k__BackingField: 0
-    <CooldownTime>k__BackingField: 0.5
+    <MaxCooldownTime>k__BackingField: 0
+    <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0
     <MoveForce>k__BackingField: 0
   <Skills>k__BackingField:
@@ -1909,17 +1914,20 @@ MonoBehaviour:
     <skill>k__BackingField: {fileID: 7779793749199280209, guid: e09382d57bdd27749af778f2c6289542,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 6453017612640518531}
-    <CooldownTime>k__BackingField: 0.5
+    <MinCooldownTime>k__BackingField: 0.5
+    <MaxCooldownTime>k__BackingField: 1.5
   - <SkillName>k__BackingField: Tongue
     <skill>k__BackingField: {fileID: 4786277695822311618, guid: 63aa8a94f88de6c47bb591bc612da9b5,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 1924548750727221032}
-    <CooldownTime>k__BackingField: 1
+    <MinCooldownTime>k__BackingField: 0.5
+    <MaxCooldownTime>k__BackingField: 1.5
   - <SkillName>k__BackingField: FireStorm
     <skill>k__BackingField: {fileID: 2008181008732081653, guid: 351d052934a0cc44b82adba1236eacc7,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 7008696656237054646}
-    <CooldownTime>k__BackingField: 1
+    <MinCooldownTime>k__BackingField: 0
+    <MaxCooldownTime>k__BackingField: 1
   <VFXList>k__BackingField:
   - name: ForwardAttackVFX
     gameObject: {fileID: 234993126553790158, guid: b6d0162ffe8f6f0419b27fd0b6a1de81,

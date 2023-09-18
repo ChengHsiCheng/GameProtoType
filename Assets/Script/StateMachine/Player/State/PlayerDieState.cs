@@ -31,6 +31,11 @@ public class PlayerDieState : PlayerBaseState
 
         if (Input.anyKeyDown && timer >= 1)
         {
+            if (GameManager.nowScene == null)
+            {
+                GameManager.SwitchScene("Boss01Scene");
+            }
+
             GameManager.SwitchScene(GameManager.nowScene);
         }
     }

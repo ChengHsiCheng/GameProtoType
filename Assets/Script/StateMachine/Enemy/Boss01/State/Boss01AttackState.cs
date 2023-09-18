@@ -43,7 +43,7 @@ public class Boss01AttackState : Boss01BaseState
 
     public override void Exit()
     {
-        stateMachine.cooldownTime = attack.CooldownTime;
+        stateMachine.cooldownTime = Random.Range(attack.MinCooldownTime, attack.MaxCooldownTime);
 
         if (stateMachine.Agent.isOnNavMesh)
         {

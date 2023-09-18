@@ -30,6 +30,7 @@ public abstract class Boss01BaseState : State
     /// </summary>
     protected void Move(Vector3 motion, float deltaTime)
     {
+
         lastMovement = stateMachine.ForceReceiver.Movement;
 
         stateMachine.Controller.Move((motion + lastMovement) * deltaTime);
