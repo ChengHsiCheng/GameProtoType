@@ -36,6 +36,9 @@ public class SettingController : UIManager
 
     public void SetAudioVolume(float volume)
     {
+        if (volume <= -40)
+            volume = -80;
+
         GameManager.SetAudioVolume(volume);
         mixer.SetFloat("AudioVolume", GameManager.audioVolume);
     }

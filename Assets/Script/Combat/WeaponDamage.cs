@@ -6,6 +6,7 @@ public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private Collider myCollider;
     [SerializeField] private Collider Collider;
+    [SerializeField] private AudioLogic audioLogic;
     private float damage; // 傷害
     private float sanDamage;
 
@@ -25,6 +26,8 @@ public class WeaponDamage : MonoBehaviour
             return;
 
         alreadyCollidedWith.Add(other.gameObject);
+
+        audioLogic?.PlayAudio("Hit");
 
         if (hitVFX)
         {

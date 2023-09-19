@@ -764,6 +764,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1740731472, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 379602204410068827, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
         type: 3}
       propertyPath: m_RootOrder
@@ -822,17 +826,22 @@ PrefabInstance:
     - target: {fileID: 3856891577800462973, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3856891577800462973, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7667736142582948790, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
         type: 3}
       propertyPath: m_Name
       value: Boss01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667736142582948790, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac, type: 3}
@@ -1025,6 +1034,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635460635419, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062203635460635419, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 23a9b9cfad60c9b4b8cdf3cc04c78d54, type: 3}
+    - target: {fileID: 8062203635460635419, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce15dc99e8321f549ad8340fdec4674a, type: 3}

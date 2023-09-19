@@ -43,7 +43,11 @@ public class PlayerMovingState : PlayerBaseState
 
         if (stateMachine.InputReader.MovementValue == Vector2.zero)
         {
-            stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
+            if (stateMachine.Animator.GetFloat(MoveSpeedString) >= 0.1f)
+                stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
+            else
+                stateMachine.Animator.SetFloat(MoveSpeedString, 0);
+
             return;
         }
 
