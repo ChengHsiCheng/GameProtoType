@@ -55,7 +55,6 @@ public class FireBreathSkill : Skill
     {
         // 圓形隨機範圍
         Vector2 randomPoint = Random.insideUnitCircle * radius;
-        Debug.Log(randomPoint);
         Vector3 spawnPosition = new Vector3(randomPoint.x, 0f, randomPoint.y);
         spawnPosition.y = 20;
 

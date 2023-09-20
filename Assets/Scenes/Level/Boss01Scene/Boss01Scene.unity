@@ -764,10 +764,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1740731472, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 379602204410068827, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
         type: 3}
       propertyPath: m_RootOrder
@@ -837,11 +833,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss01
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667736142582948790, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d22bbdd3242dcf4cbce9fdb10e85eac, type: 3}
@@ -1025,26 +1016,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRig
       objectReference: {fileID: 0}
-    - target: {fileID: 6805278335549073727, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: audios.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6805278335549073727, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: audios.Array.data[0].name
-      value: SkillCasting
-      objectReference: {fileID: 0}
-    - target: {fileID: 6805278335549073727, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: audios.Array.data[0].audios.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6805278335549073727, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: audios.Array.data[0].audios.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: ccdd1cfe93cd52d45b33cbe3ec8add45, type: 3}
     - target: {fileID: 8053466286924658796, guid: ce15dc99e8321f549ad8340fdec4674a,
         type: 3}
       propertyPath: m_AnchorMax.x

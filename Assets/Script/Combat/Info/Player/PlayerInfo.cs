@@ -80,8 +80,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     {
         health = Mathf.Min(health + value, maxHealth);
         OnHpHealing?.Invoke();
-
-        Debug.Log("Hp=" + " " + health);
     }
 
     public void DealSanDamage(float damage)
@@ -103,8 +101,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         {
             OnSanCheck?.Invoke();
         }
-
-        Debug.Log("San=" + " " + san);
     }
 
     public void SanCheckSuccess()

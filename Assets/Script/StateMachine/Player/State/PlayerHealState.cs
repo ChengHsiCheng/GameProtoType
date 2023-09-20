@@ -23,6 +23,7 @@ public class PlayerHealState : PlayerBaseState
         stateMachine.SetCanCancel(true);
         stateMachine.SetCanAction(false);
         stateMachine.Animator.SetTrigger("OnCastLoop");
+        stateMachine.AudioLogic.PlayLoopAudio("SkillCasting");
 
         if (GetAnimatorState(stateMachine.Animator, "Move"))
         {

@@ -42,8 +42,6 @@ public class Boss01ChargeAttackState : Boss01BaseState
 
     public override void Exit()
     {
-        Debug.Log(weapon.gameObject);
-
         stateMachine.cooldownTime = Random.Range(attack.MinCooldownTime, attack.MaxCooldownTime);
 
         if (stateMachine.Agent.isOnNavMesh)

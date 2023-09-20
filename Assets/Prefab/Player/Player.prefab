@@ -3285,7 +3285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audios: []
+  audios:
+  - name: SkillCasting
+    audios:
+    - {fileID: 8300000, guid: ccdd1cfe93cd52d45b33cbe3ec8add45, type: 3}
 --- !u!82 &3538165117384406344
 AudioSource:
   m_ObjectHideFlags: 0
