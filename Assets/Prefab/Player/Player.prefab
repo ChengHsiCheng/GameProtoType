@@ -3079,6 +3079,7 @@ GameObject:
   - component: {fileID: 8062203635239618720}
   - component: {fileID: 8553720373103377966}
   - component: {fileID: 4733293253672941674}
+  - component: {fileID: 38722080951117676}
   - component: {fileID: 3538165117384406344}
   m_Layer: 6
   m_Name: Player
@@ -3231,6 +3232,8 @@ MonoBehaviour:
   - name: PetrochemicalSkillVFX
     gameObject: {fileID: 3782832333112710400, guid: fc83b8c96a6e186409d077550df36fd7,
       type: 3}
+  <AudioLogic>k__BackingField: {fileID: 38722080951117676}
+  <InteractionUI>k__BackingField: {fileID: 0}
   interfaceController: {fileID: 0}
   <moveSpeed>k__BackingField: 7
   <moveSmooth>k__BackingField: 0.55
@@ -3268,6 +3271,21 @@ MonoBehaviour:
   logic:
   - {fileID: 2957469404114159804}
   - {fileID: 6284431554732261952}
+  - {fileID: 38722080951117676}
+  - {fileID: 0}
+--- !u!114 &38722080951117676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8062203635239618726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios: []
 --- !u!82 &3538165117384406344
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3280,10 +3298,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: be453b1fa5258a640bf07b4c3841b238,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

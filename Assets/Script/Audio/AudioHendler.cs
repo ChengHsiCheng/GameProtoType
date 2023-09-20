@@ -12,6 +12,8 @@ public class AudioHendler : MonoBehaviour
         for (int i = 0; i < logic.Length; i++)
         {
             logic[i].OnPlayAudio += PlayAudio;
+            logic[i].OnPlayLoopAudio += StartAudio;
+            logic[i].OnStopLoopAudio += StopAudio;
         }
     }
 
@@ -20,11 +22,24 @@ public class AudioHendler : MonoBehaviour
         for (int i = 0; i < logic.Length; i++)
         {
             logic[i].OnPlayAudio -= PlayAudio;
+            logic[i].OnPlayLoopAudio -= StartAudio;
+            logic[i].OnStopLoopAudio -= StopAudio;
         }
     }
 
     private void PlayAudio(AudioClip clip)
     {
         source.PlayOneShot(clip);
+    }
+
+    private void StartAudio(AudioClip clip)
+    {
+        source.clip = clip;
+        source.Play();
+    }
+
+    private void StopAudio()
+    {
+        source.clip = null;
     }
 }

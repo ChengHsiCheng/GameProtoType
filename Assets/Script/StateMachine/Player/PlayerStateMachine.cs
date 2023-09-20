@@ -19,6 +19,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
+    [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
+    [field: SerializeField] public UIManager InteractionUI { get; private set; }
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -52,6 +54,12 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void OnEnable()
     {
+        if (GameManager.nowScene == "GameHall")
+        {
+            InputReader.InteractionEvent += OnInteraction;
+            // return;
+        }
+
         Info.OnTakeDamage += HandleTakeDamage;
         Info.OnTakeSanDamage += SanTakeDamage;
         Info.OnSanCheck += OnSanCheck;
@@ -97,6 +105,22 @@ public class PlayerStateMachine : StateMachine
     public void SetCanCancel(bool value)
     {
         canCancel = value;
+    }
+
+    private void OnInteraction()
+    {
+        if (GameManager.isPauseGame)
+            return;
+
+        if (!InteractionUI)
+            return;
+
+        InteractionUI.gameObject.SetActive(true);
+    }
+
+    public void SetInteractionUI(UIManager ui)
+    {
+        InteractionUI = ui;
     }
 
     private void OnHeal()

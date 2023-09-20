@@ -29,7 +29,7 @@ public class PlayerSkillState : PlayerBaseState
         skill = stateMachine.Skills[0];
 
         stateMachine.Animator.SetTrigger("OnCastLoop");
-
+        stateMachine.AudioLogic.PlayLoopAudio("SkillCasting");
 
         if (GetAnimatorState(stateMachine.Animator, "Move"))
         {
@@ -53,7 +53,6 @@ public class PlayerSkillState : PlayerBaseState
                 case "PetrochemicalSkill":
                     MonoBehaviour.Instantiate(stateMachine.GetVFXByName("PetrochemicalSkillVFX"), stateMachine.Book.transform);
                     break;
-
             }
         }
 

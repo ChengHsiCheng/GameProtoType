@@ -8,10 +8,22 @@ public class AudioLogic : MonoBehaviour
     [SerializeField] List<AudioEntry> audios = new List<AudioEntry>();
 
     public event Action<AudioClip> OnPlayAudio;
+    public event Action<AudioClip> OnPlayLoopAudio;
+    public event Action OnStopLoopAudio;
 
     public void PlayAudio(string name)
     {
         OnPlayAudio?.Invoke(GetAudioByName(name));
+    }
+
+    public void PlayLoopAudio(string name)
+    {
+        OnPlayLoopAudio?.Invoke(GetAudioByName(name));
+    }
+
+    public void StopLoopAudio()
+    {
+        OnStopLoopAudio?.Invoke();
     }
 
     // 使用名稱查找對應的物件

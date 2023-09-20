@@ -719,6 +719,7 @@ GameObject:
   - component: {fileID: 1898558163}
   - component: {fileID: 3538165116919870371}
   - component: {fileID: 2725023029232386802}
+  - component: {fileID: 7984564834659013117}
   m_Layer: 0
   m_Name: MS_Book01_Default01
   m_TagString: Untagged
@@ -823,6 +824,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Animator: {fileID: 1898558163}
+--- !u!114 &7984564834659013117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457296702026716635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: SkillCast
+    audios:
+    - {fileID: 8300000, guid: fcb4866c808a4c841983c78ffd0a89cd, type: 3}
+  - name: SkillCasting
+    audios:
+    - {fileID: 8300000, guid: ccdd1cfe93cd52d45b33cbe3ec8add45, type: 3}
 --- !u!1 &6440838015625034516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,21 +1032,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3538165117998946884}
     m_Modifications:
-    - target: {fileID: 3538165117384406344, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538165117384406344, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3538165117384406344, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3547444503954863679, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1037,6 +1042,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4733293253672941674, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: logic.Array.data[3]
+      value: 
+      objectReference: {fileID: 7984564834659013117}
     - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
       propertyPath: interfaceController
