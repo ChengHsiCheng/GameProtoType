@@ -21,11 +21,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
-<<<<<<< Updated upstream
     [field: SerializeField] public RiddleManager InteractionUI { get; private set; }
     [field: SerializeField] public Riddle Riddle { get; private set; }
-=======
->>>>>>> Stashed changes
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -118,8 +115,6 @@ public class PlayerStateMachine : StateMachine
     {
         if (GameManager.isPauseGame)
             return;
-
-<<<<<<< Updated upstream
         if (!InteractionUI)
             return;
 
@@ -131,9 +126,6 @@ public class PlayerStateMachine : StateMachine
         GameManager.SetIsRiddle(true);
 
         InteractionUI.OnOpenRiddle(Riddle);
-
-=======
->>>>>>> Stashed changes
     }
 
     private void OnHeal()
