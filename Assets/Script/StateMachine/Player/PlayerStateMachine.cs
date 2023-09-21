@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerStateMachine : StateMachine
 {
@@ -20,7 +21,11 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
-    [field: SerializeField] public UIManager InteractionUI { get; private set; }
+<<<<<<< Updated upstream
+    [field: SerializeField] public RiddleManager InteractionUI { get; private set; }
+    [field: SerializeField] public Riddle Riddle { get; private set; }
+=======
+>>>>>>> Stashed changes
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -54,10 +59,13 @@ public class PlayerStateMachine : StateMachine
     /// </summary>
     private void OnEnable()
     {
+        InputReader.TogglePauseEvent += TogglePause;
+
         if (GameManager.nowScene == "GameHall")
         {
             InputReader.InteractionEvent += OnInteraction;
-            // return;
+            InteractionUI = GameObject.Find("Riddle")?.GetComponent<RiddleManager>();
+            return;
         }
 
         Info.OnTakeDamage += HandleTakeDamage;
@@ -66,7 +74,6 @@ public class PlayerStateMachine : StateMachine
         Info.OnHpHealing += OnHpHealing;
         Info.OnDie += HandleDie;
 
-        InputReader.TogglePauseEvent += TogglePause;
         InputReader.RollEvent += OnRoll;
         InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
@@ -112,15 +119,21 @@ public class PlayerStateMachine : StateMachine
         if (GameManager.isPauseGame)
             return;
 
+<<<<<<< Updated upstream
         if (!InteractionUI)
             return;
 
-        InteractionUI.gameObject.SetActive(true);
-    }
+        if (!Riddle)
+            return;
 
-    public void SetInteractionUI(UIManager ui)
-    {
-        InteractionUI = ui;
+        GameManager.TogglePause(true);
+
+        GameManager.SetIsRiddle(true);
+
+        InteractionUI.OnOpenRiddle(Riddle);
+
+=======
+>>>>>>> Stashed changes
     }
 
     private void OnHeal()
@@ -156,6 +169,9 @@ public class PlayerStateMachine : StateMachine
     private void TogglePause()
     {
         if (isSanCheck)
+            return;
+
+        if (GameManager.isRiddle)
             return;
 
         GameManager.TogglePause();
@@ -285,6 +301,11 @@ public class PlayerStateMachine : StateMachine
             Debug.LogWarning("找不到名為 " + objectName + " 的物件。");
             return null;
         }
+    }
+
+    public void SetRiddle(Riddle riddle)
+    {
+        Riddle = riddle;
     }
 
     public override void SetCanMove(bool value) { }

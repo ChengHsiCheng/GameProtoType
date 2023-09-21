@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+<<<<<<< Updated upstream
+    [SerializeField] private string scensName;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            GameManager.SwitchScene("Boss01Scene");
+            GameManager.SwitchScene(scensName);
         }
+=======
+    private void OnEnable()
+    {
+        Debug.Log("OnEnable");
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log("OnDisable");
+>>>>>>> Stashed changes
     }
 }
