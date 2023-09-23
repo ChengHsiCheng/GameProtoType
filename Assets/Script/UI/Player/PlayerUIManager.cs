@@ -29,7 +29,7 @@ public class PlayerUIManager : UIManager
 
     public void BeAttack()
     {
-        hurtUIAlpha = Mathf.Min(hurtUIAlpha + 60, 180);
+        hurtUIAlpha = Mathf.Min(hurtUIAlpha + 60, 255);
         float a = hurtUIAlpha / 255;
         HurtUI.color = new Color(HurtUI.color.r, HurtUI.color.g, HurtUI.color.b, a);
     }

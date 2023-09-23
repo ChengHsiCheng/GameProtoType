@@ -123,7 +123,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: e36564566fa739e42b76d918ceabc692, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 9025195ab1bf47f498878dba32650e3c, type: 2}
 --- !u!1 &36005503
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ Transform:
   m_Children:
   - {fileID: 370195722}
   m_Father: {fileID: 651696239}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370195718
 GameObject:
@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &370195719
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370195718}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -602,12 +602,54 @@ Transform:
   m_Children:
   - {fileID: 104011783}
   - {fileID: 489280546}
-  - {fileID: 2049079586}
   - {fileID: 270304273}
+  - {fileID: 1443000718}
   - {fileID: 36005504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &768415254
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Grass01_Test01(Clone)
+  m_Shader: {fileID: -6465566751694194690, guid: 3e47d69108ef5094b8c05d58cab56262,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Blend: 1
+    - _BlendMult: 7.73
+    - _BlendOff: 2.4
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +768,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61bda690826b0eb49903df593858bba4, type: 3}
+--- !u!4 &1443000718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2769492707092454251, guid: 61bda690826b0eb49903df593858bba4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1443000717}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1606587496
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,12 +981,6 @@ Transform:
   m_Father: {fileID: 104011783}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &2049079586 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2222288110081786099, guid: 61bda690826b0eb49903df593858bba4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1443000717}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3538165117384406342
 PrefabInstance:
   m_ObjectHideFlags: 0

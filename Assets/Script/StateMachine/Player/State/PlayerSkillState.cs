@@ -16,6 +16,7 @@ public class PlayerSkillState : PlayerBaseState
     private bool isPlayAnimator;
 
     PlayerSkill skill;
+    VFXLiveTime vfx;
 
     public PlayerSkillState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
@@ -30,6 +31,7 @@ public class PlayerSkillState : PlayerBaseState
 
         stateMachine.Animator.SetTrigger("OnCastLoop");
         stateMachine.AudioLogic.PlayLoopAudio("SkillCasting");
+        vfx = MonoBehaviour.Instantiate(stateMachine.GetVFXByName("SkillCasting"), stateMachine.Book.transform).GetComponent<VFXLiveTime>();
 
         if (GetAnimatorState(stateMachine.Animator, "Move"))
         {
@@ -47,13 +49,6 @@ public class PlayerSkillState : PlayerBaseState
         {
             stateMachine.Book.PlayerAnimation();
             isPlayAnimator = true;
-
-            switch (skill.name)
-            {
-                case "PetrochemicalSkill":
-                    MonoBehaviour.Instantiate(stateMachine.GetVFXByName("PetrochemicalSkillVFX"), stateMachine.Book.transform);
-                    break;
-            }
         }
 
         if (timer >= 0.5f && stateMachine.canCancel)
@@ -66,6 +61,15 @@ public class PlayerSkillState : PlayerBaseState
             UseSkill();
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
 
+            vfx.Stop();
+
+            switch (skill.name)
+            {
+                case "PetrochemicalSkill":
+                    MonoBehaviour.Instantiate(stateMachine.GetVFXByName("PetrochemicalSkillVFX"), stateMachine.Book.transform);
+                    break;
+            }
+
             return;
         }
         Moving(deltaTime);
@@ -75,6 +79,8 @@ public class PlayerSkillState : PlayerBaseState
     {
         stateMachine.SetCanCancel(true);
         stateMachine.SetCanAction(true);
+
+        vfx.Stop();
     }
 
     private void UseSkill()
