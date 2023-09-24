@@ -73,7 +73,7 @@ public class Boss01TransitionState : Boss01BaseState
                     case < 30:
                         stateMachine.SwitchState(new Boss01RotateState(stateMachine));
                         break;
-                    case < 60:
+                    case < 50:
                         stateMachine.SwitchState(new Boss01EscapeState(stateMachine));
                         break;
                     case < 100:

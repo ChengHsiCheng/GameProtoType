@@ -58,7 +58,7 @@ public class PlayerStateMachine : StateMachine
     {
         InputReader.TogglePauseEvent += TogglePause;
 
-        if (GameManager.nowScene == "GameHall")
+        if (GameManager.nowScenes == "GameHall")
         {
             InputReader.InteractionEvent += OnInteraction;
             InteractionUI = GameObject.Find("Riddle")?.GetComponent<RiddleManager>();

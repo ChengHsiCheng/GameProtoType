@@ -16,7 +16,7 @@ public class Boss01StartState : Boss01BaseState
     {
         // 開場動作
 
-        stateMachine.SwitchState(new Boss01TongueSkillState(stateMachine));
+        stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
     }
 
     public override void Exit()

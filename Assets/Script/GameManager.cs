@@ -21,7 +21,7 @@ public static class GameManager
     public static bool isPauseGame { private set; get; } = false; // 遊戲暫停
     public static bool isSetting { private set; get; } = false;
     public static bool isRiddle { private set; get; } = false;
-    public static string nowScene { private set; get; } // 目前場景
+    public static string nowScenes { private set; get; } // 目前場景
 
     public static float brightness { private set; get; } // 亮度
     public static float audioVolume { private set; get; }  // 音量
@@ -78,10 +78,10 @@ public static class GameManager
         }
     }
 
-    public static void SwitchScene(string sceneName)
+    public static void SwitchScene(string scenesName)
     {
-        nowScene = sceneName;
-        SceneManager.LoadScene(sceneName);
+        nowScenes = scenesName;
+        SceneManager.LoadScene(scenesName);
     }
 
     public static void SetScreenMod(FullScreenMode _screenMode)

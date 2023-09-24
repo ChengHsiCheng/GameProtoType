@@ -31,12 +31,12 @@ public class PlayerDieState : PlayerBaseState
 
         if (Input.anyKeyDown && timer >= 1)
         {
-            if (GameManager.nowScene == null)
+            if (GameManager.nowScenes == null)
             {
-                GameManager.SwitchScene("Boss01Scene");
+                GameManager.SwitchScene("Boss01Scenes");
             }
 
-            GameManager.SwitchScene(GameManager.nowScene);
+            GameManager.SwitchScene(GameManager.nowScenes);
         }
     }
 
