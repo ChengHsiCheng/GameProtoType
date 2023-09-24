@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Boss01ChargeAttackState : Boss01BaseState
 {
+    private readonly int ChargeAttackAnticipatationString = Animator.StringToHash("ChargeAttackAnticipatation");
+    private const float CrossFadeDuration = 0.1f;
+
     private EnemyAttack attack; // 攻擊的資訊
     private WeaponDamage weapon;
     private float timer;
+
+    private bool isCharge;
 
     public Boss01ChargeAttackState(Boss01StateMachine stateMachine, int attackIndex) : base(stateMachine)
     {
@@ -16,25 +21,31 @@ public class Boss01ChargeAttackState : Boss01BaseState
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(ChargeAttackAnticipatationString, CrossFadeDuration);
 
         weapon.SetAttack(attack.Damage, attack.SanDamage);
-
-        weapon.SetCollider(true);
-
-        stateMachine.PlayVFX("ChargeSkillVFX");
     }
 
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
 
-        if (attack.AnimationName == "ChargeAttack")
+        if (timer < 1f)
+            return;
+
+        if (timer >= 1f && !isCharge)
         {
-            ChargeToTarget(deltaTime);
+            stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+            weapon.SetCollider(true);
+            stateMachine.PlayVFX("ChargeSkillVFX");
+            isCharge = true;
+
+            return;
         }
 
-        if (timer < 1)
+        ChargeToTarget(deltaTime);
+
+        if (timer < 2f)
             return;
 
         BackTransitionState();

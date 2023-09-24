@@ -8,7 +8,6 @@ public class Boss01TongueSkillState : Boss01BaseState
     private const float CrossFadeDuration = 0.1f;
 
     bool isUesSkill;
-    bool isDestroySkill;
 
     private EnemySkill skill_i;
     private Skill skill;
@@ -31,7 +30,7 @@ public class Boss01TongueSkillState : Boss01BaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime > 0.2f && !isUesSkill)
+        if (normalizedTime > 0.33f && !isUesSkill)
         {
             skill = GameObject.Instantiate(skill_i.skill, skill_i.spawnPoint);
             skill.UseSkill();

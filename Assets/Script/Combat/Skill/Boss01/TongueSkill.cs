@@ -17,6 +17,7 @@ public class TongueSkill : Skill
 
     [SerializeField] TongueSkillTrigger trigger;
 
+
     public override void UseSkill()
     {
         trigger.TriggerEvent += OnTrigger;

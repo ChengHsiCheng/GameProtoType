@@ -144,6 +144,32 @@ BlendTree:
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!1102 &-4777302472426333395
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ChargeAttackAnticipatation
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 286fc954e16ee2948b565f3908a50b23, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-4155666970778309870
 AnimatorState:
   serializedVersion: 6
@@ -349,7 +375,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
@@ -382,7 +408,7 @@ AnimatorStateMachine:
     m_Position: {x: 220, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2198482527549532931}
-    m_Position: {x: 220, y: 200, z: 0}
+    m_Position: {x: 220, y: 260, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6031688680913430991}
     m_Position: {x: 0, y: 60, z: 0}
@@ -404,6 +430,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 6545264574760390251}
     m_Position: {x: 220, y: 150, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -4777302472426333395}
+    m_Position: {x: 220, y: 210, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -508,7 +537,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3688356422587620426}
-    m_Position: {x: 50, y: 200, z: 0}
+    m_Position: {x: 30, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -539,7 +568,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
+  m_Motion: {fileID: 7400000, guid: 0d761a014ec99ed4884281e08fc97569, type: 2}
   m_Tag: 
   m_SpeedParameter: AnimationSpeed
   m_MirrorParameter: 
