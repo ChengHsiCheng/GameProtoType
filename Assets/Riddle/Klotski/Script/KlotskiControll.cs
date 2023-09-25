@@ -14,7 +14,6 @@ public class KlotskiControll : Riddle
     {
         finalPiece.OnPassEvent += OnPass;
 
-        SetUIActive(false);
     }
 
     private void OnDisable()
@@ -22,4 +21,5 @@ public class KlotskiControll : Riddle
         finalPiece.OnPassEvent -= OnPass;
 
     }
+
 }

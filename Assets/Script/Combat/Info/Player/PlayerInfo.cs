@@ -11,6 +11,9 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public float san { get; private set; }
     private float timer;
     private float invulnerableTime;
+    private float sanRecoveryTimer;
+    [SerializeField] private float sanRecoverySpeed;
+    [SerializeField] private float sanRecoveryTime;
 
     public bool isDead => health <= 0;
     public bool isInvulnerable { get; set; }
@@ -18,8 +21,8 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
     public event Action<bool> OnTakeDamage;
     public event Action OnDie;
-    public event Action OnTakeSanDamage;
-    public event Action OnHpHealing;
+    public event Action OnUpdateSan;
+    public event Action OnUpdateUI;
     public event Action OnSanCheck;
 
     private void Start()
@@ -32,6 +35,15 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     {
         if (GameManager.isPauseGame)
             return;
+
+        sanRecoveryTimer += Time.deltaTime;
+
+
+        if (sanRecoveryTimer >= sanRecoveryTime)
+        {
+            SanHealing(sanRecoverySpeed * Time.deltaTime);
+        }
+
 
         if (isInvulnerable == false || invulnerableTime == 0)
             return;
@@ -79,7 +91,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public void Healing(float value)
     {
         health = Mathf.Min(health + value, maxHealth);
-        OnHpHealing?.Invoke();
+        OnUpdateUI?.Invoke();
     }
 
     public void DealSanDamage(float damage)
@@ -93,9 +105,11 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         if (isInvulnerable)
             return;
 
+        sanRecoveryTimer = 0;
+
         san = Mathf.Max(san - damage, 0);
 
-        OnTakeSanDamage?.Invoke();
+        OnUpdateSan?.Invoke();
 
         if (san <= 0)
         {
@@ -103,6 +117,12 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         }
     }
 
+    public void SanHealing(float value)
+    {
+        san = Mathf.Min(san + value, maxSan);
+        OnUpdateSan?.Invoke();
+        OnUpdateUI?.Invoke();
+    }
     public void SanCheckSuccess()
     {
         maxHealth = 1;

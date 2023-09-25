@@ -3074,7 +3074,6 @@ GameObject:
   - component: {fileID: 8062203635239618721}
   - component: {fileID: 2080221945}
   - component: {fileID: 2080221946}
-  - component: {fileID: 8062203635239618723}
   - component: {fileID: 1350395791}
   - component: {fileID: 8062203635239618720}
   - component: {fileID: 8553720373103377966}
@@ -3138,18 +3137,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &8062203635239618723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8062203635239618726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360e66d984af8a8498e04454d772b94c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1350395791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,7 +3163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f97110ee7efd304ca9454e5cf1ae8a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <InputReader>k__BackingField: {fileID: 8062203635239618723}
+  <InputReader>k__BackingField: {fileID: 0}
   <Rigidbody>k__BackingField: {fileID: 2080221945}
   <Animator>k__BackingField: {fileID: 8882550430775878866}
   <Book>k__BackingField: {fileID: 0}
@@ -3184,6 +3171,7 @@ MonoBehaviour:
   <Info>k__BackingField: {fileID: 8553720373103377966}
   <UIManager>k__BackingField: {fileID: 1554696469}
   <Weapon>k__BackingField: {fileID: 6078049451270060355}
+  <WeaponHendler>k__BackingField: {fileID: 8135235232014804803}
   <SanCheck>k__BackingField: {fileID: 7154203249667979889}
   <volume>k__BackingField: {fileID: 1668972552}
   <Attacks>k__BackingField:
@@ -3259,6 +3247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 100
   <maxSan>k__BackingField: 100
+  sanRecoverySpeed: 1
+  sanRecoveryTime: 10
   Invulnerable: 0
 --- !u!114 &4733293253672941674
 MonoBehaviour:

@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    private Vector3 originPos;
+    private Vector3 originPos = Vector3.zero;
     [SerializeField] Image image;
     private Hole hole;
     [SerializeField] private int count;
 
-    private void Start()
+    private void OnEnable()
     {
         originPos = transform.position;
     }

@@ -11,13 +11,13 @@ public class Boss01Info : MonoBehaviour, Info, Health
     public bool isInvulnerable { get; set; }
     public event Action<bool> OnTakeDamage;
     public event Action OnDie;
-    public event Action OnHpHealing;
+    public event Action OnUpdateUI;
 
     private void Start()
     {
         health = maxHealth;
 
-        OnHpHealing?.Invoke();
+        OnUpdateUI?.Invoke();
     }
 
     public void SetInvulnerable(bool isInvunerable)

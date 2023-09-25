@@ -15,6 +15,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerInfo Info { get; private set; }
     [field: SerializeField] public PlayerUIManager UIManager { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
+    [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
     [field: SerializeField] public SanCheck SanCheck { get; private set; }
     [field: SerializeField] public Volume volume { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
@@ -43,19 +44,16 @@ public class PlayerStateMachine : StateMachine
         GameManager.player = this.gameObject;
     }
 
-
     private void Start()
     {
+        Debug.Log(SceneManager.GetActiveScene().name);
         SwitchState(new PlayerMovingState(this));
 
         MainCameraTransform = Camera.main.transform;
-    }
 
-    /// <summary>
-    /// 被啟用時執行
-    /// </summary>
-    private void OnEnable()
-    {
+        // 註冊事件
+        InputReader = GameManager.sceneController.InputReader;
+
         InputReader.TogglePauseEvent += TogglePause;
 
         if (GameManager.nowScenes == "GameHall")
@@ -66,9 +64,9 @@ public class PlayerStateMachine : StateMachine
         }
 
         Info.OnTakeDamage += HandleTakeDamage;
-        Info.OnTakeSanDamage += SanTakeDamage;
+        Info.OnUpdateSan += UpdateSan;
         Info.OnSanCheck += OnSanCheck;
-        Info.OnHpHealing += OnHpHealing;
+        Info.OnUpdateUI += UpdateUI;
         Info.OnDie += HandleDie;
 
         InputReader.RollEvent += OnRoll;
@@ -81,14 +79,22 @@ public class PlayerStateMachine : StateMachine
     }
 
     /// <summary>
+    /// 被啟用時執行
+    /// </summary>
+    private void OnEnable()
+    {
+
+    }
+
+    /// <summary>
     /// 被停用時執行
     /// </summary>
     private void OnDisable()
     {
         Info.OnTakeDamage -= HandleTakeDamage;
-        Info.OnTakeSanDamage -= SanTakeDamage;
+        Info.OnUpdateSan -= UpdateSan;
         Info.OnSanCheck -= OnSanCheck;
-        Info.OnHpHealing -= OnHpHealing;
+        Info.OnUpdateUI -= UpdateUI;
         Info.OnDie -= HandleDie;
 
         InputReader.TogglePauseEvent -= TogglePause;
@@ -120,10 +126,6 @@ public class PlayerStateMachine : StateMachine
 
         if (!Riddle)
             return;
-
-        GameManager.TogglePause(true);
-
-        GameManager.SetIsRiddle(true);
 
         InteractionUI.OnOpenRiddle(Riddle);
     }
@@ -166,8 +168,7 @@ public class PlayerStateMachine : StateMachine
         if (GameManager.isRiddle)
             return;
 
-        GameManager.TogglePause();
-        interfaceController.SetPauseMenu(GameManager.isPauseGame);
+        interfaceController.OnPauseMenu();
     }
 
     /// <summary>
@@ -186,7 +187,7 @@ public class PlayerStateMachine : StateMachine
     /// <summary>
     /// 切換到受擊狀態
     /// </summary>
-    private void SanTakeDamage()
+    private void UpdateSan()
     {
         UpdateUI();
 
@@ -195,7 +196,10 @@ public class PlayerStateMachine : StateMachine
         switch (sanPercent)
         {
             case 1:
-                sanScalingDamage = 1;
+                sanScalingDamage = 0.5f;
+                break;
+            case > 0.8f:
+                sanScalingDamage = 0.2f;
                 break;
             case > 0.3f:
                 sanScalingDamage = 0;
@@ -243,10 +247,6 @@ public class PlayerStateMachine : StateMachine
         HandleDie();
     }
 
-    private void OnHpHealing()
-    {
-        UpdateUI();
-    }
 
     private void UpdateUI()
     {
@@ -257,7 +257,7 @@ public class PlayerStateMachine : StateMachine
         UIManager.SetSanBar(sanPercent);
 
         if (sanPercent != 0)
-            SetVolume((1 - sanPercent) * 0.8f);
+            SetVolume((1 - sanPercent) * 0.6f);
         else
             SetVolume(1);
 

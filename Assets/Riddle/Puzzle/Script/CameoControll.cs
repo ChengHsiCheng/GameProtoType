@@ -13,7 +13,6 @@ public class CameoControll : Riddle
         {
             holes[i].OnCheckEvent += CheckOrder;
         }
-        SetUIActive(false);
     }
     private void OnDisable()
     {
@@ -41,6 +40,12 @@ public class CameoControll : Riddle
             return;
         }
 
+        Close();
+    }
+
+    public void Close()
+    {
+
         foreach (Hole hole in holes)
         {
             hole.OnReset();
@@ -51,5 +56,4 @@ public class CameoControll : Riddle
             cameo.OnReset();
         }
     }
-
 }

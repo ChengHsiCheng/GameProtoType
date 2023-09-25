@@ -22,9 +22,14 @@ public class WeaponHendler : MonoBehaviour
     /// <summary>
     /// 關閉武器碰撞
     /// </summary>
-    private void DisableWeapon(int Index)
+    public void DisableWeapon(int Index)
     {
         weaponLogic[Index]?.SetCollider(false);
+    }
+
+    public void DisableWeapon()
+    {
+        DisableWeapon(0);
     }
 
     private void AttackMove()

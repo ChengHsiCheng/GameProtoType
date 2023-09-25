@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss01StartState : Boss01BaseState
 {
+    private float timer;
+
     public Boss01StartState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -15,6 +17,10 @@ public class Boss01StartState : Boss01BaseState
     public override void Tick(float deltaTime)
     {
         // 開場動作
+        timer += deltaTime;
+
+        if (timer < 2)
+            return;
 
         stateMachine.SwitchState(new Boss01TransitionState(stateMachine));
     }

@@ -11,7 +11,7 @@ public class SettingController : UIManager
 {
     [SerializeField] private Volume volume;
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private GameObject settingUI;
+    [field: SerializeField] public GameObject settingUI { get; private set; }
     private ColorAdjustments brightness;
 
     [SerializeField] private Slider brightnessSlider;
@@ -41,13 +41,6 @@ public class SettingController : UIManager
 
         GameManager.SetAudioVolume(volume);
         mixer.SetFloat("AudioVolume", GameManager.audioVolume);
-    }
-
-    public void SetSettingUI(bool isActive)
-    {
-        settingUI.SetActive(isActive);
-
-        GameManager.SetIsSetting(isActive);
     }
 
     public void SetScreenResolution(int i)
@@ -80,5 +73,10 @@ public class SettingController : UIManager
                 GameManager.SetScreenMod(FullScreenMode.MaximizedWindow);
                 break;
         }
+    }
+
+    public void CloseSetting()
+    {
+        GameManager.sceneController.UIController.CloseUI();
     }
 }

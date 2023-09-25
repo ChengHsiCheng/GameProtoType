@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Candle : MonoBehaviour
 {
-    public GameObject fire { get; private set; }
+    [field: SerializeField] public GameObject fire { get; private set; }
     [SerializeField] private int id;
     private bool isOnClick = false;
 

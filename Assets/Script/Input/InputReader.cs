@@ -18,7 +18,7 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public event Action SanCheckEvent;
     public event Action InteractionEvent;
 
-    private void Start()
+    private void OnEnable()
     {
         controls = new Controls();
         controls.CombatLevel.SetCallbacks(this);
@@ -27,7 +27,7 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         controls.CombatLevel.Enable();
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         // 禁用輸入控制
         controls.CombatLevel.Disable();

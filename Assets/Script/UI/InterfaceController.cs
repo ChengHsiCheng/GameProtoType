@@ -13,13 +13,13 @@ public class InterfaceController : MonoBehaviour
         pauseMenu.onSettingEvent += OnSetting;
     }
 
-    public void SetPauseMenu(bool active)
+    public void OnPauseMenu()
     {
-        pauseMenu.gameObject.SetActive(active);
+        GameManager.sceneController.UIController.AddUI(pauseMenu.gameObject);
     }
 
     public void OnSetting()
     {
-        setting.SetSettingUI(true);
+        GameManager.sceneController.UIController.AddUI(setting.settingUI.gameObject);
     }
 }

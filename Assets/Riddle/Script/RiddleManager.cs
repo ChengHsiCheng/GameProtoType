@@ -5,13 +5,14 @@ using UnityEngine;
 public class RiddleManager : MonoBehaviour
 {
     private Riddle[] riddles { get => GetComponentsInChildren<Riddle>(); }
+    private RiddleController[] riddleControllers { get => GetComponentsInChildren<RiddleController>(); }
 
     private void OnEnable()
     {
         for (int i = 0; i < riddles.Length; i++)
         {
             riddles[i].OnPassEvent += PassEvent;
-            riddles[i].SetIsPass(riddles[i].isPass);
+            riddleControllers[i].SetIsPass(riddleControllers[i].isPass);
         }
     }
 
@@ -30,6 +31,6 @@ public class RiddleManager : MonoBehaviour
 
     public void OnOpenRiddle(Riddle riddle)
     {
-        riddle.SetUIActive(true);
+        GameManager.sceneController.UIController.AddUI(riddle.gameObject);
     }
 }

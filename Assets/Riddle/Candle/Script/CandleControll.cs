@@ -12,18 +12,15 @@ public class CandleControll : Riddle
 
     private void OnEnable()
     {
+        TurnOff();
         for (int i = 0; i < candles.Length; i++)
         {
             candles[i].OnCheckOrderEvent += CheckOrder;
         }
-
-        SetUIActive(false);
     }
 
     private void OnDisable()
     {
-        TurnOff();
-
         for (int i = 0; i < candles.Length; i++)
         {
             candles[i].OnCheckOrderEvent -= CheckOrder;
@@ -34,14 +31,12 @@ public class CandleControll : Riddle
     {
         inputOrder += id;
         inputNum++;
-
         if (inputNum == 7)
         {
             if (inputOrder == passOrder.ToString())
             {
                 OnPass();
             }
-
             Invoke("TurnOff", 0.1f);
         }
     }

@@ -189,9 +189,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 822064758399724343}
-  - component: {fileID: 822064758399724342}
   - component: {fileID: 2095904590}
   - component: {fileID: 2095904591}
+  - component: {fileID: 2944250652420629047}
   m_Layer: 11
   m_Name: CameoRiddle
   m_TagString: Untagged
@@ -217,22 +217,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &822064758399724342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822064758399724340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 272c9288776014a46adec5e21663e442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  passedMode: {fileID: 7855109798385141478}
-  originalMode: {fileID: 7650791910462910004}
-  ui: {fileID: 8671817178455282964}
-  trigger: {fileID: 2095904591}
 --- !u!65 &2095904590
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -244,7 +228,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2095904591
 MonoBehaviour:
@@ -258,7 +242,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbdb2d03d909654e928c0dec32cc7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riddle: {fileID: 822064758399724342}
+  riddle: {fileID: 983094573882801063}
+  trigger: {fileID: 2095904590}
+--- !u!114 &2944250652420629047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822064758399724340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25dd146cd327b1f42ba5de2524e571ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 2095904591}
+  passedMode: {fileID: 7650791910462910004}
+  originalMode: {fileID: 7855109798385141478}
 --- !u!1 &822064758454477748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 822064758399724342}
+      - m_Target: {fileID: 983094573882801063}
         m_TargetAssemblyTypeName: Riddle, Assembly-CSharp
         m_MethodName: OnQuit
         m_Mode: 1
@@ -1039,9 +1039,9 @@ GameObject:
   - component: {fileID: 8671817178455282985}
   - component: {fileID: 8671817178455282966}
   - component: {fileID: 8671817178455282967}
-  - component: {fileID: 2320092446815327688}
+  - component: {fileID: 983094573882801063}
   m_Layer: 5
-  m_Name: CameoUI
+  m_Name: Cameo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1080,7 +1080,7 @@ Canvas:
   m_GameObject: {fileID: 8671817178455282964}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2320092446815327688
+--- !u!114 &983094573882801063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1141,10 +1141,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8671817178455282964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb4e6cb127f2a64eaa31dc432874314, type: 3}
+  m_Script: {fileID: 11500000, guid: 272c9288776014a46adec5e21663e442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeDir: 2
 --- !u!1 &8671817179262823808
 GameObject:
   m_ObjectHideFlags: 0

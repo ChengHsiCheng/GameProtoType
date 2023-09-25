@@ -69,6 +69,9 @@ public class PlayerAttackState : PlayerBaseState
         attack.Model.transform.position = stateMachine.transform.position;
 
         stateMachine.SetCanCancel(true);
+
+        stateMachine.WeaponHendler.DisableWeapon();
+
     }
 
     /// <summary>

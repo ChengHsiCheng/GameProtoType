@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 595419779875987754}
   id: 3
 --- !u!1 &595419779809570687
 GameObject:
@@ -477,6 +478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 595419781477175231}
   id: 4
 --- !u!1 &595419779875987754
 GameObject:
@@ -993,6 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 595419780711134758}
   id: 2
 --- !u!1 &595419780079803326
 GameObject:
@@ -1161,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 595419780368999318}
   id: 5
 --- !u!1 &595419780315692962
 GameObject:
@@ -1779,6 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 595419780079803326}
   id: 1
 --- !u!1 &595419781158357278
 GameObject:
@@ -2006,9 +2011,9 @@ GameObject:
   - component: {fileID: 595419781252329314}
   - component: {fileID: 595419781252329315}
   - component: {fileID: 595419781252329316}
-  - component: {fileID: 337270218714783967}
+  - component: {fileID: 527372320}
   m_Layer: 5
-  m_Name: CandleUI
+  m_Name: Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2046,7 +2051,7 @@ Canvas:
   m_GameObject: {fileID: 595419781252329318}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2098,7 +2103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &337270218714783967
+--- !u!114 &527372320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2107,10 +2112,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 595419781252329318}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb4e6cb127f2a64eaa31dc432874314, type: 3}
+  m_Script: {fileID: 11500000, guid: 200942258fcf124469d80a3ba2b6a235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeDir: 2
+  passOrder: 1234567
 --- !u!1 &595419781450628770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,7 +2852,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7176199329430742333}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CandleControll, Assembly-CSharp
         m_MethodName: OnQuit
         m_Mode: 1
@@ -2868,9 +2873,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7176199329430742332}
-  - component: {fileID: 7176199329430742333}
   - component: {fileID: 1510988433}
   - component: {fileID: 1510988434}
+  - component: {fileID: 1302457786}
   m_Layer: 11
   m_Name: CandleRiddle
   m_TagString: Untagged
@@ -2896,23 +2901,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7176199329430742333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7176199329430742334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 200942258fcf124469d80a3ba2b6a235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  passedMode: {fileID: 8467812630675463086}
-  originalMode: {fileID: 9052204056745830589}
-  ui: {fileID: 595419781252329318}
-  trigger: {fileID: 1510988434}
-  passOrder: 1234567
 --- !u!65 &1510988433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2938,7 +2926,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbdb2d03d909654e928c0dec32cc7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riddle: {fileID: 7176199329430742333}
+  riddle: {fileID: 527372320}
+  trigger: {fileID: 1510988433}
+--- !u!114 &1302457786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176199329430742334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25dd146cd327b1f42ba5de2524e571ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 1510988434}
+  passedMode: {fileID: 9052204056745830589}
+  originalMode: {fileID: 8467812630675463086}
 --- !u!1 &7637984613459231701
 GameObject:
   m_ObjectHideFlags: 0
@@ -3030,6 +3034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 5088931998799983237}
   id: 6
 --- !u!1 &7637984613722486964
 GameObject:
@@ -3122,6 +3127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95458666247ed4e9bc62f710d56319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <fire>k__BackingField: {fileID: 5088931999082056164}
   id: 7
 --- !u!1 &8467812630675463086
 GameObject:

@@ -7,7 +7,7 @@ public interface San
 {
     float maxSan { get; }
     float san { get; }
-    event Action OnTakeSanDamage;
+    event Action OnUpdateSan;
 
     void DealSanDamage(float damage);
 }

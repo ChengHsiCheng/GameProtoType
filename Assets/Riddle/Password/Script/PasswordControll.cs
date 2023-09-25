@@ -13,7 +13,6 @@ public class PasswordControll : Riddle
     private void OnEnable()
     {
         Reset();
-        SetUIActive(false);
     }
 
     public void Confirm()
@@ -40,12 +39,6 @@ public class PasswordControll : Riddle
         {
             passwords[i].SetNum(0);
         }
-    }
-
-    public void Back()
-    {
-        gameObject.SetActive(false);
-        Reset();
     }
 
     public void ClickLock(Password password)
