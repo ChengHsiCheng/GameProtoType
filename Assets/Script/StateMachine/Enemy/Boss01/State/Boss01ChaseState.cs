@@ -25,7 +25,24 @@ public class Boss01ChaseState : Boss01BaseState
     {
         if (IsInMeleeRange())
         {
-            BackTransitionState();
+            switch (Random.Range(0, 100))
+            {
+                case < 20:
+                    stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.ForwardAttack));
+                    break;
+                case < 50:
+                    stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.SlapAttack));
+                    break;
+                case < 75:
+                    stateMachine.SwitchState(new Boss01AttackState(stateMachine, (int)AttackIndex.RotateAttack));
+                    break;
+                case < 90:
+                    stateMachine.SwitchState(new Boss01FartSkillState(stateMachine));
+                    break;
+                case < 100:
+                    stateMachine.SwitchState(new Boss01EscapeState(stateMachine));
+                    break;
+            }
             return;
         }
 

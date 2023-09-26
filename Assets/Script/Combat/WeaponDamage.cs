@@ -9,6 +9,7 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private AudioLogic audioLogic;
     private float damage; // 傷害
     private float sanDamage;
+    private float impact;
 
     [SerializeField] private GameObject hitVFX;
     [SerializeField] private List<GameObject> alreadyCollidedWith = new List<GameObject>(); // 已經碰撞過的碰撞器列表
@@ -34,6 +35,12 @@ public class WeaponDamage : MonoBehaviour
             Instantiate(hitVFX, other.ClosestPoint(transform.position), Quaternion.identity);
         }
 
+        if (other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
+        {
+            force.AddForce((other.transform.position - myCollider.transform.position).normalized * impact);
+        }
+
+
         if (other.TryGetComponent<Health>(out Health health))
         {
             health.DealHealthDamage(damage, true);
@@ -54,23 +61,27 @@ public class WeaponDamage : MonoBehaviour
 
         if (isEnabled)
             alreadyCollidedWith.Clear();
-
     }
 
-    /// <summary>
-    /// 設定攻擊參數
-    /// </summary>
+
     public void SetAttack(float damage)
     {
         SetAttack(damage, 0);
     }
 
-    /// <summary>
-    /// 設定攻擊參數
-    /// </summary>
-    public void SetAttack(float damage, int sanDamage)
+
+    public void SetAttack(float damage, float impact)
+    {
+        SetAttack(damage, impact, 0);
+
+    }
+
+
+    public void SetAttack(float damage, float impact, float sanDamage)
     {
         this.damage = damage;
+        this.impact = impact;
         this.sanDamage = sanDamage;
     }
+
 }

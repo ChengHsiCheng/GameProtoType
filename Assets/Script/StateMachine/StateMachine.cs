@@ -19,7 +19,7 @@ public abstract class StateMachine : MonoBehaviour
         currentState = newState;
         currentState?.Enter();
 
-        // Debug.Log(gameObject.name + "STATE: " + newState);
+        Debug.Log(gameObject.name + "STATE: " + newState);
     }
 
     void Update()

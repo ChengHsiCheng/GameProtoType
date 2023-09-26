@@ -18,7 +18,7 @@ public class Boss01AttackState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
-        weapon.SetAttack(attack.Damage, attack.SanDamage);
+        weapon.SetAttack(attack.Damage, attack.Impact, attack.SanDamage);
 
         stateMachine.SetMoveForce(attack.MoveForce);
     }

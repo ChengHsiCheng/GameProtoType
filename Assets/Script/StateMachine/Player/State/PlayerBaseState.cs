@@ -33,7 +33,7 @@ public abstract class PlayerBaseState : State
     {
         if (!MoveRayCastHit())
         {
-            return;
+            motion = Vector3.zero;
         }
 
         Vector3 movePos = stateMachine.transform.position += (motion + stateMachine.ForceReceiver.Movement) * deltaTime;

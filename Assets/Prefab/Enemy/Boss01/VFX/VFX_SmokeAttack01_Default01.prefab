@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6104162613740447614
+--- !u!1 &6401929332806492134
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,27 +8,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6104162613740447605}
-  - component: {fileID: 6104162613740447604}
-  - component: {fileID: 6104162613740447615}
-  - component: {fileID: 6104162613740447603}
-  - component: {fileID: 6104162613740447602}
-  - component: {fileID: 6104162613740447601}
-  - component: {fileID: 6104162613740447600}
+  - component: {fileID: 8623815189187662311}
+  - component: {fileID: 6458521871331105041}
+  - component: {fileID: 4786222819341339848}
+  - component: {fileID: 7060562113670330986}
+  - component: {fileID: -1065502152983866532}
+  - component: {fileID: -1483900762868408912}
+  - component: {fileID: -8068394314244222168}
   m_Layer: 9
-  m_Name: VFX_FireBall01_Smoke01
+  m_Name: VFX_SmokeAttack01_Default01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6104162613740447605
+--- !u!4 &8623815189187662311
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
+  m_GameObject: {fileID: 6401929332806492134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,15 +37,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &6104162613740447604
+--- !u!2083052967 &6458521871331105041
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
+  m_GameObject: {fileID: 6401929332806492134}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: d707ed87c25874d42b7f1bed0af4e3a4, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: e77c2644bb321444f90d11beb33fe006, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -74,27 +74,14 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!135 &6104162613740447615
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!73398921 &6104162613740447603
+--- !u!73398921 &4786222819341339848
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
+  m_GameObject: {fileID: 6401929332806492134}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -127,48 +114,61 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6104162613740447602
+--- !u!114 &7060562113670330986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
+  m_GameObject: {fileID: 6401929332806492134}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0a10a4e14b5e484b869647072541515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: 3
+  liveTime: 2
   vfxs:
-  - {fileID: 6104162613740447604}
+  - {fileID: 6458521871331105041}
   particles: []
-  trigger: {fileID: 0}
---- !u!114 &6104162613740447601
-MonoBehaviour:
+  trigger: {fileID: -1483900762868408912}
+--- !u!135 &-1065502152983866532
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
+  m_GameObject: {fileID: 6401929332806492134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b347abc912a113a4f83fa1f9aca4a381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 6104162613740447600}
-  damage: 0.5
-  sanDamage: 0.5
---- !u!114 &6104162613740447600
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1483900762868408912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6104162613740447614}
+  m_GameObject: {fileID: 6401929332806492134}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3334b7bc8c537c644ac4ec0088c922f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <IsInRadius>k__BackingField: 0
+--- !u!114 &-8068394314244222168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6401929332806492134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b347abc912a113a4f83fa1f9aca4a381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: -1483900762868408912}
+  damage: 1
+  sanDamage: 1

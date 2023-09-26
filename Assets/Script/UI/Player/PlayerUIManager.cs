@@ -49,8 +49,8 @@ public class PlayerUIManager : UIManager
         SanCheck.gameObject.SetActive(value);
     }
 
-    public void SetDiedUI(bool value)
+    public void SetDiedUI()
     {
-        DiedUI.SetActive(value);
+        GameManager.sceneController.UIController.AddUI(DiedUI, false);
     }
 }

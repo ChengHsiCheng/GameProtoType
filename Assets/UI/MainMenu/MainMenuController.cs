@@ -25,8 +25,6 @@ public class MainMenuController : UIManager
     {
         animator.SetTrigger("Switch");
         switchScene = sceneName;
-
-        Debug.Log(switchScene);
     }
 
     public void OnSetting()

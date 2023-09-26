@@ -17,12 +17,17 @@ public class UIController : MonoBehaviour
 
     public void AddUI(GameObject ui)
     {
+        AddUI(ui, true);
+    }
+
+    public void AddUI(GameObject ui, bool PauseGame)
+    {
         if (UIElements.Count == 0)
         {
             GameManager.ToggleUI(true);
         }
 
-        if (!GameManager.isPauseGame)
+        if (!GameManager.isPauseGame && PauseGame)
         {
             GameManager.TogglePause(true);
         }
@@ -33,6 +38,8 @@ public class UIController : MonoBehaviour
 
     public void CloseUI()
     {
+        if (UIElements.Count == 0)
+            return;
 
         UIElements[UIElements.Count - 1].SetActive(false);
         UIElements.RemoveAt(UIElements.Count - 1);

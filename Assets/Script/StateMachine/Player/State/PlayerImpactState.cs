@@ -23,6 +23,8 @@ public class PlayerImpactState : PlayerBaseState
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Impact");
 
         CheckInput(normalizedTime, 0.9f);
+
+        Move(deltaTime);
     }
 
     public override void Exit()

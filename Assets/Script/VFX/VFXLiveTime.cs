@@ -12,6 +12,8 @@ public class VFXLiveTime : MonoBehaviour
     [SerializeField] VisualEffect[] vfxs;
     [SerializeField] ParticleSystem[] particles;
 
+    [SerializeField] Trigger trigger;
+
     private void Update()
     {
         if (GameManager.isPauseGame)
@@ -19,10 +21,11 @@ public class VFXLiveTime : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer >= liveTime - 1)
+        if (timer >= liveTime)
         {
             Stop();
         }
+
     }
 
     public void SetLiveTime(float liveTime)
@@ -34,6 +37,8 @@ public class VFXLiveTime : MonoBehaviour
     {
         if (isDestroy)
             return;
+
+        trigger?.Disable();
 
         foreach (VisualEffect vfx in vfxs)
         {

@@ -17,7 +17,7 @@ public class PlayerDieState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.Info.SetInvulnerable(true);
-        stateMachine.UIManager.SetDiedUI(true);
+        stateMachine.UIManager.SetDiedUI();
 
         stateMachine.SetCanAction(false);
         stateMachine.SetCanCancel(false);
@@ -29,15 +29,15 @@ public class PlayerDieState : PlayerBaseState
         // DieEvent
         timer += deltaTime;
 
-        if (Input.anyKeyDown && timer >= 1)
-        {
-            if (GameManager.nowScenes == null)
-            {
-                GameManager.SwitchScene("Boss01Scenes");
-            }
+        // if (Input.anyKeyDown && timer >= 1)
+        // {
+        //     if (GameManager.nowScenes == null)
+        //     {
+        //         GameManager.SwitchScene("Boss01Scenes");
+        //     }
 
-            GameManager.SwitchScene(GameManager.nowScenes);
-        }
+        //     GameManager.SwitchScene(GameManager.nowScenes);
+        // }
     }
 
     public override void Exit()

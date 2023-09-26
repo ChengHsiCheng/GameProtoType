@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283411583452292081}
   m_LocalRotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -551,7 +551,7 @@ Transform:
   - {fileID: 6057667944057642725}
   m_Father: {fileID: 4497096383126621838}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -29.342215, y: -176.04915, z: 177.47528}
+  m_LocalEulerAnglesHint: {x: -28.036531, y: -175.8906, z: 177.40295}
 --- !u!1 &2120562016441197664
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +620,7 @@ Transform:
   - {fileID: 7008696656237054646}
   - {fileID: 532619346033787879}
   - {fileID: 1924548750727221032}
+  - {fileID: 7793345041613276025}
   m_Father: {fileID: 8306005375517938919}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -749,7 +750,7 @@ Transform:
   - {fileID: 5712229789809544857}
   m_Father: {fileID: 553517356453543867}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -29.342115, y: 176.04913, z: -177.4753}
+  m_LocalEulerAnglesHint: {x: -28.036642, y: 175.89061, z: -177.40292}
 --- !u!1 &2514290941129257328
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1024,37 @@ MonoBehaviour:
   - {fileID: 7923643839982419936}
   - {fileID: 3811314569529018543}
   - {fileID: 5928649999268821012}
+--- !u!1 &3704587503313270407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7793345041613276025}
+  m_Layer: 7
+  m_Name: FartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7793345041613276025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3704587503313270407}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 218780179806405124}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3797638616305785474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,7 +1858,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7667736142582948790}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 2
   m_Height: 1
@@ -1840,7 +1872,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7667736142582948790}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6, y: 2, z: 2}
@@ -1893,6 +1925,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 30
     <SanDamage>k__BackingField: 0
+    <Impact>k__BackingField: 15
     <MaxCooldownTime>k__BackingField: 0.5
     <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0.23
@@ -1901,6 +1934,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 25
     <SanDamage>k__BackingField: 0
+    <Impact>k__BackingField: 10
     <MaxCooldownTime>k__BackingField: 0
     <MinCooldownTime>k__BackingField: 0.5
     <MoveTime>k__BackingField: 1
@@ -1909,6 +1943,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 35
     <SanDamage>k__BackingField: 0
+    <Impact>k__BackingField: 15
     <MaxCooldownTime>k__BackingField: 0.5
     <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0
@@ -1917,6 +1952,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 40
     <SanDamage>k__BackingField: 0
+    <Impact>k__BackingField: 15
     <MaxCooldownTime>k__BackingField: 0.5
     <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0.34
@@ -1925,6 +1961,7 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 30
     <SanDamage>k__BackingField: 0
+    <Impact>k__BackingField: 15
     <MaxCooldownTime>k__BackingField: 0
     <MinCooldownTime>k__BackingField: 1
     <MoveTime>k__BackingField: 0
@@ -1936,18 +1973,21 @@ MonoBehaviour:
     <spawnPoint>k__BackingField: {fileID: 6453017612640518531}
     <MinCooldownTime>k__BackingField: 0.5
     <MaxCooldownTime>k__BackingField: 1.5
+    <Impact>k__BackingField: 0
   - <SkillName>k__BackingField: Tongue
     <skill>k__BackingField: {fileID: 4786277695822311618, guid: 63aa8a94f88de6c47bb591bc612da9b5,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 1924548750727221032}
     <MinCooldownTime>k__BackingField: 0.5
     <MaxCooldownTime>k__BackingField: 1.5
+    <Impact>k__BackingField: 0
   - <SkillName>k__BackingField: FireStorm
     <skill>k__BackingField: {fileID: 2008181008732081653, guid: 351d052934a0cc44b82adba1236eacc7,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 7008696656237054646}
     <MinCooldownTime>k__BackingField: 0
     <MaxCooldownTime>k__BackingField: 1
+    <Impact>k__BackingField: 0
   <VFXList>k__BackingField:
   - name: ForwardAttackVFX
     gameObject: {fileID: 234993126553790158, guid: b6d0162ffe8f6f0419b27fd0b6a1de81,
@@ -1970,6 +2010,9 @@ MonoBehaviour:
   - name: ChargeSkillVFX
     gameObject: {fileID: 246961755377279900, guid: 3ca4ef41a2648414e8b22817eb47e9f3,
       type: 3}
+  - name: FartSkillVFX
+    gameObject: {fileID: 6401929332806492134, guid: a1b5ebd166ae9e44a81a274ba04bcde5,
+      type: 3}
   <VFXPosList>k__BackingField:
   - name: ForwardAttackVFX
     gameObject: {fileID: 3866831262311636646}
@@ -1985,11 +2028,13 @@ MonoBehaviour:
     gameObject: {fileID: 5711333716432900821}
   - name: ChargeSkillVFX
     gameObject: {fileID: 6744969862629564071}
+  - name: FartSkillVFX
+    gameObject: {fileID: 3704587503313270407}
   <escapeSpeed>k__BackingField: 10
   <movementSpeed>k__BackingField: 7
   <rotationSpeed>k__BackingField: 180
   <chargeSpeed>k__BackingField: 20
-  <meleeRange>k__BackingField: 3.5
+  <meleeRange>k__BackingField: 4.5
   <Stage>k__BackingField: 0
   nowStage: 0
   beAttack: 0
@@ -2065,7 +2110,7 @@ Transform:
   - {fileID: 4497096383126621838}
   m_Father: {fileID: 9112451064484253136}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -6.383945, y: 10.948695, z: -37.31449}
+  m_LocalEulerAnglesHint: {x: 28.81015, y: 12.609953, z: -30.000912}
 --- !u!1 &7738483833213906190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2528,4 +2573,4 @@ Transform:
   - {fileID: 1812970919}
   m_Father: {fileID: 2306805817548991992}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -34.529, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.8634003, y: 0.000028179971, z: -2.2338013e-13}

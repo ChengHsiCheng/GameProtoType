@@ -37,6 +37,8 @@ public class PlayerMovingState : PlayerBaseState
             return;
         }
 
+        Move(deltaTime);
+
         Vector3 movemnt = CalculateMovement();
 
         moveSpeedAdd = CalculateMoveAcceleration(movemnt, deltaTime);

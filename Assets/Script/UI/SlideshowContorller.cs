@@ -47,7 +47,7 @@ public class SlideshowContorller : MonoBehaviour
             if (count == storyImage.Length)
             {
                 isStarting = false;
-                OnSwicthScene?.Invoke("GameHall");
+                OnSwicthScene?.Invoke("GameLobby");
                 return;
             }
         }
@@ -60,20 +60,10 @@ public class SlideshowContorller : MonoBehaviour
     {
         isStarting = true;
 
-        // audioSource.PlayOneShot(startAudio);
-
         foreach (Image image in storyImage)
         {
             image.gameObject.SetActive(true);
         }
     }
-    // [SerializeField] private Image[] images;
 
-    // private float timer;
-    // private int count;
-
-    // private void Update()
-    // {
-
-    // }
 }
