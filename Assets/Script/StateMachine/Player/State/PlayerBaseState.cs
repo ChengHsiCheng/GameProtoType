@@ -50,6 +50,12 @@ public abstract class PlayerBaseState : State
         {
             return false;
         }
+
+        Debug.DrawRay(stateMachine.transform.position + Vector3.up * 0.1f, stateMachine.transform.forward, Color.red);
+        if (Physics.Raycast(stateMachine.transform.position + (Vector3.up * 0.1f), stateMachine.transform.forward, out _, 1f, layerMaskToCheck))
+        {
+            return false;
+        }
         return true;
     }
 

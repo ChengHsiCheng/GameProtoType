@@ -45,7 +45,6 @@ public class CameoControll : Riddle
 
     public void Close()
     {
-
         foreach (Hole hole in holes)
         {
             hole.OnReset();

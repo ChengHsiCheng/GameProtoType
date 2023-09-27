@@ -15,16 +15,20 @@ public class PlayerUIManager : UIManager
     [SerializeField] private float hurtUIAlphaDecayRate;
     private float hurtUIAlpha = 0;
 
+    private void Start()
+    {
+        if (GameManager.nowScenes == "GameLobby")
+            gameObject.SetActive(false);
+    }
+
     private void Update()
     {
-
         if (HurtUI.color.a != 0)
         {
             hurtUIAlpha = Mathf.Max(hurtUIAlpha - Time.deltaTime * hurtUIAlphaDecayRate, 0);
             float a = hurtUIAlpha / 255;
             HurtUI.color = new Color(HurtUI.color.r, HurtUI.color.g, HurtUI.color.b, a);
         }
-
     }
 
     public void BeAttack()

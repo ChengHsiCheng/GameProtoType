@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 3136286670052212234}
   - component: {fileID: 3591245755265403949}
   - component: {fileID: 3352587367615300294}
+  - component: {fileID: 1749297110}
   m_Layer: 0
   m_Name: MS_Cabinet01_Default02
   m_TagString: Untagged
@@ -250,6 +251,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1749297110
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2711380954003675618}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9814128, y: 0.86003196, z: 1.0462052}
+  m_Center: {x: 0, y: 0.4289953, z: -0.0029461987}
 --- !u!1 &3150358760136037923
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +275,7 @@ GameObject:
   - component: {fileID: 16754053753728214}
   - component: {fileID: 8596343665633643008}
   - component: {fileID: 6993956478989183479}
+  - component: {fileID: 1026531598}
   m_Layer: 0
   m_Name: MS_Cabinet01_Default01
   m_TagString: Untagged
@@ -333,6 +348,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1026531598
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3150358760136037923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9814128, y: 0.86003196, z: 1.0462052}
+  m_Center: {x: 0, y: 0.4289953, z: -0.0029461987}
 --- !u!1 &3498321062240108348
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +456,7 @@ GameObject:
   - component: {fileID: 6111861066365313836}
   - component: {fileID: 9121482121063973487}
   - component: {fileID: 728091033615292227}
+  - component: {fileID: 721727728}
   m_Layer: 0
   m_Name: MS_Klotski01_Default01
   m_TagString: Untagged
@@ -500,6 +529,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &721727728
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3542608689108887033}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15606819, y: 1.7549503, z: 1.2989848}
+  m_Center: {x: -0.058286406, y: 0.026455611, z: 0.00000011920932}
 --- !u!1 &3656997473800431842
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +767,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4657252150520956924}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -21.329477, y: -14.184499, z: 5.543543}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -840,6 +882,7 @@ GameObject:
   - component: {fileID: 7487608958409295883}
   - component: {fileID: 8906276653793550492}
   - component: {fileID: 8167642525621588266}
+  - component: {fileID: 240872736}
   m_Layer: 0
   m_Name: MS_Desk01_Default01
   m_TagString: Untagged
@@ -912,6 +955,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &240872736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6463435581489679048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.232025, y: 1.158618, z: 1.244763}
+  m_Center: {x: 0, y: 0.58115876, z: 0.00797254}
 --- !u!1 &6593003806178995533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,6 +1229,7 @@ GameObject:
   - component: {fileID: 8299256368966615668}
   - component: {fileID: 4853706954558998837}
   - component: {fileID: 4782914322576870886}
+  - component: {fileID: 1320987184}
   m_Layer: 0
   m_Name: MS_Statue01_Default01
   m_TagString: Untagged
@@ -1248,6 +1305,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1320987184
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8003479420732788418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.548266, y: 2.701909, z: 1.5954926}
+  m_Center: {x: 0.038655497, y: 1.3312924, z: 0.053844165}
 --- !u!1 &8372160880897450060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,6 +1413,7 @@ GameObject:
   - component: {fileID: 996819755249819922}
   - component: {fileID: 876036461606129}
   - component: {fileID: 304861424545807677}
+  - component: {fileID: 1231413896}
   m_Layer: 0
   m_Name: MS_Bed01_Default01
   m_TagString: Untagged
@@ -1416,3 +1487,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1231413896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9149291662305039154}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4943507, y: 0.8108455, z: 2.340474}
+  m_Center: {x: -0.6305163, y: 0.32076633, z: 0.010863903}

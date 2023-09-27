@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Boss01StartState : Boss01BaseState
 {
+    private readonly int RoarAnimatorString = Animator.StringToHash("Roar");
+    private const float AnimatorDampTime = 0.1f;
+
+
     private float timer;
 
     public Boss01StartState(Boss01StateMachine stateMachine) : base(stateMachine)
@@ -12,14 +16,15 @@ public class Boss01StartState : Boss01BaseState
 
     public override void Enter()
     {
+        stateMachine.Animator.CrossFadeInFixedTime(RoarAnimatorString, AnimatorDampTime);
     }
 
     public override void Tick(float deltaTime)
     {
-        // 開場動作
-        timer += deltaTime;
+        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "");
 
-        if (timer < 2)
+
+        if (normalizedTime < 1)
             return;
 
         stateMachine.SwitchState(new Boss01TransitionState(stateMachine));

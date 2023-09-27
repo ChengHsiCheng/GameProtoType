@@ -31,11 +31,12 @@ public class CandleControll : Riddle
     {
         inputOrder += id;
         inputNum++;
-        if (inputNum == 7)
+        if (inputNum == candles.Length)
         {
             if (inputOrder == passOrder.ToString())
             {
                 OnPass();
+                Debug.Log("PASS");
             }
             Invoke("TurnOff", 0.1f);
         }

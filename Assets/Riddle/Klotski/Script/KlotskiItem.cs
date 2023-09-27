@@ -6,9 +6,5 @@ using UnityEngine.UI;
 public class KlotskiItem : MonoBehaviour
 {
     public int id;
-    public Text text;
-    private void Start()
-    {
-        text.text = id.ToString();
-    }
+
 }

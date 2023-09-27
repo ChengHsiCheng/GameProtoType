@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    private Vector3 originPos = Vector3.zero;
+    private Vector3 originPos;
     [SerializeField] Image image;
     private Hole hole;
     [SerializeField] private int count;
@@ -47,11 +47,16 @@ public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
 
             transform.position = targetPos;
 
+            transform.localScale = Vector3.one * 0.3f;
+
             hole.OnMosaic(count);
         }
         else
         {
             targetPos = originPos;
+
+            transform.localScale = Vector3.one;
+
             transform.position = targetPos;
         }
 
@@ -61,7 +66,9 @@ public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
 
     public void OnReset()
     {
+        transform.localScale = Vector3.one;
         hole = null;
+
         transform.position = originPos;
     }
 }
