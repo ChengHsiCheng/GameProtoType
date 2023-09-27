@@ -29,8 +29,8 @@ public class RiddleManager : MonoBehaviour
 
     }
 
-    public void OnOpenRiddle(Riddle riddle)
+    public void OnOpenRiddle(GameObject UI)
     {
-        GameManager.sceneController.UIController.AddUI(riddle.gameObject);
+        GameManager.sceneController.UIController.AddUI(UI);
     }
 }

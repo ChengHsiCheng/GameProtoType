@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class RiddleTrigger : MonoBehaviour
+public class UITrigger : MonoBehaviour
 {
-    [SerializeField] private Riddle riddle;
+    [SerializeField] private GameObject UI;
     [SerializeField] private Collider trigger;
     PlayerStateMachine player;
 
@@ -16,9 +16,9 @@ public class RiddleTrigger : MonoBehaviour
 
     private void OnDisable()
     {
-        if (player.Riddle == riddle)
+        if (player.UI.Count != 0)
         {
-            player.SetRiddle(null);
+            player.RemoveUI(UI);
             trigger.enabled = false;
         }
     }
@@ -27,7 +27,7 @@ public class RiddleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            player.SetRiddle(riddle);
+            player.AddUI(UI);
         }
     }
 
@@ -35,9 +35,9 @@ public class RiddleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (player.Riddle == riddle)
+            if (player.UI.Count != 0)
             {
-                player.SetRiddle(null);
+                player.RemoveUI(UI);
             }
         }
     }

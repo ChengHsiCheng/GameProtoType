@@ -2066,7 +2066,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 1}
+  m_Size: {x: 2, y: 2, z: 0.5}
   m_Center: {x: 0.5, y: 0, z: 0}
 --- !u!114 &4263622867161163168
 MonoBehaviour:
@@ -2080,7 +2080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbdb2d03d909654e928c0dec32cc7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  riddle: {fileID: 4263622866040637732}
+  UI: {fileID: 4263622866040637734}
   trigger: {fileID: 4263622867161163169}
 --- !u!114 &4263622867161163171
 MonoBehaviour:

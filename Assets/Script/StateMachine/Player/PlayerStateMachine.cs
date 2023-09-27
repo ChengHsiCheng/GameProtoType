@@ -23,7 +23,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
     [field: SerializeField] public RiddleManager InteractionUI { get; private set; }
-    [field: SerializeField] public Riddle Riddle { get; private set; }
+    [field: SerializeField] public List<GameObject> UI = new List<GameObject>();
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -119,10 +119,10 @@ public class PlayerStateMachine : StateMachine
         if (!InteractionUI)
             return;
 
-        if (!Riddle)
+        if (UI.Count == 0)
             return;
 
-        InteractionUI.OnOpenRiddle(Riddle);
+        InteractionUI.OnOpenRiddle(UI[0]);
     }
 
     private void OnHeal()
@@ -301,9 +301,20 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
-    public void SetRiddle(Riddle riddle)
+    public void AddUI(GameObject ui)
     {
-        Riddle = riddle;
+        UI.Add(ui);
+    }
+
+    public void RemoveUI(GameObject ui)
+    {
+        for (int i = 0; i < UI.Count; i++)
+        {
+            if (UI[i] == ui)
+            {
+                UI.RemoveAt(i);
+            }
+        }
     }
 
     public override void SetCanMove(bool value) { }

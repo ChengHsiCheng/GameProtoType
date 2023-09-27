@@ -2,9 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public abstract class Riddle : MonoBehaviour
+public abstract class Riddle : MonoBehaviour, IUIElement
 {
     public event Action OnPassEvent;
 

@@ -4,6 +4,4 @@ using UnityEngine;
 
 public interface IUIElement
 {
-    public abstract void OnOpen();
-    public abstract void OnClose();
 }

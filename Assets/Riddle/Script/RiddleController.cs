@@ -6,7 +6,7 @@ public class RiddleController : MonoBehaviour
 {
     public bool isPass { private set; get; }
 
-    [SerializeField] private RiddleTrigger trigger;
+    [SerializeField] private UITrigger trigger;
     [SerializeField] private Riddle riddle { get => GetComponentInChildren<Riddle>(); }
 
     [SerializeField] private GameObject passedMode;
