@@ -61,6 +61,9 @@ public class PlayerSkillState : PlayerBaseState
             UseSkill();
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
 
+            stateMachine.AudioLogic.PlayAudio("SkillCast");
+
+
             vfx.Stop();
 
             switch (skill.name)
@@ -79,6 +82,8 @@ public class PlayerSkillState : PlayerBaseState
     {
         stateMachine.SetCanCancel(true);
         stateMachine.SetCanAction(true);
+
+        stateMachine.AudioLogic.StopLoopAudio();
 
         vfx.Stop();
     }
