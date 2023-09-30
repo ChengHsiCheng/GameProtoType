@@ -8,6 +8,8 @@ public class ProjectileControls : MonoBehaviour
     private float moveSpeed = 1;
     private Vector3 projectileDir;
 
+    private bool isHit;
+
     [SerializeField] private GameObject[] hitVFX;
     [SerializeField] private VFXLiveTime vfx;
 
@@ -22,7 +24,7 @@ public class ProjectileControls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hitVFX.Length == 0)
+        if (hitVFX.Length == 0 || isHit)
             return;
 
         Vector3 pos = transform.position;
@@ -32,6 +34,8 @@ public class ProjectileControls : MonoBehaviour
         {
             Instantiate(hitVFX[i], pos, Quaternion.identity);
         }
+
+        isHit = true;
 
         vfx.Stop();
     }

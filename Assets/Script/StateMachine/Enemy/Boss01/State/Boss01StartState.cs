@@ -7,9 +7,6 @@ public class Boss01StartState : Boss01BaseState
     private readonly int RoarAnimatorString = Animator.StringToHash("Roar");
     private const float AnimatorDampTime = 0.1f;
 
-
-    private float timer;
-
     public Boss01StartState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -22,7 +19,6 @@ public class Boss01StartState : Boss01BaseState
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "");
-
 
         if (normalizedTime < 1)
             return;

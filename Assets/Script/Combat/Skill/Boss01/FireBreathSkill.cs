@@ -37,9 +37,9 @@ public class FireBreathSkill : Skill
             }
             return;
         }
-        else if (count < 20)
+        else if (count < 10)
         {
-            if (timer >= 0.5f)
+            if (timer >= 0.3f)
             {
                 ShotFrieBall();
                 count++;

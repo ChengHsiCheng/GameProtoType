@@ -38,6 +38,8 @@ public class Boss01IdleState : Boss01BaseState
 
     public override void Exit()
     {
+        stateMachine.Animator.SetFloat(MoveSpeedString, 0);
+
         stateMachine.cooldownTime = 0;
     }
 }

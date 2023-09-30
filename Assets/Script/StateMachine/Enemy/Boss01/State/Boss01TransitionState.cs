@@ -11,6 +11,8 @@ public class Boss01TransitionState : Boss01BaseState
 
     public override void Enter()
     {
+        stateMachine.Animator.SetFloat("MoveSpeed", 0);
+
     }
 
     public override void Tick(float deltaTime)

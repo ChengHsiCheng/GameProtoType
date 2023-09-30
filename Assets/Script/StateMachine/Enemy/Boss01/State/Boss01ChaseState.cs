@@ -74,6 +74,9 @@ public class Boss01ChaseState : Boss01BaseState
 
         // 停止導航代理的運動
         stateMachine.Agent.velocity = Vector3.zero;
+
+        stateMachine.Animator.SetFloat(MoveSpeedString, 0);
+
     }
 
 }

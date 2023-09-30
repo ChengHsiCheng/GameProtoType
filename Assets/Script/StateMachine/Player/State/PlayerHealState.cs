@@ -57,6 +57,8 @@ public class PlayerHealState : PlayerBaseState
             stateMachine.Info.Healing(30);
             MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Heal"), stateMachine.transform);
 
+            stateMachine.AudioLogic.PlayAudio("SkillCast");
+
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
 
             return;
@@ -81,5 +83,8 @@ public class PlayerHealState : PlayerBaseState
     {
         stateMachine.SetCanCancel(true);
         stateMachine.SetCanAction(true);
+
+        stateMachine.AudioLogic.StopLoopAudio();
+
     }
 }
