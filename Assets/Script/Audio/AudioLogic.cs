@@ -31,7 +31,7 @@ public class AudioLogic : MonoBehaviour
     {
         AudioEntry entry = audios.Find(e => e.name == objectName);
 
-        if (entry.audios != null)
+        if (entry.audios.Length != 0)
         {
             if (entry.audios.Length == 0)
                 return entry.audios[0];
