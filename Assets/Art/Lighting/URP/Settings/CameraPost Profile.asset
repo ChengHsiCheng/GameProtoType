@@ -40,7 +40,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.09
 --- !u!114 &-1641399930928253566
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -59,10 +59,10 @@ MonoBehaviour:
     m_Value: 0
   contrast:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 60
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.21383637, b: 0.8601795, a: 1}
+    m_Value: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 25
@@ -86,7 +86,7 @@ MonoBehaviour:
   - {fileID: -5212526624654093530}
   - {fileID: -2711394787376607342}
   - {fileID: -1641399930928253566}
-  - {fileID: 2649793677242141428}
+  - {fileID: 2442979105007816616}
 --- !u!114 &1059993965872759089
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -108,27 +108,27 @@ MonoBehaviour:
     m_Value: 0.1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.2
+    m_Value: 0
   clamp:
     m_OverrideState: 1
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.85917425, g: 0, b: 1, a: 1}
+    m_Value: {r: 0.6320754, g: 0.27668205, b: 0.5281637, a: 1}
   highQualityFiltering:
     m_OverrideState: 1
     m_Value: 0
   skipIterations:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   dirtTexture:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: 67790b7e4a86448178a9309b17359524, type: 3}
     dimension: 1
   dirtIntensity:
-    m_OverrideState: 0
-    m_Value: 0
---- !u!114 &2649793677242141428
+    m_OverrideState: 1
+    m_Value: 1.2
+--- !u!114 &2442979105007816616
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,22 +137,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
-  m_Name: LensDistortion
+  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+  m_Name: Vignette
   m_EditorClassIdentifier: 
   active: 1
-  intensity:
+  color:
     m_OverrideState: 1
-    m_Value: -0.2
-  xMultiplier:
-    m_OverrideState: 1
-    m_Value: 1
-  yMultiplier:
-    m_OverrideState: 1
-    m_Value: 1
+    m_Value: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
   center:
     m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
-  scale:
-    m_OverrideState: 0
-    m_Value: 0.01
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.2
+  rounded:
+    m_OverrideState: 1
+    m_Value: 0
