@@ -7,6 +7,10 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
+    [field: SerializeField] public Skill[] skill { get; private set; }
+
+    [field: SerializeField] public GameObject altarobj { get; private set; }
+    [field: SerializeField] public Altar altar { get; private set; }
 
     private void Start()
     {
@@ -14,6 +18,7 @@ public class Boss02StateMachine : StateMachine, Enemy
 
         SwitchState(new Boss02StartState(this));
 
+        altar = altarobj.GetComponent<Altar>();
     }
 
     public override void OnGameTogglePause(bool isPause)

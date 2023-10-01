@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss02StartState : Boss02BaseState
+public class Boss02SkillState : Boss02BaseState
 {
-    public Boss02StartState(Boss02StateMachine stateMachine) : base(stateMachine)
+    Skill skill;
+
+    public Boss02SkillState(Boss02StateMachine stateMachine, int skillCount) : base(stateMachine)
     {
+        skill = stateMachine.skill[skillCount];
     }
 
     public override void Enter()
     {
-        GameObject.Instantiate(stateMachine.altarobj, Vector3.zero, Quaternion.identity);
     }
 
     public override void Tick(float deltaTime)
@@ -20,4 +22,5 @@ public class Boss02StartState : Boss02BaseState
     public override void Exit()
     {
     }
+
 }
