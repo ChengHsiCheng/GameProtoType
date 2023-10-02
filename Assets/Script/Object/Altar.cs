@@ -13,10 +13,6 @@ public class Altar : MonoBehaviour, Health
 
     public void DealHealthDamage(float damage, bool isImpact)
     {
-    }
-
-    public void GetHit()
-    {
         OnTakeDamage?.Invoke();
     }
 }

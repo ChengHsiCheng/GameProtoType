@@ -6,6 +6,7 @@ public class Boss02StateMachine : StateMachine, Enemy
 {
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
+    [field: SerializeField] public Boss02Info Health { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public Skill[] skill { get; private set; }
 
@@ -17,10 +18,22 @@ public class Boss02StateMachine : StateMachine, Enemy
     {
         GameManager.enemys.Add(this);
 
+        altar = altarobj.GetComponentInChildren<Altar>();
+        altarHealth = altarobj.GetComponentInChildren<Health>();
+
         SwitchState(new Boss02StartState(this));
 
-        altar = altarobj.GetComponent<Altar>();
-        altarHealth = altarobj.GetComponent<Health>();
+        altarHealth.OnTakeDamage += TakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        altarHealth.OnTakeDamage -= TakeDamage;
+    }
+
+    private void TakeDamage()
+    {
+        Debug.Log("HIT");
     }
 
     public override void OnGameTogglePause(bool isPause)
