@@ -20,6 +20,10 @@ public class Boss02Info : MonoBehaviour, Info, Health
     {
     }
 
+    public void Healing(float value)
+    {
+    }
+
     public void SetInvulnerable(bool isInvunerable)
     {
         this.isInvulnerable = isInvunerable;

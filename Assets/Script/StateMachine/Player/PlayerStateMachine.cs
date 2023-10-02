@@ -33,7 +33,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float RotationDamping { get; private set; }
 
     public bool canAction { get; private set; } = true;
-    [field: SerializeField] public bool canCancel { get; private set; } = true;
+    public bool canCancel { get; private set; } = true;
+    public bool haveCrown;
 
     private bool isSanCheck;
     public float sanScalingDamage { get; private set; } = 1;

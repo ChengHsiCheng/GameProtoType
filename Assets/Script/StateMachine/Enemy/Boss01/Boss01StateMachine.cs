@@ -71,6 +71,8 @@ public class Boss01StateMachine : StateMachine, Enemy
 
         WeaponHendler.MoveEvent -= OnAttackMove;
         WeaponHendler.VFXEvent -= OnPlayVFX;
+
+        GameManager.enemys.Remove(this);
     }
 
     private void OnAttackMove()

@@ -10,4 +10,5 @@ public interface Health
     event Action OnTakeDamage;
     event Action OnUpdateUI;
     void DealHealthDamage(float damage, bool isImpact);
+    void Healing(float value);
 }

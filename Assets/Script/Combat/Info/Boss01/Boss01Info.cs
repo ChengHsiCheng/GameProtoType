@@ -42,4 +42,8 @@ public class Boss01Info : MonoBehaviour, Info, Health
             OnDie?.Invoke();
         }
     }
+
+    public void Healing(float value)
+    {
+    }
 }

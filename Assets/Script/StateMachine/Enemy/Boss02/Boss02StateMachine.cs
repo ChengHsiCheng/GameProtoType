@@ -8,32 +8,40 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public Boss02Info Health { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
-    [field: SerializeField] public Skill[] skill { get; private set; }
+    [field: SerializeField] public Skill[] Skill { get; private set; }
 
-    [field: SerializeField] public GameObject altarobj { get; private set; }
-    [field: SerializeField] public Health altarHealth { get; private set; }
-    [field: SerializeField] public Altar altar { get; private set; }
+    protected PlayerStateMachine player;
+
+    [field: SerializeField] public GameObject Altarobj { get; private set; }
+    public Health AltarHealth { get; private set; }
+
+    [field: SerializeField] public Crown crown { get; private set; }
 
     private void Start()
     {
         GameManager.enemys.Add(this);
+        player = GameManager.player.GetComponent<PlayerStateMachine>();
 
-        altar = altarobj.GetComponentInChildren<Altar>();
-        altarHealth = altarobj.GetComponentInChildren<Health>();
+        AltarHealth = Instantiate(Altarobj, Vector3.zero, Quaternion.identity).GetComponent<Health>();
 
         SwitchState(new Boss02StartState(this));
 
-        altarHealth.OnTakeDamage += TakeDamage;
+        AltarHealth.OnTakeDamage += TakeDamage;
     }
 
     private void OnDisable()
     {
-        altarHealth.OnTakeDamage -= TakeDamage;
+        AltarHealth.OnTakeDamage -= TakeDamage;
+
+        GameManager.enemys.Remove(this);
     }
 
     private void TakeDamage()
     {
-        Debug.Log("HIT");
+        if (!player.haveCrown)
+            return;
+
+        Debug.Log("2");
     }
 
     public override void OnGameTogglePause(bool isPause)
