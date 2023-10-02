@@ -31,8 +31,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
-    [field: SerializeField] public float ImpactStrength { get; private set; }
-    [field: SerializeField] public Vector3 ImpactDir { get; private set; }
 
     public bool canAction { get; private set; } = true;
     [field: SerializeField] public bool canCancel { get; private set; } = true;
@@ -70,6 +68,7 @@ public class PlayerStateMachine : StateMachine
         Info.OnSanCheck += OnSanCheck;
         Info.OnUpdateUI += UpdateUI;
         Info.OnDie += HandleDie;
+        Info.OnImpact += GetImpact;
 
         InputReader.RollEvent += OnRoll;
         InputReader.SkillEvent += OnSkill;
@@ -91,6 +90,7 @@ public class PlayerStateMachine : StateMachine
         Info.OnSanCheck -= OnSanCheck;
         Info.OnUpdateUI -= UpdateUI;
         Info.OnDie -= HandleDie;
+        Info.OnImpact -= GetImpact;
 
         InputReader.TogglePauseEvent -= TogglePause;
         InputReader.RollEvent -= OnRoll;
@@ -169,25 +169,16 @@ public class PlayerStateMachine : StateMachine
     /// <summary>
     /// 切換到受擊狀態
     /// </summary>
-    private void HandleTakeDamage(bool isInpact)
+    private void HandleTakeDamage()
     {
         UpdateUI();
 
         UIManager.BeAttack();
-
-        if (isInpact)
-        {
-            SwitchState(new PlayerImpactState(this));
-        }
     }
 
-    public void SetImpact(Vector3 attackPos, float impact)
+    private void GetImpact()
     {
-        attackPos.y = 0;
-        ImpactDir = transform.position - attackPos;
-        ImpactDir.Normalize();
-
-        ImpactStrength = impact * 2;
+        SwitchState(new PlayerImpactState(this));
     }
 
     /// <summary>

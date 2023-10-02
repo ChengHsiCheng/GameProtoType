@@ -40,10 +40,9 @@ public class WeaponDamage : MonoBehaviour
             force.AddForce((other.transform.position - myCollider.transform.position).normalized * impact);
         }
 
-
         if (other.TryGetComponent<Health>(out Health health))
         {
-            health.DealHealthDamage(damage, true);
+            health.DealHealthDamage(damage, impact > 0);
         }
 
         if (sanDamage == 0)

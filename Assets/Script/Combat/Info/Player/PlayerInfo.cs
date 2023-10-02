@@ -19,11 +19,12 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public bool isInvulnerable { get; set; }
     [SerializeField] private bool Invulnerable;
 
-    public event Action<bool> OnTakeDamage;
+    public event Action OnTakeDamage;
     public event Action OnDie;
     public event Action OnUpdateSan;
     public event Action OnUpdateUI;
     public event Action OnSanCheck;
+    public event Action OnImpact;
 
     private void Start()
     {
@@ -68,7 +69,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         this.isInvulnerable = isInvunerable;
     }
 
-    public void DealHealthDamage(float damage, bool isInpact)
+    public void DealHealthDamage(float damage, bool isImpact)
     {
         if (health <= 0)
             return;
@@ -80,11 +81,16 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
             return;
 
         health = Mathf.Max(health - damage, 0);
-        OnTakeDamage?.Invoke(isInpact);
+        OnTakeDamage?.Invoke();
 
         if (health <= 0)
         {
             OnDie?.Invoke();
+        }
+
+        if (isImpact)
+        {
+            OnImpact?.Invoke();
         }
     }
 

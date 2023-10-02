@@ -25,7 +25,7 @@ public class SingleDamage : MonoBehaviour
             dir.y = 0;
 
             forceReceiver.AddForce(dir.normalized * impact);
-            health.DealHealthDamage(damage, true);
+            health.DealHealthDamage(damage, impact > 0);
             san.DealSanDamage(sanDamage);
 
             hasDamaged = true;

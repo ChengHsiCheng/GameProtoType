@@ -86,7 +86,7 @@ public class Boss01StateMachine : StateMachine, Enemy
     /// <summary>
     /// 切換到受擊狀態
     /// </summary>
-    private void HandleTakeDamage(bool isInpact)
+    private void HandleTakeDamage()
     {
         Animator.SetTrigger("GetHit");
 
