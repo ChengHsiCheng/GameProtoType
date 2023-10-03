@@ -6,7 +6,6 @@ public class Boss02StateMachine : StateMachine, Enemy
 {
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
-    [field: SerializeField] public Boss02Info Health { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public Skill[] Skill { get; private set; }
 

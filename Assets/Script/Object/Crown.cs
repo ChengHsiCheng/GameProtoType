@@ -10,6 +10,7 @@ public class Crown : MonoBehaviour
     private Health holderHealth;
 
     private PlayerStateMachine player;
+    private EnemyInfo believer;
 
     private float timer;
 
@@ -28,7 +29,7 @@ public class Crown : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer > 3)
+        if (timer > 10)
         {
             Destroy(gameObject);
         }
@@ -36,6 +37,8 @@ public class Crown : MonoBehaviour
 
     public void SetCrownHolder(GameObject gameObject)
     {
+        timer = 0;
+
         holder = gameObject;
         gameObject.TryGetComponent(out holderHealth);
 
@@ -44,5 +47,19 @@ public class Crown : MonoBehaviour
             player = gameObject.GetComponent<PlayerStateMachine>();
             player.haveCrown = true;
         }
+
+        if (gameObject.tag == "Enemy")
+        {
+            believer = gameObject.GetComponent<EnemyInfo>();
+            believer.OnDie += ChangeToPlayer;
+            return;
+        }
+
+        believer.OnDie -= ChangeToPlayer;
+    }
+
+    private void ChangeToPlayer()
+    {
+        SetCrownHolder(GameManager.player);
     }
 }

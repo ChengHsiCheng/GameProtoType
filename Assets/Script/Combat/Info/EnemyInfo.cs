@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss01Info : MonoBehaviour, Info, Health
+public class EnemyInfo : MonoBehaviour, Info, Health
 {
     [field: SerializeField] public float maxHealth { get; private set; }
     public float health { get; private set; }
@@ -16,8 +16,6 @@ public class Boss01Info : MonoBehaviour, Info, Health
     private void Start()
     {
         health = maxHealth;
-
-        OnUpdateUI?.Invoke();
     }
 
     public void SetInvulnerable(bool isInvunerable)
