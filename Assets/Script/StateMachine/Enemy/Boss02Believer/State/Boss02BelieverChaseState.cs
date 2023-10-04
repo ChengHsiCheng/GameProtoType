@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class Boss02BelieverChaseState : Boss02BelieverBaseState
 {
+    private readonly int MoveSpeedString = Animator.StringToHash("MoveSpeed");
+    private readonly int MovingBlendTreeHash = Animator.StringToHash("MovingBlendTree");
+
+    private const float AnimatorDampTime = 0.1f;
+    private const float CrossFadeDuration = 0.1f;
+
     public Boss02BelieverChaseState(Boss02BelieverStateMachine stateMachine) : base(stateMachine)
     {
     }
 
     public override void Enter()
     {
+        stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
+
     }
 
     public override void Tick(float deltaTime)
     {
         Vector3 playerPos = stateMachine.Player.transform.position;
 
+        if (IsInAttackRange())
+        {
+            stateMachine.SwitchState(new Boss02BelieverTransitionState(stateMachine));
+            return;
+        }
+
+        playerPos.y = 0;
+
         MoveToTarget(playerPos, stateMachine.movementSpeed, deltaTime);
+
+        FaceTarget(playerPos, stateMachine.rotateSpeed);
+
+        stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
     }
 
     public override void Exit()
