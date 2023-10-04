@@ -21,8 +21,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 2c77a01f0548d75469f825c567ef80fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NoiseTexture:
         m_Texture: {fileID: 2800000, guid: 2c77a01f0548d75469f825c567ef80fa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalFromTexture_2e56130566d6434d8c9f3b853627b0e0_Texture_0:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_894b82db18c343ff8cfe91f4a48a59ab_Out_0:
+        m_Texture: {fileID: 2800000, guid: 36b59959348725f4bb565a7ef52698ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_a2dd61db55e54f90adff68e32e4badde_Out_0:
@@ -43,12 +55,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Normal_Strength: 0.3
+    - _NoiseOffset: -0.01
+    - _Normal_Strength: 0.4
     - _Offset: 0.006
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Speed: 0.01
+    - _Strength: 0
+    - _TexOffset: 0.01
     m_Colors:
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _NoiseTiling: {r: 1.5, g: 1, b: 0, a: 0}
+    - _TexTilling: {r: 1, g: 1, b: 0, a: 0}
+    - _TextTilling: {r: 2, g: 2, b: 0, a: 0}
     - _Tiling: {r: 1, g: 1.5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2686938035805146269
