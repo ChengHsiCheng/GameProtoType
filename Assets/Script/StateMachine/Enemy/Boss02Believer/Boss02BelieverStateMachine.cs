@@ -11,6 +11,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
+    [field: SerializeField] public EnemyAttack[] attacks { get; private set; }
 
     [field: SerializeField] public float attackRange { get; private set; }
     [field: SerializeField] public float rotateSpeed { get; private set; }

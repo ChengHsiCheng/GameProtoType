@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Boss02BelieverAttackState : Boss02BelieverBaseState
 {
-
-    private readonly int AttackHash = Animator.StringToHash("Attack");
-
     private const float CrossFadeDuration = 0.1f;
 
+    private EnemyAttack attack;
     private bool isMove;
 
     public Boss02BelieverAttackState(Boss02BelieverStateMachine stateMachine) : base(stateMachine)
@@ -17,7 +15,9 @@ public class Boss02BelieverAttackState : Boss02BelieverBaseState
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(AttackHash, CrossFadeDuration);
+        attack = stateMachine.attacks[0];
+
+        stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, CrossFadeDuration);
     }
 
 
@@ -27,10 +27,10 @@ public class Boss02BelieverAttackState : Boss02BelieverBaseState
 
         Move(deltaTime);
 
-        if (normalizedTime >= 0.33f && !isMove)
+        if (normalizedTime >= attack.MoveTime && !isMove)
         {
             Debug.Log("Move");
-            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * 5);
+            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.MoveForce);
             isMove = true;
         }
 
