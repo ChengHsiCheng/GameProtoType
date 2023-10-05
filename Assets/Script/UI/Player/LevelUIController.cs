@@ -29,4 +29,9 @@ public class LevelUIController : MonoBehaviour
         GameManager.SwitchScene(scenesName);
     }
 
+    public void OnQuit()
+    {
+        GameManager.sceneController.UIController.CloseUI();
+    }
+
 }

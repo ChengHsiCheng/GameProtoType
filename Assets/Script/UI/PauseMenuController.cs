@@ -21,4 +21,9 @@ public class PauseMenuController : UIManager
     {
         GameManager.SwitchScene("MainMenu");
     }
+
+    public void OnTestScene()
+    {
+        GameManager.SwitchScene("Art VFX test");
+    }
 }

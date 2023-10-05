@@ -11,14 +11,18 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public SanCheck SanCheck { get; private set; }
     [field: SerializeField] public GameObject DiedUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
+    [field: SerializeField] public Image HintUI { get; private set; }
 
     [SerializeField] private float hurtUIAlphaDecayRate;
     private float hurtUIAlpha = 0;
 
     private void Start()
     {
-        if (GameManager.nowScenes == "GameLobby")
-            gameObject.SetActive(false);
+        if (GameManager.nowScenes != "GameLobby")
+            return;
+
+        HpBar.gameObject.SetActive(false);
+        SanBar.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -56,5 +60,10 @@ public class PlayerUIManager : UIManager
     public void SetDiedUI()
     {
         GameManager.sceneController.UIController.AddUI(DiedUI, false);
+    }
+
+    public void SetHint(bool value)
+    {
+        HintUI.gameObject.SetActive(value);
     }
 }

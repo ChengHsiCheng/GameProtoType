@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Test : MonoBehaviour
 {
@@ -13,4 +14,5 @@ public class Test : MonoBehaviour
             GameManager.SwitchScene(scensName);
         }
     }
+
 }

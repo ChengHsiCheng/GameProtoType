@@ -22,7 +22,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
-    [field: SerializeField] public RiddleManager InteractionUI { get; private set; }
     [field: SerializeField] public List<GameObject> UI = new List<GameObject>();
 
     [SerializeField] private InterfaceController interfaceController;
@@ -56,13 +55,7 @@ public class PlayerStateMachine : StateMachine
         InputReader = GameManager.sceneController.InputReader;
 
         InputReader.TogglePauseEvent += TogglePause;
-
-        if (GameManager.nowScenes == "GameLobby")
-        {
-            InputReader.InteractionEvent += OnInteraction;
-            InteractionUI = GameObject.Find("Riddle")?.GetComponent<RiddleManager>();
-            return;
-        }
+        InputReader.InteractionEvent += OnInteraction;
 
         Info.OnTakeDamage += HandleTakeDamage;
         Info.OnUpdateSan += UpdateSan;
@@ -117,13 +110,12 @@ public class PlayerStateMachine : StateMachine
     {
         if (GameManager.isPauseGame)
             return;
-        if (!InteractionUI)
-            return;
 
         if (UI.Count == 0)
             return;
 
-        InteractionUI.OnOpenRiddle(UI[0]);
+        GameManager.sceneController.UIController.AddUI(UI[0]);
+
     }
 
     private void OnHeal()
@@ -296,6 +288,8 @@ public class PlayerStateMachine : StateMachine
     public void AddUI(GameObject ui)
     {
         UI.Add(ui);
+
+        UIManager.SetHint(true);
     }
 
     public void RemoveUI(GameObject ui)
@@ -307,6 +301,10 @@ public class PlayerStateMachine : StateMachine
                 UI.RemoveAt(i);
             }
         }
+
+        if (UI.Count == 0)
+            UIManager.SetHint(false);
+
     }
 
     public override void SetCanMove(bool value) { }

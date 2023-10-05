@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using Unity.VisualScripting;
 
 
 public class SettingController : UIManager
@@ -21,11 +22,11 @@ public class SettingController : UIManager
     {
         volume.profile.TryGet<ColorAdjustments>(out brightness);
 
-        SetBrightness(GameManager.brightness);
-        SetAudioVolume(GameManager.audioVolume);
-
         brightnessSlider.value = GameManager.brightness;
         audioVolumeSlider.value = GameManager.audioVolume;
+
+        SetBrightness(GameManager.brightness);
+        SetAudioVolume(GameManager.audioVolume);
     }
 
     public void SetBrightness(float volume)
