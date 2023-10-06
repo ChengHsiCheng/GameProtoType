@@ -170,6 +170,11 @@ public class Boss01StateMachine : StateMachine, Enemy
         SetCanMove(false, 3f);
 
         Material.material.SetFloat("_Petrifaction", 0);
+
+        foreach (WeaponDamage weapon in Weapon)
+        {
+            weapon.SetCollider(false);
+        }
     }
 
     public override void OnGameTogglePause(bool isPause)

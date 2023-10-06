@@ -65,8 +65,6 @@ public class Boss01ChargeAttackState : Boss01BaseState
         stateMachine.Agent.velocity = Vector3.zero;
 
         weapon.SetCollider(false);
-
-
     }
 
     protected void ChargeToTarget(float deltaTime)
