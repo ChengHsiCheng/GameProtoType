@@ -7,6 +7,9 @@ public class AudioHendler : MonoBehaviour
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioLogic[] logic;
 
+    private float audioTime;
+    private AudioClip pauseAudio;
+
     private void OnEnable()
     {
         for (int i = 0; i < logic.Length; i++)
@@ -15,6 +18,8 @@ public class AudioHendler : MonoBehaviour
             logic[i].OnPlayLoopAudio += StartAudios;
             logic[i].OnStopLoopAudio += StopAudios;
         }
+
+        GameManager.audios.Add(this);
     }
 
     private void OnDestroy()
@@ -25,11 +30,14 @@ public class AudioHendler : MonoBehaviour
             logic[i].OnPlayLoopAudio -= StartAudios;
             logic[i].OnStopLoopAudio -= StopAudios;
         }
+
+        GameManager.audios.Remove(this);
     }
 
     private void PlayAudios(AudioClip clip)
     {
         source.PlayOneShot(clip);
+        pauseAudio = clip;
     }
 
     private void StartAudios(AudioClip clip)
@@ -41,5 +49,16 @@ public class AudioHendler : MonoBehaviour
     private void StopAudios()
     {
         source.clip = null;
+    }
+
+    public void PauseAudio()
+    {
+        audioTime = source.time;
+        source.Pause();
+    }
+
+    public void PauseEnded()
+    {
+        source.PlayOneShot(pauseAudio, audioTime);
     }
 }

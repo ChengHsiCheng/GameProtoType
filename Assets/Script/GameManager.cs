@@ -15,6 +15,7 @@ public static class GameManager
     public static GameObject player;
     public static SceneController sceneController; // 場景控制器
     public static List<Enemy> enemys = new List<Enemy>(); // 場上的敵人
+    public static List<AudioHendler> audios = new List<AudioHendler>(); // 場上的敵人
     public static ControlMethod controlMethod; // 操控裝置
 
 
@@ -30,16 +31,6 @@ public static class GameManager
     public static int screenVertical { private set; get; } // 螢幕大小_縱向
 
     public static FullScreenMode screenMode { private set; get; } // 螢幕模式
-
-    public static void TogglePause()
-    {
-        if (isSetting)
-            return;
-
-        isPauseGame = !isPauseGame;
-
-        PauseGame();
-    }
 
     public static void TogglePause(bool isPause)
     {
@@ -75,6 +66,14 @@ public static class GameManager
                 particle.Pause();
             else
                 particle.Play();
+        }
+
+        foreach (AudioHendler audio in audios)
+        {
+            if (isPauseGame)
+                audio.PauseAudio();
+            else
+                audio.PauseEnded();
         }
     }
 
