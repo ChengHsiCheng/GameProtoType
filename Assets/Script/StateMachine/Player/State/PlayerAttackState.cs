@@ -29,6 +29,13 @@ public class PlayerAttackState : PlayerBaseState
 
         Move(deltaTime);
 
+        if (normalizedTime <= attack.RotateTime)
+        {
+            Vector3 movemnt = CalculateMovement();
+
+            FaceMovementDirection(movemnt, deltaTime);
+        }
+
         if (!isMoved && normalizedTime > attack.MoveTime)
         {
             stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.MoveForce);
