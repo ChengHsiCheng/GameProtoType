@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss02StateMachine : StateMachine, Enemy
 {
@@ -8,13 +9,20 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public Skill[] Skill { get; private set; }
+    [field: SerializeField] public float MaxMoveRadius { get; private set; }
+    [field: SerializeField] public float MinMoveRadius { get; private set; }
+    [field: SerializeField] public float RototeSpeed { get; private set; }
+    [field: SerializeField] public float MoveSpeed { get; private set; }
 
-    protected PlayerStateMachine player;
 
     [field: SerializeField] public GameObject Altarobj { get; private set; }
     public Health AltarHealth { get; private set; }
 
     [field: SerializeField] public Crown crown { get; private set; }
+
+    protected PlayerStateMachine player;
+
+
 
     private void Start()
     {
@@ -77,5 +85,15 @@ public class Boss02StateMachine : StateMachine, Enemy
         SetCanMove(false, 3f);
 
         Material.material.SetFloat("_Petrifaction", 0);
+    }
+
+    // 在場景中以紅色繪製出敵人的追擊範圍
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Vector3.zero + Vector3.up * 3, MaxMoveRadius);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(Vector3.zero + Vector3.up * 3, MinMoveRadius);
     }
 }

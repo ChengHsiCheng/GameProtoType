@@ -10,7 +10,7 @@ public class Boss02StartState : Boss02BaseState
 
     public override void Enter()
     {
-        stateMachine.SwitchState(new Boss02SkillState(stateMachine, 0));
+        stateMachine.SwitchState(new Boss02IdleState(stateMachine));
     }
 
     public override void Tick(float deltaTime)

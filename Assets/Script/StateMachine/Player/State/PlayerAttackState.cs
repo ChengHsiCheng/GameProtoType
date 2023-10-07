@@ -29,10 +29,10 @@ public class PlayerAttackState : PlayerBaseState
 
         Move(deltaTime);
 
-        if (normalizedTime <= attack.RotateTime)
-        {
-            Vector3 movemnt = CalculateMovement();
+        Vector3 movemnt = CalculateMovement();
 
+        if (normalizedTime <= attack.RotateTime && movemnt != Vector3.zero)
+        {
             FaceMovementDirection(movemnt, deltaTime);
         }
 
