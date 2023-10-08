@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 3833537233334749551}
   - component: {fileID: 3833537233334749548}
   - component: {fileID: 3833537233334749549}
+  - component: {fileID: 1168591364}
   m_Layer: 0
   m_Name: Boss02
   m_TagString: Untagged
@@ -100,13 +101,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1
+  m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3833537233334749549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,14 +125,37 @@ MonoBehaviour:
   <Material>k__BackingField: {fileID: 3833537233682557288}
   <Skill>k__BackingField:
   - {fileID: 6710066510415830809, guid: 2cf3c7efcb9fd034187bec7fe18e62f9, type: 3}
+  <MoveCenter>k__BackingField: {x: -4.2, y: 3, z: 0}
   <MaxMoveRadius>k__BackingField: 15
   <MinMoveRadius>k__BackingField: 10
-  <RototeSpeed>k__BackingField: 100
+  <RototeSpeed>k__BackingField: 30
   <MoveSpeed>k__BackingField: 2
   <Altarobj>k__BackingField: {fileID: 1131173295327780315, guid: 47cb04346719c384184d48917622f3c4,
     type: 3}
   <crown>k__BackingField: {fileID: 8538131141144676129, guid: 0fcd9069f65d914488be49b2914c8964,
     type: 3}
+--- !u!195 &1168591364
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833537233334749547}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &3833537233361173662
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3833537233404323035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -7,8 +7,10 @@ public class Boss02StateMachine : StateMachine, Enemy
 {
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
+    [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public Skill[] Skill { get; private set; }
+    [field: SerializeField] public Vector3 MoveCenter { get; private set; }
     [field: SerializeField] public float MaxMoveRadius { get; private set; }
     [field: SerializeField] public float MinMoveRadius { get; private set; }
     [field: SerializeField] public float RototeSpeed { get; private set; }
@@ -28,6 +30,9 @@ public class Boss02StateMachine : StateMachine, Enemy
     {
         GameManager.enemys.Add(this);
         player = GameManager.player.GetComponent<PlayerStateMachine>();
+
+        Agent.updatePosition = false; // 不更新導航代理的位置
+        Agent.updateRotation = false; // 不更新導航代理的旋轉
 
         AltarHealth = Instantiate(Altarobj, Vector3.zero, Quaternion.identity).GetComponent<Health>();
 
@@ -91,9 +96,9 @@ public class Boss02StateMachine : StateMachine, Enemy
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(Vector3.zero + Vector3.up * 3, MaxMoveRadius);
+        Gizmos.DrawWireSphere(MoveCenter, MaxMoveRadius);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(Vector3.zero + Vector3.up * 3, MinMoveRadius);
+        Gizmos.DrawWireSphere(MoveCenter, MinMoveRadius);
     }
 }
