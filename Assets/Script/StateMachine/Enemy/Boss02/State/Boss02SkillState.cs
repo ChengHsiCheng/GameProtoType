@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Boss02SkillState : Boss02BaseState
 {
-    Skill skill;
+    EnemySkill skill;
+    bool useSkill;
 
     public Boss02SkillState(Boss02StateMachine stateMachine, int skillCount) : base(stateMachine)
     {
@@ -13,11 +14,25 @@ public class Boss02SkillState : Boss02BaseState
 
     public override void Enter()
     {
-        GameObject.Instantiate(skill, Vector3.zero, Quaternion.identity).UseSkill();
+        stateMachine.Animator.CrossFadeInFixedTime(skill.AnimationName, 0.1f);
     }
 
     public override void Tick(float deltaTime)
     {
+        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
+
+        if (normalizedTime >= skill.UseTimeByAnimation && !useSkill)
+        {
+            skill.skill.UseSkill();
+            useSkill = true;
+        }
+
+        if (normalizedTime >= 1)
+        {
+            stateMachine.SwitchState(new Boss02IdleState(stateMachine));
+            return;
+        }
+
     }
 
     public override void Exit()
