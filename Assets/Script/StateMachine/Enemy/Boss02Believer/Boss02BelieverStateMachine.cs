@@ -43,6 +43,11 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
         Destroy(gameObject);
     }
 
+    public void OnSacrifice()
+    {
+
+    }
+
     public void BePetrify()
     {
     }

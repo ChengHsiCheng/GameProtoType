@@ -13,6 +13,7 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public Vector3 MoveCenter { get; private set; }
     [field: SerializeField] public float RototeSpeed { get; private set; }
     [field: SerializeField] public float MoveSpeed { get; private set; }
+    [field: SerializeField] public float CooldDown { get; private set; }
 
     [field: SerializeField] public GameObject Altarobj { get; private set; }
     public Health AltarHealth { get; private set; }
@@ -31,7 +32,9 @@ public class Boss02StateMachine : StateMachine, Enemy
 
         AltarHealth = Instantiate(Altarobj, Vector3.zero, Quaternion.identity).GetComponent<Health>();
 
-        SwitchState(new Boss02StartState(this));
+        // SwitchState(new Boss02StartState(this));
+        SwitchState(new Boss02SkillState(this, (int)SkillCount.CallBelieversSkill));
+
 
         AltarHealth.OnTakeDamage += TakeDamage;
     }
@@ -41,6 +44,11 @@ public class Boss02StateMachine : StateMachine, Enemy
         AltarHealth.OnTakeDamage -= TakeDamage;
 
         GameManager.enemys.Remove(this);
+    }
+
+    public void SetCooldDown(float value)
+    {
+        CooldDown = value;
     }
 
     private void TakeDamage()

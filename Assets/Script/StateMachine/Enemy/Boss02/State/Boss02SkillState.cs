@@ -37,5 +37,6 @@ public class Boss02SkillState : Boss02BaseState
 
     public override void Exit()
     {
+        stateMachine.SetCooldDown(Random.Range(skill.MinCooldownTime, skill.MaxCooldownTime));
     }
 }

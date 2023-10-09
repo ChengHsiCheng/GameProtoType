@@ -21,6 +21,7 @@ public class Boss02IdleState : Boss02BaseState
 
     public override void Tick(float deltaTime)
     {
+        stateMachine.SetCooldDown(stateMachine.CooldDown - deltaTime);
 
         FaceTarget(GameManager.player.transform.position, stateMachine.RototeSpeed);
 
@@ -33,6 +34,12 @@ public class Boss02IdleState : Boss02BaseState
 
             if (moveTimer > 1)
                 targetPos = FindRandomPoint();
+        }
+
+
+        if (stateMachine.CooldDown <= 0)
+        {
+            stateMachine.SwitchState(new Boss02SkillState(stateMachine, (int)SkillCount.BloodRitualAltarSkill));
         }
     }
 

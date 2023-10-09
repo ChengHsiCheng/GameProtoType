@@ -104,18 +104,28 @@ MonoBehaviour:
   <Agent>k__BackingField: {fileID: 1168591364}
   <Material>k__BackingField: {fileID: 3833537233682557288}
   <Skill>k__BackingField:
-  - <SkillName>k__BackingField: CursedVestmentSkill
+  - <SkillName>k__BackingField: CallBelieversSkill
     <skill>k__BackingField: {fileID: 6710066510415830809, guid: 2cf3c7efcb9fd034187bec7fe18e62f9,
       type: 3}
     <spawnPoint>k__BackingField: {fileID: 3833537233334749550}
     <AnimationName>k__BackingField: CallBelieversSkill
     <UseTimeByAnimation>k__BackingField: 0.5
-    <MinCooldownTime>k__BackingField: 0
-    <MaxCooldownTime>k__BackingField: 0
+    <MinCooldownTime>k__BackingField: 5
+    <MaxCooldownTime>k__BackingField: 3
+    <Impact>k__BackingField: 0
+  - <SkillName>k__BackingField: BloodRitualAltarSkill
+    <skill>k__BackingField: {fileID: 5369741341175738179, guid: 1c9b31a5bb392c741ac75b4e7096bee4,
+      type: 3}
+    <spawnPoint>k__BackingField: {fileID: 3833537233334749550}
+    <AnimationName>k__BackingField: BloodRitualAltarSkill
+    <UseTimeByAnimation>k__BackingField: 0.5
+    <MinCooldownTime>k__BackingField: 5
+    <MaxCooldownTime>k__BackingField: 3
     <Impact>k__BackingField: 0
   <MoveCenter>k__BackingField: {x: -4.2, y: 3, z: 0}
   <RototeSpeed>k__BackingField: 30
   <MoveSpeed>k__BackingField: 2
+  <CooldDown>k__BackingField: 0
   <Altarobj>k__BackingField: {fileID: 1131173295327780315, guid: 47cb04346719c384184d48917622f3c4,
     type: 3}
   <crown>k__BackingField: {fileID: 8538131141144676129, guid: 0fcd9069f65d914488be49b2914c8964,

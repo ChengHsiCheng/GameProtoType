@@ -16,6 +16,8 @@ public class Crown : MonoBehaviour
 
     private void OnDisable()
     {
+        believer.OnDie -= ChangeToPlayer;
+
         if (player)
             player.haveCrown = false;
     }
