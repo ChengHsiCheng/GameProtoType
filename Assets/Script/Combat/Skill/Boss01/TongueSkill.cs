@@ -39,7 +39,6 @@ public class TongueSkill : Skill
         if (GameManager.isPauseGame)
             return;
 
-
         if (isBacking)
         {
             tongue.position = Vector3.MoveTowards(tongue.position, destination, speed * Time.deltaTime);

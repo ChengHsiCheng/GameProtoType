@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class BarController : MonoBehaviour
 {
-    [SerializeField] private Slider bar;
+    [SerializeField] private Image fill;
 
     public void SetBar(float value)
     {
-        bar.value = value;
+        fill.fillAmount = value;
     }
 }
 
