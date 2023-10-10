@@ -30,6 +30,8 @@ public class WeaponDamage : MonoBehaviour
 
         audioLogic?.PlayAudio("Hit");
 
+        Debug.Log(other.name);
+
         if (hitVFX)
         {
             Instantiate(hitVFX, other.ClosestPoint(transform.position), Quaternion.identity);

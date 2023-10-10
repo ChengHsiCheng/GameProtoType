@@ -2016,8 +2016,9 @@ MonoBehaviour:
   audios:
   - name: Hit
     audios:
-    - {fileID: 8300000, guid: c729c89052101734cb0fd921409dfde5, type: 3}
-    - {fileID: 8300000, guid: a38c091d3d2dd03478f9aa74ea07c0bd, type: 3}
+    - {fileID: 8300000, guid: ea44ca86c762d65409925e2ba1a65369, type: 3}
+    - {fileID: 8300000, guid: 4660bab7401a07e489b970c8086a4bc1, type: 3}
+    - {fileID: 8300000, guid: 42bea0a3cd2c1884e82aeec2b90dda9f, type: 3}
 --- !u!1 &4852221872911118797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2241,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 486eab91bdea8764dbd32dcbd36d9aaa, type: 3}
     - {fileID: 8300000, guid: e4f54a721332f3146af4c21b27854428, type: 3}
   - name: SwingSword
-    audios: []
+    audios:
+    - {fileID: 8300000, guid: e4116b4036a475f4ea923a2f60428ea7, type: 3}
+    - {fileID: 8300000, guid: f02839fa3ec46e147a9e836821411372, type: 3}
+    - {fileID: 8300000, guid: 86000fb850c2cca4185fe261a75ea505, type: 3}
   - name: Roll
     audios:
     - {fileID: 8300000, guid: 2a2e97599a0e4e349b31680980fd3107, type: 3}
@@ -3608,11 +3612,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audios:
   - name: SkillCasting
-    audios:
-    - {fileID: 8300000, guid: 123d322d0c545084cae2f37edc7c1b9b, type: 3}
+    audios: []
   - name: SkillCast
     audios:
-    - {fileID: 8300000, guid: 12d95248b3db19f4d86ca24f9049ee75, type: 3}
+    - {fileID: 8300000, guid: 13cddf4727789634c9ca26733751a22d, type: 3}
+    - {fileID: 8300000, guid: 503c9d01f0ca48c4cac90169650dd342, type: 3}
+    - {fileID: 8300000, guid: 1bafb7d452829da41bdb69200bce8da0, type: 3}
 --- !u!82 &3538165117384406344
 AudioSource:
   m_ObjectHideFlags: 0
