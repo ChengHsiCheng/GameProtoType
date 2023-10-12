@@ -21,10 +21,19 @@ public class AltarHealth : MonoBehaviour
         Info.OnTakeDamage += DealHealthDamage;
     }
 
+    private void OnDisable()
+    {
+        Info.OnTakeDamage -= DealHealthDamage;
+    }
+
     public void DealHealthDamage()
     {
+        Debug.Log("Hit");
+
         if (!player.haveCrown)
             return;
+
+        Debug.Log(Info.health);
 
         float healthPercent = Info.health / Info.maxHealth;
 

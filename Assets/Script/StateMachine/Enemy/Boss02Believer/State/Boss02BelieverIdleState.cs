@@ -17,11 +17,11 @@ public class Boss02BelieverIdleState : Boss02BelieverBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
-        stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, 0);
     }
 
     public override void Tick(float deltaTime)
     {
+        stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
     }
 
     public override void Exit()

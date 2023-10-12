@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIController : MonoBehaviour
@@ -8,11 +9,23 @@ public class UIController : MonoBehaviour
     private UIInputReader inputReader;
 
     [SerializeField] private List<GameObject> UIElements = new List<GameObject>();
+    private SelectButton[] selectButtons;
+    private SelectButton selectButton;
+
+    private int vertical;
+    private int horizontal;
 
     private void Start()
     {
         inputReader = GameManager.sceneController.UIInputReader;
         inputReader.OnBackEvent += CloseUI;
+        inputReader.OnArrowKeyEvent += ChooseButton;
+    }
+
+    private void OnDisable()
+    {
+        inputReader.OnBackEvent -= CloseUI;
+        inputReader.OnArrowKeyEvent -= ChooseButton;
     }
 
     public void AddUI(GameObject ui)
@@ -30,6 +43,14 @@ public class UIController : MonoBehaviour
         if (!GameManager.isPauseGame && PauseGame)
         {
             GameManager.TogglePause(true);
+        }
+
+        selectButtons = ui.transform.GetComponentsInChildren<SelectButton>();
+
+        if (selectButtons.Length != 0)
+        {
+            selectButton = selectButtons[0];
+            selectButton.OnSelect();
         }
 
         UIElements.Add(ui);
@@ -53,6 +74,10 @@ public class UIController : MonoBehaviour
         {
             GameManager.TogglePause(false);
         }
+    }
+
+    public void ChooseButton()
+    {
 
     }
 }

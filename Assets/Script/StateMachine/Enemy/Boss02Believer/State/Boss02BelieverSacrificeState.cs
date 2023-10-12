@@ -11,30 +11,34 @@ public class Boss02BelieverSacrificeState : Boss02BelieverBaseState
     private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
 
-
     private float timer;
     private float sacrificeTime;
 
     public Boss02BelieverSacrificeState(Boss02BelieverStateMachine stateMachine, float sacrificeTime) : base(stateMachine)
     {
         this.sacrificeTime = sacrificeTime;
+        Debug.Log(sacrificeTime);
     }
 
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
-        stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, 0);
     }
 
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
 
+        // Debug.Log(timer);
+
+        stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
+
+
         if (timer >= sacrificeTime)
         {
             Debug.Log("AA");
-            timer = 0;
             stateMachine.SwitchState(new Boss02BelieverIdleState(stateMachine));
+            return;
         }
     }
 

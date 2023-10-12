@@ -55,8 +55,6 @@ public class Boss02StateMachine : StateMachine, Enemy
     {
         if (!player.haveCrown)
             return;
-
-        Debug.Log("2");
     }
 
     public override void OnGameTogglePause(bool isPause)

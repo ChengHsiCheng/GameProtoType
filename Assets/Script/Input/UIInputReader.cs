@@ -7,7 +7,11 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 {
     private Controls controls;
 
+    public Vector2 Arrow { get; private set; }
+
     public event Action OnBackEvent;
+    public event Action OnArrowKeyEvent;
+
 
     private void OnEnable()
     {
@@ -24,12 +28,21 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         controls.Menu.Disable();
     }
 
-
     public void OnBack(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
 
         OnBackEvent?.Invoke();
+    }
+
+    public void OnArrow(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        Arrow = context.ReadValue<Vector2>();
+
+        OnArrowKeyEvent?.Invoke();
     }
 }

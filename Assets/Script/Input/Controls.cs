@@ -324,6 +324,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Arrow"",
+                    ""type"": ""Value"",
+                    ""id"": ""fe634999-f7ef-46cd-8f67-1e98efb9d89b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -348,6 +357,61 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""27f52c5e-15ca-479b-b35c-fd189b745bd9"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8e59d835-545c-4d74-befc-eb8b0fc65e48"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c7e89b47-1c11-44bd-b7e1-6a9c871a2882"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""20333719-15b8-4eff-91c9-2236db2500fe"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""693f1454-c871-4e0a-93de-9074ddbfa141"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -395,6 +459,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Back = m_Menu.FindAction("Back", throwIfNotFound: true);
+        m_Menu_Arrow = m_Menu.FindAction("Arrow", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -544,11 +609,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Menu;
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Back;
+    private readonly InputAction m_Menu_Arrow;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
         public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Back => m_Wrapper.m_Menu_Back;
+        public InputAction @Arrow => m_Wrapper.m_Menu_Arrow;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -561,6 +628,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Back.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnBack;
                 @Back.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnBack;
                 @Back.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnBack;
+                @Arrow.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnArrow;
+                @Arrow.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnArrow;
+                @Arrow.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnArrow;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -568,6 +638,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Back.started += instance.OnBack;
                 @Back.performed += instance.OnBack;
                 @Back.canceled += instance.OnBack;
+                @Arrow.started += instance.OnArrow;
+                @Arrow.performed += instance.OnArrow;
+                @Arrow.canceled += instance.OnArrow;
             }
         }
     }
@@ -604,5 +677,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IMenuActions
     {
         void OnBack(InputAction.CallbackContext context);
+        void OnArrow(InputAction.CallbackContext context);
     }
 }
