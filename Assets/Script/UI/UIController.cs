@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     private UIInputReader inputReader;
 
     [SerializeField] private List<GameObject> UIElements = new List<GameObject>();
-    private SelectButton[] selectButtons;
+    [SerializeField] private SelectButton[] selectButtons;
     private SelectButton selectButton;
 
     private int vertical;
@@ -78,6 +78,23 @@ public class UIController : MonoBehaviour
 
     public void ChooseButton()
     {
+        vertical += (int)inputReader.Arrow.y;
+        horizontal += (int)inputReader.Arrow.x;
 
+        for (int i = 0; i < selectButtons.Length; i++)
+        {
+            if (vertical == selectButtons[i].vertical && horizontal == selectButtons[i].horizontal)
+            {
+                selectButton.OnDisSelect();
+                selectButton = selectButtons[i];
+                selectButton.OnSelect();
+
+                Debug.Log("S");
+                return;
+            }
+        }
+
+        vertical -= (int)inputReader.Arrow.y;
+        horizontal -= (int)inputReader.Arrow.x;
     }
 }

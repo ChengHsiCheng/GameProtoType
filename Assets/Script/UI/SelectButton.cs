@@ -11,10 +11,15 @@ public class SelectButton : MonoBehaviour
     public void OnSelect()
     {
         Frame.SetActive(true);
+
+        Debug.Log("Select");
     }
 
     public void OnDisSelect()
     {
         Frame.SetActive(false);
+
+        Debug.Log("DisSelect");
+
     }
 }
