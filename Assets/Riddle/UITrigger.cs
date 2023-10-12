@@ -18,7 +18,7 @@ public class UITrigger : MonoBehaviour
     {
         if (player.UI.Count != 0)
         {
-            player?.RemoveUI(UI);
+            // player?.RemoveUI(UI);
             trigger.enabled = false;
         }
     }

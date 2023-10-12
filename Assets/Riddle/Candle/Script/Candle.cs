@@ -7,7 +7,7 @@ public class Candle : MonoBehaviour
 {
     [field: SerializeField] public GameObject fire { get; private set; }
     [SerializeField] private int id;
-    private bool isOnClick = false;
+    [SerializeField] private bool isOnClick = false;
 
     public event Action<string> OnCheckOrderEvent;
 
@@ -18,6 +18,8 @@ public class Candle : MonoBehaviour
 
     public void OnClickKindleButton()
     {
+        Debug.Log("D");
+
         if (isOnClick)
             return;
 

@@ -333,6 +333,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ASD"",
+                    ""type"": ""Button"",
+                    ""id"": ""d31b6434-1f4a-4c78-864b-ee777acd559b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -353,13 +362,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Arrowkey"",
                     ""id"": ""27f52c5e-15ca-479b-b35c-fd189b745bd9"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -412,6 +421,72 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""38a18d5a-2042-45f7-8ae0-9e4a7349e315"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4295824d-0525-4090-8ab0-ddb4f5b6ad24"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""82632026-7e02-4c3c-989b-3c12e6b31588"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6d8ded3d-8836-419a-8bb6-404a7ab1f15a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""0d1faf7b-44ab-4265-a987-b0289e22d80c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""123908d9-d9bf-40ed-986f-99096d5996ae"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -460,6 +535,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Back = m_Menu.FindAction("Back", throwIfNotFound: true);
         m_Menu_Arrow = m_Menu.FindAction("Arrow", throwIfNotFound: true);
+        m_Menu_ASD = m_Menu.FindAction("ASD", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -610,12 +686,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private IMenuActions m_MenuActionsCallbackInterface;
     private readonly InputAction m_Menu_Back;
     private readonly InputAction m_Menu_Arrow;
+    private readonly InputAction m_Menu_ASD;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
         public MenuActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Back => m_Wrapper.m_Menu_Back;
         public InputAction @Arrow => m_Wrapper.m_Menu_Arrow;
+        public InputAction @ASD => m_Wrapper.m_Menu_ASD;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -631,6 +709,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Arrow.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnArrow;
                 @Arrow.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnArrow;
                 @Arrow.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnArrow;
+                @ASD.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnASD;
+                @ASD.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnASD;
+                @ASD.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnASD;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -641,6 +722,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Arrow.started += instance.OnArrow;
                 @Arrow.performed += instance.OnArrow;
                 @Arrow.canceled += instance.OnArrow;
+                @ASD.started += instance.OnASD;
+                @ASD.performed += instance.OnASD;
+                @ASD.canceled += instance.OnASD;
             }
         }
     }
@@ -678,5 +762,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnBack(InputAction.CallbackContext context);
         void OnArrow(InputAction.CallbackContext context);
+        void OnASD(InputAction.CallbackContext context);
     }
 }

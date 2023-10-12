@@ -10,6 +10,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     public Vector2 Arrow { get; private set; }
 
     public event Action OnBackEvent;
+    public event Action OnTestEvent;
     public event Action OnArrowKeyEvent;
 
 
@@ -44,5 +45,13 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         Arrow = context.ReadValue<Vector2>();
 
         OnArrowKeyEvent?.Invoke();
+    }
+
+    public void OnASD(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        OnTestEvent?.Invoke();
     }
 }

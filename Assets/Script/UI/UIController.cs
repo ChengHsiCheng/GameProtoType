@@ -19,12 +19,14 @@ public class UIController : MonoBehaviour
     {
         inputReader = GameManager.sceneController.UIInputReader;
         inputReader.OnBackEvent += CloseUI;
+        inputReader.OnTestEvent += ClickButton;
         inputReader.OnArrowKeyEvent += ChooseButton;
     }
 
     private void OnDisable()
     {
         inputReader.OnBackEvent -= CloseUI;
+        inputReader.OnTestEvent -= ClickButton;
         inputReader.OnArrowKeyEvent -= ChooseButton;
     }
 
@@ -49,6 +51,8 @@ public class UIController : MonoBehaviour
 
         if (selectButtons.Length != 0)
         {
+            vertical = 0;
+            horizontal = 0;
             selectButton = selectButtons[0];
             selectButton.OnSelect();
         }
@@ -74,6 +78,13 @@ public class UIController : MonoBehaviour
         {
             GameManager.TogglePause(false);
         }
+    }
+
+    public void ClickButton()
+    {
+        Debug.Log("B");
+
+        selectButton?.ClickButton();
     }
 
     public void ChooseButton()
