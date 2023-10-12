@@ -25,7 +25,7 @@ public static class GameManager
     public static string nowScenes { private set; get; } = SceneManager.GetActiveScene().name; // 目前場景
 
     public static float brightness { private set; get; } // 亮度
-    public static float audioVolume { private set; get; }  // 音量
+    public static float audioVolume { private set; get; } = -10;  // 音量
 
     public static int screenHorizontal { private set; get; } // 螢幕大小_橫向
     public static int screenVertical { private set; get; } // 螢幕大小_縱向
