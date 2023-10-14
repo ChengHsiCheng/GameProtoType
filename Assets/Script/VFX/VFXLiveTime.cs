@@ -12,7 +12,7 @@ public class VFXLiveTime : MonoBehaviour
     [SerializeField] VisualEffect[] vfxs;
     [SerializeField] ParticleSystem[] particles;
 
-    [SerializeField] Trigger trigger;
+    [SerializeField] Trigger    trigger;
 
     private void Update()
     {
