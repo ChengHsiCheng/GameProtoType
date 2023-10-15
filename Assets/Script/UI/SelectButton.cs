@@ -6,14 +6,10 @@ using UnityEngine.UI;
 public class SelectButton : MonoBehaviour
 {
     public GameObject Frame;
-    private Button button;
+    private Button button { get => GetComponent<Button>(); }
     [field: SerializeField] public int horizontal { get; private set; }
     [field: SerializeField] public int vertical { get; private set; }
 
-    private void Start()
-    {
-        button = GetComponent<Button>();
-    }
 
     public void OnSelect()
     {

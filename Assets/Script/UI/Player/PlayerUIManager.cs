@@ -21,8 +21,7 @@ public class PlayerUIManager : UIManager
         if (GameManager.nowScenes != "GameLobby")
             return;
 
-        HpBar.gameObject.SetActive(false);
-        SanBar.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     private void Update()
