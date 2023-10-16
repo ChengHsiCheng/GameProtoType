@@ -19,14 +19,14 @@ public class UIController : MonoBehaviour
     {
         inputReader = GameManager.sceneController.UIInputReader;
         inputReader.OnBackEvent += CloseUI;
-        inputReader.OnTestEvent += ClickButton;
+        inputReader.OnInteractiveEvent += ClickButton;
         inputReader.OnArrowKeyEvent += ChooseButton;
     }
 
     private void OnDisable()
     {
         inputReader.OnBackEvent -= CloseUI;
-        inputReader.OnTestEvent -= ClickButton;
+        inputReader.OnInteractiveEvent -= ClickButton;
         inputReader.OnArrowKeyEvent -= ChooseButton;
     }
 

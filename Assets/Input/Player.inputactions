@@ -313,13 +313,22 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "ASD",
+                    "name": "Interactive",
                     "type": "Button",
                     "id": "d31b6434-1f4a-4c78-864b-ee777acd559b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LeftStick",
+                    "type": "Value",
+                    "id": "1d59311f-5e0c-4ea8-a442-5c7e9866b0ea",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -461,8 +470,30 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
+                    "groups": "Keybord && Mouse",
+                    "action": "Interactive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bdda5fd9-66cc-4585-a09d-591457a326dd",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Interactive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5849e43a-ed76-418a-990c-b741c8bbadf0",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
                     "groups": "",
-                    "action": "ASD",
+                    "action": "LeftStick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

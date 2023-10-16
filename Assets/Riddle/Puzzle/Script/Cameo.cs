@@ -4,19 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
+public class Cameo : InteractiveUI, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
     private Vector3 originPos;
     [SerializeField] Image image;
     private Hole hole;
     [SerializeField] private int count;
 
+    private bool isHold;
+
     private void OnEnable()
     {
         originPos = transform.position;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public override void OnPress()
     {
         transform.localScale = Vector3.one * 0.8f;
         image.raycastTarget = false;
@@ -28,22 +30,22 @@ public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         }
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public override void OnHold(Vector3 pos)
     {
-        transform.position = eventData.position;
+        transform.position = pos;
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public override void OnUnlash(GameObject gameObject)
     {
         Vector3 targetPos = new Vector3();
 
         transform.localScale = Vector3.one;
 
-        if (eventData.pointerCurrentRaycast.gameObject.tag == "Hole")
+        if (gameObject.tag == "Hole")
         {
-            targetPos = eventData.pointerCurrentRaycast.gameObject.transform.position;
+            targetPos = gameObject.transform.position;
 
-            hole = eventData.pointerCurrentRaycast.gameObject.GetComponent<Hole>();
+            hole = gameObject.GetComponent<Hole>();
 
             transform.position = targetPos;
 
@@ -61,7 +63,21 @@ public class Cameo : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         }
 
         image.raycastTarget = true;
+    }
 
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        OnPress();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        OnHold(eventData.position);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        OnUnlash(eventData.pointerCurrentRaycast.gameObject);
     }
 
     public void OnReset()

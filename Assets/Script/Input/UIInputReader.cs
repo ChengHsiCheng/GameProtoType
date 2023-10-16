@@ -8,10 +8,13 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     private Controls controls;
 
     public Vector2 Arrow { get; private set; }
+    public Vector2 Stick { get; private set; }
+    public bool isInteractive { get; private set; }
 
     public event Action OnBackEvent;
-    public event Action OnTestEvent;
+    public event Action OnInteractiveEvent;
     public event Action OnArrowKeyEvent;
+
 
 
     private void OnEnable()
@@ -47,11 +50,18 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         OnArrowKeyEvent?.Invoke();
     }
 
-    public void OnASD(InputAction.CallbackContext context)
+    public void OnInteractive(InputAction.CallbackContext context)
     {
+        isInteractive = context.performed;
+
         if (!context.performed)
             return;
 
-        OnTestEvent?.Invoke();
+        OnInteractiveEvent?.Invoke();
+    }
+
+    public void OnLeftStick(InputAction.CallbackContext context)
+    {
+        Stick = context.ReadValue<Vector2>();
     }
 }
