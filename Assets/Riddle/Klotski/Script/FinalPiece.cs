@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
-public class FinalPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class FinalPiece : InteractiveUI, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] Transform slotOriginParent;
     public event Action OnPassEvent;
@@ -12,33 +12,34 @@ public class FinalPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     {
         KlotskiControll.pass = false;
     }
-    public void OnBeginDrag(PointerEventData eventData)
+
+
+    public override void OnPress()
     {
         transform.SetParent(transform.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
-
-    public void OnDrag(PointerEventData eventData)
+    public override void OnHold(Vector3 pos)
     {
-        transform.position = eventData.position;
+        transform.position = pos;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public override void OnUnlash(GameObject gameObject)
     {
-        if (eventData.pointerCurrentRaycast.gameObject == null)
+        if (gameObject == null)
         {
             ResetToDefault();
             return;
         }
-        if (KlotskiControll.correct && eventData.pointerCurrentRaycast.gameObject.GetComponent<KlotskiSlotItem>() != null)
+        if (KlotskiControll.correct && gameObject.GetComponent<KlotskiSlotItem>() != null)
         {
 
-            if (eventData.pointerCurrentRaycast.gameObject.GetComponent<KlotskiSlotItem>().id == 9)
+            if (gameObject.GetComponent<KlotskiSlotItem>().id == 9)
             {
                 KlotskiControll.pass = true;
-                GameObject slot = eventData.pointerCurrentRaycast.gameObject;
-                transform.SetParent(eventData.pointerCurrentRaycast.gameObject.transform);
+                GameObject slot = gameObject;
+                transform.SetParent(gameObject.transform);
                 transform.position = slot.transform.position;
                 ResetToDefault();
                 GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -57,6 +58,22 @@ public class FinalPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        OnPress();
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        OnHold(eventData.position);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        OnUnlash(eventData.pointerCurrentRaycast.gameObject);
+    }
+
     public void ResetToDefault()
     {
         transform.SetParent(slotOriginParent);
@@ -64,4 +81,5 @@ public class FinalPiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         GetComponent<CanvasGroup>().blocksRaycasts = true;
 
     }
+
 }

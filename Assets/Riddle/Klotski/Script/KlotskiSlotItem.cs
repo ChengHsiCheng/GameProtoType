@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KlotskiSlotItem : MonoBehaviour
+public class KlotskiSlotItem : InteractiveUI
 {
     public int id;
     [HideInInspector] public bool contain;
@@ -167,4 +167,16 @@ public class KlotskiSlotItem : MonoBehaviour
         KlotskiControll.pass = false;
     }
 
+    public override void OnPress()
+    {
+        CheckAround();
+    }
+
+    public override void OnHold(Vector3 pos)
+    {
+    }
+
+    public override void OnUnlash(GameObject gameObject)
+    {
+    }
 }
