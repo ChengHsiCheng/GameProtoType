@@ -1103,6 +1103,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1244fa640b076064199f9ba7e6e75e22, type: 3}
+--- !u!114 &805979533 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 747592729982437346, guid: 1244fa640b076064199f9ba7e6e75e22,
+    type: 3}
+  m_PrefabInstance: {fileID: 747592730788414063}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86816e10fd1bb474383e314bd39fbe9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &805979534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 747592729982437345, guid: 1244fa640b076064199f9ba7e6e75e22,
@@ -1116,6 +1128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3538165117998946884}
     m_Modifications:
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: interfaceController
+      value: 
+      objectReference: {fileID: 805979533}
     - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
       propertyPath: <Book>k__BackingField

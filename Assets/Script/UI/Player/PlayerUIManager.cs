@@ -12,6 +12,7 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public GameObject DiedUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
     [field: SerializeField] public Image HintUI { get; private set; }
+    [field: SerializeField] public GameObject HealUI { get; private set; }
 
     [SerializeField] private float hurtUIAlphaDecayRate;
     private float hurtUIAlpha = 0;
@@ -21,7 +22,9 @@ public class PlayerUIManager : UIManager
         if (GameManager.nowScenes != "GameLobby")
             return;
 
-        gameObject.SetActive(false);
+        HpBar.gameObject.SetActive(false);
+        SanBar.gameObject.SetActive(false);
+        HealUI.gameObject.SetActive(false);
     }
 
     private void Update()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,6 +11,8 @@ public class SceneController : MonoBehaviour
     public InputReader InputReader { get; private set; }
     public UIInputReader UIInputReader { get; private set; }
     public UIController UIController { get; private set; }
+
+    [SerializeField] private GameObject portal;
 
 
     private void OnEnable()
@@ -42,6 +45,11 @@ public class SceneController : MonoBehaviour
     private void SceneUnloaded(Scene scene)
     {
         GameManager.enemys.Clear();
+    }
+
+    public void OnClearance()
+    {
+        portal?.SetActive(true);
     }
 
 }

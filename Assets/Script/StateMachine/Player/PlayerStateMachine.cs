@@ -57,6 +57,9 @@ public class PlayerStateMachine : StateMachine
         InputReader.TogglePauseEvent += TogglePause;
         InputReader.InteractionEvent += OnInteraction;
 
+        if (SceneManager.GetActiveScene().name == "GameLobby")
+            return;
+
         Info.OnTakeDamage += HandleTakeDamage;
         Info.OnUpdateSan += UpdateSan;
         Info.OnSanCheck += OnSanCheck;
@@ -87,6 +90,7 @@ public class PlayerStateMachine : StateMachine
         Info.OnImpact -= GetImpact;
 
         InputReader.TogglePauseEvent -= TogglePause;
+        InputReader.InteractionEvent -= OnInteraction;
         InputReader.RollEvent -= OnRoll;
         InputReader.SkillEvent -= OnSkill;
         InputReader.HealEvent -= OnHeal;
@@ -304,7 +308,6 @@ public class PlayerStateMachine : StateMachine
 
         if (UI.Count == 0)
             UIManager.SetHint(false);
-
     }
 
     public override void SetCanMove(bool value) { }

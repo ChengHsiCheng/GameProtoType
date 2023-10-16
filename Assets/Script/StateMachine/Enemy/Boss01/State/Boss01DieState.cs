@@ -19,6 +19,8 @@ public class Boss01DieState : Boss01BaseState
         stateMachine.Collider.enabled = false;
 
         // 通關腳本
+
+        GameManager.sceneController.OnClearance();
     }
 
     public override void Tick(float deltaTime)

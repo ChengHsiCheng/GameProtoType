@@ -6,7 +6,13 @@ using UnityEngine.VFX;
 
 public class Test : MonoBehaviour
 {
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            GameManager.SwitchScene("GameLobby");
+        }
+    }
 }
 
 // public enum Type
