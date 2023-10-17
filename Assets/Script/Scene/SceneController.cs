@@ -11,6 +11,7 @@ public class SceneController : MonoBehaviour
     public InputReader InputReader { get; private set; }
     public UIInputReader UIInputReader { get; private set; }
     public UIController UIController { get; private set; }
+    public CinemachineController cinemachineController { get; private set; }
 
     [SerializeField] private GameObject portal;
 
@@ -50,6 +51,11 @@ public class SceneController : MonoBehaviour
     public void OnClearance()
     {
         portal?.SetActive(true);
+    }
+
+    public void SetCinemachineController(CinemachineController cinemachineController)
+    {
+        this.cinemachineController = cinemachineController;
     }
 
 }
