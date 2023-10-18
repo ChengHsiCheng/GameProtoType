@@ -28,6 +28,8 @@ public class Boss01FireStormSkillState : Boss01BaseState
 
         vfx = stateMachine.PlayVFX("FireStormSkillVFX");
 
+        stateMachine.AudioLogic.PlayAudio("FireStormSkill");
+
         skill = GameObject.Instantiate(skill_i.skill, skill_i.spawnPoint);
         skill.UseSkill();
     }

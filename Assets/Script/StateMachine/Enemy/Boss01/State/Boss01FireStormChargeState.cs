@@ -22,6 +22,8 @@ public class Boss01FireStormChargeState : Boss01BaseState
         stateMachine.beAttack = false;
 
         vfx = stateMachine.PlayVFX("FireStormChargeVFX");
+
+        stateMachine.AudioLogic.PlayLoopAudio("FireStormCharge");
     }
 
     public override void Tick(float deltaTime)
@@ -48,7 +50,7 @@ public class Boss01FireStormChargeState : Boss01BaseState
     public override void Exit()
     {
         vfx.Stop();
-        Debug.Log("Stop");
+        stateMachine.AudioLogic.StopLoopAudio();
     }
 
 }

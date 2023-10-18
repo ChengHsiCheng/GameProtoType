@@ -63,7 +63,6 @@ public class PlayerSkillState : PlayerBaseState
 
             stateMachine.AudioLogic.PlayAudio("SkillCast");
 
-
             vfx.Stop();
 
             switch (skill.name)
