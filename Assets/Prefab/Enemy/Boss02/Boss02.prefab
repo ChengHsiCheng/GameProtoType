@@ -68,7 +68,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 7979697269425312088}
   <Controller>k__BackingField: {fileID: 3833537233334749548}
   <Agent>k__BackingField: {fileID: 1168591364}
-  <Material>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 5805661485916152741}
   <Skill>k__BackingField:
   - <SkillName>k__BackingField: CallBelieversSkill
     <skill>k__BackingField: {fileID: 6710066510415830809, guid: 2cf3c7efcb9fd034187bec7fe18e62f9,
@@ -1296,3 +1296,9 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.07, z: -0.95}
+--- !u!137 &5805661485916152741 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8781622441155578300, guid: 95518506b690934489da440d1e5df752,
+    type: 3}
+  m_PrefabInstance: {fileID: 2976682858243926553}
+  m_PrefabAsset: {fileID: 0}

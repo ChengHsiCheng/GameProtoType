@@ -302,7 +302,7 @@ public class PlayerStateMachine : StateMachine
         {
             if (UI[i] == ui)
             {
-                UI.RemoveAt(i);
+                UI?.RemoveAt(i);
             }
         }
 

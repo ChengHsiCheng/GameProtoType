@@ -7,6 +7,7 @@ public class CinemachineController : MonoBehaviour
 {
     [field: SerializeField] public CinemachineVirtualCameraBase lobby { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase combat { get; private set; }
+    [field: SerializeField] public CinemachineVirtualCameraBase initial { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase boss { get; private set; }
 
     bool isLobby;
@@ -16,6 +17,8 @@ public class CinemachineController : MonoBehaviour
         GameManager.sceneController.SetCinemachineController(this);
 
         isLobby = GameManager.nowScenes == "GameLobby";
+
+        initial.VirtualCameraGameObject.SetActive(true);
 
         boss.VirtualCameraGameObject.SetActive(false);
         SwitchCamera();
@@ -44,5 +47,7 @@ public class CinemachineController : MonoBehaviour
     {
         combat.VirtualCameraGameObject.SetActive(!isLobby);
         lobby.VirtualCameraGameObject.SetActive(isLobby);
+
+        initial.VirtualCameraGameObject.SetActive(false);
     }
 }
