@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1802611722843505796}
   - component: {fileID: 2986762588206436293}
   - component: {fileID: 2902740666679233302}
-  - component: {fileID: 7649584409549548736}
+  - component: {fileID: 6646770793751108264}
   m_Layer: 0
   m_Name: MS_Statue01_Default01
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376853613747685426}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.42, y: 0, z: 2.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -87,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7649584409549548736
+--- !u!65 &6646770793751108264
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,4 +99,4 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.548266, y: 2.701909, z: 1.5954926}
-  m_Center: {x: 0.038655497, y: 1.3312924, z: 0.053844165}
+  m_Center: {x: 0.03865526, y: 1.3312924, z: 0.053844165}
