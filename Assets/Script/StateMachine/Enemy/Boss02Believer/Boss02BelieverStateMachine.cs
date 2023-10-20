@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class Boss02BelieverStateMachine : StateMachine, Enemy
 {
+    public event Action<Boss02BelieverStateMachine> OnSacrificeEvent;
+    public event Action<Boss02BelieverStateMachine> OnDieEvent;
+
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
@@ -40,12 +43,14 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
     private void OnDie()
     {
+        OnDieEvent?.Invoke(this);
+
         Destroy(gameObject);
     }
 
     public void OnSacrifice()
     {
-
+        OnSacrificeEvent?.Invoke(this);
     }
 
     public void BePetrify()

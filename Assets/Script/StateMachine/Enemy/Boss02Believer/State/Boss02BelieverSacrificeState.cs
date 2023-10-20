@@ -37,6 +37,7 @@ public class Boss02BelieverSacrificeState : Boss02BelieverBaseState
         if (timer >= sacrificeTime)
         {
             Debug.Log("AA");
+            stateMachine.OnSacrifice();
             stateMachine.SwitchState(new Boss02BelieverIdleState(stateMachine));
             return;
         }
