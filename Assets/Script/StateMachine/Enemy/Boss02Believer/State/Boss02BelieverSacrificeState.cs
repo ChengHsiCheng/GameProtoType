@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Boss02BelieverSacrificeState : Boss02BelieverBaseState
 {
-    private readonly int MoveSpeedString = Animator.StringToHash("MoveSpeed");
-    private readonly int MovingBlendTreeHash = Animator.StringToHash("MovingBlendTree");
+    private readonly int WorshipString = Animator.StringToHash("Worship");
+    private readonly int SacrificeString = Animator.StringToHash("Sacrifice");
 
-    private const float AnimatorDampTime = 0.1f;
     private const float CrossFadeDuration = 0.1f;
 
     private float timer;
     private float sacrificeTime;
+    private bool isSacrifice;
 
     public Boss02BelieverSacrificeState(Boss02BelieverStateMachine stateMachine, float sacrificeTime) : base(stateMachine)
     {
@@ -22,25 +22,28 @@ public class Boss02BelieverSacrificeState : Boss02BelieverBaseState
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(WorshipString, CrossFadeDuration);
     }
 
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
 
-        // Debug.Log(timer);
+        FaceTarget(new Vector3(0, 0, 0), stateMachine.rotateSpeed);
 
-        stateMachine.Animator.SetFloat(MoveSpeedString, 1, AnimatorDampTime, deltaTime);
-
-
-        if (timer >= sacrificeTime)
+        if (timer >= sacrificeTime && !isSacrifice)
         {
-            Debug.Log("AA");
             stateMachine.OnSacrifice();
-            stateMachine.SwitchState(new Boss02BelieverIdleState(stateMachine));
+            stateMachine.Animator.CrossFadeInFixedTime(SacrificeString, CrossFadeDuration);
+            isSacrifice = true;
+        }
+
+        if (GetNormalizedTime(stateMachine.Animator, "Sacrifice") >= 1)
+        {
+            stateMachine.SwitchState(new Boss02BelieverDieState(stateMachine));
             return;
         }
+
     }
 
     public override void Exit()

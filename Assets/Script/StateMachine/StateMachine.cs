@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class StateMachine : MonoBehaviour
 {
-    protected State currentState { get; private set; } // 目前的State
+    public State currentState { get; private set; } // 目前的State
     public bool canMove { get; protected set; } = true;
 
     protected float freezeTime;

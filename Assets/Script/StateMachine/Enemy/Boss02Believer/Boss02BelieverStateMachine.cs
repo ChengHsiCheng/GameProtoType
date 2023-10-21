@@ -22,6 +22,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     [field: SerializeField] public float attackCoolDown { get; private set; }
 
     public GameObject Player { get; private set; }
+    public bool isDied { get; private set; }
 
     private void Start()
     {
@@ -45,12 +46,17 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     {
         OnDieEvent?.Invoke(this);
 
-        Destroy(gameObject);
+        SwitchState(new Boss02BelieverDieState(this));
     }
 
     public void OnSacrifice()
     {
         OnSacrificeEvent?.Invoke(this);
+    }
+
+    public void SetisDied(bool value)
+    {
+        isDied = value;
     }
 
     public void BePetrify()

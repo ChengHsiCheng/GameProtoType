@@ -6,32 +6,47 @@ using UnityEngine;
 public class BloodRitualAltarSkill : Skill
 {
     [SerializeField] private Boss02BelieverStateMachine[] believers;
-    private float SacrificeTime;
-    private float timer;
+    private float sacrificeTime;
+    private int sacrificeCount;
 
     public override void UseSkill()
     {
         believers = GameObject.FindObjectsOfType<Boss02BelieverStateMachine>();
 
-        SacrificeTime = 0;
+        sacrificeTime = 0;
+        sacrificeCount = 0;
 
         foreach (Boss02BelieverStateMachine believer in believers)
         {
-            SacrificeTime += 3;
+            if (believer.isDied)
+                return;
 
-            believer.SwitchState(new Boss02BelieverSacrificeState(believer, SacrificeTime));
+            sacrificeTime += 3;
+            believer.SwitchState(new Boss02BelieverSacrificeState(believer, sacrificeTime));
 
             believer.OnSacrificeEvent += OnSacrifice;
             believer.OnDieEvent += OnCancelEvent;
 
-            Debug.Log("BloodRitualAltarSkill" + SacrificeTime);
+            Debug.Log("BloodRitualAltarSkill" + sacrificeTime);
         }
+
+        Invoke("CalculateDamage", (believers.Length + 1) * 3);
+    }
+
+    private void CalculateDamage()
+    {
+        // 特效
+
+        if (believers.Length <= 0)
+            return;
+
+        GameManager.player.GetComponent<Health>().DealHealthDamage(sacrificeCount * 10, false);
+        Debug.Log("CalculateDamage");
     }
 
     private void OnSacrifice(Boss02BelieverStateMachine Believer)
     {
-        GameManager.player.GetComponent<Health>().DealHealthDamage(10, false);
-
+        sacrificeCount += 1;
         OnCancelEvent(Believer);
     }
 
