@@ -30,7 +30,7 @@ public class Boss02StateMachine : StateMachine, Enemy
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
 
-        AltarHealth = Instantiate(Altarobj, Vector3.zero, Quaternion.identity).GetComponent<Health>();
+        AltarHealth = Instantiate(Altarobj, new Vector3(-1.5f, 0, 0), Quaternion.identity).GetComponent<Health>();
 
         // SwitchState(new Boss02StartState(this));
         SwitchState(new Boss02SkillState(this, (int)SkillCount.CallBelieversSkill));

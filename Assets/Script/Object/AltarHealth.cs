@@ -3,11 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class AltarHealth : MonoBehaviour
 {
     [field: SerializeField] public EnemyInfo Info { get; private set; }
     [field: SerializeField] public BarController Bar { get; private set; }
+    [field: SerializeField] public VisualEffect BloodRitualAltarVFX { get; private set; }
+
+    private float bloodRitualAltarVFXValue = 2;
+    [SerializeField] private bool isBloodRitualAltarVFX = false;
+    [SerializeField] private float bloodRitualAltarVFXSpeed;
 
     public float maxHealth { get; private set; }
     public float health { get; private set; }
@@ -19,11 +25,26 @@ public class AltarHealth : MonoBehaviour
         player = GameManager.player.GetComponent<PlayerStateMachine>();
 
         Info.OnTakeDamage += DealHealthDamage;
+
+        SwitchBloodRitualAltarSkill(false);
+        BloodRitualAltarVFX.SetFloat("Step", bloodRitualAltarVFXValue);
     }
 
     private void OnDisable()
     {
         Info.OnTakeDamage -= DealHealthDamage;
+    }
+
+    private void Update()
+    {
+        if (isBloodRitualAltarVFX)
+            bloodRitualAltarVFXValue = Mathf.Lerp(bloodRitualAltarVFXValue, 0, bloodRitualAltarVFXSpeed * Time.deltaTime);
+        else
+            bloodRitualAltarVFXValue = Mathf.Lerp(bloodRitualAltarVFXValue, 2, bloodRitualAltarVFXSpeed * Time.deltaTime);
+
+        Debug.Log(bloodRitualAltarVFXValue);
+
+        BloodRitualAltarVFX.SetFloat("Step", bloodRitualAltarVFXValue);
     }
 
     public void DealHealthDamage()
@@ -42,5 +63,10 @@ public class AltarHealth : MonoBehaviour
 
     public void Healing(float value)
     {
+    }
+
+    public void SwitchBloodRitualAltarSkill(bool value)
+    {
+
     }
 }
