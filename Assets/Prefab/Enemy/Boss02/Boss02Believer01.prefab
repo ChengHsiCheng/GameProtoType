@@ -140,16 +140,28 @@ MonoBehaviour:
   <Agent>k__BackingField: {fileID: -3052665258462957160}
   <ForceReceiver>k__BackingField: {fileID: 8996577390084726559}
   <Info>k__BackingField: {fileID: 654356143}
-  <attacks>k__BackingField:
+  <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack01
     <TransitionDuration>k__BackingField: 0.1
-    <Damage>k__BackingField: 0
+    <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <Impact>k__BackingField: 10
     <MaxCooldownTime>k__BackingField: 0
     <MinCooldownTime>k__BackingField: 0
     <MoveTime>k__BackingField: 0.5
-    <MoveForce>k__BackingField: 5
+    <MoveForce>k__BackingField: 10
+  - <AnimationName>k__BackingField: Attack02
+    <TransitionDuration>k__BackingField: 0.1
+    <Damage>k__BackingField: 10
+    <SanDamage>k__BackingField: 0
+    <Impact>k__BackingField: 10
+    <MaxCooldownTime>k__BackingField: 0
+    <MinCooldownTime>k__BackingField: 0
+    <MoveTime>k__BackingField: 0.4
+    <MoveForce>k__BackingField: 10
+  <WeaponDamages>k__BackingField:
+  - {fileID: 4639475270730466813}
+  - {fileID: 4639475270730466813}
   <attackRange>k__BackingField: 2
   <rotateSpeed>k__BackingField: 200
   <movementSpeed>k__BackingField: 3
@@ -242,6 +254,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 350873373654930918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &585437889099557047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f09a1c433ea3aaf43997290d4160dd19,
+    type: 3}
+  m_PrefabInstance: {fileID: 350873373654930918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3432264154195825273
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585437889099557047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.40332738, y: 1.6862693, z: 0.25296804}
+  m_Center: {x: -0.0013303404, y: 0.848626, z: 0.00000017861478}
+--- !u!114 &4639475270730466813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585437889099557047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5995981eb517a84bac716ec3d1a2c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCollider: {fileID: 8996577390084726557}
+  Collider: {fileID: 3432264154195825273}
+  audioLogic: {fileID: 0}
+  hitVFX: {fileID: 0}
+  alreadyCollidedWith: []
 --- !u!1001 &7346963032106939616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1251,6 +1299,20 @@ MonoBehaviour:
   - {fileID: 1757363559970648039}
   - {fileID: 8999715806975202827}
   - {fileID: 5956441846740091879}
+--- !u!114 &3085151522359882590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580910719514970545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53964549cdedf2e498b3fb886bfc9aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLogic:
+  - {fileID: 4639475270730466813}
 --- !u!4 &8079100570875436537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1579387815425648921, guid: f6a6d9a2c265a1b4caf94f86b9073560,

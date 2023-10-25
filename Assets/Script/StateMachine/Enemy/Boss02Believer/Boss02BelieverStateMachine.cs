@@ -14,12 +14,16 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
-    [field: SerializeField] public EnemyAttack[] attacks { get; private set; }
+    [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
+    [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
+    [field: SerializeField] public WeaponDamage[] WeaponDamages { get; private set; }
+    [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
+    [field: SerializeField] public List<ObjectEntry> VFXPosList { get; private set; } = new List<ObjectEntry>();
 
     [field: SerializeField] public float attackRange { get; private set; }
     [field: SerializeField] public float rotateSpeed { get; private set; }
     [field: SerializeField] public float movementSpeed { get; private set; }
-    [field: SerializeField] public float attackCoolDown { get; private set; }
+    public float attackCoolDown { get; private set; }
 
     public GameObject Player { get; private set; }
     public bool isDied { get; private set; }
@@ -33,6 +37,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
         Agent.updateRotation = false; // 不更新導航代理的旋轉
 
         Info.OnDie += OnDie;
+        WeaponHendler.VFXEvent += OnPlayVFX;
 
         SwitchState(new Boss02BelieverChaseState(this));
     }
@@ -40,6 +45,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     private void OnDisable()
     {
         Info.OnDie -= OnDie;
+        WeaponHendler.VFXEvent -= OnPlayVFX;
     }
 
     private void OnDie()
@@ -73,6 +79,46 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
     public override void SetCanMove(bool value, float time)
     {
+    }
+
+    public void OnPlayVFX(string name)
+    {
+        Instantiate(GetVFXByName(name), GetVFXPosByName(name));
+    }
+
+    public VFXLiveTime PlayVFX(string name)
+    {
+        return Instantiate(GetVFXByName(name), GetVFXPosByName(name)).GetComponent<VFXLiveTime>();
+    }
+
+    // 使用名稱查找對應的物件
+    public GameObject GetVFXByName(string objectName)
+    {
+        ObjectEntry entry = VFXList.Find(e => e.name == objectName);
+        if (entry.gameObject != null)
+        {
+            return entry.gameObject;
+        }
+        else
+        {
+            Debug.LogWarning("找不到名為 " + objectName + " 的物件。");
+            return null;
+        }
+    }
+
+    // 使用名稱查找對應的位置
+    public Transform GetVFXPosByName(string objectName)
+    {
+        ObjectEntry entry = VFXPosList.Find(e => e.name == objectName);
+        if (entry.gameObject != null)
+        {
+            return entry.gameObject.transform;
+        }
+        else
+        {
+            Debug.LogWarning("找不到名為 " + objectName + " 的物件。");
+            return null;
+        }
     }
 
 
