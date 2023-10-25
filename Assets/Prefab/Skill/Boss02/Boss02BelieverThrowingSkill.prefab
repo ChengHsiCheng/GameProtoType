@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6710066510415830814
+--- !u!1 &4361588737512619420
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6710066510415830808}
-  - component: {fileID: 6710066510415830809}
+  - component: {fileID: 4320815080143437971}
+  - component: {fileID: 4564187083378082259}
   m_Layer: 0
-  m_Name: CallBelieversSkill
+  m_Name: Boss02BelieverThrowingSkill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6710066510415830808
+--- !u!4 &4320815080143437971
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6710066510415830814}
+  m_GameObject: {fileID: 4361588737512619420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.0717762, y: 16.90981, z: -10.76572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6710066510415830809
+--- !u!114 &4564187083378082259
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6710066510415830814}
+  m_GameObject: {fileID: 4361588737512619420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff9a31874a3fcc408be03eb97535271, type: 3}
+  m_Script: {fileID: 11500000, guid: 6930a3d353897ea4f9bcbcbf9a9b2d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castTransform: {fileID: 0}
-  crown: {fileID: 8538131141144676129, guid: 0fcd9069f65d914488be49b2914c8964, type: 3}
-  believers:
-  - {fileID: 8996577390084726554, guid: 4a4dcb823e62e294f882bb50f48993fe, type: 3}
-  - {fileID: 977993790793600080, guid: 13aa6369b84290a4e8230e2191f5b977, type: 3}
+  CastVFX: {fileID: 8102392618642524655, guid: eca6dfc76dc9f1547a46c91e161756a3, type: 3}
+  ProjectileVFX: {fileID: 2342715744290659014, guid: 83519ce78f3f9d64381fcdc9806f5b2f,
+    type: 3}

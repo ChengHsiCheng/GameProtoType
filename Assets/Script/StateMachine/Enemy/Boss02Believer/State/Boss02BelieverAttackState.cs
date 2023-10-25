@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Boss02BelieverAttackState : Boss02BelieverBaseState
 {
@@ -32,6 +33,11 @@ public class Boss02BelieverAttackState : Boss02BelieverBaseState
 
         Move(deltaTime);
 
+        if (normalizedTime < Attack.MoveTime)
+        {
+            FaceTarget(GameManager.player.transform.position, stateMachine.rotateSpeed);
+        }
+
         if (normalizedTime >= Attack.MoveTime && !isMove)
         {
             Debug.Log("Move");
@@ -48,5 +54,6 @@ public class Boss02BelieverAttackState : Boss02BelieverBaseState
 
     public override void Exit()
     {
+        stateMachine.SetCoolDown(Random.Range(Attack.MinCooldownTime, Attack.MaxCooldownTime));
     }
 }

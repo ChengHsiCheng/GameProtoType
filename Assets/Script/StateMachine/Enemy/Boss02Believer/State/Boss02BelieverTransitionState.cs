@@ -23,6 +23,10 @@ public class Boss02BelieverTransitionState : Boss02BelieverBaseState
     {
         stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
 
+        stateMachine.SetCoolDown(Mathf.Max(0, stateMachine.attackCoolDown - deltaTime));
+
+        FaceTarget(GameManager.player.transform.position, stateMachine.rotateSpeed);
+
         if (!IsInAttackRange())
         {
             stateMachine.SwitchState(new Boss02BelieverChaseState(stateMachine));
@@ -31,7 +35,11 @@ public class Boss02BelieverTransitionState : Boss02BelieverBaseState
 
         if (stateMachine.attackCoolDown <= 0)
         {
-            stateMachine.SwitchState(new Boss02BelieverAttackState(stateMachine));
+            if (stateMachine.isMelee)
+                stateMachine.SwitchState(new Boss02BelieverAttackState(stateMachine));
+            else
+                stateMachine.SwitchState(new Boss02BelieverSkillState(stateMachine));
+
             return;
         }
     }

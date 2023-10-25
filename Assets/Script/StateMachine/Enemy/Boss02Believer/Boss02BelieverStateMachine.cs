@@ -15,12 +15,19 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
+    [field: SerializeField] public EnemySkill[] Skills { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public WeaponDamage[] WeaponDamages { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public List<ObjectEntry> VFXPosList { get; private set; } = new List<ObjectEntry>();
 
+    [SerializeField] private GameObject sword;
+    [SerializeField] private GameObject staff;
+
+    [field: SerializeField] public bool isMelee { get; private set; }
     [field: SerializeField] public float attackRange { get; private set; }
+    [field: SerializeField] public float meleeAttackRange { get; private set; }
+    [field: SerializeField] public float remotelyAttackRange { get; private set; }
     [field: SerializeField] public float rotateSpeed { get; private set; }
     [field: SerializeField] public float movementSpeed { get; private set; }
     public float attackCoolDown { get; private set; }
@@ -38,6 +45,17 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
         Info.OnDie += OnDie;
         WeaponHendler.VFXEvent += OnPlayVFX;
+
+        if (isMelee)
+        {
+            sword.SetActive(true);
+            attackRange = meleeAttackRange;
+        }
+        else
+        {
+            staff.SetActive(true);
+            attackRange = remotelyAttackRange;
+        }
 
         SwitchState(new Boss02BelieverChaseState(this));
     }
@@ -63,6 +81,11 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     public void SetisDied(bool value)
     {
         isDied = value;
+    }
+
+    public void SetCoolDown(float time)
+    {
+        attackCoolDown = time;
     }
 
     public void BePetrify()

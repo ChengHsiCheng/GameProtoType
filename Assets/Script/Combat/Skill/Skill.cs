@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Skill : MonoBehaviour
 {
+    public Transform castTransform;
+
     public virtual void SkillUpdate() { }
 
     public virtual void UseSkill() { }

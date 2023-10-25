@@ -37,7 +37,7 @@ public class ProjectileControls : MonoBehaviour
 
         isHit = true;
 
-        vfx.Stop();
+        Destroy(vfx.gameObject);
     }
 
     public void SetValue(float moveSpeed, Vector3 projectileDir)
