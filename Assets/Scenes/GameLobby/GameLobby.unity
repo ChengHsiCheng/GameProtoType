@@ -2007,7 +2007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1194874784
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3155,7 +3155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2056516266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3302,11 +3302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 852485610}
     m_Modifications:
-    - target: {fileID: 460186156617134107, guid: 1dfb2b72fb86ee94cac11c1956d7db13,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 580079986143689510, guid: 1dfb2b72fb86ee94cac11c1956d7db13,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3636,26 +3631,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Riddle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3701374902419696469, guid: 1dfb2b72fb86ee94cac11c1956d7db13,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7325870446871808011, guid: 1dfb2b72fb86ee94cac11c1956d7db13,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8061527194866827359, guid: 1dfb2b72fb86ee94cac11c1956d7db13,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380696778683422871, guid: 1dfb2b72fb86ee94cac11c1956d7db13,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dfb2b72fb86ee94cac11c1956d7db13, type: 3}

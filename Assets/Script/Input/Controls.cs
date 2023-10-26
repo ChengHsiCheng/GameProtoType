@@ -202,11 +202,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""199f4302-9627-41be-b074-caf28779e6c5"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""id"": ""ef45d301-a6c0-486a-a857-e908eecb56ca"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -224,17 +224,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ef45d301-a6c0-486a-a857-e908eecb56ca"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Skill"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""8299d016-4083-48f7-8378-a936ae7f748a"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -246,11 +235,11 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4aac1e73-17c9-432a-803d-db783425b488"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""id"": ""199f4302-9627-41be-b074-caf28779e6c5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
+                    ""groups"": """",
                     ""action"": ""Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -301,12 +290,23 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""104e97bb-0d1c-46d3-91db-0f7c0f9c1879"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""id"": ""be1f9478-7b94-4ca5-b8c9-84f360b7a610"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4aac1e73-17c9-432a-803d-db783425b488"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }

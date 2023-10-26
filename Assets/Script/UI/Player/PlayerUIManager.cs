@@ -66,6 +66,9 @@ public class PlayerUIManager : UIManager
 
     public void SetHint(bool value)
     {
-        HintUI?.gameObject.SetActive(value);
+        if (!HintUI)
+            return;
+
+        HintUI.gameObject.SetActive(value);
     }
 }

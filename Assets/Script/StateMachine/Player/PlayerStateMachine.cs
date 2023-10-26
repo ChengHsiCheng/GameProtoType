@@ -12,6 +12,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public BookController Book { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
+    [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public PlayerInfo Info { get; private set; }
     [field: SerializeField] public PlayerUIManager UIManager { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
