@@ -64,6 +64,8 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     {
         Info.OnDie -= OnDie;
         WeaponHendler.VFXEvent -= OnPlayVFX;
+
+        GameManager.enemys.Remove(this);
     }
 
     private void OnDie()
