@@ -1044,42 +1044,55 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3e248419f6cb23943b42c2b2437e4b70, type: 3}
     - {fileID: 8300000, guid: 6ab40fe42e8ffde4e98b1a5929bcab8d, type: 3}
     - {fileID: 8300000, guid: e67270bfafdfcd049957e50755c360b3, type: 3}
+    audioVolume: 0
   - name: Roar
     audios:
     - {fileID: 8300000, guid: 135c1118a1785ec4a9ff08b253f9fe43, type: 3}
+    audioVolume: 0
   - name: ForwardAttack
     audios:
     - {fileID: 8300000, guid: b4bba0054ff71c14c8270848ffaf01ad, type: 3}
+    audioVolume: 0
   - name: SlapAttack01
     audios:
     - {fileID: 8300000, guid: be9af14415fe5e642bdc72a03f835c3d, type: 3}
+    audioVolume: 0
   - name: SlapAttack02
     audios:
     - {fileID: 8300000, guid: 44038aaa790c4584b9812fa0532e856e, type: 3}
+    audioVolume: 0
   - name: RotateAttack
     audios:
     - {fileID: 8300000, guid: a3c73fa175697f74a8fd7e783710aba6, type: 3}
+    audioVolume: 0
   - name: BackAttack
     audios:
     - {fileID: 8300000, guid: 82a80a5c1c630d240a55af7728c4065d, type: 3}
+    audioVolume: 0
   - name: ChargeAttack
     audios:
     - {fileID: 8300000, guid: 30e29fea6b45bd2418fabc2388a380a0, type: 3}
+    audioVolume: 0
   - name: TongueSkillPre
     audios:
     - {fileID: 8300000, guid: 0ef32a17e0e3ddd45a048afb52a4dd88, type: 3}
+    audioVolume: 0
   - name: TongueSkill
     audios:
     - {fileID: 8300000, guid: 6360912edfdb70f4da596f56709027d1, type: 3}
+    audioVolume: 0
   - name: SmokeSkill
     audios:
     - {fileID: 8300000, guid: 636b541e723e6674db4e53b92cad3463, type: 3}
+    audioVolume: 0
   - name: AirCannon
     audios:
     - {fileID: 8300000, guid: ecf6bd43c4278aa4f85a8a0e05abeadf, type: 3}
+    audioVolume: 0
   - name: Die
     audios:
     - {fileID: 8300000, guid: ed668f7ff5f474b4a8ad38d262c00a70, type: 3}
+    audioVolume: 0
 --- !u!1 &3704587503313270407
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,9 +2189,11 @@ MonoBehaviour:
   - name: FireStormCharge
     audios:
     - {fileID: 8300000, guid: e0aeca4a3bdf02e48a724bb32235acd8, type: 3}
+    audioVolume: 0
   - name: FireStormSkill
     audios:
     - {fileID: 8300000, guid: 80be4493589edb146a13aebf819c1ee1, type: 3}
+    audioVolume: 0
 --- !u!82 &3499138338117789850
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2192,7 +2207,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

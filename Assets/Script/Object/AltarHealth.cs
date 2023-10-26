@@ -18,6 +18,8 @@ public class AltarHealth : MonoBehaviour
     public float maxHealth { get; private set; }
     public float health { get; private set; }
 
+    private bool isPlay;
+
     private PlayerStateMachine player;
 
     private void Start()
@@ -28,6 +30,8 @@ public class AltarHealth : MonoBehaviour
 
         SwitchBloodRitualAltarSkill(false);
         BloodRitualAltarVFX.SetFloat("Step", bloodRitualAltarVFXValue);
+
+        BloodRitualAltarVFX.Stop();
     }
 
     private void OnDisable()
@@ -38,11 +42,24 @@ public class AltarHealth : MonoBehaviour
     private void Update()
     {
         if (isBloodRitualAltarVFX)
+        {
+            if (!isPlay)
+            {
+                BloodRitualAltarVFX.Play();
+                isPlay = true;
+            }
             bloodRitualAltarVFXValue = Mathf.Lerp(bloodRitualAltarVFXValue, 0, bloodRitualAltarVFXSpeed * Time.deltaTime);
+        }
         else
+        {
             bloodRitualAltarVFXValue = Mathf.Lerp(bloodRitualAltarVFXValue, 2, bloodRitualAltarVFXSpeed * Time.deltaTime);
 
-        Debug.Log(bloodRitualAltarVFXValue);
+            if (bloodRitualAltarVFXValue >= 2 && isPlay)
+            {
+                BloodRitualAltarVFX.Stop();
+                isPlay = false;
+            }
+        }
 
         BloodRitualAltarVFX.SetFloat("Step", bloodRitualAltarVFXValue);
     }

@@ -16,6 +16,7 @@ public class Boss02IdleState : Boss02BaseState
 
     public override void Enter()
     {
+        stateMachine.Animator.CrossFadeInFixedTime("Idle", 0.1f);
         targetPos = FindRandomPoint();
     }
 

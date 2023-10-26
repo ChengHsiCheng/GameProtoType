@@ -279,6 +279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss02Believer01
       objectReference: {fileID: 0}
+    - target: {fileID: 8996577390084726554, guid: 4a4dcb823e62e294f882bb50f48993fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a4dcb823e62e294f882bb50f48993fe, type: 3}
 --- !u!1001 &625130530
@@ -669,7 +674,7 @@ PrefabInstance:
     - target: {fileID: 977993790793600080, guid: 13aa6369b84290a4e8230e2191f5b977,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4154623715156939481, guid: 13aa6369b84290a4e8230e2191f5b977,
         type: 3}
@@ -1224,7 +1229,7 @@ PrefabInstance:
     - target: {fileID: 3833537233334749547, guid: fa4a84c556b8d8b479efb0332615d744,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3833537233334749550, guid: fa4a84c556b8d8b479efb0332615d744,
         type: 3}
@@ -1284,7 +1289,7 @@ PrefabInstance:
     - target: {fileID: 6255510316830084758, guid: fa4a84c556b8d8b479efb0332615d744,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4a84c556b8d8b479efb0332615d744, type: 3}

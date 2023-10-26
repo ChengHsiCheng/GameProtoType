@@ -13,4 +13,5 @@ public struct AudioEntry
 {
     public string name;
     public AudioClip[] audios;
+    public float audioVolume;
 }
