@@ -394,6 +394,7 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 2638483245111162503}
   <Agent>k__BackingField: {fileID: 4790039636770250791}
   <ForceReceiver>k__BackingField: {fileID: 817499122689955708}
+  <Collider>k__BackingField: {fileID: 2638483245111162503}
   <Info>k__BackingField: {fileID: 3477609294230407545}
   <WeaponHendler>k__BackingField: {fileID: 5952643471787729394}
   <Skills>k__BackingField:
@@ -403,8 +404,8 @@ MonoBehaviour:
     <spawnPoint>k__BackingField: {fileID: 7482957646424855900}
     <AnimationName>k__BackingField: MagicAttack01
     <UseTimeByAnimation>k__BackingField: 0.15
-    <MinCooldownTime>k__BackingField: 1
-    <MaxCooldownTime>k__BackingField: 1
+    <MinCooldownTime>k__BackingField: 4
+    <MaxCooldownTime>k__BackingField: 2
     <Impact>k__BackingField: 1
   - <SkillName>k__BackingField: MagicAttack02
     <skill>k__BackingField: {fileID: 5522807386500738775, guid: 0c0ccf2871b2be6469033bb8288a7676,
@@ -412,8 +413,8 @@ MonoBehaviour:
     <spawnPoint>k__BackingField: {fileID: 7482957646424855900}
     <AnimationName>k__BackingField: MagicAttack01
     <UseTimeByAnimation>k__BackingField: 0.15
-    <MinCooldownTime>k__BackingField: 1
-    <MaxCooldownTime>k__BackingField: 1
+    <MinCooldownTime>k__BackingField: 4
+    <MaxCooldownTime>k__BackingField: 2
     <Impact>k__BackingField: 1
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack01
@@ -421,7 +422,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <Impact>k__BackingField: 10
-    <MaxCooldownTime>k__BackingField: 3
+    <MaxCooldownTime>k__BackingField: 4
     <MinCooldownTime>k__BackingField: 2
     <MoveTime>k__BackingField: 0.5
     <MoveForce>k__BackingField: 10
@@ -430,7 +431,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <Impact>k__BackingField: 10
-    <MaxCooldownTime>k__BackingField: 3
+    <MaxCooldownTime>k__BackingField: 4
     <MinCooldownTime>k__BackingField: 2
     <MoveTime>k__BackingField: 0.4
     <MoveForce>k__BackingField: 10
@@ -457,6 +458,7 @@ MonoBehaviour:
   <remotelyAttackRange>k__BackingField: 8
   <rotateSpeed>k__BackingField: 200
   <movementSpeed>k__BackingField: 3
+  <attackCoolDown>k__BackingField: 2
 --- !u!114 &3477609294230407545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,7 +686,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866383241662766096}
-  m_LocalRotation: {x: -0.0043037143, y: -0.033836804, z: -0.020167913, w: 0.9992146}
+  m_LocalRotation: {x: -0.0043037147, y: -0.033836804, z: -0.020167915, w: 0.9992146}
   m_LocalPosition: {x: 0.000000012516975, y: 0.06533664, z: -0.000000085830685}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
@@ -1256,7 +1258,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5363957794038739199}
-  m_LocalRotation: {x: -0.0043037217, y: 0.033836816, z: 0.020167897, w: 0.9992146}
+  m_LocalRotation: {x: -0.004303722, y: 0.033836816, z: 0.020167898, w: 0.9992146}
   m_LocalPosition: {x: 0.000000057220458, y: 0.06533665, z: -0.000000042915342}
   m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0

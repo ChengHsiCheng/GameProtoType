@@ -23,6 +23,9 @@ public class WeaponDamage : MonoBehaviour
         if (other == myCollider)
             return;
 
+        if (other.tag == myCollider.tag)
+            return;
+
         if (alreadyCollidedWith.Contains(other.gameObject))
             return;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum SkillCount
 {
-    CallBelieversSkill, BloodRitualAltarSkill
+    CallBelieversSkill, CallTentacleSkill, BloodRitualAltarSkill
 }
 
 public abstract class Boss02BaseState : State

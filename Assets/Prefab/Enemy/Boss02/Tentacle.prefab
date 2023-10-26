@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3816845009131710172}
   - component: {fileID: 3816845009131710173}
   - component: {fileID: 768892477}
+  - component: {fileID: 3550871225725213896}
   m_Layer: 7
   m_Name: Tentacle
   m_TagString: Enemy
@@ -50,20 +51,22 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 3816845009693254723}
   <Info>k__BackingField: {fileID: 3816845009131710173}
   <WeaponHendler>k__BackingField: {fileID: 1286462630}
+  <Collider>k__BackingField: {fileID: 768892477}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack
     <TransitionDuration>k__BackingField: 0.1
     <Damage>k__BackingField: 10
     <SanDamage>k__BackingField: 0
     <Impact>k__BackingField: 3
-    <MaxCooldownTime>k__BackingField: 1
-    <MinCooldownTime>k__BackingField: 1
+    <MaxCooldownTime>k__BackingField: 4
+    <MinCooldownTime>k__BackingField: 2
     <MoveTime>k__BackingField: 0
     <MoveForce>k__BackingField: 0
   <WeaponDamages>k__BackingField:
   - {fileID: 6747296683732115025}
   <attackRange>k__BackingField: 4
   <rotateSpeed>k__BackingField: 150
+  <attackCoolDown>k__BackingField: 2
 --- !u!114 &3816845009131710173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,6 +93,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!208 &3550871225725213896
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816845009131710174}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1.5, z: 1}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5599264067858411367
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
+    [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
     [field: SerializeField] public EnemySkill[] Skills { get; private set; }
@@ -30,7 +31,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     [field: SerializeField] public float remotelyAttackRange { get; private set; }
     [field: SerializeField] public float rotateSpeed { get; private set; }
     [field: SerializeField] public float movementSpeed { get; private set; }
-    public float attackCoolDown { get; private set; }
+    [field: SerializeField] public float attackCoolDown { get; private set; }
 
     public GameObject Player { get; private set; }
     public bool isDied { get; private set; }

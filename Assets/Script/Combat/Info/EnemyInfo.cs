@@ -43,5 +43,7 @@ public class EnemyInfo : MonoBehaviour, Info, Health
 
     public void Healing(float value)
     {
+        health = Mathf.Min(health + value, maxHealth);
+        OnTakeDamage?.Invoke();
     }
 }

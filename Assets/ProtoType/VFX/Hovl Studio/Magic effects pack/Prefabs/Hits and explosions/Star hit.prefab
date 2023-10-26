@@ -9763,6 +9763,7 @@ GameObject:
   - component: {fileID: 6514520500068374494}
   - component: {fileID: 4297381482421447834}
   - component: {fileID: 8661655465641611063}
+  - component: {fileID: -7103816732473075484}
   m_Layer: 0
   m_Name: Star hit
   m_TagString: Untagged
@@ -14659,8 +14660,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85c1830b392f3a646ae00bb0e8f252cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  sanDamage: 1
+  damage: 10
+  sanDamage: 10
   impact: 1
 --- !u!114 &8661655465641611063
 MonoBehaviour:
@@ -14676,6 +14677,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 6514520500068374494}
   damageTime: 0.1
+--- !u!114 &-7103816732473075484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4535006216103734310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a10a4e14b5e484b869647072541515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  liveTime: 1
+  vfxs: []
+  particles:
+  - {fileID: 2319384772025575332}
+  - {fileID: 2183654512933933930}
+  - {fileID: 6325133482252963583}
+  - {fileID: 6765239461773565037}
+  trigger: {fileID: 0}
 --- !u!1 &7851872916918845318
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,12 +15,14 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public float MoveSpeed { get; private set; }
     [field: SerializeField] public float CooldDown { get; private set; }
 
-    [field: SerializeField] public GameObject Altarobj { get; private set; }
+    [field: SerializeField] public AltarHealth Altarobj { get; private set; }
     public Health AltarHealth { get; private set; }
 
     [field: SerializeField] public Crown crown { get; private set; }
 
     protected PlayerStateMachine player;
+
+    public SkillCount PreviousSkill;
 
     private void Start()
     {
@@ -30,8 +32,9 @@ public class Boss02StateMachine : StateMachine, Enemy
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
 
-        AltarHealth = Instantiate(Altarobj, new Vector3(-1.5f, 0, 0), Quaternion.identity).GetComponent<Health>();
-
+        Altarobj = Instantiate(Altarobj, new Vector3(-1.5f, 0, 0), Quaternion.identity);
+        Altarobj.SetBoss02(this);
+        AltarHealth = Altarobj.GetComponent<Health>();
         // SwitchState(new Boss02StartState(this));
         SwitchState(new Boss02SkillState(this, (int)SkillCount.CallBelieversSkill));
 

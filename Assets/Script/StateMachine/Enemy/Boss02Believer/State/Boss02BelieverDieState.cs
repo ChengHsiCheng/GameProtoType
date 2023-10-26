@@ -15,6 +15,8 @@ public class Boss02BelieverDieState : Boss02BelieverBaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(DieString, CrossFadeDuration);
         stateMachine.SetisDied(true);
+
+        stateMachine.Collider.enabled = false;
     }
 
     public override void Tick(float deltaTime)

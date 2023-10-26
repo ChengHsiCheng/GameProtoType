@@ -7,12 +7,13 @@ public class TentacleStateMachine : StateMachine, Enemy
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
+    [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public EnemyAttack[] Attacks { get; private set; }
     [field: SerializeField] public WeaponDamage[] WeaponDamages { get; private set; }
 
     [field: SerializeField] public float attackRange { get; private set; }
     [field: SerializeField] public float rotateSpeed { get; private set; }
-    public float attackCoolDown { get; private set; }
+    [field: SerializeField] public float attackCoolDown { get; private set; }
 
     public GameObject Player { get; private set; }
 

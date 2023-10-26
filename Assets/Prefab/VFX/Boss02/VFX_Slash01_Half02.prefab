@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2523864385491152783}
   - component: {fileID: 2266218210568446208}
   m_Layer: 0
-  m_Name: VFX_Slash01_Half01
+  m_Name: VFX_Slash01_Half02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,10 +50,7 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array:
-      - m_Value: 1
-        m_Name: Speed
-        m_Overridden: 1
+      m_Array: []
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -126,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a10a4e14b5e484b869647072541515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: 3
+  liveTime: 2
   vfxs:
   - {fileID: 6977239583191038889}
   particles: []

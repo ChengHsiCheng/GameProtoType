@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -15,50 +16,34 @@ public class AltarHealth : MonoBehaviour
     [SerializeField] private bool isBloodRitualAltarVFX = false;
     [SerializeField] private float bloodRitualAltarVFXSpeed;
 
-    public float maxHealth { get; private set; }
-    public float health { get; private set; }
-
-    private bool isPlay;
-
     private PlayerStateMachine player;
+    private Boss02StateMachine boss02;
 
     private void Start()
     {
         player = GameManager.player.GetComponent<PlayerStateMachine>();
 
         Info.OnTakeDamage += DealHealthDamage;
+        Info.OnDie += Die;
 
         SwitchBloodRitualAltarSkill(false);
-        BloodRitualAltarVFX.SetFloat("Step", bloodRitualAltarVFXValue);
-
-        BloodRitualAltarVFX.Stop();
     }
 
     private void OnDisable()
     {
         Info.OnTakeDamage -= DealHealthDamage;
+        Info.OnDie -= Die;
     }
 
     private void Update()
     {
         if (isBloodRitualAltarVFX)
         {
-            if (!isPlay)
-            {
-                BloodRitualAltarVFX.Play();
-                isPlay = true;
-            }
-            bloodRitualAltarVFXValue = Mathf.Lerp(bloodRitualAltarVFXValue, 0, bloodRitualAltarVFXSpeed * Time.deltaTime);
+            bloodRitualAltarVFXValue = MathF.Max(0, bloodRitualAltarVFXValue - (bloodRitualAltarVFXSpeed * Time.deltaTime));
         }
         else
         {
-            bloodRitualAltarVFXValue = Mathf.Lerp(bloodRitualAltarVFXValue, 2, bloodRitualAltarVFXSpeed * Time.deltaTime);
-
-            if (bloodRitualAltarVFXValue >= 2 && isPlay)
-            {
-                BloodRitualAltarVFX.Stop();
-                isPlay = false;
-            }
+            bloodRitualAltarVFXValue = MathF.Min(2, bloodRitualAltarVFXValue + (bloodRitualAltarVFXSpeed * Time.deltaTime));
         }
 
         BloodRitualAltarVFX.SetFloat("Step", bloodRitualAltarVFXValue);
@@ -66,8 +51,6 @@ public class AltarHealth : MonoBehaviour
 
     public void DealHealthDamage()
     {
-        Debug.Log("Hit");
-
         if (!player.haveCrown)
             return;
 
@@ -78,12 +61,24 @@ public class AltarHealth : MonoBehaviour
         Bar.SetBar(healthPercent);
     }
 
+    private void Die()
+    {
+        boss02.SwitchState(new Boss02DieState(boss02));
+    }
+
     public void Healing(float value)
     {
+        Info.Healing(value);
     }
 
     public void SwitchBloodRitualAltarSkill(bool value)
     {
+        isBloodRitualAltarVFX = value;
+        Debug.Log(isBloodRitualAltarVFX);
+    }
 
+    public void SetBoss02(Boss02StateMachine boss02)
+    {
+        this.boss02 = boss02;
     }
 }

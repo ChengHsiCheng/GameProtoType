@@ -14,6 +14,7 @@ public class TentacleDieState : TentacleBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(DieString, CrossFadeDuration);
+        stateMachine.Collider.enabled = false;
     }
 
     public override void Tick(float deltaTime)

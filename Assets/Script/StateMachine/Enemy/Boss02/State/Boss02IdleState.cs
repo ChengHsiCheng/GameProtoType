@@ -40,7 +40,21 @@ public class Boss02IdleState : Boss02BaseState
 
         if (stateMachine.CooldDown <= 0)
         {
-            stateMachine.SwitchState(new Boss02SkillState(stateMachine, (int)SkillCount.BloodRitualAltarSkill));
+            if (stateMachine.PreviousSkill == SkillCount.CallBelieversSkill && Random.Range(0, 100) > 50)
+            {
+                stateMachine.SwitchState(new Boss02SkillState(stateMachine, (int)SkillCount.BloodRitualAltarSkill));
+                return;
+            }
+
+            switch (Random.Range(0, 100))
+            {
+                case < 50:
+                    stateMachine.SwitchState(new Boss02SkillState(stateMachine, (int)SkillCount.CallBelieversSkill));
+                    break;
+                case < 100:
+                    stateMachine.SwitchState(new Boss02SkillState(stateMachine, (int)SkillCount.CallTentacleSkill));
+                    break;
+            }
         }
     }
 

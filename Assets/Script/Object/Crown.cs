@@ -27,7 +27,7 @@ public class Crown : MonoBehaviour
         if (holder)
             transform.position = holder.transform.position;
 
-        holderHealth?.Healing(1);
+        holderHealth?.Healing(1 * Time.deltaTime);
 
         timer += Time.deltaTime;
 

@@ -71,6 +71,8 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
     public void DealHealthDamage(float damage, bool isImpact)
     {
+        Debug.Log(damage);
+
         if (health <= 0)
             return;
 

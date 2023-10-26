@@ -10,6 +10,7 @@ public class Boss02SkillState : Boss02BaseState
     public Boss02SkillState(Boss02StateMachine stateMachine, int skillCount) : base(stateMachine)
     {
         skill = stateMachine.Skill[skillCount];
+        stateMachine.PreviousSkill = (SkillCount)skillCount;
     }
 
     public override void Enter()
