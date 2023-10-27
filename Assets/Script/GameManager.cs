@@ -80,7 +80,8 @@ public static class GameManager
     public static void SwitchScene(string scenesName)
     {
         nowScenes = scenesName;
-        sceneController.UIController.CloseUI();
+        TogglePause(false);
+        // sceneController.UIController.CloseUI();
         SceneManager.LoadScene(scenesName);
     }
 

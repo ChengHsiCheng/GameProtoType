@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -12,8 +13,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private SelectButton[] selectButtons;
     private SelectButton selectButton;
 
-    private int vertical;
-    private int horizontal;
+    [SerializeField] private int vertical;
+    [SerializeField] private int horizontal;
 
     private void Start()
     {
@@ -63,20 +64,33 @@ public class UIController : MonoBehaviour
 
     public void CloseUI()
     {
-        if (UIElements.Count == 0)
-            return;
+        UIElements.Last().SetActive(false);
+        UIElements.Remove(UIElements.Last());
 
-        UIElements[UIElements.Count - 1].SetActive(false);
-        UIElements.RemoveAt(UIElements.Count - 1);
-
-        if (UIElements.Count != 0)
-            return;
-
-        GameManager.ToggleUI(false);
-
-        if (GameManager.isPauseGame)
+        if (UIElements == null)
         {
-            GameManager.TogglePause(false);
+            if (GameManager.isPauseGame)
+            {
+                GameManager.TogglePause(false);
+            }
+            GameManager.ToggleUI(false);
+
+            return;
+        }
+
+        selectButtons = UIElements.Last().transform.GetComponentsInChildren<SelectButton>();
+
+        foreach (SelectButton _selectButton in selectButtons)
+        {
+            _selectButton.OnDisSelect();
+        }
+
+        if (selectButtons.Length != 0)
+        {
+            vertical = 0;
+            horizontal = 0;
+            selectButton = selectButtons[0];
+            selectButton.OnSelect();
         }
     }
 

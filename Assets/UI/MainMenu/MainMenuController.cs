@@ -16,15 +16,27 @@ public class MainMenuController : UIManager
         slideshow.OnSwicthScene += OnSwitchScene;
     }
 
+    private void OnDisable()
+    {
+        slideshow.OnSwicthScene -= OnSwitchScene;
+    }
+
+    private void Start()
+    {
+        GameManager.sceneController.UIController.AddUI(this.gameObject);
+    }
+
     public void OnNewGmae()
     {
         slideshow.OnStart();
+
     }
 
     public void OnSwitchScene(string sceneName)
     {
         animator.SetTrigger("Switch");
         switchScene = sceneName;
+
     }
 
     public void OnSetting()
