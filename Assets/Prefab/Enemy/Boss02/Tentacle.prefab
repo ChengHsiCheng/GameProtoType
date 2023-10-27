@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 3816845009693254723}
+  <Material>k__BackingField: {fileID: 1828604474327365035}
+  <Animator>k__BackingField: {fileID: 3816845009693254723}
   <Info>k__BackingField: {fileID: 3816845009131710173}
   <WeaponHendler>k__BackingField: {fileID: 1286462630}
   <Collider>k__BackingField: {fileID: 768892477}
@@ -306,6 +308,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313a006e657614a46b20b0a316bafdd7, type: 3}
+--- !u!137 &1828604474327365035 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5937808895702085139, guid: 313a006e657614a46b20b0a316bafdd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3816845009693254726}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3707185066472915885 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 313a006e657614a46b20b0a316bafdd7,

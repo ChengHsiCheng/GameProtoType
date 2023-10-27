@@ -6,12 +6,10 @@ using UnityEngine.AI;
 
 public class Boss01StateMachine : StateMachine, Enemy
 {
-    [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public EnemyInfo Health { get; private set; }
-    [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
     [field: SerializeField] public BarController Bar { get; private set; }
     [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
@@ -148,22 +146,6 @@ public class Boss01StateMachine : StateMachine, Enemy
         Gizmos.DrawWireSphere(transform.position, meleeRange);
     }
 
-    public override void SetCanMove(bool value)
-    {
-        SetCanMove(value, 0);
-
-        Material.material.SetFloat("_Petrifaction", 1);
-    }
-
-    public override void SetCanMove(bool canMove, float freezeTime)
-    {
-        this.canMove = canMove;
-        this.freezeTime = Time.time + freezeTime;
-
-        int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
-
-        Animator.SetFloat("AnimationSpeed", intValue);
-    }
 
     public void BePetrify()
     {
@@ -175,18 +157,6 @@ public class Boss01StateMachine : StateMachine, Enemy
         {
             weapon.SetCollider(false);
         }
-    }
-
-    public override void OnGameTogglePause(bool isPause)
-    {
-        if (!isPause && freezeTime != 0)
-        {
-            return;
-        }
-
-
-        int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
-        Animator.SetFloat("AnimationSpeed", intValue);
     }
 
     /// <summary>

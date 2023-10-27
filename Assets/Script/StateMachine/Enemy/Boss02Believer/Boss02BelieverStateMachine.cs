@@ -9,7 +9,6 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
     public event Action<Boss02BelieverStateMachine> OnSacrificeEvent;
     public event Action<Boss02BelieverStateMachine> OnDieEvent;
 
-    [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
@@ -93,18 +92,9 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
     public void BePetrify()
     {
-    }
+        SetCanMove(false, 3f);
 
-    public override void OnGameTogglePause(bool isPause)
-    {
-    }
-
-    public override void SetCanMove(bool value)
-    {
-    }
-
-    public override void SetCanMove(bool value, float time)
-    {
+        Material.material.SetFloat("_Petrifaction", 0);
     }
 
     public void OnPlayVFX(string name)

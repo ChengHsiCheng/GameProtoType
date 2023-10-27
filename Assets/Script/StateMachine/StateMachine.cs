@@ -5,6 +5,10 @@ using UnityEngine;
 public abstract class StateMachine : MonoBehaviour
 {
     public State currentState { get; private set; } // 目前的State
+
+    [field: SerializeField] public Animator Animator { get; private set; }
+    [field: SerializeField] public SkinnedMeshRenderer Material { get; private set; }
+
     public bool canMove { get; protected set; } = true;
 
     protected float freezeTime;
@@ -40,10 +44,32 @@ public abstract class StateMachine : MonoBehaviour
         }
     }
 
-    public abstract void SetCanMove(bool value);
+    public virtual void SetCanMove(bool value)
+    {
+        SetCanMove(value, 0);
 
-    public abstract void SetCanMove(bool value, float time);
+        Material.material.SetFloat("_Petrifaction", 1);
+    }
 
-    public abstract void OnGameTogglePause(bool isPause);
+    public virtual void SetCanMove(bool value, float time)
+    {
+        canMove = value;
+        freezeTime = Time.time + time;
+
+        int intValue = canMove ? 1 : 0; // 把canMove轉成1或0
+
+        Animator.SetFloat("AnimationSpeed", intValue);
+    }
+
+    public virtual void OnGameTogglePause(bool isPause)
+    {
+        if (!isPause && freezeTime != 0)
+        {
+            return;
+        }
+
+        int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
+        Animator.SetFloat("AnimationSpeed", intValue);
+    }
 
 }

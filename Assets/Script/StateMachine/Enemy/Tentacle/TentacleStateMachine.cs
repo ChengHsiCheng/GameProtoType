@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TentacleStateMachine : StateMachine, Enemy
 {
-    [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
     [field: SerializeField] public Collider Collider { get; private set; }
@@ -45,19 +44,11 @@ public class TentacleStateMachine : StateMachine, Enemy
 
     public void BePetrify()
     {
+        SetCanMove(false, 3f);
+
+        Material.material.SetFloat("_Petrifaction", 0);
     }
 
-    public override void OnGameTogglePause(bool isPause)
-    {
-    }
-
-    public override void SetCanMove(bool value)
-    {
-    }
-
-    public override void SetCanMove(bool value, float time)
-    {
-    }
 
     // 在場景中以紅色繪製出敵人的追擊範圍
     private void OnDrawGizmosSelected()
