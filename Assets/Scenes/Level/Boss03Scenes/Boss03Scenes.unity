@@ -124,6 +124,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &131380411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: edb50de2374e4da4a9a305a4f51b8232,
+    type: 3}
+  m_PrefabInstance: {fileID: 847398590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &496229164
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +160,7 @@ Transform:
   m_Children:
   - {fileID: 1396333194}
   - {fileID: 1512864751}
+  - {fileID: 131380411}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -231,7 +238,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 496229165}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: edb50de2374e4da4a9a305a4f51b8232,
         type: 3}
@@ -261,7 +268,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: edb50de2374e4da4a9a305a4f51b8232,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edb50de2374e4da4a9a305a4f51b8232,
         type: 3}
@@ -271,7 +278,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: edb50de2374e4da4a9a305a4f51b8232,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: edb50de2374e4da4a9a305a4f51b8232,
         type: 3}
