@@ -8,11 +8,11 @@ using UnityEngine.Rendering.Universal;
 using Unity.VisualScripting;
 
 
-public class SettingController : UIManager
+public class SettingController : MonoBehaviour
 {
     [SerializeField] private Volume volume;
     [SerializeField] private AudioMixer mixer;
-    [field: SerializeField] public GameObject settingUI { get; private set; }
+    [field: SerializeField] public UIManager settingUI { get; private set; }
     private ColorAdjustments brightness;
 
     [SerializeField] private Slider brightnessSlider;

@@ -5,7 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class UITrigger : MonoBehaviour
 {
-    [SerializeField] private GameObject UI;
+    [SerializeField] private UIManager UI;
     [SerializeField] private Collider trigger;
     PlayerStateMachine player;
 

@@ -1970,7 +1970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304c1df2e97193e4585868bfca27bf43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeDir: 2
+  firstSelected: {fileID: 0}
+  lastSelected: {fileID: 0}
   <HpBar>k__BackingField: {fileID: 8036512598182053970}
   <SanBar>k__BackingField: {fileID: 1725354042426514945}
   <SanCheck>k__BackingField: {fileID: 7154203249667979889}
@@ -3681,7 +3682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animator>k__BackingField: {fileID: 8882550430775878866}
-  <Material>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 1282465768121334295}
   <InputReader>k__BackingField: {fileID: 0}
   <Rigidbody>k__BackingField: {fileID: 2080221945}
   <Book>k__BackingField: {fileID: 0}

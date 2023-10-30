@@ -22,7 +22,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
-    [field: SerializeField] public List<GameObject> UI = new List<GameObject>();
+    [field: SerializeField] public List<UIManager> UI = new List<UIManager>();
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -289,14 +289,14 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
-    public void AddUI(GameObject ui)
+    public void AddUI(UIManager ui)
     {
         UI.Add(ui);
 
         UIManager.SetHint(true);
     }
 
-    public void RemoveUI(GameObject ui)
+    public void RemoveUI(UIManager ui)
     {
         for (int i = 0; i < UI.Count; i++)
         {

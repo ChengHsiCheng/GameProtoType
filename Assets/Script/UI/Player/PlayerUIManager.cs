@@ -61,7 +61,7 @@ public class PlayerUIManager : UIManager
 
     public void SetDiedUI()
     {
-        GameManager.sceneController.UIController.AddUI(DiedUI, false);
+        //  GameManager.sceneController.UIController.AddUI(DiedUI, false);
     }
 
     public void SetHint(bool value)

@@ -23,13 +23,13 @@ public class MainMenuController : UIManager
 
     private void Start()
     {
-        GameManager.sceneController.UIController.AddUI(this.gameObject);
+        GameManager.sceneController.UIController.AddUI(this);
+        Debug.Log("ADD");
     }
 
     public void OnNewGmae()
     {
         slideshow.OnStart();
-
     }
 
     public void OnSwitchScene(string sceneName)
@@ -41,7 +41,7 @@ public class MainMenuController : UIManager
 
     public void OnSetting()
     {
-        GameManager.sceneController.UIController.AddUI(setting.settingUI.gameObject);
+        GameManager.sceneController.UIController.AddUI(setting.settingUI);
     }
 
     public void QuitGame()

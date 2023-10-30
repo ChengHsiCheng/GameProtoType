@@ -1,19 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private float planeDir = 2;
+    public GameObject firstSelected, lastSelected;
 
-    private Canvas canvas
+    public void OnOpen()
     {
-        get => this.GetComponent<Canvas>();
+        EventSystem.current.SetSelectedGameObject(lastSelected == null ? firstSelected : lastSelected);
     }
 
-    private void OnEnable()
+    public void OnClosure()
     {
-        canvas.worldCamera = Camera.main;
-        canvas.planeDistance = planeDir;
+        lastSelected = EventSystem.current.currentSelectedGameObject;
+        Debug.Log(EventSystem.current.currentSelectedGameObject);
     }
 }

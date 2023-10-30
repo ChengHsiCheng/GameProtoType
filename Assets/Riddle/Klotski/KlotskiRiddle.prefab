@@ -1036,6 +1036,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee61198a16681c4f8df40a88b9830b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstSelected: {fileID: 0}
+  lastSelected: {fileID: 0}
   finalPiece: {fileID: 1658171895614733997}
 --- !u!223 &1658171895603213504
 Canvas:
@@ -1869,7 +1871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbdb2d03d909654e928c0dec32cc7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 1658171895603213533}
+  UI: {fileID: 1658171895603213535}
   trigger: {fileID: 1658171896226789034}
 --- !u!114 &1658171896226789032
 MonoBehaviour:

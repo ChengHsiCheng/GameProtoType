@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Riddle : MonoBehaviour, IUIElement
+public abstract class Riddle : UIManager, IUIElement
 {
     public event Action OnPassEvent;
 
