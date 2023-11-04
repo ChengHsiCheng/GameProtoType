@@ -95,15 +95,35 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3524464887582199998, guid: f94cb51edf353f747864eccbd7e18606,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524464887582199998, guid: f94cb51edf353f747864eccbd7e18606,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524464887582199998, guid: f94cb51edf353f747864eccbd7e18606,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524464887702643296, guid: f94cb51edf353f747864eccbd7e18606,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524464887702643296, guid: f94cb51edf353f747864eccbd7e18606,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3524464888136555602, guid: f94cb51edf353f747864eccbd7e18606,
         type: 3}
       propertyPath: m_Name
       value: Setting
-      objectReference: {fileID: 0}
-    - target: {fileID: 3524464888136555613, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3524464888136555614, guid: f94cb51edf353f747864eccbd7e18606,
         type: 3}
@@ -219,16 +239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767655787388969079, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767655787388969079, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseSetting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f94cb51edf353f747864eccbd7e18606, type: 3}
@@ -366,11 +376,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 5040758809984138235, guid: 438c6ee4470e667498ceeda24cfce9f2,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438c6ee4470e667498ceeda24cfce9f2, type: 3}
