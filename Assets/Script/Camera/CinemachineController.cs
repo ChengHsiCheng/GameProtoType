@@ -5,10 +5,11 @@ using Cinemachine;
 
 public class CinemachineController : MonoBehaviour
 {
-    [field: SerializeField] public CinemachineVirtualCameraBase lobby { get; private set; }
+    [field: SerializeField] public CinemachineVirtualCamera lobby { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase combat { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase initial { get; private set; }
     [field: SerializeField] public CinemachineVirtualCameraBase boss { get; private set; }
+    [field: SerializeField] public CinemachineVirtualCameraBase level { get; private set; }
 
     bool isLobby;
 
@@ -33,6 +34,19 @@ public class CinemachineController : MonoBehaviour
 
         GameManager.sceneController.InputReader.enabled = false;
     }
+
+    public void LevelCloseUp(GameObject obj)
+    {
+        lobby.LookAt = obj.transform;
+        lobby.m_Lens.FieldOfView = 10;
+
+        combat.VirtualCameraGameObject.SetActive(false);
+        lobby.VirtualCameraGameObject.SetActive(true);
+        boss.VirtualCameraGameObject.SetActive(false);
+
+        GameManager.sceneController.InputReader.enabled = false;
+    }
+
 
     public void BossDisCloseUp()
     {

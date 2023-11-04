@@ -8,12 +8,12 @@ public class UIManager : MonoBehaviour
 {
     public GameObject firstSelected, lastSelected;
 
-    public void OnOpen()
+    public virtual void OnOpen()
     {
         EventSystem.current.SetSelectedGameObject(lastSelected == null ? firstSelected : lastSelected);
     }
 
-    public void OnClosure()
+    public virtual void OnClosure()
     {
         lastSelected = EventSystem.current.currentSelectedGameObject;
         Debug.Log(EventSystem.current.currentSelectedGameObject);

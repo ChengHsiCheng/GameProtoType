@@ -48,7 +48,7 @@ public abstract class StateMachine : MonoBehaviour
     {
         SetCanMove(value, 0);
 
-        Material.material.SetFloat("_Petrifaction", 1);
+        Material?.material.SetFloat("_Petrifaction", 1);
     }
 
     public virtual void SetCanMove(bool value, float time)

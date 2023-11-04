@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -23,6 +24,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
     [field: SerializeField] public List<UIManager> UI = new List<UIManager>();
+    [field: SerializeField] public List<InteractiveTrigger> Interactiveobj = new List<InteractiveTrigger>();
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -115,10 +117,11 @@ public class PlayerStateMachine : StateMachine
         if (GameManager.isPauseGame)
             return;
 
-        if (UI.Count == 0)
-            return;
+        if (UI.Count != 0)
+            GameManager.sceneController.UIController.AddUI(UI[0]);
 
-        GameManager.sceneController.UIController.AddUI(UI[0]);
+        if (Interactiveobj.Count != 0)
+            Interactiveobj.Last().OnInteractive();
 
     }
 
