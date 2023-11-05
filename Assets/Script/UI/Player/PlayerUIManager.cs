@@ -9,7 +9,7 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public BarController HpBar { get; private set; }
     [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public SanCheck SanCheck { get; private set; }
-    [field: SerializeField] public GameObject DiedUI { get; private set; }
+    [field: SerializeField] public UIManager DiedUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
     [field: SerializeField] public Image HintUI { get; private set; }
     [field: SerializeField] public GameObject HealUI { get; private set; }
@@ -61,7 +61,7 @@ public class PlayerUIManager : UIManager
 
     public void SetDiedUI()
     {
-        //  GameManager.sceneController.UIController.AddUI(DiedUI, false);
+        GameManager.sceneController.UIController.AddUI(DiedUI, false);
     }
 
     public void SetHint(bool value)

@@ -9,44 +9,77 @@ public enum BarrageMode
 
 public class BarrageController : MonoBehaviour
 {
-    public ProjectileControls projectile;
-    public BarrageMode barrageMode;
-    public Vector3 InstantiatePos;
-    public float speed;
-    public float quantity;
-    public float startAngleY;
-    public float endAngleY;
-    // public float angleInterval;
-    public float shootInterval;
+    [SerializeField] private ProjectileControls projectile;
+    [SerializeField] private BarrageMode barrageMode;
+    [SerializeField] private Vector3 InstantiatePos;
+    [SerializeField] private float speed;
+    [SerializeField] private float quantity;
+    [SerializeField] private float startAngleY;
+    [SerializeField] private float endAngleY;
+    [SerializeField] private float shootInterval;
+
+    private int count;
 
     private void Start()
     {
+        Shoot();
+    }
+
+    public void Shoot()
+    {
+        Debug.Log("Shoot");
+        count = 0;
+
         if (barrageMode == BarrageMode.ScatterShoot)
         {
             for (int i = 0; i < quantity; i++)
             {
-                float rotationAmount = ((endAngleY - startAngleY) / quantity) * i;
-                Quaternion rotation = Quaternion.Euler(0, startAngleY + rotationAmount, 0);
-                ProjectileControls _projectile = Instantiate(projectile, InstantiatePos, rotation);
-                _projectile.SetValue(speed, _projectile.transform.forward);
+                ShootProjectile();
             }
         }
         else if (barrageMode == BarrageMode.ContinuousShoot)
         {
-            StartCoroutine(ContinuousShoot());
+            Debug.Log("ShootProjectile");
+            InvokeRepeating("ShootProjectile", 0, shootInterval);
+        }
+
+    }
+
+    private void ShootProjectile()
+    {
+        float rotationAmount = ((endAngleY - startAngleY) / quantity) * count + transform.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0, startAngleY + rotationAmount, 0);
+        ProjectileControls _projectile = Instantiate(projectile, InstantiatePos, rotation);
+        _projectile.SetValue(speed, _projectile.transform.forward);
+        count++;
+
+        if (count >= quantity)
+        {
+            CancelInvoke("ShootProjectile");
         }
     }
 
-    private IEnumerator ContinuousShoot()
-    {
-        for (int i = 0; i < quantity; i++)
-        {
-            float rotationAmount = ((endAngleY - startAngleY) / quantity) * i;
-            Quaternion rotation = Quaternion.Euler(0, startAngleY + rotationAmount, 0);
-            ProjectileControls _projectile = Instantiate(projectile, InstantiatePos, rotation);
-            _projectile.SetValue(speed, _projectile.transform.forward);
 
-            yield return new WaitForSeconds(shootInterval);
-        }
+    public void SetInstantiatePos(Transform InstantiateTra)
+    {
+        InstantiatePos = InstantiateTra.position;
+        InstantiatePos.y = 1;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, InstantiateTra.eulerAngles.y, transform.eulerAngles.z);
+    }
+
+    public void SetProjectile(ProjectileControls projectile, BarrageMode barrageMode, Transform InstantiateTra)
+    {
+        this.projectile = projectile;
+        this.barrageMode = barrageMode;
+        SetInstantiatePos(InstantiateTra);
+    }
+
+    public void SetValue(float speed, float quantity, float startAngleY, float endAngleY, float shootInterval)
+    {
+        this.speed = speed;
+        this.quantity = quantity;
+        this.startAngleY = startAngleY;
+        this.endAngleY = endAngleY;
+        this.shootInterval = shootInterval;
     }
 }

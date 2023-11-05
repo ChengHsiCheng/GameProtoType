@@ -69,7 +69,7 @@ public abstract class StateMachine : MonoBehaviour
         }
 
         int intValue = isPause ? 0 : 1; // 把canMove轉成1或0
-        Animator.SetFloat("AnimationSpeed", intValue);
+        Animator?.SetFloat("AnimationSpeed", intValue);
     }
 
 }

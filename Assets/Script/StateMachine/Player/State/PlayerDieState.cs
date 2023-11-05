@@ -23,7 +23,7 @@ public class PlayerDieState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeDuration);
 
         stateMachine.Collider.enabled = false;
-        stateMachine.AudioLogic.PlayAudio("Die");
+        //  stateMachine.AudioLogic.PlayAudio("Die");
     }
 
     public override void Tick(float deltaTime)

@@ -22,4 +22,10 @@ public abstract class Boss03BaseState : State
 
         stateMachine.transform.rotation = Quaternion.RotateTowards(stateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
+
+    protected void Whirling(Vector3 euluers, float deltaTime)
+    {
+        stateMachine.BigRing.transform.Rotate(euluers * stateMachine.ringSpeed * deltaTime);
+        stateMachine.SmallRing.transform.Rotate(-euluers * stateMachine.ringSpeed * deltaTime);
+    }
 }
