@@ -27,7 +27,7 @@ public class Boss03BarrageState : Boss03BaseState
 
         EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed);
 
-        Whirling(-Vector3.one, deltaTime);
+        Whirling(-Vector3.one, 1.5f, deltaTime);
 
         if (timer >= interval)
         {

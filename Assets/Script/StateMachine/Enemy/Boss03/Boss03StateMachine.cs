@@ -11,11 +11,13 @@ public class Boss03StateMachine : StateMachine, Enemy
     [field: SerializeField] public Boss03Crystal Crystal { get; private set; }
     [field: SerializeField] public List<Boss03Crystal> Crystals { get; private set; } = new List<Boss03Crystal>() { };
 
+
     [field: SerializeField] public bool isBarrageState { get; private set; }
+    [field: SerializeField] public float crystalsAmount { get; private set; }
     [field: SerializeField] public float meleeStateMaxTime { get; private set; }
     [field: SerializeField] public float meleeStateTimer { get; private set; }
     [field: SerializeField] public float coolDown { get; private set; }
-    [field: SerializeField] public float ringSpeed { get; private set; }
+    [field: SerializeField] public float baseRingSpeed { get; private set; }
     [field: SerializeField] public float rotationSpeed { get; private set; }
 
     protected PlayerStateMachine player;
@@ -34,9 +36,13 @@ public class Boss03StateMachine : StateMachine, Enemy
 
     public void SwitchBarrageState()
     {
-        Boss03Crystal crystal = Instantiate(Crystal, new Vector3(0, 0, 0), Quaternion.identity);
-        Crystals.Add(crystal);
-        crystal.OnDestroyEvent += CrystalDestroyEvent;
+        for (int i = 0; i < crystalsAmount; i++)
+        {
+            Boss03Crystal crystal = Instantiate(Crystal, new Vector3(Random.Range(-15.0f, 10.0f), 1, Random.Range(-15.0f, 15.0f)), Crystal.transform.rotation);
+            Crystals.Add(crystal);
+            crystal.OnDestroyEvent += CrystalDestroyEvent;
+        }
+
     }
 
     public void SwitchMeleeState()

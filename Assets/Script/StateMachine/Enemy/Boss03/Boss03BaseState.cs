@@ -20,12 +20,12 @@ public abstract class Boss03BaseState : State
         Vector3 direction = targetPos - stateMachine.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
 
-        stateMachine.transform.rotation = Quaternion.RotateTowards(stateMachine.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        stateMachine.Eye.transform.rotation = Quaternion.RotateTowards(stateMachine.Eye.transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    protected void Whirling(Vector3 euluers, float deltaTime)
+    protected void Whirling(Vector3 euluers, float speedAdd, float deltaTime)
     {
-        stateMachine.BigRing.transform.Rotate(euluers * stateMachine.ringSpeed * deltaTime);
-        stateMachine.SmallRing.transform.Rotate(-euluers * stateMachine.ringSpeed * deltaTime);
+        stateMachine.BigRing.transform.Rotate(euluers.normalized * stateMachine.baseRingSpeed * speedAdd * deltaTime);
+        stateMachine.SmallRing.transform.Rotate(-euluers.normalized * stateMachine.baseRingSpeed * speedAdd * deltaTime);
     }
 }

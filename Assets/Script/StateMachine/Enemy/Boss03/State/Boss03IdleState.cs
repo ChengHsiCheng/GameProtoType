@@ -18,7 +18,7 @@ public class Boss03IdleState : Boss03BaseState
     {
         EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed);
 
-        Whirling(Vector3.one, deltaTime);
+        Whirling(Vector3.one, 1, deltaTime);
 
         stateMachine.SetCoolDown(Mathf.Max(0, stateMachine.coolDown - deltaTime));
 
@@ -33,11 +33,20 @@ public class Boss03IdleState : Boss03BaseState
             }
         }
 
-        if (stateMachine.isBarrageState && stateMachine.coolDown <= 0)
+        if (stateMachine.coolDown <= 0)
         {
-            stateMachine.SwitchState(new Boss03BarrageState(stateMachine));
-            return;
+            if (stateMachine.isBarrageState)
+            {
+                stateMachine.SwitchState(new Boss03BarrageState(stateMachine));
+                return;
+            }
+            else
+            {
+                stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
+                return;
+            }
         }
+
     }
 
     public override void Exit()
