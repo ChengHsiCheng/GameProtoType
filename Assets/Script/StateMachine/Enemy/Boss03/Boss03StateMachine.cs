@@ -38,7 +38,7 @@ public class Boss03StateMachine : StateMachine, Enemy
     {
         for (int i = 0; i < crystalsAmount; i++)
         {
-            Boss03Crystal crystal = Instantiate(Crystal, new Vector3(Random.Range(-15.0f, 10.0f), 1, Random.Range(-15.0f, 15.0f)), Crystal.transform.rotation);
+            Boss03Crystal crystal = Instantiate(Crystal, new Vector3(Random.Range(-15.0f, 15.0f), 1, Random.Range(-15.0f, 10.0f)), Crystal.transform.rotation);
             Crystals.Add(crystal);
             crystal.OnDestroyEvent += CrystalDestroyEvent;
         }

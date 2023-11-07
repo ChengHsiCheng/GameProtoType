@@ -16,7 +16,7 @@ public abstract class Boss03BaseState : State
     /// </summary>
     protected void EyeFaceTarget(Vector3 targetPos, float rotationSpeed)
     {
-        targetPos.y = 1;
+        targetPos.y = stateMachine.transform.position.y;
         Vector3 direction = targetPos - stateMachine.transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
 
