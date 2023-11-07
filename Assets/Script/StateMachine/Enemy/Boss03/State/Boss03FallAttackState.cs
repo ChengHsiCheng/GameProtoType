@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Boss03FallAttackState : Boss03BaseState
 {
-    private bool isReady;
-    private float timer;
     private Vector3 targetPos;
 
     public Boss03FallAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
@@ -14,12 +12,13 @@ public class Boss03FallAttackState : Boss03BaseState
 
     public override void Enter()
     {
+        stateMachine.Animator.CrossFadeInFixedTime("FallAttack", 0.1f);
     }
     public override void Tick(float deltaTime)
     {
-        timer += deltaTime;
+        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
 
-        if (!isReady)
+        if (normalizedTime < 0.95f)
         {
             EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed);
 
@@ -27,17 +26,11 @@ public class Boss03FallAttackState : Boss03BaseState
             targetPos.y = 10;
             stateMachine.transform.position = Vector3.Lerp(stateMachine.transform.position, targetPos, 3 * deltaTime);
 
-            Whirling(new Vector3(0, 1, 0), 4, deltaTime);
-
-            if (timer > 3)
-            {
-                isReady = true;
-                timer = 0;
-            }
+            Whirling(Vector3.one, 4 * (1 - normalizedTime), deltaTime);
             return;
         }
 
-        if (timer < 3)
+        if (normalizedTime < 1)
         {
             Whirling(Vector3.one, 0.5f, deltaTime);
 
@@ -53,6 +46,7 @@ public class Boss03FallAttackState : Boss03BaseState
 
     public override void Exit()
     {
+        stateMachine.SetCoolDown(3);
     }
 
 }

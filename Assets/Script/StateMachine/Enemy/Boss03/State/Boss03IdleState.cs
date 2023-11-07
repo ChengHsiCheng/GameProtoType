@@ -12,6 +12,7 @@ public class Boss03IdleState : Boss03BaseState
 
     public override void Enter()
     {
+        stateMachine.Animator.CrossFadeInFixedTime("Idle", 0.1f);
     }
 
     public override void Tick(float deltaTime)

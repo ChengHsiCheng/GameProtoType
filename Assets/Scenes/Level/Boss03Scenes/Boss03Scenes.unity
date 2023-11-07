@@ -439,6 +439,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MS_RedTorus01_Boss03
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f3f70977671bd84f862dce5f8cb05b2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3f70977671bd84f862dce5f8cb05b2, type: 3}
 --- !u!1 &496229164
@@ -655,6 +660,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1214297683}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &874842135
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472750741}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4d90ef258519b443a3729f08597569b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &913789427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f46865f96dfd5e4eb478dd59f588960,
@@ -782,7 +807,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.22043431, g: 0.64538664, b: 0.6792453, a: 1}
-  m_Intensity: 20
+  m_Intensity: 50
   m_Range: 60.02
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -819,7 +844,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 11895
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
@@ -840,7 +865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143072523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 5.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -998,10 +1023,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5368247475674907739, guid: b62cfc300472fe2459d053c5d8904d69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b62cfc300472fe2459d053c5d8904d69,
         type: 3}
       propertyPath: m_Name
       value: MS_Boss03_EyeBall01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b62cfc300472fe2459d053c5d8904d69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876356454156386929, guid: b62cfc300472fe2459d053c5d8904d69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5522030290435120859, guid: b62cfc300472fe2459d053c5d8904d69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b62cfc300472fe2459d053c5d8904d69, type: 3}
@@ -1097,6 +1142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MS_YellowTorus01_Boss03
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f46865f96dfd5e4eb478dd59f588960,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f46865f96dfd5e4eb478dd59f588960, type: 3}
@@ -1943,7 +1993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812729008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.5, z: 15}
+  m_LocalPosition: {x: 0, y: 3.5, z: 15.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1965,7 +2015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5929b7e67c0cd154eb6b984407c5cd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 0}
+  <Animator>k__BackingField: {fileID: 874842135}
   <Material>k__BackingField: {fileID: 0}
   <Eye>k__BackingField: {fileID: 472750741}
   <BigRing>k__BackingField: {fileID: 285479278}
@@ -1994,9 +2044,9 @@ MonoBehaviour:
   <Crystals>k__BackingField: []
   <isBarrageState>k__BackingField: 0
   <crystalsAmount>k__BackingField: 5
-  <meleeStateMaxTime>k__BackingField: 3
+  <meleeStateMaxTime>k__BackingField: 100
   <meleeStateTimer>k__BackingField: 0
-  <coolDown>k__BackingField: 2
+  <coolDown>k__BackingField: 3
   <baseRingSpeed>k__BackingField: 100
   <rotationSpeed>k__BackingField: 200
 --- !u!135 &1812729012
