@@ -799,19 +799,7 @@ Transform:
   m_Father: {fileID: 489280546}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1348973293 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1955431641805499354, guid: d79ee35fc53f93e4ca5d5acdc26c991c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1955431640994388279}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1348973294 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1955431641805499353, guid: d79ee35fc53f93e4ca5d5acdc26c991c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1955431640994388279}
-  m_PrefabAsset: {fileID: 0}
---- !u!21 &1422463503
+--- !u!21 &1191392433
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -853,6 +841,18 @@ Material:
     - _QueueOffset: 0
     m_Colors: []
   m_BuildTextureStacks: []
+--- !u!1 &1348973293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1955431641805499354, guid: d79ee35fc53f93e4ca5d5acdc26c991c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1955431640994388279}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1348973294 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1955431641805499353, guid: d79ee35fc53f93e4ca5d5acdc26c991c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1955431640994388279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1443000717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1206,6 +1206,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1095431918891985352, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1138930557935656542, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9,
+        type: 3}
+    - target: {fileID: 2696133821383216739, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9,
+        type: 3}
     - target: {fileID: 3538165117998946884, guid: ce15dc99e8321f549ad8340fdec4674a,
         type: 3}
       propertyPath: m_RootOrder
@@ -1266,5 +1283,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRig
       objectReference: {fileID: 0}
+    - target: {fileID: 4498479107294137463, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9,
+        type: 3}
+    - target: {fileID: 4739052582425195451, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce15dc99e8321f549ad8340fdec4674a, type: 3}
