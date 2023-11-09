@@ -17,7 +17,7 @@ public class Boss01StartState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(RoarAnimatorString, AnimatorDampTime);
 
-        GameManager.sceneController.cinemachineController.BossCloseUp(stateMachine.gameObject);
+        GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.BossStart, stateMachine.gameObject.transform);
     }
 
     public override void Tick(float deltaTime)
@@ -26,7 +26,7 @@ public class Boss01StartState : Boss01BaseState
 
         if (normalizedTime > 0.8f && !isDisCloseUp)
         {
-            GameManager.sceneController.cinemachineController.BossDisCloseUp();
+            GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.Combat);
             isDisCloseUp = true;
             return;
         }

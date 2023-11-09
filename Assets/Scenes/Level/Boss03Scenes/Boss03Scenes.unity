@@ -262,6 +262,7 @@ Transform:
   m_Children:
   - {fileID: 1512864751}
   - {fileID: 650898750}
+  - {fileID: 1604501643}
   - {fileID: 1171149599}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -557,7 +558,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 496229165}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1171149600
 MonoBehaviour:
@@ -709,7 +710,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 496229165}
     m_Modifications:
     - target: {fileID: 1672199099305285220, guid: 953d5c082c4aa67498bf966f54c1ffba,
         type: 3}
@@ -784,7 +785,7 @@ PrefabInstance:
     - target: {fileID: 7258451228812167895, guid: 953d5c082c4aa67498bf966f54c1ffba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7258451228812167895, guid: 953d5c082c4aa67498bf966f54c1ffba,
         type: 3}
@@ -987,6 +988,12 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: f6b13ad285618534c9997c7ba630f571, type: 2}
+--- !u!4 &1604501643 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7258451228812167895, guid: 953d5c082c4aa67498bf966f54c1ffba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1266993179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1666920179
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,8 +11,6 @@ public class UIController : MonoBehaviour
 
     [SerializeField] private List<UIManager> UIElements = new List<UIManager>();
 
-    [SerializeField] private int vertical;
-    [SerializeField] private int horizontal;
 
     private void Start()
     {
