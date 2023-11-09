@@ -45,14 +45,14 @@ public class CinemachineController : MonoBehaviour
                 Cameras[i].gameObject.SetActive(true);
                 Cameras[i].m_LookAt = lookTarget;
 
-                if (i == (int)CameraMode.BossStart)
-                {
-                    GameManager.sceneController.InputReader.enabled = false;
-                }
-                else
-                {
-                    GameManager.sceneController.InputReader.enabled = true;
-                }
+                // if (i == (int)CameraMode.BossStart)
+                // {
+                //     GameManager.sceneController.InputReader.enabled = false;
+                // }
+                // else
+                // {
+                //     GameManager.sceneController.InputReader.enabled = true;
+                // }
             }
             else
             {

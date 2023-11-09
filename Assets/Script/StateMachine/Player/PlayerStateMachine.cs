@@ -160,9 +160,6 @@ public class PlayerStateMachine : StateMachine
         if (isSanCheck)
             return;
 
-        if (GameManager.isRiddle)
-            return;
-
         interfaceController.OnPauseMenu();
     }
 

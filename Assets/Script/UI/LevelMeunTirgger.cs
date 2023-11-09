@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelUIConntroller : InteractiveTrigger
+public class LevelMeunTirgger : InteractiveTrigger
 {
     [SerializeField] private UIManager levelUI;
 

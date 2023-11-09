@@ -48,9 +48,6 @@ public class UIController : MonoBehaviour
         ui.gameObject.SetActive(true);
 
         ui.OnOpen();
-
-        Debug.Log(UIElements.Count);
-
     }
 
     public void CloseUI()

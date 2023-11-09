@@ -21,7 +21,6 @@ public static class GameManager
 
     public static bool isPauseGame { private set; get; } = false; // 遊戲暫停
     public static bool isSetting { private set; get; } = false;
-    public static bool isRiddle { private set; get; } = false;
     public static string nowScenes { private set; get; } = SceneManager.GetActiveScene().name; // 目前場景
 
     public static float brightness { private set; get; } // 亮度
@@ -115,11 +114,6 @@ public static class GameManager
     public static void SetIsSetting(bool _isSetting)
     {
         isSetting = _isSetting;
-    }
-
-    public static void SetIsRiddle(bool value)
-    {
-        isRiddle = value;
     }
 
     public static void ToggleUI(bool value)
