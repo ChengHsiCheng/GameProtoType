@@ -118,7 +118,10 @@ public class PlayerStateMachine : StateMachine
             return;
 
         if (UI.Count != 0)
+        {
             GameManager.sceneController.UIController.AddUI(UI[0]);
+            return;
+        }
 
         if (Interactiveobj.Count != 0)
             Interactiveobj.Last().OnInteractive();

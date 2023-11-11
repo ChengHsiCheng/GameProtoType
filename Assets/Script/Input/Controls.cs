@@ -351,6 +351,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Check"",
+                    ""type"": ""Button"",
+                    ""id"": ""b24e0796-0824-42d9-a9eb-812ca2a87daf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -555,7 +564,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bdda5fd9-66cc-4585-a09d-591457a326dd"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -571,6 +580,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LeftStick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0097f339-4318-4205-8ef4-5b1cc3274583"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Check"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""655331a7-7fa5-4424-a364-ef38f552d89e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Check"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -623,6 +654,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu_Arrow = m_Menu.FindAction("Arrow", throwIfNotFound: true);
         m_Menu_Interactive = m_Menu.FindAction("Interactive", throwIfNotFound: true);
         m_Menu_LeftStick = m_Menu.FindAction("LeftStick", throwIfNotFound: true);
+        m_Menu_Check = m_Menu.FindAction("Check", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -775,6 +807,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Arrow;
     private readonly InputAction m_Menu_Interactive;
     private readonly InputAction m_Menu_LeftStick;
+    private readonly InputAction m_Menu_Check;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -783,6 +816,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Arrow => m_Wrapper.m_Menu_Arrow;
         public InputAction @Interactive => m_Wrapper.m_Menu_Interactive;
         public InputAction @LeftStick => m_Wrapper.m_Menu_LeftStick;
+        public InputAction @Check => m_Wrapper.m_Menu_Check;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -804,6 +838,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @LeftStick.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftStick;
                 @LeftStick.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftStick;
                 @LeftStick.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftStick;
+                @Check.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnCheck;
+                @Check.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnCheck;
+                @Check.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnCheck;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -820,6 +857,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @LeftStick.started += instance.OnLeftStick;
                 @LeftStick.performed += instance.OnLeftStick;
                 @LeftStick.canceled += instance.OnLeftStick;
+                @Check.started += instance.OnCheck;
+                @Check.performed += instance.OnCheck;
+                @Check.canceled += instance.OnCheck;
             }
         }
     }
@@ -859,5 +899,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnArrow(InputAction.CallbackContext context);
         void OnInteractive(InputAction.CallbackContext context);
         void OnLeftStick(InputAction.CallbackContext context);
+        void OnCheck(InputAction.CallbackContext context);
     }
 }
