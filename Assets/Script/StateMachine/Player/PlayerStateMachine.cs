@@ -24,7 +24,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
     [field: SerializeField] public List<UIManager> UI = new List<UIManager>();
-    [field: SerializeField] public List<InteractiveTrigger> Interactiveobj = new List<InteractiveTrigger>();
 
     [SerializeField] private InterfaceController interfaceController;
 
@@ -44,6 +43,8 @@ public class PlayerStateMachine : StateMachine
     private void Awake()
     {
         GameManager.player = this.gameObject;
+
+        Cursor.visible = false;
     }
 
     private void Start()
@@ -122,10 +123,6 @@ public class PlayerStateMachine : StateMachine
             GameManager.sceneController.UIController.AddUI(UI[0]);
             return;
         }
-
-        if (Interactiveobj.Count != 0)
-            Interactiveobj.Last().OnInteractive();
-
     }
 
     private void OnHeal()

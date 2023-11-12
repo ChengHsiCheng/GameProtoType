@@ -16,6 +16,5 @@ public class UIManager : MonoBehaviour
     public virtual void OnClosure()
     {
         lastSelected = EventSystem.current.currentSelectedGameObject;
-        Debug.Log(EventSystem.current.currentSelectedGameObject);
     }
 }

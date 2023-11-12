@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
 {
     private UIInputReader inputReader;
 
-    [SerializeField] private List<UIManager> UIElements = new List<UIManager>();
+    [SerializeField] public List<UIManager> UIElements { get; private set; } = new List<UIManager>();
 
 
     private void Start()
@@ -52,6 +52,8 @@ public class UIController : MonoBehaviour
 
     public void CloseUI()
     {
+        Debug.Log("AA");
+
         if (UIElements.Last().name == "MainMuen")
             return;
 
@@ -70,6 +72,5 @@ public class UIController : MonoBehaviour
         }
 
         UIElements.Last().OnOpen();
-
     }
 }

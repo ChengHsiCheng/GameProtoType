@@ -793,7 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 719851761}
   - component: {fileID: 719851762}
-  - component: {fileID: 719851763}
+  - component: {fileID: 719851764}
   m_Layer: 11
   m_Name: LevelUITrigger
   m_TagString: Untagged
@@ -829,7 +829,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1, z: 0.5}
   m_Center: {x: 0.7, y: -1, z: 0}
---- !u!114 &719851763
+--- !u!114 &719851764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -838,10 +838,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 719851760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60a69f17ff1854469589cc37eeb8e05, type: 3}
+  m_Script: {fileID: 11500000, guid: ccbdb2d03d909654e928c0dec32cc7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelUI: {fileID: 731643860}
+  UI: {fileID: 731643860}
+  trigger: {fileID: 719851762}
 --- !u!1 &731643855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1748,7 @@ MonoBehaviour:
   m_ActionsAsset: {fileID: -944628639613478452, guid: c19e8f579ff0e9d4687b20c0e3a033f4,
     type: 3}
   m_PointAction: {fileID: 0}
-  m_MoveAction: {fileID: -267849125635746225, guid: c19e8f579ff0e9d4687b20c0e3a033f4,
+  m_MoveAction: {fileID: -5122933431946663456, guid: c19e8f579ff0e9d4687b20c0e3a033f4,
     type: 3}
   m_SubmitAction: {fileID: 7430741264351479685, guid: c19e8f579ff0e9d4687b20c0e3a033f4,
     type: 3}

@@ -20,16 +20,36 @@ public class GamePadCursor : MonoBehaviour
 
     private void Update()
     {
-        transform.position += new Vector3(inputReader.Stick.x, inputReader.Stick.y, 0).normalized * speed * Time.deltaTime;
+        MouseOperate();
+    }
 
-        if (inputReader.Stick != Vector2.zero)
+    private void MouseOperate()
+    {
+        transform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+
+        if (Input.GetMouseButton(0))
         {
-            speed = Mathf.Min(speed += 150 * Time.deltaTime, maxSpeed);
+            if (isClick)
+            {
+                OnHold();
+            }
+            else
+            {
+                OnPress();
+                isClick = true;
+            }
         }
-        else
+        else if (isClick)
         {
-            speed = minSpeed;
+            OnUnlash();
+            isClick = false;
         }
+
+    }
+
+    private void GamePadOperate()
+    {
+        transform.position += new Vector3(inputReader.Stick.x, inputReader.Stick.y, 0).normalized * speed * Time.deltaTime;
 
         if (inputReader.isInteractive)
         {
@@ -47,6 +67,16 @@ public class GamePadCursor : MonoBehaviour
         {
             OnUnlash();
             isClick = false;
+        }
+
+
+        if (inputReader.Stick != Vector2.zero)
+        {
+            speed = Mathf.Min(speed += 150 * Time.deltaTime, maxSpeed);
+        }
+        else
+        {
+            speed = minSpeed;
         }
     }
 

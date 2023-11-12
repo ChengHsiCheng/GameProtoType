@@ -80,7 +80,7 @@ public static class GameManager
     {
         nowScenes = scenesName;
         TogglePause(false);
-        // sceneController.UIController.CloseUI();
+        sceneController.UIController.CloseUI();
         SceneManager.LoadScene(scenesName);
     }
 

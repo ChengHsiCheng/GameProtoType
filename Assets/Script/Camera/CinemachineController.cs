@@ -44,55 +44,21 @@ public class CinemachineController : MonoBehaviour
             {
                 Cameras[i].gameObject.SetActive(true);
                 Cameras[i].m_LookAt = lookTarget;
-
-                // if (i == (int)CameraMode.BossStart)
-                // {
-                //     GameManager.sceneController.InputReader.enabled = false;
-                // }
-                // else
-                // {
-                //     GameManager.sceneController.InputReader.enabled = true;
-                // }
             }
             else
             {
                 Cameras[i].gameObject.SetActive(false);
             }
-
-
         }
+
+        if (cameraMode == CameraMode.BossStart || cameraMode == CameraMode.ChooseLevel)
+        {
+            GameManager.sceneController.InputReader.enabled = false;
+            return;
+        }
+
+        GameManager.sceneController.InputReader.enabled = true;
+
     }
-
-    // public void BossCloseUp(GameObject _boss)
-    // {
-    //     boss.LookAt = _boss.transform;
-    //     combat.VirtualCameraGameObject.SetActive(false);
-    //     lobby.VirtualCameraGameObject.SetActive(false);
-    //     boss.VirtualCameraGameObject.SetActive(true);
-
-    //     GameManager.sceneController.InputReader.enabled = false;
-    // }
-
-    // public void LevelCloseUp(GameObject obj)
-    // {
-    //     lobby.LookAt = obj.transform;
-    //     lobby.m_Lens.FieldOfView = 10;
-
-    //     combat.VirtualCameraGameObject.SetActive(false);
-    //     lobby.VirtualCameraGameObject.SetActive(true);
-    //     boss.VirtualCameraGameObject.SetActive(false);
-
-    //     GameManager.sceneController.InputReader.enabled = false;
-    // }
-
-
-    // public void BossDisCloseUp()
-    // {
-    //     boss.LookAt = null;
-    //     SwitchCamera();
-    //     boss.VirtualCameraGameObject.SetActive(false);
-
-    //     GameManager.sceneController.InputReader.enabled = true;
-    // }
 
 }

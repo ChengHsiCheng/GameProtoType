@@ -14,6 +14,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     public event Action OnBackEvent;
     public event Action OnInteractiveEvent;
     public event Action OnArrowKeyEvent;
+    public event Action OnCheckEvent;
 
 
 
@@ -62,6 +63,9 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 
     public void OnLeftStick(InputAction.CallbackContext context)
     {
+        if (!context.performed)
+            return;
+
         Stick = context.ReadValue<Vector2>();
     }
 
@@ -69,5 +73,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     {
         if (!context.performed)
             return;
+
+        OnCheckEvent?.Invoke();
     }
 }
