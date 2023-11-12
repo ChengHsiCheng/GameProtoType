@@ -5,6 +5,7 @@ using UnityEngine;
 public class Boss03FallAttackState : Boss03BaseState
 {
     private Vector3 targetPos;
+    private bool isPlayVFX;
 
     public Boss03FallAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
@@ -20,14 +21,22 @@ public class Boss03FallAttackState : Boss03BaseState
 
         if (normalizedTime < 0.95f)
         {
-            EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed);
+            EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed * deltaTime);
 
             targetPos = GameManager.player.transform.position;
-            targetPos.y = 10;
+            targetPos.y = 8;
             stateMachine.transform.position = Vector3.Lerp(stateMachine.transform.position, targetPos, 3 * deltaTime);
 
             Whirling(Vector3.one, 4 * (1 - normalizedTime), deltaTime);
             return;
+        }
+
+        if (!isPlayVFX && stateMachine.transform.position.y <= 1f)
+        {
+            Vector3 pos = stateMachine.transform.position;
+            pos.y = 0;
+            GameObject.Instantiate(stateMachine.VFXPlayer.GetVFXByName("FallAttack"), pos, Quaternion.identity);
+            isPlayVFX = true;
         }
 
         if (normalizedTime < 1)
@@ -35,7 +44,7 @@ public class Boss03FallAttackState : Boss03BaseState
             Whirling(Vector3.one, 0.5f, deltaTime);
 
             targetPos = stateMachine.transform.position;
-            targetPos.y = 3.5f;
+            targetPos.y = 0f;
             stateMachine.transform.position = Vector3.Lerp(stateMachine.transform.position, targetPos, 15 * deltaTime);
             return;
         }

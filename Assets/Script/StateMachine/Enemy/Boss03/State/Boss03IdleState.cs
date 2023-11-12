@@ -17,7 +17,9 @@ public class Boss03IdleState : Boss03BaseState
 
     public override void Tick(float deltaTime)
     {
-        EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed);
+        EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed * deltaTime);
+
+        Debug.Log(MoveRayCastHit());
 
         Whirling(Vector3.one, 1, deltaTime);
 
@@ -43,7 +45,8 @@ public class Boss03IdleState : Boss03BaseState
             }
             else
             {
-                stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
+                // stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
+                stateMachine.SwitchState(new Boss03ChargeAttackState(stateMachine));
                 return;
             }
         }

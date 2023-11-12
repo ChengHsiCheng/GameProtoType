@@ -7,9 +7,12 @@ public class Boss03StateMachine : StateMachine, Enemy
     [field: SerializeField] public GameObject Eye { get; private set; }
     [field: SerializeField] public GameObject BigRing { get; private set; }
     [field: SerializeField] public GameObject SmallRing { get; private set; }
+    [field: SerializeField] public VFXPlayer VFXPlayer { get; private set; }
     [field: SerializeField] public EnemySkill[] BarrageSkills { get; private set; }
+    [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public Boss03Crystal Crystal { get; private set; }
     [field: SerializeField] public List<Boss03Crystal> Crystals { get; private set; } = new List<Boss03Crystal>() { };
+    [field: SerializeField] public Boss03SceneController sceneController { get; private set; }
 
 
     [field: SerializeField] public bool isBarrageState { get; private set; }
@@ -25,7 +28,7 @@ public class Boss03StateMachine : StateMachine, Enemy
     private void Start()
     {
         GameManager.enemys.Add(this);
-
+        sceneController = GameManager.sceneController.GetComponent<Boss03SceneController>();
         SwitchState(new Boss03IdleState(this));
     }
 
