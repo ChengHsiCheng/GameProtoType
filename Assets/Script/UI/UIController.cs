@@ -52,8 +52,6 @@ public class UIController : MonoBehaviour
 
     public void CloseUI()
     {
-        Debug.Log("AA");
-
         if (UIElements.Last().name == "MainMuen")
             return;
 

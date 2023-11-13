@@ -19,8 +19,6 @@ public class Boss03IdleState : Boss03BaseState
     {
         EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed * deltaTime);
 
-        Debug.Log(MoveRayCastHit());
-
         Whirling(Vector3.one, 1, deltaTime);
 
         stateMachine.SetCoolDown(Mathf.Max(0, stateMachine.coolDown - deltaTime));
@@ -28,8 +26,6 @@ public class Boss03IdleState : Boss03BaseState
         // 近戰模式計時切換到彈幕模式
         if (!stateMachine.isBarrageState)
         {
-            stateMachine.SetMeleeStateTimer(stateMachine.meleeStateTimer + deltaTime);
-
             if (stateMachine.meleeStateTimer >= stateMachine.meleeStateMaxTime)
             {
                 stateMachine.SetIsBarrageState(true);
@@ -45,8 +41,11 @@ public class Boss03IdleState : Boss03BaseState
             }
             else
             {
-                // stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
-                stateMachine.SwitchState(new Boss03ChargeAttackState(stateMachine));
+                if (stateMachine.isFallAttack)
+                    stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
+                else
+                    stateMachine.SwitchState(new Boss03ChargeAttackState(stateMachine));
+
                 return;
             }
         }

@@ -16,14 +16,13 @@ public class Boss03StateMachine : StateMachine, Enemy
 
 
     [field: SerializeField] public bool isBarrageState { get; private set; }
+    [field: SerializeField] public bool isFallAttack { get; private set; }
     [field: SerializeField] public float crystalsAmount { get; private set; }
     [field: SerializeField] public float meleeStateMaxTime { get; private set; }
     [field: SerializeField] public float meleeStateTimer { get; private set; }
     [field: SerializeField] public float coolDown { get; private set; }
     [field: SerializeField] public float baseRingSpeed { get; private set; }
     [field: SerializeField] public float rotationSpeed { get; private set; }
-
-    protected PlayerStateMachine player;
 
     private void Start()
     {
@@ -73,6 +72,11 @@ public class Boss03StateMachine : StateMachine, Enemy
             SwitchBarrageState();
         else
             SwitchMeleeState();
+    }
+
+    public void SetFallAttack(bool fallAttack)
+    {
+        isFallAttack = fallAttack;
     }
 
     public void SetMeleeStateTimer(float timer)

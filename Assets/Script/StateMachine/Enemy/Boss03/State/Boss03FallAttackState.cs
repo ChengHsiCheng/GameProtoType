@@ -14,9 +14,13 @@ public class Boss03FallAttackState : Boss03BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime("FallAttack", 0.1f);
+
+        stateMachine.SetFallAttack(false);
     }
     public override void Tick(float deltaTime)
     {
+        stateMachine.SetMeleeStateTimer(stateMachine.meleeStateTimer + deltaTime);
+
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
 
         if (normalizedTime < 0.95f)

@@ -14,6 +14,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
     private Vector3 targetPos;
     private Vector3 salfPos;
     private float timer;
+    private int loopIndex;
+    private int index;
 
     public Boss03ChargeAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
@@ -21,10 +23,13 @@ public class Boss03ChargeAttackState : Boss03BaseState
 
     public override void Enter()
     {
+        loopIndex = Random.Range(2, 6);
     }
 
     public override void Tick(float deltaTime)
     {
+        stateMachine.SetMeleeStateTimer(stateMachine.meleeStateTimer + deltaTime);
+
         salfPos = stateMachine.transform.position;
 
         if (stage == Stage.Up)
@@ -69,9 +74,17 @@ public class Boss03ChargeAttackState : Boss03BaseState
                 return;
             }
 
-            if (stateMachine.transform.position.x > 18 || stateMachine.transform.position.x < -18
-            || stateMachine.transform.position.z > 18 || stateMachine.transform.position.z < -18)
+            if (stateMachine.transform.position.x > 18.5f || stateMachine.transform.position.x < -18.5f
+            || stateMachine.transform.position.z > 18.5f || stateMachine.transform.position.z < -18.5f)
             {
+                if (index < loopIndex)
+                {
+                    index++;
+                    timer = 0;
+                    stage = Stage.Up;
+                    return;
+                }
+
                 stateMachine.SwitchState(new Boss03IdleState(stateMachine));
                 return;
             }
@@ -89,6 +102,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
 
     public override void Exit()
     {
+        stateMachine.SetCoolDown(1);
+        stateMachine.SetFallAttack(true);
     }
 
 

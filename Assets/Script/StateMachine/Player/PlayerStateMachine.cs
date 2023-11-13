@@ -49,7 +49,7 @@ public class PlayerStateMachine : StateMachine
 
     private void Start()
     {
-        Debug.Log(SceneManager.GetActiveScene().name);
+        // Debug.Log(SceneManager.GetActiveScene().name);
         SwitchState(new PlayerMovingState(this));
 
         MainCameraTransform = Camera.main.transform;

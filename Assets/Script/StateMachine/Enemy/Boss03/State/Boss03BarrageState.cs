@@ -11,6 +11,8 @@ public class Boss03BarrageState : Boss03BaseState
     private float interval = 1;
     private float timer;
 
+    private Vector3 targetPos = new Vector3(0, 0, 22);
+
     public Boss03BarrageState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -23,11 +25,17 @@ public class Boss03BarrageState : Boss03BaseState
 
     public override void Tick(float deltaTime)
     {
-        timer += deltaTime;
-
         EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed);
 
         Whirling(-Vector3.one, 1.5f, deltaTime);
+
+        if (Vector3.Distance(stateMachine.transform.position, targetPos) > 0.5f)
+        {
+            stateMachine.transform.position = Vector3.Lerp(stateMachine.transform.position, targetPos, 15 * deltaTime);
+            return;
+        }
+
+        timer += deltaTime;
 
         if (timer >= interval)
         {

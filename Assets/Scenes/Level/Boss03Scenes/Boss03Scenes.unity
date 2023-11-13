@@ -283,8 +283,9 @@ MonoBehaviour:
   portal: {fileID: 0}
   <Points>k__BackingField:
   - {x: 0, y: 0, z: 17}
-  - {x: 18, y: 0, z: 0}
   - {x: -18, y: 0, z: 0}
+  - {x: -18, y: 0, z: 10}
+  - {x: -18, y: 0, z: -10}
 --- !u!1001 &628594784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1292,10 +1293,11 @@ MonoBehaviour:
   <Crystals>k__BackingField: []
   <sceneController>k__BackingField: {fileID: 0}
   <isBarrageState>k__BackingField: 0
+  <isFallAttack>k__BackingField: 0
   <crystalsAmount>k__BackingField: 5
-  <meleeStateMaxTime>k__BackingField: 100
+  <meleeStateMaxTime>k__BackingField: 10
   <meleeStateTimer>k__BackingField: 0
-  <coolDown>k__BackingField: 10
+  <coolDown>k__BackingField: 1
   <baseRingSpeed>k__BackingField: 100
   <rotationSpeed>k__BackingField: 500
 --- !u!135 &1812729012
