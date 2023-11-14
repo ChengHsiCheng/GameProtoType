@@ -54,9 +54,12 @@ public class Boss03ChargeAttackState : Boss03BaseState
             Whirling(Vector3.one, 1, deltaTime);
 
             stateMachine.transform.position = Vector3.Lerp(salfPos, targetPos, 10 * deltaTime);
+            EyeFaceTarget(GameManager.player.transform.position, Mathf.Infinity * deltaTime);
 
             if (Vector3.Distance(salfPos, targetPos) <= 1)
             {
+                targetPos = GameManager.player.transform.position - salfPos;
+                GameObject.Instantiate(stateMachine.VFXPlayer.GetVFXByName("WarningArea"), stateMachine.transform.position, stateMachine.Eye.transform.rotation * Quaternion.Euler(0, -180, 0));
                 stage = Stage.Charge;
             }
             return;
@@ -68,8 +71,6 @@ public class Boss03ChargeAttackState : Boss03BaseState
 
             if (timer < 0.5f)
             {
-                targetPos = GameManager.player.transform.position - salfPos;
-                EyeFaceTarget(GameManager.player.transform.position, stateMachine.rotationSpeed * deltaTime);
                 Whirling(Vector3.one, 1 + timer * 5, deltaTime);
                 return;
             }

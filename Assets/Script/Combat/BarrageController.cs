@@ -11,7 +11,7 @@ public class BarrageController : MonoBehaviour
 {
     [SerializeField] private ProjectileControls projectile;
     [SerializeField] private BarrageMode barrageMode;
-    [SerializeField] private Vector3 InstantiatePos;
+    private Vector3 InstantiatePos;
     [SerializeField] private float speed;
     [SerializeField] private float quantity;
     [SerializeField] private float startAngleY;
