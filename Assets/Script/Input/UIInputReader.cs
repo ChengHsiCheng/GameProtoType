@@ -69,7 +69,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         Stick = context.ReadValue<Vector2>();
     }
 
-    public void OnCheck(InputAction.CallbackContext context)
+    public void OnSubmit(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;

@@ -20,6 +20,7 @@ public class InterfaceController : MonoBehaviour
 
     public void OnSetting()
     {
+        Debug.Log("setting");
         GameManager.sceneController.UIController.AddUI(setting.settingUI);
     }
 }

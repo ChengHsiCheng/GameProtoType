@@ -353,7 +353,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Check"",
+                    ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""b24e0796-0824-42d9-a9eb-812ca2a87daf"",
                     ""expectedControlType"": ""Button"",
@@ -590,7 +590,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Check"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -601,7 +601,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Check"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -654,7 +654,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu_Arrow = m_Menu.FindAction("Arrow", throwIfNotFound: true);
         m_Menu_Interactive = m_Menu.FindAction("Interactive", throwIfNotFound: true);
         m_Menu_LeftStick = m_Menu.FindAction("LeftStick", throwIfNotFound: true);
-        m_Menu_Check = m_Menu.FindAction("Check", throwIfNotFound: true);
+        m_Menu_Submit = m_Menu.FindAction("Submit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -807,7 +807,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Arrow;
     private readonly InputAction m_Menu_Interactive;
     private readonly InputAction m_Menu_LeftStick;
-    private readonly InputAction m_Menu_Check;
+    private readonly InputAction m_Menu_Submit;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -816,7 +816,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Arrow => m_Wrapper.m_Menu_Arrow;
         public InputAction @Interactive => m_Wrapper.m_Menu_Interactive;
         public InputAction @LeftStick => m_Wrapper.m_Menu_LeftStick;
-        public InputAction @Check => m_Wrapper.m_Menu_Check;
+        public InputAction @Submit => m_Wrapper.m_Menu_Submit;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -838,9 +838,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @LeftStick.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftStick;
                 @LeftStick.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftStick;
                 @LeftStick.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftStick;
-                @Check.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnCheck;
-                @Check.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnCheck;
-                @Check.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnCheck;
+                @Submit.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
+                @Submit.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
+                @Submit.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -857,9 +857,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @LeftStick.started += instance.OnLeftStick;
                 @LeftStick.performed += instance.OnLeftStick;
                 @LeftStick.canceled += instance.OnLeftStick;
-                @Check.started += instance.OnCheck;
-                @Check.performed += instance.OnCheck;
-                @Check.canceled += instance.OnCheck;
+                @Submit.started += instance.OnSubmit;
+                @Submit.performed += instance.OnSubmit;
+                @Submit.canceled += instance.OnSubmit;
             }
         }
     }
@@ -899,6 +899,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnArrow(InputAction.CallbackContext context);
         void OnInteractive(InputAction.CallbackContext context);
         void OnLeftStick(InputAction.CallbackContext context);
-        void OnCheck(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
     }
 }

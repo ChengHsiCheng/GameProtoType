@@ -5,11 +5,14 @@ using UnityEngine;
 public class Boss03BarrageState : Boss03BaseState
 {
     private EnemySkill[] skill;
+    private EnemySkill laserSkill;
 
     private float wave;
     private float waveCount;
     private float interval = 1;
     private float timer;
+
+    private bool isBarraheMode;
 
     private Vector3 targetPos = new Vector3(0, 0, 22);
 
@@ -20,7 +23,10 @@ public class Boss03BarrageState : Boss03BaseState
     public override void Enter()
     {
         skill = stateMachine.BarrageSkills;
+        laserSkill = stateMachine.LaserSkill;
+
         wave = Random.Range(5, 11);
+        isBarraheMode = Random.Range(0, 2) == 0;
     }
 
     public override void Tick(float deltaTime)
@@ -37,19 +43,43 @@ public class Boss03BarrageState : Boss03BaseState
 
         timer += deltaTime;
 
+        if (!stateMachine.isBarrageState)
+        {
+            stateMachine.SwitchState(new Boss03IdleState(stateMachine));
+            return;
+        }
+
         if (timer >= interval)
         {
-            int r = Random.Range(0, skill.Length);
-            skill[r].skill.castTransform = stateMachine.Eye.transform;
-            skill[r].skill.UseSkill();
+            if (isBarraheMode)
+            {
+                int r = Random.Range(0, skill.Length);
+                skill[r].skill.castTransform = stateMachine.Eye.transform;
+                skill[r].skill.UseSkill();
+                interval = Random.Range(skill[r].MinCooldownTime, skill[r].MaxCooldownTime);
+            }
+            else
+            {
+                laserSkill.skill.UseSkill();
+                interval = Random.Range(laserSkill.MinCooldownTime, laserSkill.MaxCooldownTime);
+            }
+
             timer = 0;
             waveCount++;
         }
 
         if (waveCount >= wave)
         {
-            stateMachine.SwitchState(new Boss03IdleState(stateMachine));
-            return;
+            waveCount = 0;
+            isBarraheMode = !isBarraheMode;
+            if (isBarraheMode)
+            {
+                wave = Random.Range(5, 11);
+            }
+            else
+            {
+                wave = Random.Range(3, 6);
+            }
         }
 
     }

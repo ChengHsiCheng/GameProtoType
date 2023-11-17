@@ -45,9 +45,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castTransform: {fileID: 0}
+  mode: 3
   LeserBeam: {fileID: 1404119286469408731, guid: bffb077a7ba98a147b36f30ebddc70f7,
     type: 3}
+  WarningArea: {fileID: 5945070122146301111, guid: b91d3f8e301076d4a97bb39472eed067,
+    type: 3}
   instantiatePos:
-  - {x: 0, y: 1, z: 0}
-  instantiateRotate:
-  - {x: 0, y: 180, z: 0}
+  - <pos>k__BackingField:
+    - {x: 16, y: 21}
+    - {x: 8, y: 21}
+    - {x: 0, y: 21}
+    - {x: -8, y: 21}
+    - {x: -16, y: 21}
+    <rotationY>k__BackingField: 0
+  - <pos>k__BackingField:
+    - {x: 20, y: 20}
+    - {x: 12, y: 20}
+    - {x: 4, y: 20}
+    - {x: -4, y: 20}
+    - {x: -12, y: 20}
+    - {x: -20, y: 20}
+    <rotationY>k__BackingField: 0
+  - <pos>k__BackingField:
+    - {x: -21, y: 16}
+    - {x: -21, y: 8}
+    - {x: -21, y: 0}
+    - {x: -21, y: -8}
+    - {x: -21, y: -16}
+    <rotationY>k__BackingField: -90
+  - <pos>k__BackingField:
+    - {x: -21, y: 20}
+    - {x: -21, y: 12}
+    - {x: -21, y: 4}
+    - {x: -21, y: -4}
+    - {x: -21, y: -12}
+    <rotationY>k__BackingField: -90

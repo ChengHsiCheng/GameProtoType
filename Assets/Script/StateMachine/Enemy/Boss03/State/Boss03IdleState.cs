@@ -29,25 +29,19 @@ public class Boss03IdleState : Boss03BaseState
             if (stateMachine.meleeStateTimer >= stateMachine.meleeStateMaxTime)
             {
                 stateMachine.SetIsBarrageState(true);
+                // stateMachine.SwitchState(new Boss03BarrageState(stateMachine));
+                return;
             }
         }
 
         if (stateMachine.coolDown <= 0)
         {
-            if (stateMachine.isBarrageState)
-            {
-                stateMachine.SwitchState(new Boss03BarrageState(stateMachine));
-                return;
-            }
+            if (stateMachine.isFallAttack)
+                stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
             else
-            {
-                if (stateMachine.isFallAttack)
-                    stateMachine.SwitchState(new Boss03FallAttackState(stateMachine));
-                else
-                    stateMachine.SwitchState(new Boss03ChargeAttackState(stateMachine));
+                stateMachine.SwitchState(new Boss03ChargeAttackState(stateMachine));
 
-                return;
-            }
+            return;
         }
 
     }
