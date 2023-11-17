@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_SH_StylizedWater01
+  m_Name: M_StylizedWater_Blue01
   m_Shader: {fileID: -6465566751694194690, guid: 3d84f5db5c9b4c14b87606aaaaa14a36,
     type: 3}
   m_ValidKeywords: []
@@ -26,7 +26,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_275d2aa74bc94d99893d65899e746945_Out_0:
-        m_Texture: {fileID: 2800000, guid: 2c77a01f0548d75469f825c567ef80fa, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9393e223bc1c3ea458ae1e14b370faff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_4b5a0bb586ca40b08e216ef4478a0a56_Out_0:
+        m_Texture: {fileID: 2800000, guid: 1a69f8da41d3e6549ac8e10bc46723e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_59693e8ac4244d4f9f6f3dbd0bea6201_Out_0:
@@ -61,8 +65,9 @@ Material:
     - _Step: 0.36
     - _Strength: 1
     m_Colors:
+    - _BG_Color: {r: 0.227451, g: 0.7137255, b: 0.8509804, a: 0}
     - _Color: {r: 0.46571732, g: 0.5849056, b: 0.5768833, a: 0}
-    - _Foam_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Foam_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0}
     - _Noise_Tiling: {r: 1, g: 2, b: 0, a: 0}
     - _Noise_offset: {r: 0.02, g: 0.02, b: 0, a: 0}
     - _Pattern_Tilling: {r: 2, g: 2, b: 0, a: 0}
