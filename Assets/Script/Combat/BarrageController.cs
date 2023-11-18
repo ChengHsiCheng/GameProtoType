@@ -11,7 +11,7 @@ public class BarrageController : MonoBehaviour
 {
     [SerializeField] private ProjectileControls projectile;
     [SerializeField] private BarrageMode barrageMode;
-    [SerializeField] private Vector3 InstantiatePos;
+    private Vector3 InstantiatePos;
     [SerializeField] private float speed;
     [SerializeField] private int quantity;
     [SerializeField] private float startAngleY;
@@ -79,7 +79,9 @@ public class BarrageController : MonoBehaviour
         if (count >= quantity)
         {
             CancelInvoke("ShootProjectile");
+            Destroy(gameObject);
         }
+
     }
 
 
@@ -87,7 +89,6 @@ public class BarrageController : MonoBehaviour
     {
         InstantiatePos = InstantiateTra.position;
         InstantiatePos.y = 1;
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, InstantiateTra.eulerAngles.y, transform.eulerAngles.z);
     }
 
     public void SetProjectile(ProjectileControls projectile, BarrageMode barrageMode, Transform InstantiateTra)

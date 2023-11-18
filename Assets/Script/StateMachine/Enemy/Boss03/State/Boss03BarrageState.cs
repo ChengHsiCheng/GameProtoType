@@ -12,6 +12,8 @@ public class Boss03BarrageState : Boss03BaseState
     private float interval = 1;
     private float timer;
 
+    private int[] ints = { 0, 0, 0, 0 };
+
     private bool isBarraheMode;
 
     private Vector3 targetPos = new Vector3(0, 0, 22);
@@ -25,8 +27,16 @@ public class Boss03BarrageState : Boss03BaseState
         skill = stateMachine.BarrageSkills;
         laserSkill = stateMachine.LaserSkill;
 
-        wave = Random.Range(5, 11);
         isBarraheMode = Random.Range(0, 2) == 0;
+
+        if (isBarraheMode)
+        {
+            wave = Random.Range(10, 15);
+        }
+        else
+        {
+            wave = Random.Range(2, 5);
+        }
     }
 
     public override void Tick(float deltaTime)
@@ -54,8 +64,9 @@ public class Boss03BarrageState : Boss03BaseState
             if (isBarraheMode)
             {
                 int r = Random.Range(0, skill.Length);
-                skill[r].skill.castTransform = stateMachine.Eye.transform;
-                skill[r].skill.UseSkill();
+                Skill _skill = GameObject.Instantiate(skill[r].skill);
+                _skill.castTransform = stateMachine.Eye.transform;
+                _skill.UseSkill();
                 interval = Random.Range(skill[r].MinCooldownTime, skill[r].MaxCooldownTime);
             }
             else
@@ -72,13 +83,14 @@ public class Boss03BarrageState : Boss03BaseState
         {
             waveCount = 0;
             isBarraheMode = !isBarraheMode;
+
             if (isBarraheMode)
             {
-                wave = Random.Range(5, 11);
+                wave = Random.Range(10, 15);
             }
             else
             {
-                wave = Random.Range(3, 6);
+                wave = Random.Range(2, 5);
             }
         }
 

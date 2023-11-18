@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7362706557284356311}
   - component: {fileID: 7362706557284356308}
   m_Layer: 0
-  m_Name: ContiuounsBarrageSkill
+  m_Name: ContiuounsBarrageSkill_Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,9 +62,10 @@ MonoBehaviour:
   projectile: {fileID: 3696455869234864673, guid: 469afa198571f1648a4a4cc26400cdd6,
     type: 3}
   barrageMode: 0
+  InstantiatePos: {x: 0, y: 1, z: 22.4}
   speed: 10
-  quantity: 20
+  quantity: 15
   startAngleY: -60
   endAngleY: 60
   shootInterval: 0.2
-  back: 0
+  back: 1

@@ -51,7 +51,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 20
+        m_Name: Lifetime
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -138,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a10a4e14b5e484b869647072541515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: 10
+  liveTime: 20
   vfxs: []
   particles: []
   trigger: {fileID: 0}
