@@ -11,14 +11,16 @@ public class BarrageController : MonoBehaviour
 {
     [SerializeField] private ProjectileControls projectile;
     [SerializeField] private BarrageMode barrageMode;
-    private Vector3 InstantiatePos;
+    [SerializeField] private Vector3 InstantiatePos;
     [SerializeField] private float speed;
-    [SerializeField] private float quantity;
+    [SerializeField] private int quantity;
     [SerializeField] private float startAngleY;
     [SerializeField] private float endAngleY;
     [SerializeField] private float shootInterval;
+    [SerializeField] private bool back;
 
     private int count;
+    private int angleCount;
 
     private void Start()
     {
@@ -29,6 +31,15 @@ public class BarrageController : MonoBehaviour
     {
         Debug.Log("Shoot");
         count = 0;
+
+        if (back)
+        {
+            angleCount = quantity;
+        }
+        else
+        {
+            angleCount = 0;
+        }
 
         if (barrageMode == BarrageMode.ScatterShoot)
         {
@@ -47,7 +58,19 @@ public class BarrageController : MonoBehaviour
 
     private void ShootProjectile()
     {
-        float rotationAmount = ((endAngleY - startAngleY) / quantity) * count + transform.eulerAngles.y;
+        float rotationAmount;
+
+        if (back)
+        {
+            angleCount--;
+        }
+        else
+        {
+            angleCount++;
+        }
+
+        rotationAmount = ((endAngleY - startAngleY) / quantity) * angleCount + transform.eulerAngles.y;
+
         Quaternion rotation = Quaternion.Euler(0, startAngleY + rotationAmount, 0);
         ProjectileControls _projectile = Instantiate(projectile, InstantiatePos, rotation);
         _projectile.SetValue(speed, _projectile.transform.forward);
@@ -74,7 +97,7 @@ public class BarrageController : MonoBehaviour
         SetInstantiatePos(InstantiateTra);
     }
 
-    public void SetValue(float speed, float quantity, float startAngleY, float endAngleY, float shootInterval)
+    public void SetValue(float speed, int quantity, float startAngleY, float endAngleY, float shootInterval)
     {
         this.speed = speed;
         this.quantity = quantity;
