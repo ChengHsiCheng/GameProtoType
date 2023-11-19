@@ -14,7 +14,7 @@ public class WeaponHendler : MonoBehaviour
     /// <summary>
     /// 開啟武器碰撞
     /// </summary>
-    protected void EnableWeapon(int Index)
+    public void EnableWeapon(int Index)
     {
         weaponLogic[Index]?.SetCollider(true);
     }
@@ -42,4 +42,8 @@ public class WeaponHendler : MonoBehaviour
         VFXEvent?.Invoke(name);
     }
 
+    internal void EnableWeapon()
+    {
+        throw new NotImplementedException();
+    }
 }

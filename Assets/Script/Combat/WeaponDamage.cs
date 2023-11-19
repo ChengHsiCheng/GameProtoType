@@ -40,7 +40,9 @@ public class WeaponDamage : MonoBehaviour
 
         if (other.TryGetComponent<ForceReceiver>(out ForceReceiver force))
         {
-            force.AddForce((other.transform.position - myCollider.transform.position).normalized * impact);
+            Vector3 _force = other.transform.position - myCollider.transform.position;
+            _force.y = 0;
+            force.AddForce(_force.normalized * impact);
         }
 
         if (other.TryGetComponent<Health>(out Health health))

@@ -7,6 +7,10 @@ public class ContinuousDamage : Damage
 {
     private float timer;
 
+    [SerializeField] private float startTime;
+    [SerializeField] private float stopTime;
+    [SerializeField] private float time;
+
     private Health health { get => GameManager.player.GetComponent<Health>(); }
     private San san { get => GameManager.player.GetComponent<San>(); }
 
@@ -16,6 +20,10 @@ public class ContinuousDamage : Damage
             return;
 
         timer += Time.deltaTime;
+        time += Time.deltaTime;
+
+        if (time < startTime || time > stopTime)
+            return;
 
         if (!trigger.IsInRadius)
             return;
@@ -25,6 +33,7 @@ public class ContinuousDamage : Damage
 
         timer -= 0.1f;
 
+        Debug.Log("??");
         health.DealHealthDamage(damage, false);
         san.DealSanDamage(sanDamage);
     }

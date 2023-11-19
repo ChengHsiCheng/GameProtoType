@@ -60,16 +60,7 @@ public class BarrageController : MonoBehaviour
     {
         float rotationAmount;
 
-        if (back)
-        {
-            angleCount--;
-        }
-        else
-        {
-            angleCount++;
-        }
-
-        rotationAmount = ((endAngleY - startAngleY) / quantity) * angleCount + transform.eulerAngles.y;
+        rotationAmount = ((endAngleY - startAngleY) / quantity) * count + transform.eulerAngles.y;
 
         Quaternion rotation = Quaternion.Euler(0, startAngleY + rotationAmount, 0);
         ProjectileControls _projectile = Instantiate(projectile, InstantiatePos, rotation);
@@ -79,7 +70,6 @@ public class BarrageController : MonoBehaviour
         if (count >= quantity)
         {
             CancelInvoke("ShootProjectile");
-            Destroy(gameObject);
         }
 
     }

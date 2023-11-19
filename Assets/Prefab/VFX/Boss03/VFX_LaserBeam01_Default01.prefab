@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 1404119286469408733}
   - component: {fileID: 1404119286469408732}
   - component: {fileID: 2522095825333997830}
-  m_Layer: 0
+  - component: {fileID: 7098704777738582624}
+  - component: {fileID: 3836529125003978046}
+  - component: {fileID: 2925002391200438540}
+  m_Layer: 9
   m_Name: VFX_LaserBeam01_Default01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +129,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a10a4e14b5e484b869647072541515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  liveTime: 10
+  liveTime: 5
   vfxs: []
   particles: []
   trigger: {fileID: 0}
+--- !u!114 &7098704777738582624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404119286469408731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b347abc912a113a4f83fa1f9aca4a381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 3836529125003978046}
+  damage: 0.1
+  sanDamage: 0.1
+  startTime: 1.7
+  stopTime: 3.4
+  time: 0
+--- !u!114 &3836529125003978046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404119286469408731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3334b7bc8c537c644ac4ec0088c922f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsInRadius>k__BackingField: 0
+--- !u!65 &2925002391200438540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404119286469408731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 40}
+  m_Center: {x: 0, y: 0, z: -20}

@@ -7,14 +7,12 @@ public class Boss03BarrageState : Boss03BaseState
     private EnemySkill[] skill;
     private EnemySkill laserSkill;
 
-    private float wave;
-    private float waveCount;
-    private float interval = 1;
+    private int wave;
+    private int waveCount;
+    private float interval;
     private float timer;
 
-    private int[] ints = { 0, 0, 0, 0 };
-
-    private bool isBarraheMode;
+    private bool isBarraheMode = true;
 
     private Vector3 targetPos = new Vector3(0, 0, 22);
 
@@ -27,7 +25,7 @@ public class Boss03BarrageState : Boss03BaseState
         skill = stateMachine.BarrageSkills;
         laserSkill = stateMachine.LaserSkill;
 
-        isBarraheMode = Random.Range(0, 2) == 0;
+        // isBarraheMode = Random.Range(0, 2) == 0;
 
         if (isBarraheMode)
         {
@@ -63,11 +61,21 @@ public class Boss03BarrageState : Boss03BaseState
         {
             if (isBarraheMode)
             {
-                int r = Random.Range(0, skill.Length);
-                Skill _skill = GameObject.Instantiate(skill[r].skill);
-                _skill.castTransform = stateMachine.Eye.transform;
-                _skill.UseSkill();
-                interval = Random.Range(skill[r].MinCooldownTime, skill[r].MaxCooldownTime);
+                EnemySkill _skill;
+
+                _skill = skill[waveCount % 2];
+
+                _skill.skill.castTransform = stateMachine.Eye.transform;
+                _skill.skill.UseSkill();
+                interval = _skill.MinCooldownTime;
+
+                if (waveCount % 3 == 0 && waveCount != 0)
+                {
+                    _skill = skill[Random.Range(2, 4)];
+
+                    _skill.skill.castTransform = stateMachine.Eye.transform;
+                    _skill.skill.UseSkill();
+                }
             }
             else
             {
@@ -86,7 +94,7 @@ public class Boss03BarrageState : Boss03BaseState
 
             if (isBarraheMode)
             {
-                wave = Random.Range(10, 15);
+                wave = Random.Range(12, 19);
             }
             else
             {
@@ -98,7 +106,7 @@ public class Boss03BarrageState : Boss03BaseState
 
     public override void Exit()
     {
-        stateMachine.SetCoolDown(Random.Range(skill[0].MinCooldownTime, skill[0].MaxCooldownTime));
+        // stateMachine.SetCoolDown(Random.Range(skill[0].MinCooldownTime, skill[0].MaxCooldownTime));
     }
 
 }

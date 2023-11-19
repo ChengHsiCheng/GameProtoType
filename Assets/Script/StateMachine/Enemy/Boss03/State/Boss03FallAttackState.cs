@@ -15,6 +15,9 @@ public class Boss03FallAttackState : Boss03BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime("FallAttack", 0.1f);
 
+        stateMachine.weapons[0].SetAttack(20, 25);
+        stateMachine.WeaponHendler.EnableWeapon(0);
+
         stateMachine.SetFallAttack(false);
     }
     public override void Tick(float deltaTime)
@@ -43,6 +46,11 @@ public class Boss03FallAttackState : Boss03BaseState
             isPlayVFX = true;
         }
 
+        if (stateMachine.transform.position.y <= 0.5f)
+        {
+            stateMachine.WeaponHendler.DisableWeapon(0);
+        }
+
         if (normalizedTime < 1)
         {
             Whirling(Vector3.one, 0.5f, deltaTime);
@@ -59,7 +67,9 @@ public class Boss03FallAttackState : Boss03BaseState
 
     public override void Exit()
     {
-        stateMachine.SetCoolDown(3);
+        stateMachine.SetCoolDown(Random.Range(3, 6));
+
+        stateMachine.WeaponHendler.DisableWeapon(0);
     }
 
 }

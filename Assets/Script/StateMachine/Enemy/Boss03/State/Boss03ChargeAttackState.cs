@@ -17,6 +17,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
     private int loopIndex;
     private int index;
 
+    private bool isVFX;
+
     public Boss03ChargeAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -24,6 +26,7 @@ public class Boss03ChargeAttackState : Boss03BaseState
     public override void Enter()
     {
         loopIndex = Random.Range(2, 6);
+        stateMachine.weapons[0].SetAttack(15, 15);
     }
 
     public override void Tick(float deltaTime)
@@ -61,6 +64,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
                 targetPos = GameManager.player.transform.position - salfPos;
                 GameObject.Instantiate(stateMachine.VFXPlayer.GetVFXByName("WarningArea"), stateMachine.transform.position, stateMachine.Eye.transform.rotation * Quaternion.Euler(0, -180, 0));
                 stage = Stage.Charge;
+
+                stateMachine.WeaponHendler.EnableWeapon(0);
             }
             return;
         }
@@ -78,6 +83,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
             if (stateMachine.transform.position.x > 18.5f || stateMachine.transform.position.x < -18.5f
             || stateMachine.transform.position.z > 18.5f || stateMachine.transform.position.z < -18.5f)
             {
+                stateMachine.WeaponHendler.DisableWeapon(0);
+                isVFX = false;
                 if (index < loopIndex)
                 {
                     index++;
@@ -92,10 +99,16 @@ public class Boss03ChargeAttackState : Boss03BaseState
 
             Whirling(Vector3.one, 8, deltaTime);
 
+            if (!isVFX)
+            {
+                GameObject.Instantiate(stateMachine.VFXPlayer.GetVFXByName("ChargeAttack"), stateMachine.Eye.transform);
+                isVFX = true;
+            }
+
             targetPos.y = 0;
             targetPos.Normalize();
 
-            stateMachine.transform.position += targetPos * 50 * deltaTime;
+            stateMachine.transform.position += targetPos * 60 * deltaTime;
 
             return;
         }
