@@ -29,7 +29,6 @@ public class Boss03IdleState : Boss03BaseState
             if (stateMachine.meleeStateTimer >= stateMachine.meleeStateMaxTime)
             {
                 stateMachine.SetIsBarrageState(true);
-                // stateMachine.SwitchState(new Boss03BarrageState(stateMachine));
                 return;
             }
         }

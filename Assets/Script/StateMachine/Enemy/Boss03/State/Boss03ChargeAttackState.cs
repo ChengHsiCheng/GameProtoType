@@ -83,6 +83,16 @@ public class Boss03ChargeAttackState : Boss03BaseState
             if (stateMachine.transform.position.x > 18.5f || stateMachine.transform.position.x < -18.5f
             || stateMachine.transform.position.z > 18.5f || stateMachine.transform.position.z < -18.5f)
             {
+                // 近戰模式計時切換到彈幕模式
+                if (!stateMachine.isBarrageState)
+                {
+                    if (stateMachine.meleeStateTimer >= stateMachine.meleeStateMaxTime)
+                    {
+                        stateMachine.SetIsBarrageState(true);
+                        return;
+                    }
+                }
+
                 stateMachine.WeaponHendler.DisableWeapon(0);
                 isVFX = false;
                 if (index < loopIndex)
