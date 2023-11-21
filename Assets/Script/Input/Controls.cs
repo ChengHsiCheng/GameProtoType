@@ -402,7 +402,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -413,7 +413,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -424,7 +424,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -435,7 +435,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -457,7 +457,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -468,7 +468,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -479,7 +479,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -490,7 +490,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -509,10 +509,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""f97b4a96-ad76-4deb-9df0-e743043bb650"",
-                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -520,10 +520,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""bbe41c54-05a5-4765-a1a3-55c3e018f793"",
-                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -534,7 +534,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -545,7 +545,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Arrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -589,18 +589,29 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""655331a7-7fa5-4424-a364-ef38f552d89e"",
+                    ""id"": ""afda502a-e422-455d-a14c-26ea4095616e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""73bacddd-250b-4743-8caf-60dead2d07bc"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
