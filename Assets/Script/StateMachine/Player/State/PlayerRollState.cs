@@ -30,6 +30,11 @@ public class PlayerRollState : PlayerBaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Roll");
 
+        if (normalizedTime >= 0.64f && stateMachine.Info.isInvulnerable)
+        {
+            stateMachine.Info.SetInvulnerable(false);
+        }
+
         if (normalizedTime <= 0.2 && stateMachine.InputReader.MovementValue != Vector2.zero)
         {
             FaceMovementDirection(faceDis, deltaTime);
@@ -47,8 +52,6 @@ public class PlayerRollState : PlayerBaseState
 
     public override void Exit()
     {
-        stateMachine.Info.SetInvulnerable(false);
-
         stateMachine.SetCanCancel(true);
     }
 }

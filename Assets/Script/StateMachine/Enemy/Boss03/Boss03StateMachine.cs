@@ -61,6 +61,8 @@ public class Boss03StateMachine : StateMachine, Enemy
         Crystals.Remove(crystal);
         crystal.OnDestroyEvent -= CrystalDestroyEvent;
 
+        Info.DealHealthDamage(10, false);
+
         if (Crystals.Count == 0)
         {
             SetIsBarrageState(false);
