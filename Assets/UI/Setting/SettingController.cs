@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System;
 using UnityEditor;
 using UnityEngine;
@@ -12,7 +13,8 @@ public class SettingController : MonoBehaviour
 {
     [SerializeField] private Volume volume;
     [SerializeField] private AudioMixer mixer;
-    [field: SerializeField] public UIManager settingUI { get; private set; }
+    [field: SerializeField] public UIManager[] settingUIs { get; private set; }
+    private int uiCount;
     private ColorAdjustments brightness;
 
     [SerializeField] private Slider brightnessSlider;
@@ -27,6 +29,14 @@ public class SettingController : MonoBehaviour
 
         SetBrightness(GameManager.brightness);
         SetAudioVolume(GameManager.audioVolume);
+
+        GameManager.sceneController.UIInputReader.OnLeftTriggerEvent += SwitchLeftSetting;
+        GameManager.sceneController.UIInputReader.OnRightTriggerEvent += SwitchRightSetting;
+    }
+
+    private void OnDisable()
+    {
+
     }
 
     public void SetBrightness(float volume)
@@ -76,8 +86,41 @@ public class SettingController : MonoBehaviour
         }
     }
 
-    public void CloseSetting()
+    public void OpenSetting()
     {
+        uiCount = 0;
+
+        GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
+    }
+
+    public void SwitchLeftSetting()
+    {
+        uiCount--;
+
+        if (uiCount == -1)
+        {
+            uiCount = settingUIs.Length - 1;
+        }
+
+        UnityEngine.Debug.Log(uiCount);
+
         GameManager.sceneController.UIController.CloseUI();
+        GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
+    }
+
+    public void SwitchRightSetting()
+    {
+        uiCount++;
+
+        if (uiCount == settingUIs.Length)
+        {
+            uiCount = 0;
+        }
+
+        UnityEngine.Debug.Log(settingUIs.Length);
+        UnityEngine.Debug.Log(uiCount);
+
+        GameManager.sceneController.UIController.CloseUI();
+        GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
     }
 }

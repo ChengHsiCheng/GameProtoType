@@ -41,7 +41,7 @@ public class MainMenuController : UIManager
 
     public void OnSetting()
     {
-        GameManager.sceneController.UIController.AddUI(setting.settingUI);
+        setting.OpenSetting();
     }
 
     public void QuitGame()

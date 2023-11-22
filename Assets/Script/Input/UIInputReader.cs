@@ -15,6 +15,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     public event Action OnInteractiveEvent;
     public event Action OnArrowKeyEvent;
     public event Action OnCheckEvent;
+    public event Action OnLeftTriggerEvent;
+    public event Action OnRightTriggerEvent;
 
 
 
@@ -75,5 +77,21 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
             return;
 
         OnCheckEvent?.Invoke();
+    }
+
+    public void OnLeftTrigger(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        OnLeftTriggerEvent?.Invoke();
+    }
+
+    public void OnRightTrigger(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        OnRightTriggerEvent?.Invoke();
     }
 }

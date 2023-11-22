@@ -360,6 +360,24 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c347f99-dc19-4a89-8dbb-ca498ca30041"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RightTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d6d8440-2a18-4c64-befb-16aa9174f502"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -615,6 +633,50 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4613a9a7-e770-4684-b299-8882088ec66c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""48f3a76f-6b16-4546-a684-165cd8c166ce"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2213d3f-d3e8-42a4-8b0e-716848293a46"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""814e96ea-2fc1-4211-98e2-d989c341c14e"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -666,6 +728,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu_Interactive = m_Menu.FindAction("Interactive", throwIfNotFound: true);
         m_Menu_LeftStick = m_Menu.FindAction("LeftStick", throwIfNotFound: true);
         m_Menu_Submit = m_Menu.FindAction("Submit", throwIfNotFound: true);
+        m_Menu_LeftTrigger = m_Menu.FindAction("LeftTrigger", throwIfNotFound: true);
+        m_Menu_RightTrigger = m_Menu.FindAction("RightTrigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -819,6 +883,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Interactive;
     private readonly InputAction m_Menu_LeftStick;
     private readonly InputAction m_Menu_Submit;
+    private readonly InputAction m_Menu_LeftTrigger;
+    private readonly InputAction m_Menu_RightTrigger;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -828,6 +894,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Interactive => m_Wrapper.m_Menu_Interactive;
         public InputAction @LeftStick => m_Wrapper.m_Menu_LeftStick;
         public InputAction @Submit => m_Wrapper.m_Menu_Submit;
+        public InputAction @LeftTrigger => m_Wrapper.m_Menu_LeftTrigger;
+        public InputAction @RightTrigger => m_Wrapper.m_Menu_RightTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -852,6 +920,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Submit.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnSubmit;
+                @LeftTrigger.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnLeftTrigger;
+                @RightTrigger.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnRightTrigger;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -871,6 +945,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
+                @LeftTrigger.started += instance.OnLeftTrigger;
+                @LeftTrigger.performed += instance.OnLeftTrigger;
+                @LeftTrigger.canceled += instance.OnLeftTrigger;
+                @RightTrigger.started += instance.OnRightTrigger;
+                @RightTrigger.performed += instance.OnRightTrigger;
+                @RightTrigger.canceled += instance.OnRightTrigger;
             }
         }
     }
@@ -911,5 +991,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnInteractive(InputAction.CallbackContext context);
         void OnLeftStick(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
+        void OnLeftTrigger(InputAction.CallbackContext context);
+        void OnRightTrigger(InputAction.CallbackContext context);
     }
 }
