@@ -23,6 +23,7 @@ public class CinemachineController : MonoBehaviour
         if (GameManager.nowScenes == "GameLobby")
         {
             SwitchCamera(CameraMode.Lobby);
+            Cameras[(int)CameraMode.ChooseLevel].LookAt = GameObject.Find("LevelUITrigger").transform;
         }
         else
         {
@@ -48,6 +49,7 @@ public class CinemachineController : MonoBehaviour
             else
             {
                 Cameras[i].gameObject.SetActive(false);
+                Cameras[i].m_LookAt = null;
             }
         }
 

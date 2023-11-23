@@ -19,6 +19,8 @@ public class SettingController : MonoBehaviour
 
     [SerializeField] private Slider brightnessSlider;
     [SerializeField] private Slider audioVolumeSlider;
+    private Dropdown screenResolution;
+    private Dropdown screenMod;
 
     private void Start()
     {
@@ -26,6 +28,45 @@ public class SettingController : MonoBehaviour
 
         brightnessSlider.value = GameManager.brightness;
         audioVolumeSlider.value = GameManager.audioVolume;
+
+        switch (GameManager.screenMode)
+        {
+            case FullScreenMode.FullScreenWindow:
+                screenMod.value = 0;
+                break;
+            case FullScreenMode.MaximizedWindow:
+                screenMod.value = 1;
+                break;
+            case FullScreenMode.Windowed:
+                screenMod.value = 2;
+                break;
+        }
+
+        switch (GameManager.screenHorizontal)
+        {
+            case 1280:
+                screenResolution.value = 0;
+                break;
+            case 1920:
+                screenResolution.value = 1;
+                break;
+            case 2560:
+                screenResolution.value = 2;
+                break;
+        }
+
+        switch (GameManager.screenMode)
+        {
+            case FullScreenMode.FullScreenWindow:
+                screenMod.value = 0;
+                break;
+            case FullScreenMode.MaximizedWindow:
+                screenMod.value = 1;
+                break;
+            case FullScreenMode.Windowed:
+                screenMod.value = 2;
+                break;
+        }
 
         SetBrightness(GameManager.brightness);
         SetAudioVolume(GameManager.audioVolume);
@@ -36,7 +77,8 @@ public class SettingController : MonoBehaviour
 
     private void OnDisable()
     {
-
+        GameManager.sceneController.UIInputReader.OnLeftTriggerEvent -= SwitchLeftSetting;
+        GameManager.sceneController.UIInputReader.OnRightTriggerEvent -= SwitchRightSetting;
     }
 
     public void SetBrightness(float volume)
@@ -59,10 +101,13 @@ public class SettingController : MonoBehaviour
         switch (i)
         {
             case 0:
-                GameManager.SetScreenResolution(2560, 1440);
+                GameManager.SetScreenResolution(1280, 720);
                 break;
             case 1:
                 GameManager.SetScreenResolution(1920, 1080);
+                break;
+            case 2:
+                GameManager.SetScreenResolution(2560, 1440);
                 break;
         }
     }
@@ -75,13 +120,10 @@ public class SettingController : MonoBehaviour
                 GameManager.SetScreenMod(FullScreenMode.FullScreenWindow);
                 break;
             case 1:
-                GameManager.SetScreenMod(FullScreenMode.ExclusiveFullScreen);
+                GameManager.SetScreenMod(FullScreenMode.MaximizedWindow);
                 break;
             case 2:
                 GameManager.SetScreenMod(FullScreenMode.Windowed);
-                break;
-            case 3:
-                GameManager.SetScreenMod(FullScreenMode.MaximizedWindow);
                 break;
         }
     }
@@ -93,8 +135,21 @@ public class SettingController : MonoBehaviour
         GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
     }
 
+    [Obsolete]
     public void SwitchLeftSetting()
     {
+        bool isOpen = false;
+        for (int i = 0; i < settingUIs.Length; i++)
+        {
+            if (settingUIs[i].gameObject.active == true)
+            {
+                isOpen = true;
+            }
+        }
+
+        if (!isOpen)
+            return;
+
         uiCount--;
 
         if (uiCount == -1)
@@ -102,23 +157,32 @@ public class SettingController : MonoBehaviour
             uiCount = settingUIs.Length - 1;
         }
 
-        UnityEngine.Debug.Log(uiCount);
 
         GameManager.sceneController.UIController.CloseUI();
         GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
     }
 
+    [Obsolete]
     public void SwitchRightSetting()
     {
+        bool isOpen = false;
+        for (int i = 0; i < settingUIs.Length; i++)
+        {
+            if (settingUIs[i].gameObject.active == true)
+            {
+                isOpen = true;
+            }
+        }
+
+        if (!isOpen)
+            return;
+
         uiCount++;
 
         if (uiCount == settingUIs.Length)
         {
             uiCount = 0;
         }
-
-        UnityEngine.Debug.Log(settingUIs.Length);
-        UnityEngine.Debug.Log(uiCount);
 
         GameManager.sceneController.UIController.CloseUI();
         GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);

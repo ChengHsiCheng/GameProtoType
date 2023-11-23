@@ -52,6 +52,7 @@ public class PlayerRollState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.Info.SetInvulnerable(false);
         stateMachine.SetCanCancel(true);
     }
 }

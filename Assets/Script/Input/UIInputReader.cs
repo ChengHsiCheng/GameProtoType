@@ -9,6 +9,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 
     public Vector2 Arrow { get; private set; }
     public Vector2 Stick { get; private set; }
+    public Vector2 Point { get; private set; }
     public bool isInteractive { get; private set; }
 
     public event Action OnBackEvent;
@@ -17,6 +18,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     public event Action OnCheckEvent;
     public event Action OnLeftTriggerEvent;
     public event Action OnRightTriggerEvent;
+    public event Action OnLeftClickEvent;
 
 
 
@@ -93,5 +95,21 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
             return;
 
         OnRightTriggerEvent?.Invoke();
+    }
+
+    public void OnPoint(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        Point = context.ReadValue<Vector2>();
+    }
+
+    public void OnClick(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        OnLeftClickEvent?.Invoke();
     }
 }

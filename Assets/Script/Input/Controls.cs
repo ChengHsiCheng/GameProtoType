@@ -257,6 +257,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9fb87c5a-4cca-4196-9d8e-805bf49f7640"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""b604179e-4293-44e9-9038-ebebc53d606a"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -291,7 +302,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be1f9478-7b94-4ca5-b8c9-84f360b7a610"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -378,6 +389,24 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Point"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""a6f8ec7c-dfb2-457d-a655-c2290111e77d"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""3e2d30d2-259f-4aad-934f-37d8a0b9e56b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -569,6 +598,61 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""LeftStick"",
+                    ""id"": ""201cacfc-8839-43f3-a205-b236952cba18"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9f153f9f-8fe9-47c2-9360-689d519d573a"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""9a260d95-14c1-4b80-9286-0695233e09be"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e7396385-d091-4242-a879-e97f2d4bd5c0"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""4e834a92-3736-4c84-aa92-d063279a6539"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Arrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""123908d9-d9bf-40ed-986f-99096d5996ae"",
                     ""path"": ""<Keyboard>/e"",
@@ -677,6 +761,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f46c0546-b210-4719-8fb8-0945190fd643"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""Point"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1e51321-3e28-4e66-810b-0b387884c797"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -730,6 +836,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu_Submit = m_Menu.FindAction("Submit", throwIfNotFound: true);
         m_Menu_LeftTrigger = m_Menu.FindAction("LeftTrigger", throwIfNotFound: true);
         m_Menu_RightTrigger = m_Menu.FindAction("RightTrigger", throwIfNotFound: true);
+        m_Menu_Point = m_Menu.FindAction("Point", throwIfNotFound: true);
+        m_Menu_Click = m_Menu.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -885,6 +993,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Submit;
     private readonly InputAction m_Menu_LeftTrigger;
     private readonly InputAction m_Menu_RightTrigger;
+    private readonly InputAction m_Menu_Point;
+    private readonly InputAction m_Menu_Click;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -896,6 +1006,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Submit => m_Wrapper.m_Menu_Submit;
         public InputAction @LeftTrigger => m_Wrapper.m_Menu_LeftTrigger;
         public InputAction @RightTrigger => m_Wrapper.m_Menu_RightTrigger;
+        public InputAction @Point => m_Wrapper.m_Menu_Point;
+        public InputAction @Click => m_Wrapper.m_Menu_Click;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -926,6 +1038,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @RightTrigger.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnRightTrigger;
+                @Point.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPoint;
+                @Point.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPoint;
+                @Point.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPoint;
+                @Click.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnClick;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -951,6 +1069,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @RightTrigger.started += instance.OnRightTrigger;
                 @RightTrigger.performed += instance.OnRightTrigger;
                 @RightTrigger.canceled += instance.OnRightTrigger;
+                @Point.started += instance.OnPoint;
+                @Point.performed += instance.OnPoint;
+                @Point.canceled += instance.OnPoint;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
             }
         }
     }
@@ -993,5 +1117,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSubmit(InputAction.CallbackContext context);
         void OnLeftTrigger(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
+        void OnPoint(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

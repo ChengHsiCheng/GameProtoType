@@ -492,16 +492,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2601564570523367716, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2601564570523367716, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3538165117998946884, guid: ce15dc99e8321f549ad8340fdec4674a,
         type: 3}
       propertyPath: m_RootOrder
@@ -561,16 +551,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerRig
-      objectReference: {fileID: 0}
-    - target: {fileID: 8053466286924658796, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8053466286924658796, guid: ce15dc99e8321f549ad8340fdec4674a,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce15dc99e8321f549ad8340fdec4674a, type: 3}
@@ -952,7 +932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b873cd29a0bd524498c8eb50fbf0ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scensName: Boss01Scenes
 --- !u!65 &1317861181
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1060,6 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29de6841fdf945b49818facd7a797bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portal: {fileID: 0}
 --- !u!4 &1399956907
 Transform:
   m_ObjectHideFlags: 0

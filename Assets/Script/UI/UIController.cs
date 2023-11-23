@@ -33,6 +33,7 @@ public class UIController : MonoBehaviour
         if (UIElements.Count == 0)
         {
             GameManager.ToggleUI(true);
+            Cursor.visible = true;
         }
         else
         {
@@ -52,6 +53,9 @@ public class UIController : MonoBehaviour
 
     public void CloseUI()
     {
+        if (UIElements.Count == 0)
+            return;
+
         if (UIElements.Last().name == "MainMuen")
             return;
 
@@ -61,6 +65,7 @@ public class UIController : MonoBehaviour
 
         if (UIElements.Count == 0)
         {
+            Cursor.visible = false;
             if (GameManager.isPauseGame)
             {
                 GameManager.TogglePause(false);

@@ -5,9 +5,19 @@ using UnityEngine;
 public class ObjectLiveTime : MonoBehaviour
 {
     [SerializeField] private float liveTime;
+    private float timer;
 
-    private void Start()
+
+    private void Update()
     {
-        Destroy(gameObject, liveTime);
+        if (GameManager.isPauseGame)
+            return;
+
+        timer += Time.deltaTime;
+
+        if (timer >= liveTime)
+        {
+            Destroy(gameObject);
+        }
     }
 }
