@@ -33,10 +33,11 @@ public class Boss03StateMachine : StateMachine, Enemy
     {
         GameManager.enemys.Add(this);
         sceneController = GameManager.sceneController.GetComponent<Boss03SceneController>();
-        SwitchState(new Boss03IdleState(this));
 
         Info.OnTakeDamage += TakeDamage;
         Info.OnDie += Die;
+
+        SwitchState(new Boss03StartState(this));
     }
 
     private void OnDisable()

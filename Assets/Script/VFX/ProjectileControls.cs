@@ -9,6 +9,7 @@ public class ProjectileControls : MonoBehaviour
     private Vector3 projectileDir;
 
     private bool isHit;
+    [SerializeField] private bool isBeDistroy;
 
     [SerializeField] private GameObject[] hitVFX;
     [SerializeField] private VFXLiveTime vfx;
@@ -24,20 +25,24 @@ public class ProjectileControls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (hitVFX.Length == 0 || isHit)
-            return;
-
-        Vector3 pos = transform.position;
-        pos.y = 0;
-
-        for (int i = 0; i < hitVFX.Length; i++)
+        if (hitVFX.Length != 0 && !isHit)
         {
-            Instantiate(hitVFX[i], pos, Quaternion.identity);
+            Vector3 pos = transform.position;
+            pos.y = 0;
+
+            for (int i = 0; i < hitVFX.Length; i++)
+            {
+                Instantiate(hitVFX[i], pos, Quaternion.identity);
+            }
+
+            isHit = true;
+            vfx.DestroyVFX();
+            return;
         }
 
-        isHit = true;
+        if (isBeDistroy)
+            vfx.DestroyVFX();
 
-        Destroy(vfx.gameObject);
     }
 
     public void SetValue(float moveSpeed, Vector3 projectileDir)

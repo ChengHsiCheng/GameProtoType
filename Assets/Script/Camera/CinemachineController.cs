@@ -11,10 +11,8 @@ public enum CameraMode
 
 public class CinemachineController : MonoBehaviour
 {
-
     [field: SerializeField] public CinemachineVirtualCamera[] Cameras { get; private set; }
 
-    bool isLobby;
 
     private void Start()
     {

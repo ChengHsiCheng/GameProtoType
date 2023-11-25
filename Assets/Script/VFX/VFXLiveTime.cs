@@ -50,9 +50,19 @@ public class VFXLiveTime : MonoBehaviour
             particle.Stop();
         }
 
-        Destroy(gameObject, 2f);
+        DestroyVFX(2f);
 
         isDestroy = true;
+    }
+
+    public void DestroyVFX()
+    {
+        Destroy(gameObject);
+    }
+
+    public void DestroyVFX(float time)
+    {
+        Destroy(gameObject, time);
     }
 
 }
