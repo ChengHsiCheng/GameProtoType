@@ -1,8 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public enum ControlMethod
 {
@@ -17,6 +18,8 @@ public static class GameManager
     public static List<Enemy> enemys = new List<Enemy>(); // 場上的敵人
     public static List<AudioHendler> audios = new List<AudioHendler>(); // 場上的敵人
     public static ControlMethod controlMethod; // 操控裝置
+
+    public static event Action OnSwicthControlMethodEvent;
 
 
     public static bool isPauseGame { private set; get; } = false; // 遊戲暫停
@@ -120,5 +123,11 @@ public static class GameManager
     {
         sceneController.InputReader.enabled = !value;
         sceneController.UIInputReader.enabled = value;
+    }
+
+    public static void SwitchControlMethod(ControlMethod _controlMethod)
+    {
+        controlMethod = _controlMethod;
+        OnSwicthControlMethodEvent?.Invoke();
     }
 }

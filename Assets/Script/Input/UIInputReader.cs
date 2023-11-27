@@ -37,11 +37,27 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         controls.Menu.Disable();
     }
 
+    private void SetControlMethod(InputAction.CallbackContext context)
+    {
+        if (context.control.device is Keyboard)
+        {
+            GameManager.SwitchControlMethod(ControlMethod.Keyboard);
+        }
+
+        if (context.control.device is Gamepad)
+        {
+            GameManager.SwitchControlMethod(ControlMethod.Gamepad);
+        }
+
+        Debug.Log(GameManager.controlMethod);
+    }
+
     public void OnBack(InputAction.CallbackContext context)
     {
         if (!context.performed)
             return;
 
+        SetControlMethod(context);
         OnBackEvent?.Invoke();
     }
 
@@ -51,6 +67,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
             return;
 
         Arrow = context.ReadValue<Vector2>();
+
+        SetControlMethod(context);
 
         OnArrowKeyEvent?.Invoke();
     }
@@ -62,6 +80,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         if (!context.performed)
             return;
 
+        SetControlMethod(context);
+
         OnInteractiveEvent?.Invoke();
     }
 
@@ -69,6 +89,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     {
         if (!context.performed)
             return;
+
+        SetControlMethod(context);
 
         Stick = context.ReadValue<Vector2>();
     }
@@ -78,6 +100,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         if (!context.performed)
             return;
 
+        SetControlMethod(context);
+
         OnCheckEvent?.Invoke();
     }
 
@@ -85,6 +109,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     {
         if (!context.performed)
             return;
+
+        SetControlMethod(context);
 
         OnLeftTriggerEvent?.Invoke();
     }
@@ -94,6 +120,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         if (!context.performed)
             return;
 
+        SetControlMethod(context);
+
         OnRightTriggerEvent?.Invoke();
     }
 
@@ -102,6 +130,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         if (!context.performed)
             return;
 
+        SetControlMethod(context);
+
         Point = context.ReadValue<Vector2>();
     }
 
@@ -109,6 +139,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     {
         if (!context.performed)
             return;
+
+        SetControlMethod(context);
 
         OnLeftClickEvent?.Invoke();
     }

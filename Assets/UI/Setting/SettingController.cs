@@ -139,6 +139,7 @@ public class SettingController : MonoBehaviour
     public void SwitchLeftSetting()
     {
         bool isOpen = false;
+
         for (int i = 0; i < settingUIs.Length; i++)
         {
             if (settingUIs[i].gameObject.active == true)
@@ -157,7 +158,6 @@ public class SettingController : MonoBehaviour
             uiCount = settingUIs.Length - 1;
         }
 
-
         GameManager.sceneController.UIController.CloseUI();
         GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
     }
@@ -166,6 +166,7 @@ public class SettingController : MonoBehaviour
     public void SwitchRightSetting()
     {
         bool isOpen = false;
+
         for (int i = 0; i < settingUIs.Length; i++)
         {
             if (settingUIs[i].gameObject.active == true)
