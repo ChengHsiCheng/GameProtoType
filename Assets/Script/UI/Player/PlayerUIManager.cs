@@ -8,7 +8,7 @@ public class PlayerUIManager : UIManager
 {
     [field: SerializeField] public BarController HpBar { get; private set; }
     [field: SerializeField] public BarController SanBar { get; private set; }
-    [field: SerializeField] public SanCheck SanCheck { get; private set; }
+    [field: SerializeField] public UIManager SanCheck { get; private set; }
     [field: SerializeField] public UIManager DiedUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
     [field: SerializeField] public Image HintUI { get; private set; }
@@ -56,7 +56,14 @@ public class PlayerUIManager : UIManager
 
     public void SetSanCheckBar(bool value)
     {
-        SanCheck.gameObject.SetActive(value);
+        if (value)
+        {
+            GameManager.sceneController.UIController.AddUI(SanCheck);
+        }
+        else
+        {
+            GameManager.sceneController.UIController.CloseUI();
+        }
     }
 
     public void SetDiedUI()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SanCheck : MonoBehaviour
+public class SanCheck : UIManager
 {
     public RectTransform pointer01;
     public RectTransform pointer02;

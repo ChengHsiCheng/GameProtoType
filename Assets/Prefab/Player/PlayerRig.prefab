@@ -55,7 +55,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 19
+    FieldOfView: 55
     OrthographicSize: 5
     NearClipPlane: 0.1
     FarClipPlane: 1000
@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 1133726304}
   - component: {fileID: 1133726307}
   - component: {fileID: 1133726306}
+  - component: {fileID: 3151056178081073972}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -282,6 +283,28 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
+--- !u!114 &3151056178081073972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133726303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0.55, y: 0.3, z: 0}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
+  m_AngularDampingMode: 0
+  m_PitchDamping: 0
+  m_YawDamping: 0
+  m_RollDamping: 0
+  m_AngularDamping: 0
 --- !u!1 &1326579947
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +1882,76 @@ PrefabInstance:
     - target: {fileID: 747592729982437345, guid: 1244fa640b076064199f9ba7e6e75e22,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728898726167282, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728898726167282, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728898933573345, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728898933573345, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728898933573345, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728899692132292, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728899692132292, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728899892208361, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728899892208361, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230728899892208361, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341204600666509460, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341204600666509460, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293218849713291290, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293218849713291290, guid: 1244fa640b076064199f9ba7e6e75e22,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

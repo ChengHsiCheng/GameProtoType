@@ -15,6 +15,11 @@ public class PasswordControll : Riddle
         Reset();
     }
 
+    private void Start()
+    {
+        GameManager.sceneController.UIInputReader.OnInteractiveEvent += Reset;
+    }
+
     public void Confirm()
     {
         inputPassword = "";

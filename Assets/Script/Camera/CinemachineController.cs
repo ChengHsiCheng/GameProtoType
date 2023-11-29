@@ -22,6 +22,8 @@ public class CinemachineController : MonoBehaviour
         {
             SwitchCamera(CameraMode.Lobby);
             Cameras[(int)CameraMode.ChooseLevel].LookAt = GameObject.Find("LevelUITrigger").transform;
+            Cameras[(int)CameraMode.ChooseLevel].Follow = GameObject.Find("LevelUITrigger").transform;
+
         }
         else
         {
@@ -43,6 +45,7 @@ public class CinemachineController : MonoBehaviour
             {
                 Cameras[i].gameObject.SetActive(true);
                 Cameras[i].m_LookAt = lookTarget;
+
             }
             else
             {

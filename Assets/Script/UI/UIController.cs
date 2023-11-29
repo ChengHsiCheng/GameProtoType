@@ -59,6 +59,9 @@ public class UIController : MonoBehaviour
         if (UIElements.Last().name == "MainMuen")
             return;
 
+        if (UIElements.Last().name == "GameOver")
+            return;
+
         UIElements.Last().OnClosure();
         UIElements.Last().gameObject.SetActive(false);
         UIElements.Remove(UIElements.Last());

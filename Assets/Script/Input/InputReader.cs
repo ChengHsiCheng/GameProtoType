@@ -44,8 +44,6 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         {
             GameManager.SwitchControlMethod(ControlMethod.Gamepad);
         }
-
-        Debug.Log(GameManager.controlMethod);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -60,9 +58,9 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         if (!context.performed)
             return;
 
-        RollEvent?.Invoke();
-
         SetControlMethod(context);
+
+        RollEvent?.Invoke();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -84,9 +82,9 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         if (!context.performed)
             return;
 
-        SkillEvent?.Invoke();
-
         SetControlMethod(context);
+
+        SkillEvent?.Invoke();
     }
 
     public void OnHeal(InputAction.CallbackContext context)
@@ -94,10 +92,9 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         if (!context.performed)
             return;
 
-        HealEvent?.Invoke();
-
         SetControlMethod(context);
 
+        HealEvent?.Invoke();
     }
 
     public void OnESC(InputAction.CallbackContext context)
@@ -115,9 +112,9 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         if (!context.performed)
             return;
 
-        SanCheckEvent?.Invoke();
-
         SetControlMethod(context);
+
+        SanCheckEvent?.Invoke();
     }
 
     public void OnInteraction(InputAction.CallbackContext context)
@@ -125,9 +122,8 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         if (!context.performed)
             return;
 
-        InteractionEvent?.Invoke();
-
         SetControlMethod(context);
 
+        InteractionEvent?.Invoke();
     }
 }

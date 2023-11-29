@@ -73,7 +73,7 @@ public class PlayerStateMachine : StateMachine
         InputReader.RollEvent += OnRoll;
         InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
-        InputReader.SanCheckEvent += OnSanCheckCheck;
+        GameManager.sceneController.UIInputReader.OnCheckEvent += OnSanCheckCheck;
 
         SanCheck.SuccessEvent += SanCheckSuccess;
         SanCheck.FailEvent += SanCheckFail;

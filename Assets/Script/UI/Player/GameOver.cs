@@ -4,6 +4,42 @@ using UnityEngine;
 
 public class GameOver : UIManager
 {
+    [SerializeField] GameObject Boss01DieUI;
+    [SerializeField] GameObject Boss02DieUI;
+    [SerializeField] GameObject Boss03DieUI;
+
+    private void OnEnable()
+    {
+        if (GameManager.nowScenes == "Boss01Scenes")
+        {
+            Boss01DieUI.SetActive(true);
+            Boss02DieUI.SetActive(false);
+            Boss03DieUI.SetActive(false);
+        }
+        else if (GameManager.nowScenes == "Boss02Scenes")
+        {
+            Boss01DieUI.SetActive(false);
+            Boss02DieUI.SetActive(true);
+            Boss03DieUI.SetActive(false);
+        }
+        else if (GameManager.nowScenes == "Boss03Scenes")
+        {
+            Boss01DieUI.SetActive(false);
+            Boss02DieUI.SetActive(false);
+            Boss03DieUI.SetActive(true);
+        }
+
+        GameManager.sceneController.UIInputReader.OnCheckEvent += TryAgain;
+        GameManager.sceneController.UIInputReader.OnBackEvent += BackLobby;
+    }
+
+
+    private void OnDisable()
+    {
+        GameManager.sceneController.UIInputReader.OnCheckEvent -= TryAgain;
+        GameManager.sceneController.UIInputReader.OnBackEvent -= BackLobby;
+    }
+
     public void TryAgain()
     {
         GameManager.SwitchScene(GameManager.nowScenes);
