@@ -25,6 +25,12 @@ public class ProjectileControls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "Player")
+        {
+            if (GameManager.player.GetComponent<PlayerInfo>().isInvulnerable)
+                return;
+        }
+
         if (hitVFX.Length != 0 && !isHit)
         {
             Vector3 pos = transform.position;

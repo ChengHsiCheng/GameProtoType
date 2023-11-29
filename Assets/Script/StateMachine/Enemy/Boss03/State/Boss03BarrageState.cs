@@ -71,7 +71,7 @@ public class Boss03BarrageState : Boss03BaseState
 
                 if (waveCount % 3 == 0 && waveCount != 0)
                 {
-                    _skill = skill[Random.Range(2, 4)];
+                    _skill = skill[2];
 
                     _skill.skill.castTransform = stateMachine.Eye.transform;
                     _skill.skill.UseSkill();

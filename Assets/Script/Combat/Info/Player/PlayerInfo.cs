@@ -40,7 +40,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         sanRecoveryTimer += Time.deltaTime;
 
 
-        if (sanRecoveryTimer >= sanRecoveryTime)
+        if (sanRecoveryTimer >= sanRecoveryTime && san > 0)
         {
             SanHealing(sanRecoverySpeed * Time.deltaTime);
         }

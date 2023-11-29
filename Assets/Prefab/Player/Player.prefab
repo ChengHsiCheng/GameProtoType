@@ -3500,7 +3500,7 @@ MonoBehaviour:
     <MinComboAttackTime>k__BackingField: 0.7
     <MoveTime>k__BackingField: 0.22
     <MoveForce>k__BackingField: 15
-    <Damage>k__BackingField: 20
+    <Damage>k__BackingField: 30
     Model: {fileID: 5009468972583274404}
   <Skills>k__BackingField:
   - name: PetrochemicalSkill
@@ -3521,9 +3521,11 @@ MonoBehaviour:
   - name: SkillCasting
     gameObject: {fileID: 7613691401023836608, guid: e426735828e09f046a7cb0a127d13f98,
       type: 3}
+  - name: GetHit
+    gameObject: {fileID: 1089649127311536677, guid: 474e70bda8eda684cb5ca8e624d408a0,
+      type: 3}
   <AudioLogic>k__BackingField: {fileID: 38722080951117676}
   UI: []
-  Interactiveobj: []
   interfaceController: {fileID: 0}
   <moveSpeed>k__BackingField: 7
   <moveSmooth>k__BackingField: 0.55

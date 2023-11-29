@@ -163,14 +163,13 @@ public class PlayerStateMachine : StateMachine
         interfaceController.OnPauseMenu();
     }
 
-    /// <summary>
-    /// 切換到受擊狀態
-    /// </summary>
     private void HandleTakeDamage()
     {
         UpdateUI();
 
         UIManager.BeAttack();
+
+        Instantiate(GetVFXByName("GetHit"), transform.position + Vector3.up, Quaternion.identity);
     }
 
     private void GetImpact()
@@ -224,10 +223,11 @@ public class PlayerStateMachine : StateMachine
     {
         isSanCheck = false;
 
+        UpdateUI();
         UIManager.SetSanCheckBar(false);
         GameManager.TogglePause(false);
         Info.SanCheckSuccess();
-        UpdateUI();
+        UIManager.SetHpBar(0.01f);
 
         Info.SetInvulnerable(true, 1);
     }
