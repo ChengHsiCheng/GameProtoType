@@ -20,7 +20,11 @@ public class GamePadCursor : MonoBehaviour
 
     private void Update()
     {
-        MouseOperate();
+        if (GameManager.controlMethod == ControlMethod.Keyboard)
+            MouseOperate();
+
+        if (GameManager.controlMethod == ControlMethod.Gamepad)
+            GamePadOperate();
     }
 
     private void MouseOperate()
@@ -50,8 +54,9 @@ public class GamePadCursor : MonoBehaviour
     private void GamePadOperate()
     {
         transform.position += new Vector3(inputReader.Stick.x, inputReader.Stick.y, 0).normalized * speed * Time.deltaTime;
+        Debug.Log(inputReader.isClick);
 
-        if (inputReader.isInteractive)
+        if (inputReader.isClick)
         {
             if (isClick)
             {
@@ -94,7 +99,6 @@ public class GamePadCursor : MonoBehaviour
 
     private void OnHold()
     {
-        Debug.Log(CursorEvent(transform.position) + "B");
 
         if (interactiveUI)
         {
@@ -104,7 +108,6 @@ public class GamePadCursor : MonoBehaviour
 
     private void OnUnlash()
     {
-        Debug.Log(CursorEvent(transform.position) + "C");
 
         if (interactiveUI)
         {

@@ -10,6 +10,11 @@ public class CandleControll : Riddle
     private int inputNum = 0;
     private string inputOrder;
 
+    private void Start()
+    {
+        GameManager.sceneController.UIInputReader.OnResetEvent += TurnOff;
+    }
+
     private void OnEnable()
     {
         TurnOff();

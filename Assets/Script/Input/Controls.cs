@@ -401,12 +401,21 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Click"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""3e2d30d2-259f-4aad-934f-37d8a0b9e56b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""94a7b729-6fad-4c49-a0db-cb6c1bd18b27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -680,7 +689,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""LeftStick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -724,7 +733,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -735,7 +744,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""LeftTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -746,7 +755,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keybord && Mouse"",
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -757,7 +766,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RightTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -781,6 +790,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keybord && Mouse"",
                     ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2a8e7dd-6760-416b-b740-9f5b5f165dc0"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc0a7246-c2c8-42c3-ae18-28b102d0a19c"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1fd35a5e-9e3a-4932-8482-62337c9e2fc9"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -838,6 +880,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu_RightTrigger = m_Menu.FindAction("RightTrigger", throwIfNotFound: true);
         m_Menu_Point = m_Menu.FindAction("Point", throwIfNotFound: true);
         m_Menu_Click = m_Menu.FindAction("Click", throwIfNotFound: true);
+        m_Menu_Reset = m_Menu.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -995,6 +1038,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_RightTrigger;
     private readonly InputAction m_Menu_Point;
     private readonly InputAction m_Menu_Click;
+    private readonly InputAction m_Menu_Reset;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -1008,6 +1052,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @RightTrigger => m_Wrapper.m_Menu_RightTrigger;
         public InputAction @Point => m_Wrapper.m_Menu_Point;
         public InputAction @Click => m_Wrapper.m_Menu_Click;
+        public InputAction @Reset => m_Wrapper.m_Menu_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1044,6 +1089,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Click.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnClick;
                 @Click.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnClick;
                 @Click.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnClick;
+                @Reset.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1075,6 +1123,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -1119,5 +1170,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRightTrigger(InputAction.CallbackContext context);
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }

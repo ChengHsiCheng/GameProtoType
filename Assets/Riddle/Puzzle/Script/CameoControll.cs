@@ -7,12 +7,18 @@ public class CameoControll : Riddle
     [SerializeField] Hole[] holes { get => GetComponentsInChildren<Hole>(); }
     [SerializeField] Cameo[] cameos { get => GetComponentsInChildren<Cameo>(); }
 
+    private void Start()
+    {
+        GameManager.sceneController.UIInputReader.OnResetEvent += Reset;
+    }
+
     private void OnEnable()
     {
         for (int i = 0; i < holes.Length; i++)
         {
             holes[i].OnCheckEvent += CheckOrder;
         }
+
     }
     private void OnDisable()
     {
@@ -40,10 +46,10 @@ public class CameoControll : Riddle
             return;
         }
 
-        Close();
+        Reset();
     }
 
-    public void Close()
+    public void Reset()
     {
         foreach (Hole hole in holes)
         {

@@ -111,6 +111,7 @@ public class KlotskiSlotItem : InteractiveUI
         if (move)
             MoveToEmpty(emptyID);
     }
+
     void MoveToEmpty(int emptyID)
     {
         Transform trans = transform.Find("Item");

@@ -379,12 +379,21 @@
                 },
                 {
                     "name": "Click",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "3e2d30d2-259f-4aad-934f-37d8a0b9e56b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "94a7b729-6fad-4c49-a0db-cb6c1bd18b27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -658,7 +667,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "LeftStick",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -702,7 +711,7 @@
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keybord && Mouse",
                     "action": "LeftTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -713,7 +722,7 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "LeftTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -724,7 +733,7 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keybord && Mouse",
                     "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -735,7 +744,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RightTrigger",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -759,6 +768,39 @@
                     "processors": "",
                     "groups": "Keybord && Mouse",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2a8e7dd-6760-416b-b740-9f5b5f165dc0",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc0a7246-c2c8-42c3-ae18-28b102d0a19c",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keybord && Mouse",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fd35a5e-9e3a-4932-8482-62337c9e2fc9",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

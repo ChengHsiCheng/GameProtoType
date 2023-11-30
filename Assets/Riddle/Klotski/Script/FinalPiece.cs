@@ -16,7 +16,7 @@ public class FinalPiece : InteractiveUI, IBeginDragHandler, IDragHandler, IEndDr
 
     public override void OnPress()
     {
-        transform.SetParent(transform.parent.parent);
+        // transform.SetParent(transform.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
@@ -34,9 +34,9 @@ public class FinalPiece : InteractiveUI, IBeginDragHandler, IDragHandler, IEndDr
         }
         if (KlotskiControll.correct && gameObject.GetComponent<KlotskiSlotItem>() != null)
         {
-
             if (gameObject.GetComponent<KlotskiSlotItem>().id == 9)
             {
+                Debug.Log("AA");
                 KlotskiControll.pass = true;
                 GameObject slot = gameObject;
                 transform.SetParent(gameObject.transform);

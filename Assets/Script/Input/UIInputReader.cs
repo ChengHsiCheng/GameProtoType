@@ -10,9 +10,10 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     public Vector2 Arrow { get; private set; }
     public Vector2 Stick { get; private set; }
     public Vector2 Point { get; private set; }
-    public bool isInteractive { get; private set; }
+    public bool isClick { get; private set; }
 
     public event Action OnBackEvent;
+    public event Action OnResetEvent;
     public event Action OnInteractiveEvent;
     public event Action OnArrowKeyEvent;
     public event Action OnCheckEvent;
@@ -49,7 +50,6 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
             GameManager.SwitchControlMethod(ControlMethod.Gamepad);
         }
 
-        Debug.Log(GameManager.controlMethod);
     }
 
     public void OnBack(InputAction.CallbackContext context)
@@ -75,7 +75,6 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 
     public void OnInteractive(InputAction.CallbackContext context)
     {
-        isInteractive = context.performed;
 
         if (!context.performed)
             return;
@@ -87,8 +86,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 
     public void OnLeftStick(InputAction.CallbackContext context)
     {
-        if (!context.performed)
-            return;
+        // if (!context.performed)
+        //     return;
 
         SetControlMethod(context);
 
@@ -137,11 +136,23 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 
     public void OnClick(InputAction.CallbackContext context)
     {
+        isClick = context.performed;
+
         if (!context.performed)
             return;
 
         SetControlMethod(context);
 
         OnLeftClickEvent?.Invoke();
+    }
+
+    public void OnReset(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        SetControlMethod(context);
+
+        OnResetEvent?.Invoke();
     }
 }
