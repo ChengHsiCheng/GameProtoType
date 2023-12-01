@@ -17,6 +17,7 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public event Action TogglePauseEvent;
     public event Action SanCheckEvent;
     public event Action InteractionEvent;
+    public event Action<int> InventoryUIControllerEvent;
 
     private void OnEnable()
     {
@@ -126,4 +127,11 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
 
         InteractionEvent?.Invoke();
     }
+
+    public void OnInventoryUIController(InputAction.CallbackContext context)
+    {
+        InventoryUIControllerEvent?.Invoke((int)context.ReadValue<Vector2>().y);
+        Debug.Log(context.ReadValue<Vector2>().y);
+    }
+
 }

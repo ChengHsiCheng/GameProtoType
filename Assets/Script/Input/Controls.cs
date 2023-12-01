@@ -98,6 +98,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryUIController"",
+                    ""type"": ""Value"",
+                    ""id"": ""8d678659-6217-41e4-8bae-a2ad8e723fef"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -320,6 +329,72 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8ff926b-ef4e-4149-ba9c-a21a61bfe70b"",
+                    ""path"": ""<Mouse>/scroll"",
+                    ""interactions"": ""SlowTap(pressPoint=0.1)"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""InventoryUIController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""04ec8980-df3b-4e9d-90ed-6eee061fe489"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": ""SlowTap(pressPoint=0.2)"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""groups"": """",
+                    ""action"": ""InventoryUIController"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a2d46cdb-2160-4769-8d2b-e1593c4385db"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryUIController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3f36db98-f5c9-4fb0-8be2-12c28f797e96"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryUIController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c084ae8c-7bda-458a-9911-ba96354efb50"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryUIController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""286c0bd9-29d7-4352-99f0-b28e48699730"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryUIController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -869,6 +944,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_CombatLevel_ESC = m_CombatLevel.FindAction("ESC", throwIfNotFound: true);
         m_CombatLevel_SanCheck = m_CombatLevel.FindAction("SanCheck", throwIfNotFound: true);
         m_CombatLevel_Interaction = m_CombatLevel.FindAction("Interaction", throwIfNotFound: true);
+        m_CombatLevel_InventoryUIController = m_CombatLevel.FindAction("InventoryUIController", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_Back = m_Menu.FindAction("Back", throwIfNotFound: true);
@@ -948,6 +1024,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_CombatLevel_ESC;
     private readonly InputAction m_CombatLevel_SanCheck;
     private readonly InputAction m_CombatLevel_Interaction;
+    private readonly InputAction m_CombatLevel_InventoryUIController;
     public struct CombatLevelActions
     {
         private @Controls m_Wrapper;
@@ -960,6 +1037,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @ESC => m_Wrapper.m_CombatLevel_ESC;
         public InputAction @SanCheck => m_Wrapper.m_CombatLevel_SanCheck;
         public InputAction @Interaction => m_Wrapper.m_CombatLevel_Interaction;
+        public InputAction @InventoryUIController => m_Wrapper.m_CombatLevel_InventoryUIController;
         public InputActionMap Get() { return m_Wrapper.m_CombatLevel; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -993,6 +1071,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Interaction.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
+                @InventoryUIController.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInventoryUIController;
+                @InventoryUIController.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInventoryUIController;
+                @InventoryUIController.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInventoryUIController;
             }
             m_Wrapper.m_CombatLevelActionsCallbackInterface = instance;
             if (instance != null)
@@ -1021,6 +1102,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
+                @InventoryUIController.started += instance.OnInventoryUIController;
+                @InventoryUIController.performed += instance.OnInventoryUIController;
+                @InventoryUIController.canceled += instance.OnInventoryUIController;
             }
         }
     }
@@ -1158,6 +1242,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnESC(InputAction.CallbackContext context);
         void OnSanCheck(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnInventoryUIController(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {
