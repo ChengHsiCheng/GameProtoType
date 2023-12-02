@@ -39,6 +39,8 @@ public class CinemachineController : MonoBehaviour
 
     public void SwitchCamera(CameraMode cameraMode, Transform lookTarget)
     {
+        Debug.Log(lookTarget);
+
         for (int i = 0; i < Cameras.Length; i++)
         {
             if (i == (int)cameraMode)

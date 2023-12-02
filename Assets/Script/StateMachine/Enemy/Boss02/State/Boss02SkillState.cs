@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Boss02SkillState : Boss02BaseState
 {
-    EnemySkill skill;
-    bool useSkill;
+    private EnemySkill skill;
+    private bool useSkill;
 
     public Boss02SkillState(Boss02StateMachine stateMachine, int skillCount) : base(stateMachine)
     {
         skill = stateMachine.Skill[skillCount];
-        stateMachine.PreviousSkill = (SkillCount)skillCount;
     }
 
     public override void Enter()
@@ -22,22 +21,15 @@ public class Boss02SkillState : Boss02BaseState
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Skill");
 
-        if (normalizedTime >= skill.UseTimeByAnimation && !useSkill)
+        if (normalizedTime > skill.UseTimeByAnimation && !useSkill)
         {
             skill.skill.UseSkill();
             useSkill = true;
         }
-
-        if (normalizedTime >= 1)
-        {
-            stateMachine.SwitchState(new Boss02IdleState(stateMachine));
-            return;
-        }
-
     }
 
     public override void Exit()
     {
-        stateMachine.SetCooldDown(Random.Range(skill.MinCooldownTime, skill.MaxCooldownTime));
+        stateMachine.SetCooldDown(skill.MaxCooldownTime);
     }
 }

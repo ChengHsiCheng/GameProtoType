@@ -16,14 +16,11 @@ AnimatorStateMachine:
     m_State: {fileID: -8349381314050735483}
     m_Position: {x: 480, y: 50, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -3846473369159871409}
-    m_Position: {x: 480, y: 170, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 444160464816412340}
-    m_Position: {x: 480, y: 110, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 327789444722247515}
-    m_Position: {x: 480, y: 230, z: 0}
+    m_Position: {x: 480, y: 210, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -457298779660897567}
+    m_Position: {x: 480, y: 130, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -86,14 +83,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-3846473369159871409
+--- !u!1102 &-457298779660897567
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CallTentaclesSkill
+  m_Name: Start
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -102,13 +99,13 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_SpeedParameterActive: 1
+  m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 360cf694c236f944186ca42f61241b29, type: 2}
-  m_Tag: Skill
-  m_SpeedParameter: AnimationSpeed
+  m_Motion: {fileID: 7400000, guid: adc8241fd43062e4f991766a2c823eb2, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -126,7 +123,7 @@ AnimatorController:
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -162,32 +159,6 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: c9e13c4441e78ae48a31b647a694231e, type: 2}
   m_Tag: Die
-  m_SpeedParameter: AnimationSpeed
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &444160464816412340
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: BloodRitualAltarSkill
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 1
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cc7c01905345dcc4daa41b0bd72429de, type: 2}
-  m_Tag: Skill
   m_SpeedParameter: AnimationSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 

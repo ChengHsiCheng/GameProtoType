@@ -5,57 +5,33 @@ using UnityEngine.AI;
 
 public class Boss02StateMachine : StateMachine, Enemy
 {
-    [field: SerializeField] public CharacterController Controller { get; private set; }
-    [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public EnemySkill[] Skill { get; private set; }
-    [field: SerializeField] public Vector3 MoveCenter { get; private set; }
-    [field: SerializeField] public float RototeSpeed { get; private set; }
-    [field: SerializeField] public float MoveSpeed { get; private set; }
+    [field: SerializeField] public GameObject CameraTarget { get; private set; }
     [field: SerializeField] public float CooldDown { get; private set; }
 
-    [field: SerializeField] public AltarHealth Altarobj { get; private set; }
-    public Health AltarHealth { get; private set; }
-
-    [field: SerializeField] public Crown crown { get; private set; }
+    [SerializeField] private Boss02Altar Altarobj;
+    [SerializeField] private Boss02Altar Altar;
 
     protected PlayerStateMachine player;
-
-    public SkillCount PreviousSkill;
 
     private void Start()
     {
         GameManager.enemys.Add(this);
         player = GameManager.player.GetComponent<PlayerStateMachine>();
 
-        Agent.updatePosition = false; // 不更新導航代理的位置
-        Agent.updateRotation = false; // 不更新導航代理的旋轉
+        SwitchState(new Boss02StartState(this));
 
-        Altarobj = Instantiate(Altarobj, new Vector3(-1.5f, 0, 0), Quaternion.identity);
-        Altarobj.SetBoss02(this);
-        AltarHealth = Altarobj.GetComponent<Health>();
-        // SwitchState(new Boss02StartState(this));
-        SwitchState(new Boss02SkillState(this, (int)SkillCount.CallBelieversSkill));
-
-
-        AltarHealth.OnTakeDamage += TakeDamage;
+        
     }
 
     private void OnDisable()
     {
-        AltarHealth.OnTakeDamage -= TakeDamage;
-
         GameManager.enemys.Remove(this);
     }
 
     public void SetCooldDown(float value)
     {
         CooldDown = value;
-    }
-
-    private void TakeDamage()
-    {
-        if (!player.haveCrown)
-            return;
     }
 
     public void BePetrify()
