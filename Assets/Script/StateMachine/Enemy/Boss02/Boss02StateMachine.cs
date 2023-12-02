@@ -10,7 +10,7 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public float CooldDown { get; private set; }
 
     [SerializeField] private Boss02Altar Altarobj;
-    [SerializeField] private Boss02Altar Altar;
+    private Boss02Altar Altar;
 
     protected PlayerStateMachine player;
 
@@ -21,7 +21,7 @@ public class Boss02StateMachine : StateMachine, Enemy
 
         SwitchState(new Boss02StartState(this));
 
-        
+        Altar = Instantiate(Altarobj, new Vector3(-9, 0, 9), Quaternion.identity);
     }
 
     private void OnDisable()

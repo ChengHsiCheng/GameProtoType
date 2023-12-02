@@ -17,6 +17,7 @@ public class Boss02BelieverDieState : Boss02BelieverBaseState
         stateMachine.SetisDied(true);
 
         stateMachine.Collider.enabled = false;
+        GameObject.Instantiate(stateMachine.soul, stateMachine.transform.position + Vector3.up, Quaternion.identity);
     }
 
     public override void Tick(float deltaTime)

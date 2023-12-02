@@ -26,6 +26,12 @@ public class Boss02SkillState : Boss02BaseState
             skill.skill.UseSkill();
             useSkill = true;
         }
+
+        if (normalizedTime >= 1)
+        {
+            stateMachine.SwitchState(new Boss02IdleState(stateMachine));
+            return;
+        }
     }
 
     public override void Exit()

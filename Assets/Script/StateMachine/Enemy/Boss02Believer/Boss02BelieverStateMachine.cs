@@ -23,6 +23,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
     [SerializeField] private GameObject sword;
     [SerializeField] private GameObject staff;
+    [field: SerializeField] public GameObject soul { get; private set; }
 
     [field: SerializeField] public bool isMelee { get; private set; }
     [field: SerializeField] public float attackRange { get; private set; }
