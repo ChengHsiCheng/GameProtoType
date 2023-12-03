@@ -20,6 +20,8 @@ public class TentacleAttackState : TentacleBaseState
         Weapon.SetAttack(Attack.Damage, Attack.Impact, Attack.SanDamage);
 
         stateMachine.Animator.CrossFadeInFixedTime(Attack.AnimationName, CrossFadeDuration);
+
+        GameObject.Instantiate(stateMachine.WarningArea, stateMachine.transform.position + (Vector3.up * 20), stateMachine.transform.rotation);
     }
 
     public override void Tick(float deltaTime)

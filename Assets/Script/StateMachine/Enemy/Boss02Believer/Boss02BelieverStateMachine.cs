@@ -44,6 +44,8 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
 
+        attackCoolDown = UnityEngine.Random.Range(0f, 5f);
+
         Info.OnDie += OnDie;
         WeaponHendler.VFXEvent += OnPlayVFX;
 

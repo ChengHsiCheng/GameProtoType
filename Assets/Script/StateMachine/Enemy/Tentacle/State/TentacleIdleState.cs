@@ -21,9 +21,12 @@ public class TentacleIdleState : TentacleBaseState
     {
         stateMachine.SetCoolDown(Mathf.Max(0, stateMachine.attackCoolDown - deltaTime));
 
-        FaceTarget(GameManager.player.transform.position, stateMachine.rotateSpeed);
+        Vector3 facePos = GameManager.player.transform.position;
+        facePos.y = stateMachine.transform.position.y;
 
-        if (IsInAttackRange() && stateMachine.attackCoolDown <= 0)
+        FaceTarget(facePos, stateMachine.rotateSpeed);
+
+        if (stateMachine.attackCoolDown <= 0)
         {
             stateMachine.SwitchState(new TentacleAttackState(stateMachine));
             return;

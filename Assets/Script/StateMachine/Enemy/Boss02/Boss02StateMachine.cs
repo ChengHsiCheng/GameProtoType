@@ -10,7 +10,7 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public float CooldDown { get; private set; }
 
     [SerializeField] private Boss02Altar Altarobj;
-    private Boss02Altar Altar;
+    public Boss02Altar Altar { get; private set; }
 
     protected PlayerStateMachine player;
 
@@ -22,11 +22,20 @@ public class Boss02StateMachine : StateMachine, Enemy
         SwitchState(new Boss02StartState(this));
 
         Altar = Instantiate(Altarobj, new Vector3(-9, 0, 9), Quaternion.identity);
+
+        Altar.OnShieldBrokenEvent += OnShieldBroken;
     }
 
     private void OnDisable()
     {
         GameManager.enemys.Remove(this);
+
+        Altar.OnShieldBrokenEvent -= OnShieldBroken;
+    }
+
+    private void OnShieldBroken()
+    {
+        SwitchState(new Boss02FaintState(this));
     }
 
     public void SetCooldDown(float value)

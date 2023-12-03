@@ -11,6 +11,8 @@ public class Boss02Altar : MonoBehaviour, Health
     private int shieldBrokenCount;
     private bool Invulnerable;
 
+    public event Action OnShieldBrokenEvent;
+
     public event Action OnTakeDamage;
     public event Action OnUpdateUI;
 
@@ -19,8 +21,7 @@ public class Boss02Altar : MonoBehaviour, Health
 
     private void Start()
     {
-        shield.SetActive(true);
-        Invulnerable = true;
+        ShieldRepair();
 
         health = maxHealth;
     }
@@ -29,13 +30,23 @@ public class Boss02Altar : MonoBehaviour, Health
     {
         shieldBrokenCount++;
 
-        Debug.Log(shieldBrokenCount);
-
         if (shieldBrokenCount == shieldBrokenDemand)
         {
-            shield.SetActive(false);
-            Invulnerable = false;
+            ShieldBroken();
         }
+    }
+
+    private void ShieldBroken()
+    {
+        shield.SetActive(false);
+        Invulnerable = false;
+        OnShieldBrokenEvent?.Invoke();
+    }
+
+    public void ShieldRepair()
+    {
+        shield.SetActive(true);
+        Invulnerable = true;
     }
 
     public void DealHealthDamage(float damage, bool isImpact)
