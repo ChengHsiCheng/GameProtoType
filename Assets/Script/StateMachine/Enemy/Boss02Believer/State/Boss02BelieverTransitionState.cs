@@ -21,11 +21,17 @@ public class Boss02BelieverTransitionState : Boss02BelieverBaseState
 
     public override void Tick(float deltaTime)
     {
-        stateMachine.Animator.SetFloat(MoveSpeedString, 0, AnimatorDampTime, deltaTime);
+        stateMachine.Animator.SetFloat(MoveSpeedString, 0.5f, AnimatorDampTime, deltaTime);
 
         stateMachine.SetCoolDown(Mathf.Max(0, stateMachine.attackCoolDown - deltaTime));
 
         FaceTarget(GameManager.player.transform.position, stateMachine.rotateSpeed);
+
+        if (stateMachine.attackCoolDown > 0 && stateMachine.isMelee)
+        {
+            stateMachine.SwitchState(new Boss02BeloeverRetreatState(stateMachine));
+            return;
+        }
 
         if (!IsInAttackRange())
         {
@@ -33,15 +39,11 @@ public class Boss02BelieverTransitionState : Boss02BelieverBaseState
             return;
         }
 
-        if (stateMachine.attackCoolDown <= 0)
-        {
-            if (stateMachine.isMelee)
-                stateMachine.SwitchState(new Boss02BelieverAttackState(stateMachine));
-            else
-                stateMachine.SwitchState(new Boss02BelieverSkillState(stateMachine));
-
-            return;
-        }
+        //切換攻擊State
+        if (stateMachine.isMelee)
+            stateMachine.SwitchState(new Boss02BelieverAttackState(stateMachine));
+        else
+            stateMachine.SwitchState(new Boss02BelieverSkillState(stateMachine));
     }
 
     public override void Exit()

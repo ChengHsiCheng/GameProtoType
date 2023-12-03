@@ -58,7 +58,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
             attackRange = remotelyAttackRange;
         }
 
-        SwitchState(new Boss02BelieverChaseState(this));
+        SwitchState(new Boss02BelieverTransitionState(this));
     }
 
     private void OnDisable()
