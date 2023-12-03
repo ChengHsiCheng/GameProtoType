@@ -20,6 +20,18 @@ public class TentacleStateMachine : StateMachine, Enemy
         Player = GameManager.player;
 
         SwitchState(new TentacleIdleState(this));
+
+        attackCoolDown = Random.Range(5f, 10f);
+    }
+
+    public void OnFaint()
+    {
+        SwitchState(new TentacleFaintState(this));
+    }
+
+    public void DisFaint()
+    {
+        SwitchState(new TentacleIdleState(this));
     }
 
     private void OnDisable()

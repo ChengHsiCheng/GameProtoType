@@ -46,6 +46,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
         attackCoolDown = UnityEngine.Random.Range(0f, 5f);
 
+        Info.OnTakeDamage += TackDamage;
         Info.OnDie += OnDie;
         WeaponHendler.VFXEvent += OnPlayVFX;
 
@@ -65,10 +66,27 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
     private void OnDisable()
     {
+        Info.OnTakeDamage -= TackDamage;
         Info.OnDie -= OnDie;
         WeaponHendler.VFXEvent -= OnPlayVFX;
 
         GameManager.enemys.Remove(this);
+    }
+
+    private void TackDamage()
+    {
+        SwitchState(new Boss02BeloeverImpactState(this));
+    }
+
+    public void OnFaint()
+    {
+        SwitchState(new Boss02BeloeverFaintState(this));
+    }
+
+
+    public void DisFaint()
+    {
+        SwitchState(new Boss02BelieverTransitionState(this));
     }
 
     private void OnDie()
@@ -76,11 +94,6 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
         OnDieEvent?.Invoke(this);
 
         SwitchState(new Boss02BelieverDieState(this));
-    }
-
-    public void OnSacrifice()
-    {
-        OnSacrificeEvent?.Invoke(this);
     }
 
     public void SetisDied(bool value)

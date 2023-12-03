@@ -57,9 +57,10 @@ MonoBehaviour:
     <spawnPoint>k__BackingField: {fileID: 3833537233334749550}
     <AnimationName>k__BackingField: CallBelieversSkill
     <UseTimeByAnimation>k__BackingField: 0.5
-    <MinCooldownTime>k__BackingField: 8
-    <MaxCooldownTime>k__BackingField: 5
+    <MinCooldownTime>k__BackingField: 15
+    <MaxCooldownTime>k__BackingField: 10
     <Impact>k__BackingField: 0
+  <Tentacles>k__BackingField: []
   <CameraTarget>k__BackingField: {fileID: 6369031629342218690}
   <CooldDown>k__BackingField: 0
   Altarobj: {fileID: 3107205820958662993, guid: 47cb04346719c384184d48917622f3c4,
@@ -314,6 +315,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8028690816198541675, guid: 95518506b690934489da440d1e5df752,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0030389242
+      objectReference: {fileID: 0}
+    - target: {fileID: -8028690816198541675, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.018601969
+      objectReference: {fileID: 0}
+    - target: {fileID: -8028690816198541675, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -19.315882
       objectReference: {fileID: 0}
@@ -344,18 +355,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99195576
+      objectReference: {fileID: 0}
+    - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.046747852
+      objectReference: {fileID: 0}
+    - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.11006711
+      objectReference: {fileID: 0}
+    - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.041517545
+      objectReference: {fileID: 0}
+    - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -55.62056
+      value: -4.796
       objectReference: {fileID: 0}
     - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.8182316
+      value: -12.887
       objectReference: {fileID: 0}
     - target: {fileID: -7046241612423976119, guid: 95518506b690934489da440d1e5df752,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -3.3116894
+      value: 5.335
       objectReference: {fileID: 0}
     - target: {fileID: -6014139326664047937, guid: 95518506b690934489da440d1e5df752,
         type: 3}
@@ -416,6 +447,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.2179881
+      objectReference: {fileID: 0}
+    - target: {fileID: -3631179475611585598, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01762891
+      objectReference: {fileID: 0}
+    - target: {fileID: -3631179475611585598, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.009288072
       objectReference: {fileID: 0}
     - target: {fileID: -3631179475611585598, guid: 95518506b690934489da440d1e5df752,
         type: 3}
@@ -706,6 +747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.24238062
+      objectReference: {fileID: 0}
+    - target: {fileID: 7034913646663207213, guid: 95518506b690934489da440d1e5df752,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7034913646663207213, guid: 95518506b690934489da440d1e5df752,
         type: 3}
@@ -2298,10 +2344,9 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1148875425}
   <Material>k__BackingField: {fileID: 0}
   <WeaponHendler>k__BackingField: {fileID: 0}
-  <Collider>k__BackingField: {fileID: 0}
   <Attacks>k__BackingField: []
   <WeaponDamages>k__BackingField: []
-  <attackRange>k__BackingField: 0
+  <WarningArea>k__BackingField: {fileID: 0}
   <rotateSpeed>k__BackingField: 0
   <attackCoolDown>k__BackingField: 0
 --- !u!4 &5334590194543320591 stripped

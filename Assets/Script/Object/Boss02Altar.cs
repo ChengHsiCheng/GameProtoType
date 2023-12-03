@@ -2,14 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Boss02Altar : MonoBehaviour, Health
 {
-    [SerializeField] private GameObject shield;
+    [SerializeField] private VisualEffect shield;
     [SerializeField] private GameObject shieldBroken;
     [SerializeField] private int shieldBrokenDemand;
     private int shieldBrokenCount;
     private bool Invulnerable;
+    private float shieldColor;
+    [SerializeField] private float shieldCoolerSpeed;
+    private bool isShieldColor;
 
     public event Action OnShieldBrokenEvent;
 
@@ -26,9 +30,33 @@ public class Boss02Altar : MonoBehaviour, Health
         health = maxHealth;
     }
 
+    private void Update()
+    {
+        if (GameManager.isPauseGame)
+            return;
+
+        shield.SetFloat("ChangeColor", shieldColor);
+
+        if (isShieldColor)
+        {
+            shieldColor += shieldCoolerSpeed * Time.deltaTime;
+
+            if (shieldColor >= 1)
+            {
+                isShieldColor = false;
+            }
+            return;
+        }
+
+        shieldColor = MathF.Max(0, shieldColor - shieldCoolerSpeed * Time.deltaTime);
+
+    }
+
     public void ShieldBrokenCountReduced()
     {
         shieldBrokenCount++;
+
+        isShieldColor = true;
 
         if (shieldBrokenCount == shieldBrokenDemand)
         {
@@ -38,15 +66,31 @@ public class Boss02Altar : MonoBehaviour, Health
 
     private void ShieldBroken()
     {
-        shield.SetActive(false);
+        shield.Stop();
         Invulnerable = false;
         OnShieldBrokenEvent?.Invoke();
+        shieldBrokenCount = 0;
+
+        Boss02BelieverStateMachine[] Believers = GameObject.FindObjectsOfType<Boss02BelieverStateMachine>();
+
+        foreach (Boss02BelieverStateMachine Believer in Believers)
+        {
+            Believer.OnFaint();
+            Debug.Log(Believer);
+        }
     }
 
     public void ShieldRepair()
     {
-        shield.SetActive(true);
+        shield.Play();
         Invulnerable = true;
+
+        Boss02BelieverStateMachine[] Believers = GameObject.FindObjectsOfType<Boss02BelieverStateMachine>();
+
+        foreach (Boss02BelieverStateMachine Believer in Believers)
+        {
+            Believer.DisFaint();
+        }
     }
 
     public void DealHealthDamage(float damage, bool isImpact)

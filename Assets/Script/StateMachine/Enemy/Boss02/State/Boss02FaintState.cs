@@ -14,6 +14,9 @@ public class Boss02FaintState : Boss02BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime("Faint", 0.1f);
+
+        stateMachine.Tentacles[0].OnFaint();
+        stateMachine.Tentacles[1].OnFaint();
     }
 
     public override void Tick(float deltaTime)
@@ -40,6 +43,9 @@ public class Boss02FaintState : Boss02BaseState
     public override void Exit()
     {
         stateMachine.Altar.ShieldRepair();
+
+        stateMachine.Tentacles[0].DisFaint();
+        stateMachine.Tentacles[1].DisFaint();
     }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Boss02StateMachine : StateMachine, Enemy
 {
     [field: SerializeField] public EnemySkill[] Skill { get; private set; }
+    [field: SerializeField] public TentacleStateMachine[] Tentacles { get; private set; }
     [field: SerializeField] public GameObject CameraTarget { get; private set; }
     [field: SerializeField] public float CooldDown { get; private set; }
 
@@ -24,6 +25,8 @@ public class Boss02StateMachine : StateMachine, Enemy
         Altar = Instantiate(Altarobj, new Vector3(-9, 0, 9), Quaternion.identity);
 
         Altar.OnShieldBrokenEvent += OnShieldBroken;
+
+        Tentacles = GameObject.FindObjectsOfType<TentacleStateMachine>();
     }
 
     private void OnDisable()
