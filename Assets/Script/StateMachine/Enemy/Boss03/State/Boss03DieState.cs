@@ -13,6 +13,8 @@ public class Boss03DieState : Boss03BaseState
         stateMachine.Animator.CrossFadeInFixedTime("Die", 0.1f);
         GameManager.sceneController.OnClearance();
 
+        stateMachine.Collider.enabled = false;
+
         stateMachine.Eye.GetComponent<Rigidbody>().isKinematic = false;
         stateMachine.Eye.GetComponent<Collider>().enabled = true;
         stateMachine.Animator.enabled = false;

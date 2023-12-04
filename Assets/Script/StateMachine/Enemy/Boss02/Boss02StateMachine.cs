@@ -29,6 +29,8 @@ public class Boss02StateMachine : StateMachine, Enemy
         Altar.OnTakeDamageEvent += DealHealthDamage;
         Altar.OnShieldBrokenEvent += OnShieldBroken;
 
+        info.OnDie += OnDie;
+
         Tentacles = GameObject.FindObjectsOfType<TentacleStateMachine>();
     }
 
@@ -38,6 +40,9 @@ public class Boss02StateMachine : StateMachine, Enemy
 
         Altar.OnTakeDamageEvent -= DealHealthDamage;
         Altar.OnShieldBrokenEvent -= OnShieldBroken;
+
+        info.OnDie -= OnDie;
+
     }
 
     private void OnShieldBroken()
@@ -49,6 +54,11 @@ public class Boss02StateMachine : StateMachine, Enemy
     {
         info.DealHealthDamage(damage, false);
         bar.SetBar(info.health / info.maxHealth);
+    }
+
+    private void OnDie()
+    {
+        SwitchState(new Boss02DieState(this));
     }
 
     public void SetCooldDown(float value)

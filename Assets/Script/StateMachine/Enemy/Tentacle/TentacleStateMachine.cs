@@ -21,7 +21,7 @@ public class TentacleStateMachine : StateMachine, Enemy
 
         SwitchState(new TentacleIdleState(this));
 
-        attackCoolDown = Random.Range(5f, 10f);
+        attackCoolDown = Random.Range(10f, 15f);
     }
 
     public void OnFaint()
@@ -32,6 +32,11 @@ public class TentacleStateMachine : StateMachine, Enemy
     public void DisFaint()
     {
         SwitchState(new TentacleIdleState(this));
+    }
+
+    public void OnDie()
+    {
+        SwitchState(new TentacleDieState(this));
     }
 
     private void OnDisable()

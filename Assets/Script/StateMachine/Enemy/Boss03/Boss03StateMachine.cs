@@ -7,6 +7,7 @@ public class Boss03StateMachine : StateMachine, Enemy
     [field: SerializeField] public GameObject Eye { get; private set; }
     [field: SerializeField] public GameObject BigRing { get; private set; }
     [field: SerializeField] public GameObject SmallRing { get; private set; }
+    [field: SerializeField] public Collider Collider { get; private set; }
     [field: SerializeField] public EnemyInfo Info { get; private set; }
     [field: SerializeField] public BarController HpBar { get; private set; }
     [field: SerializeField] public VFXPlayer VFXPlayer { get; private set; }

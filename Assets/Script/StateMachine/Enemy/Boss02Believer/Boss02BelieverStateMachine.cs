@@ -44,7 +44,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
         Agent.updatePosition = false; // 不更新導航代理的位置
         Agent.updateRotation = false; // 不更新導航代理的旋轉
 
-        attackCoolDown = UnityEngine.Random.Range(0f, 5f);
+        attackCoolDown = UnityEngine.Random.Range(1f, 5f);
 
         Info.OnTakeDamage += TackDamage;
         Info.OnDie += OnDie;
@@ -61,7 +61,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
             attackRange = remotelyAttackRange;
         }
 
-        SwitchState(new Boss02BelieverTransitionState(this));
+        SwitchState(new Boss02BelieverStartState(this));
     }
 
     private void OnDisable()
@@ -95,7 +95,7 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
         SwitchState(new Boss02BelieverTransitionState(this));
     }
 
-    private void OnDie()
+    public void OnDie()
     {
         OnDieEvent?.Invoke(this);
 

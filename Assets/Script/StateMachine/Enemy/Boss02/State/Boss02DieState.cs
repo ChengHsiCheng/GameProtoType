@@ -11,6 +11,19 @@ public class Boss02DieState : Boss02BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime("Die", 0.1f);
+
+
+        Boss02BelieverStateMachine[] believers = GameObject.FindObjectsOfType<Boss02BelieverStateMachine>();
+
+        foreach (Boss02BelieverStateMachine believer in believers)
+        {
+            believer.OnDie();
+        }
+
+        stateMachine.Tentacles[0].OnDie();
+        stateMachine.Tentacles[1].OnDie();
+
+        stateMachine.Altar.OnBossDie();
     }
 
     public override void Tick(float deltaTime)

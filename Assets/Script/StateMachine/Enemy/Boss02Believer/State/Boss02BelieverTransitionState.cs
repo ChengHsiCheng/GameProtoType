@@ -27,9 +27,11 @@ public class Boss02BelieverTransitionState : Boss02BelieverBaseState
 
         FaceTarget(GameManager.player.transform.position, stateMachine.rotateSpeed);
 
-        if (stateMachine.attackCoolDown > 0 && stateMachine.isMelee)
+        if (stateMachine.attackCoolDown > 0)
         {
-            stateMachine.SwitchState(new Boss02BeloeverRetreatState(stateMachine));
+            if (stateMachine.isMelee)
+                stateMachine.SwitchState(new Boss02BeloeverRetreatState(stateMachine));
+
             return;
         }
 

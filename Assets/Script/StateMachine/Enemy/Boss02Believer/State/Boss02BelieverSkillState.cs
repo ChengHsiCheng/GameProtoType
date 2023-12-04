@@ -48,6 +48,7 @@ public class Boss02BelieverSkillState : Boss02BelieverBaseState
 
     public override void Exit()
     {
+        stateMachine.SetCoolDown(Random.Range(skill.MinCooldownTime, skill.MaxCooldownTime));
     }
 }
 

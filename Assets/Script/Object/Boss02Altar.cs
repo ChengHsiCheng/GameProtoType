@@ -7,13 +7,14 @@ using UnityEngine.VFX;
 public class Boss02Altar : MonoBehaviour, Health
 {
     [SerializeField] private VisualEffect shield;
-    [SerializeField] private GameObject shieldBroken;
+    [SerializeField] private VisualEffect shieldBroken;
     [SerializeField] private int shieldBrokenDemand;
     private int shieldBrokenCount;
     private bool Invulnerable;
     private float shieldColor;
     [SerializeField] private float shieldCoolerSpeed;
     private bool isShieldColor;
+    private bool isBossDie;
 
     public event Action OnShieldBrokenEvent;
 
@@ -27,6 +28,8 @@ public class Boss02Altar : MonoBehaviour, Health
     private void Start()
     {
         ShieldRepair();
+
+        shieldBroken.Stop();
 
         health = maxHealth;
     }
@@ -53,8 +56,16 @@ public class Boss02Altar : MonoBehaviour, Health
 
     }
 
+    public void OnBossDie()
+    {
+        isBossDie = true;
+    }
+
     public void ShieldBrokenCountReduced()
     {
+        if (isBossDie)
+            return;
+
         shieldBrokenCount++;
 
         isShieldColor = true;
@@ -71,6 +82,8 @@ public class Boss02Altar : MonoBehaviour, Health
         Invulnerable = false;
         OnShieldBrokenEvent?.Invoke();
         shieldBrokenCount = 0;
+
+        shieldBroken.Play();
 
         Boss02BelieverStateMachine[] Believers = GameObject.FindObjectsOfType<Boss02BelieverStateMachine>();
 
