@@ -14,6 +14,7 @@ public class PlayerImpactState : PlayerBaseState
     public override void Enter()
     {
         stateMachine.SetCanAction(false);
+        stateMachine.WeaponHendler.DisableWeapon();
 
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeDuration);
     }

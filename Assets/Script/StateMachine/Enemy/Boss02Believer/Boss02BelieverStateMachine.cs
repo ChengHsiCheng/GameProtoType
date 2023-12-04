@@ -80,12 +80,18 @@ public class Boss02BelieverStateMachine : StateMachine, Enemy
 
     public void OnFaint()
     {
+        if (isDied)
+            return;
+
         SwitchState(new Boss02BeloeverFaintState(this));
     }
 
 
     public void DisFaint()
     {
+        if (isDied)
+            return;
+
         SwitchState(new Boss02BelieverTransitionState(this));
     }
 

@@ -18,6 +18,7 @@ public class Boss02Altar : MonoBehaviour, Health
     public event Action OnShieldBrokenEvent;
 
     public event Action OnTakeDamage;
+    public event Action<float> OnTakeDamageEvent;
     public event Action OnUpdateUI;
 
     [field: SerializeField] public float maxHealth { get; private set; }
@@ -98,7 +99,7 @@ public class Boss02Altar : MonoBehaviour, Health
         if (Invulnerable)
             return;
 
-        OnTakeDamage?.Invoke();
+        OnTakeDamageEvent?.Invoke(damage);
 
         health = MathF.Max(health - damage, 0);
     }

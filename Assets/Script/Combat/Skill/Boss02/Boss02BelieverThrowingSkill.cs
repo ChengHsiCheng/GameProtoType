@@ -17,6 +17,6 @@ public class Boss02BelieverThrowingSkill : Skill
     private void Emission()
     {
         ProjectileControls projectile = Instantiate(ProjectileVFX, castTransform.position, castTransform.rotation);
-        projectile.SetValue(5, castTransform.transform.forward);
+        projectile.SetValue(10, castTransform.transform.forward);
     }
 }

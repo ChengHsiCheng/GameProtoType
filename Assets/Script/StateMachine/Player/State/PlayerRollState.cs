@@ -15,6 +15,8 @@ public class PlayerRollState : PlayerBaseState
 
     public override void Enter()
     {
+        stateMachine.WeaponHendler.DisableWeapon();
+
         stateMachine.SetCanAction(false);
 
         stateMachine.SetCanCancel(false);

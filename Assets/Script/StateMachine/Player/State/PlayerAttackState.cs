@@ -7,6 +7,7 @@ public class PlayerAttackState : PlayerBaseState
     private readonly float previousFrameTime; // 上一幀的正規化時間
     private readonly Attack attack; // 攻擊的資訊
     private bool isMoved;
+    private bool isAttack;
 
 
     public PlayerAttackState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
@@ -30,6 +31,12 @@ public class PlayerAttackState : PlayerBaseState
         Move(deltaTime);
 
         Vector3 movemnt = CalculateMovement();
+
+        if (normalizedTime >= attack.AttackTimeByAnimation && !isAttack)
+        {
+            stateMachine.WeaponHendler.EnableWeapon(0);
+            isAttack = true;
+        }
 
         if (normalizedTime <= attack.RotateTime && movemnt != Vector3.zero)
         {
@@ -76,9 +83,6 @@ public class PlayerAttackState : PlayerBaseState
         attack.Model.transform.position = stateMachine.transform.position;
 
         stateMachine.SetCanCancel(true);
-
-        stateMachine.WeaponHendler.DisableWeapon();
-
     }
 
     /// <summary>

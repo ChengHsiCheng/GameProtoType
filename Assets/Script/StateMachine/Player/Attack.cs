@@ -7,6 +7,7 @@ using UnityEngine;
 public class Attack
 {
     [field: SerializeField, HeaderAttribute("動畫名稱")] public string AnimationName { get; private set; } // 動畫名稱
+    [field: SerializeField, HeaderAttribute("攻擊時間")] public float AttackTimeByAnimation { get; private set; }
     [field: SerializeField, HeaderAttribute("動畫過渡時間")] public float TransitionDuration { get; private set; } // 過渡時間
     [field: SerializeField, HeaderAttribute("連擊狀態計數")] public int ComboStateIndex { get; private set; } = -1; // 連擊狀態計數
     [field: SerializeField, HeaderAttribute("最小旋轉時間(0-1)")] public float RotateTime { get; private set; } // 連擊攻擊時間
