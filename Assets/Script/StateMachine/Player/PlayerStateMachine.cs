@@ -125,6 +125,11 @@ public class PlayerStateMachine : StateMachine
         }
     }
 
+    public void OnVictory()
+    {
+        UIManager.SetVictoryUI();
+    }
+
     private void OnHeal()
     {
         if (!canAction)

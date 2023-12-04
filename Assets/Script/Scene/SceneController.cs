@@ -51,6 +51,7 @@ public class SceneController : MonoBehaviour
     public void OnClearance()
     {
         portal?.SetActive(true);
+        GameManager.player.GetComponent<PlayerStateMachine>().OnVictory();
     }
 
     public void SetCinemachineController(CinemachineController cinemachineController)

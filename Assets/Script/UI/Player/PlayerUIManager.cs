@@ -11,8 +11,9 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public UIManager SanCheck { get; private set; }
     [field: SerializeField] public UIManager DiedUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
-    [field: SerializeField] public Image HintUI { get; private set; }
+    [field: SerializeField] public GameObject HintUI { get; private set; }
     [field: SerializeField] public GameObject HealUI { get; private set; }
+    [field: SerializeField] public GameObject Victory { get; private set; }
 
     [SerializeField] private float hurtUIAlphaDecayRate;
     private float hurtUIAlpha = 0;
@@ -69,6 +70,11 @@ public class PlayerUIManager : UIManager
     public void SetDiedUI()
     {
         GameManager.sceneController.UIController.AddUI(DiedUI, false);
+    }
+
+    public void SetVictoryUI()
+    {
+        Victory.gameObject.SetActive(true);
     }
 
     public void SetHint(bool value)

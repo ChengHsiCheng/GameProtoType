@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class GameOver : UIManager
     [SerializeField] GameObject Boss01DieUI;
     [SerializeField] GameObject Boss02DieUI;
     [SerializeField] GameObject Boss03DieUI;
+    [SerializeField] CanvasGroup Group;
+    private float timer;
 
     private void OnEnable()
     {
@@ -33,11 +36,16 @@ public class GameOver : UIManager
         GameManager.sceneController.UIInputReader.OnBackEvent += BackLobby;
     }
 
-
     private void OnDisable()
     {
         GameManager.sceneController.UIInputReader.OnCheckEvent -= TryAgain;
         GameManager.sceneController.UIInputReader.OnBackEvent -= BackLobby;
+    }
+
+    private void Update()
+    {
+        timer = MathF.Min(1, timer + Time.deltaTime);
+        Group.alpha = timer;
     }
 
     public void TryAgain()
