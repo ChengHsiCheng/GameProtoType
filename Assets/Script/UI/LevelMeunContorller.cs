@@ -8,6 +8,7 @@ public class LevelMeunContorller : UIManager
     private UIInputReader input;
     private Vector2 arrow;
 
+    [SerializeField] private UIManager[] BossUIs;
     [SerializeField] private GameObject[] levelBoss;
     private int count;
 
@@ -49,17 +50,18 @@ public class LevelMeunContorller : UIManager
 
     private void OnCheckLevel()
     {
-        switch (count)
-        {
-            case 0:
-                GameManager.SwitchScene("Boss01Scenes");
-                break;
-            case 1:
-                GameManager.SwitchScene("Boss02Scenes");
-                break;
-            case 2:
-                GameManager.SwitchScene("Boss03Scenes");
-                break;
-        }
+        GameManager.sceneController.UIController.AddUI(BossUIs[count]);
+        // switch (count)
+        // {
+        //     case 0:
+        //         GameManager.SwitchScene("Boss01Scenes");
+        //         break;
+        //     case 1:
+        //         GameManager.SwitchScene("Boss02Scenes");
+        //         break;
+        //     case 2:
+        //         GameManager.SwitchScene("Boss03Scenes");
+        //         break;
+        // }
     }
 }
