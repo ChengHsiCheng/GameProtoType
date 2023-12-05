@@ -24,14 +24,12 @@ public class Boss02DieState : Boss02BaseState
         stateMachine.Tentacles[1].OnDie();
 
         stateMachine.Altar.OnBossDie();
+
+        GameManager.sceneController.OnClearance();
     }
 
     public override void Tick(float deltaTime)
     {
-        if (GetNormalizedTime(stateMachine.Animator, "Die") >= 1)
-        {
-            GameManager.sceneController.OnClearance();
-        }
     }
 
     public override void Exit()
