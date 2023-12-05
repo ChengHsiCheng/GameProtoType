@@ -23,7 +23,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
     public event Action OnDie;
     public event Action OnUpdateSan;
     public event Action OnUpdateUI;
-    public event Action OnSanCheck;
     public event Action OnImpact;
 
     private void Start()
@@ -119,7 +118,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
         if (san <= 0)
         {
-            OnSanCheck?.Invoke();
+            DealHealthDamage(1000, false);
         }
     }
 

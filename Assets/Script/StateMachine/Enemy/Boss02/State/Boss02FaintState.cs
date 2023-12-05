@@ -23,7 +23,7 @@ public class Boss02FaintState : Boss02BaseState
     {
         timer += deltaTime;
 
-        if (timer >= 3 && !RepairShield)
+        if (timer >= 5 && !RepairShield)
         {
             stateMachine.Animator.CrossFadeInFixedTime("RepairShield", 0.1f);
             RepairShield = true;

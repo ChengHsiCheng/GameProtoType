@@ -65,18 +65,12 @@ public class PlayerStateMachine : StateMachine
 
         Info.OnTakeDamage += HandleTakeDamage;
         Info.OnUpdateSan += UpdateSan;
-        Info.OnSanCheck += OnSanCheck;
         Info.OnUpdateUI += UpdateUI;
         Info.OnDie += HandleDie;
         Info.OnImpact += GetImpact;
 
         InputReader.RollEvent += OnRoll;
-        InputReader.SkillEvent += OnSkill;
         InputReader.HealEvent += OnHeal;
-        GameManager.sceneController.UIInputReader.OnCheckEvent += OnSanCheckCheck;
-
-        SanCheck.SuccessEvent += SanCheckSuccess;
-        SanCheck.FailEvent += SanCheckFail;
     }
 
 
@@ -87,7 +81,6 @@ public class PlayerStateMachine : StateMachine
     {
         Info.OnTakeDamage -= HandleTakeDamage;
         Info.OnUpdateSan -= UpdateSan;
-        Info.OnSanCheck -= OnSanCheck;
         Info.OnUpdateUI -= UpdateUI;
         Info.OnDie -= HandleDie;
         Info.OnImpact -= GetImpact;
@@ -95,12 +88,7 @@ public class PlayerStateMachine : StateMachine
         InputReader.TogglePauseEvent -= TogglePause;
         InputReader.InteractionEvent -= OnInteraction;
         InputReader.RollEvent -= OnRoll;
-        InputReader.SkillEvent -= OnSkill;
         InputReader.HealEvent -= OnHeal;
-        InputReader.SanCheckEvent -= OnSanCheckCheck;
-
-        SanCheck.SuccessEvent -= SanCheckSuccess;
-        SanCheck.FailEvent -= SanCheckFail;
     }
 
     public void SetCanAction(bool value)
@@ -138,16 +126,6 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerHealState(this));
     }
 
-    private void OnSkill()
-    {
-        if (!canAction)
-            return;
-
-        if (Info.san == 0)
-            return;
-
-        SwitchState(new PlayerSkillState(this));
-    }
 
     private void OnRoll()
     {
@@ -207,45 +185,6 @@ public class PlayerStateMachine : StateMachine
                 break;
         }
     }
-
-    private void OnSanCheck()
-    {
-        isSanCheck = true;
-
-        UIManager.SetSanCheckBar(true);
-        GameManager.TogglePause(true);
-    }
-
-    private void OnSanCheckCheck()
-    {
-        if (!isSanCheck)
-            return;
-
-        SanCheck.OnCheck();
-    }
-
-    private void SanCheckSuccess()
-    {
-        isSanCheck = false;
-
-        UpdateUI();
-        UIManager.SetSanCheckBar(false);
-        GameManager.TogglePause(false);
-        Info.SanCheckSuccess();
-        UIManager.SetHpBar(0.01f);
-
-        Info.SetInvulnerable(true, 1);
-    }
-
-    private void SanCheckFail()
-    {
-        isSanCheck = false;
-
-        UIManager.SetSanCheckBar(false);
-        GameManager.TogglePause(false);
-        HandleDie();
-    }
-
 
     private void UpdateUI()
     {

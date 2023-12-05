@@ -37,7 +37,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            UIElements.Last()?.OnClosure();
+            UIElements.Last()?.OnNext();
         }
 
         if (!GameManager.isPauseGame && PauseGame)

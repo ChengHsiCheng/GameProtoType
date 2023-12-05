@@ -18,7 +18,7 @@ public class LevelMeunContorller : UIManager
 
         input = GameManager.sceneController.UIInputReader;
 
-        GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.ChooseLevel, levelBoss[0].transform);
+        GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.ChooseLevel, levelBoss[count].transform);
 
         input.OnArrowKeyEvent += ChooseLevel;
         input.OnCheckEvent += OnCheckLevel;
@@ -28,6 +28,12 @@ public class LevelMeunContorller : UIManager
     {
         GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.Lobby);
 
+        input.OnArrowKeyEvent -= ChooseLevel;
+        input.OnCheckEvent -= OnCheckLevel;
+    }
+
+    public override void OnNext()
+    {
         input.OnArrowKeyEvent -= ChooseLevel;
         input.OnCheckEvent -= OnCheckLevel;
     }
@@ -51,17 +57,5 @@ public class LevelMeunContorller : UIManager
     private void OnCheckLevel()
     {
         GameManager.sceneController.UIController.AddUI(BossUIs[count]);
-        // switch (count)
-        // {
-        //     case 0:
-        //         GameManager.SwitchScene("Boss01Scenes");
-        //         break;
-        //     case 1:
-        //         GameManager.SwitchScene("Boss02Scenes");
-        //         break;
-        //     case 2:
-        //         GameManager.SwitchScene("Boss03Scenes");
-        //         break;
-        // }
     }
 }

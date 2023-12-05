@@ -17,4 +17,9 @@ public class UIManager : MonoBehaviour
     {
         lastSelected = EventSystem.current.currentSelectedGameObject;
     }
+
+    public virtual void OnNext()
+    {
+        lastSelected = EventSystem.current.currentSelectedGameObject;
+    }
 }

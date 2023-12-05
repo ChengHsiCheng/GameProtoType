@@ -31,14 +31,6 @@ public class SlideshowContorller : MonoBehaviour
 
         timer += Time.deltaTime;
 
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            timer = time;
-
-            storyImage[count].color = new Color(1, 1, 1, timer / (time / 2));
-        }
-
         if (timer >= time)
         {
             timer = 0;
@@ -48,12 +40,13 @@ public class SlideshowContorller : MonoBehaviour
             {
                 isStarting = false;
                 OnSwicthScene?.Invoke("GameLobby");
+                GameManager.sceneController.UIInputReader.OnCheckEvent += NextImage;
                 return;
             }
+
         }
 
         storyImage[count].color = new Color(1, 1, 1, timer / (time / 2));
-
     }
 
     public void OnStart()
@@ -64,6 +57,14 @@ public class SlideshowContorller : MonoBehaviour
         {
             image.gameObject.SetActive(true);
         }
+
+        GameManager.sceneController.UIInputReader.OnCheckEvent += NextImage;
+    }
+
+    private void NextImage()
+    {
+        timer = time;
+        storyImage[count].color = new Color(1, 1, 1, timer / (time / 2));
     }
 
 }
