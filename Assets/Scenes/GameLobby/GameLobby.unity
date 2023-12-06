@@ -2429,6 +2429,7 @@ GameObject:
   - component: {fileID: 610767358}
   - component: {fileID: 610767357}
   - component: {fileID: 610767360}
+  - component: {fileID: 610767361}
   m_Layer: 0
   m_Name: 00
   m_TagString: Untagged
@@ -2531,6 +2532,19 @@ MonoBehaviour:
     audios:
     - {fileID: 8300000, guid: fff8c008b618ef64eae28bf378ce859b, type: 3}
     audioVolume: 0
+--- !u!114 &610767361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610767355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f5016d9b940f94e8a6479569d1144b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLogic: {fileID: 610767360}
 --- !u!1 &611817893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,6 +2638,7 @@ GameObject:
   - component: {fileID: 613565515}
   - component: {fileID: 613565514}
   - component: {fileID: 613565517}
+  - component: {fileID: 613565518}
   m_Layer: 0
   m_Name: 02
   m_TagString: Untagged
@@ -2726,6 +2741,19 @@ MonoBehaviour:
     audios:
     - {fileID: 8300000, guid: fff8c008b618ef64eae28bf378ce859b, type: 3}
     audioVolume: 0
+--- !u!114 &613565518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613565512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f5016d9b940f94e8a6479569d1144b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLogic: {fileID: 613565517}
 --- !u!1 &647298604
 GameObject:
   m_ObjectHideFlags: 0
@@ -7886,6 +7914,7 @@ GameObject:
   - component: {fileID: 1670461618}
   - component: {fileID: 1670461617}
   - component: {fileID: 1670461620}
+  - component: {fileID: 1670461621}
   m_Layer: 0
   m_Name: 01
   m_TagString: Untagged
@@ -7988,6 +8017,19 @@ MonoBehaviour:
     audios:
     - {fileID: 8300000, guid: fff8c008b618ef64eae28bf378ce859b, type: 3}
     audioVolume: 0
+--- !u!114 &1670461621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670461615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f5016d9b940f94e8a6479569d1144b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioLogic: {fileID: 1670461620}
 --- !u!1 &1673363367
 GameObject:
   m_ObjectHideFlags: 0
