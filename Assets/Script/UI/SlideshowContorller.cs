@@ -13,6 +13,7 @@ public class SlideshowContorller : MonoBehaviour
     int count;
 
     [SerializeField] Image[] storyImage;
+    [SerializeField] GameObject KeyPrompt;
 
     public Action<string> OnSwicthScene;
 
@@ -57,6 +58,8 @@ public class SlideshowContorller : MonoBehaviour
         {
             image.gameObject.SetActive(true);
         }
+
+        KeyPrompt.SetActive(true);
 
         GameManager.sceneController.UIInputReader.OnCheckEvent += NextImage;
     }
