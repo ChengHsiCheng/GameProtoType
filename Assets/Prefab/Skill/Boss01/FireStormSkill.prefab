@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc29980050485342add1e66ea21f261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castTransform: {fileID: 0}
   damageType: {fileID: 5269547726050414326}
 --- !u!114 &5269547726050414326
 MonoBehaviour:
@@ -60,8 +61,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 3203589871694856714}
-  damage: 3
-  sanDamage: 3
+  damage: 5
+  sanDamage: 5
+  startTime: 0
+  stopTime: 10
+  time: 0
 --- !u!114 &3203589871694856714
 MonoBehaviour:
   m_ObjectHideFlags: 0

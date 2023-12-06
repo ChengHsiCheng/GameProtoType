@@ -1983,7 +1983,9 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 1508005180626134690}
   <Health>k__BackingField: {fileID: 7037490517757504381}
   <Bar>k__BackingField: {fileID: 2408013582094256317}
-  <Collider>k__BackingField: {fileID: 9032812005765100955}
+  <Colliders>k__BackingField:
+  - {fileID: 9032812005765100955}
+  - {fileID: 1132102583356657481}
   <AudioLogic>k__BackingField: {fileID: 1124465345715771265}
   <WeaponHendler>k__BackingField: {fileID: 5148443658057637331}
   <Weapon>k__BackingField:
@@ -2143,7 +2145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827dbaac8bd4f1043a8b89ea2b68a62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <maxHealth>k__BackingField: 1
+  <maxHealth>k__BackingField: 700
 --- !u!114 &2146728278
 MonoBehaviour:
   m_ObjectHideFlags: 0

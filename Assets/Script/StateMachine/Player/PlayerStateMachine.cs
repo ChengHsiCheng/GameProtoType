@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -36,6 +37,7 @@ public class PlayerStateMachine : StateMachine
     public bool canCancel { get; private set; } = true;
     public bool haveCrown;
 
+    private float GetVFXTimer;
     private bool isSanCheck;
     public float sanScalingDamage { get; private set; } = 1;
     public Transform MainCameraTransform { get; private set; }
@@ -152,7 +154,11 @@ public class PlayerStateMachine : StateMachine
 
         UIManager.BeAttack();
 
-        Instantiate(GetVFXByName("GetHit"), transform.position + Vector3.up, Quaternion.identity);
+        if (GetVFXTimer + 0.2f < Time.time)
+        {
+            Instantiate(GetVFXByName("GetHit"), transform.position + Vector3.up, Quaternion.identity);
+            GetVFXTimer = Time.time;
+        }
     }
 
     private void GetImpact()

@@ -11,7 +11,7 @@ public class Boss01StateMachine : StateMachine, Enemy
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public EnemyInfo Health { get; private set; }
     [field: SerializeField] public BarController Bar { get; private set; }
-    [field: SerializeField] public Collider Collider { get; private set; }
+    [field: SerializeField] public Collider[] Colliders { get; private set; }
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
     [field: SerializeField] public WeaponDamage[] Weapon { get; private set; }

@@ -8,6 +8,7 @@ public class Boss01StartState : Boss01BaseState
     private const float AnimatorDampTime = 0.1f;
 
     private bool isDisCloseUp;
+    private bool isCamera;
 
     public Boss01StartState(Boss01StateMachine stateMachine) : base(stateMachine)
     {
@@ -17,12 +18,17 @@ public class Boss01StartState : Boss01BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime(RoarAnimatorString, AnimatorDampTime);
 
-        GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.BossStart, stateMachine.gameObject.transform);
     }
 
     public override void Tick(float deltaTime)
     {
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "");
+
+        if (normalizedTime > 0.1f && !isCamera)
+        {
+            GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.BossStart, stateMachine.gameObject.transform);
+            isCamera = true;
+        }
 
         if (normalizedTime > 0.8f && !isDisCloseUp)
         {

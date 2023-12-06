@@ -31,9 +31,8 @@ public class ContinuousDamage : Damage
         if (timer < 0.1f)
             return;
 
-        timer -= 0.1f;
+        timer = 0f;
 
-        Debug.Log("??");
         health.DealHealthDamage(damage, false);
         san.DealSanDamage(sanDamage);
     }
