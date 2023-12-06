@@ -19,12 +19,21 @@ public class PlayerUIManager : UIManager
 
     private void Start()
     {
+        GameManager.sceneController.UIController.OnOpenUIEvent += CloseHint;
+        GameManager.sceneController.UIController.OnCloseUIEvent += OpenHint;
+
         if (GameManager.nowScenes != "GameLobby")
             return;
 
         HpBar.gameObject.SetActive(false);
         SanBar.gameObject.SetActive(false);
         HealUI.gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.sceneController.UIController.OnOpenUIEvent -= OpenHint;
+        GameManager.sceneController.UIController.OnCloseUIEvent -= CloseHint;
     }
 
     private void Update()
@@ -62,6 +71,16 @@ public class PlayerUIManager : UIManager
     public void SetVictoryUI()
     {
         Victory.gameObject.SetActive(true);
+    }
+
+    public void OpenHint()
+    {
+        SetHint(true);
+    }
+
+    public void CloseHint()
+    {
+        SetHint(false);
     }
 
     public void SetHint(bool value)

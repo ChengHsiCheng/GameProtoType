@@ -10,6 +10,8 @@ public class LevelMeunContorller : UIManager
 
     [SerializeField] private UIManager[] BossUIs;
     [SerializeField] private GameObject[] levelBoss;
+
+    [SerializeField] private GameObject KeyPrompt;
     private int count;
 
     public override void OnOpen()
@@ -20,6 +22,8 @@ public class LevelMeunContorller : UIManager
 
         GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.ChooseLevel, levelBoss[count].transform);
 
+        KeyPrompt.SetActive(true);
+
         input.OnArrowKeyEvent += ChooseLevel;
         input.OnCheckEvent += OnCheckLevel;
     }
@@ -28,12 +32,16 @@ public class LevelMeunContorller : UIManager
     {
         GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.Lobby);
 
+        KeyPrompt.SetActive(false);
+
         input.OnArrowKeyEvent -= ChooseLevel;
         input.OnCheckEvent -= OnCheckLevel;
     }
 
     public override void OnNext()
     {
+        KeyPrompt.SetActive(false);
+
         input.OnArrowKeyEvent -= ChooseLevel;
         input.OnCheckEvent -= OnCheckLevel;
     }

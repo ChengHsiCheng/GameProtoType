@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    public event Action OnOpenUIEvent;
+    public event Action OnCloseUIEvent;
     private UIInputReader inputReader;
 
     [SerializeField] public List<UIManager> UIElements { get; private set; } = new List<UIManager>();
@@ -34,6 +36,7 @@ public class UIController : MonoBehaviour
         {
             GameManager.ToggleUI(true);
             Cursor.visible = true;
+            OnOpenUIEvent?.Invoke();
         }
         else
         {
@@ -54,7 +57,9 @@ public class UIController : MonoBehaviour
     public void CloseUI()
     {
         if (UIElements.Count == 0)
+        {
             return;
+        }
 
         if (UIElements.Last().name == "MainMuen")
             return;
@@ -69,6 +74,8 @@ public class UIController : MonoBehaviour
         if (UIElements.Count == 0)
         {
             Cursor.visible = false;
+            OnCloseUIEvent?.Invoke();
+
             if (GameManager.isPauseGame)
             {
                 GameManager.TogglePause(false);

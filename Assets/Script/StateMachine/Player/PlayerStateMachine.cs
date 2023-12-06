@@ -259,7 +259,7 @@ public class PlayerStateMachine : StateMachine
         if (UI.Count != 0)
             return;
 
-        UIManager?.SetHint(false);
+        UIManager.SetHint(false);
     }
 
     public override void SetCanMove(bool value) { }
