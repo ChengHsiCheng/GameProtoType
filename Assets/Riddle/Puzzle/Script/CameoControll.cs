@@ -43,10 +43,12 @@ public class CameoControll : Riddle
         if (isPass)
         {
             OnPass();
+            audioLogic.PlayAudio("Success");
             return;
         }
 
         Reset();
+        audioLogic.PlayAudio("Fail");
     }
 
     public void Reset()
@@ -60,5 +62,7 @@ public class CameoControll : Riddle
         {
             cameo.OnReset();
         }
+
+        audioLogic.PlayAudio("Return");
     }
 }

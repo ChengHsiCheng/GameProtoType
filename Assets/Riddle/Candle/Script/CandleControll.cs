@@ -9,7 +9,6 @@ public class CandleControll : Riddle
     [SerializeField] private int passOrder;
     private int inputNum = 0;
     private string inputOrder;
-
     private void Start()
     {
         GameManager.sceneController.UIInputReader.OnResetEvent += TurnOff;
@@ -41,9 +40,11 @@ public class CandleControll : Riddle
             if (inputOrder == passOrder.ToString())
             {
                 OnPass();
-                Debug.Log("PASS");
+                audioLogic.PlayAudio("Success");
+                return;
             }
             Invoke("TurnOff", 0.1f);
+            audioLogic.PlayAudio("Fail");
         }
     }
 

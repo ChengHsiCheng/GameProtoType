@@ -87,8 +87,6 @@ public class GamePadCursor : MonoBehaviour
 
     private void OnPress()
     {
-        Debug.Log("A");
-
         interactiveUI = CursorEvent(transform.position).GetComponent<InteractiveUI>();
 
         if (interactiveUI)

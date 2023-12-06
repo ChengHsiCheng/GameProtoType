@@ -10,6 +10,10 @@ public class KlotskiSlotItem : InteractiveUI
     bool match = true;
     [SerializeField] KlotskiControll klotskiControll;
     Transform originItem;
+
+    [SerializeField] private AudioLogic audioLogic;
+
+
     public void CheckAround()
     {
         switch (id)
@@ -120,6 +124,8 @@ public class KlotskiSlotItem : InteractiveUI
         trans.SetParent(klotskiControll.slotItems[emptyID - 1].transform);
         trans.position = trans.parent.position;
         CheckPass(trans.GetComponent<KlotskiItem>(), emptyID);
+
+        audioLogic.PlayAudio("Slip");
     }
 
     void CheckPass(KlotskiItem item, int emptyID)

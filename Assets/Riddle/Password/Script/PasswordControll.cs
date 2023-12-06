@@ -33,8 +33,11 @@ public class PasswordControll : Riddle
         if (inputPassword == passOrder)
         {
             OnPass();
+            audioLogic.PlayAudio("Success");
+            return;
         }
 
+        audioLogic.PlayAudio("Fail");
         Reset();
     }
 

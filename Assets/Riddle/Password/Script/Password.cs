@@ -6,6 +6,8 @@ public class Password : MonoBehaviour
 {
     [SerializeField] Text numText;
     public int numCount { get; private set; }
+
+    [SerializeField] private AudioLogic audioLogic;
     void Start()
     {
         numCount = 0;
@@ -16,6 +18,12 @@ public class Password : MonoBehaviour
     {
         numCount = value;
         numText.text = numCount.ToString();
+
+    }
+
+    public void PlayAudio()
+    {
+        audioLogic.PlayAudio("Swicth");
     }
 
 }

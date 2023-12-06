@@ -8,6 +8,8 @@ public class FinalPiece : InteractiveUI, IBeginDragHandler, IDragHandler, IEndDr
     [SerializeField] Transform slotOriginParent;
     public event Action OnPassEvent;
 
+    [SerializeField] private AudioLogic audioLogic;
+
     private void OnEnable()
     {
         KlotskiControll.pass = false;
@@ -44,6 +46,9 @@ public class FinalPiece : InteractiveUI, IBeginDragHandler, IDragHandler, IEndDr
                 ResetToDefault();
                 GetComponent<CanvasGroup>().blocksRaycasts = true;
                 OnPassEvent?.Invoke();
+
+                audioLogic.PlayAudio("Success");
+                return;
             }
             else
             {
@@ -55,6 +60,8 @@ public class FinalPiece : InteractiveUI, IBeginDragHandler, IDragHandler, IEndDr
         {
             ResetToDefault();
         }
+        audioLogic.PlayAudio("Fail");
+
         GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 

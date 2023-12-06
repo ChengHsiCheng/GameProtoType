@@ -11,6 +11,8 @@ public class Cameo : InteractiveUI, IDragHandler, IPointerDownHandler, IPointerU
     private Hole hole;
     [SerializeField] private int count;
 
+    [SerializeField] private AudioLogic audioLogic;
+
     private bool isHold;
 
     private void OnEnable()
@@ -20,6 +22,7 @@ public class Cameo : InteractiveUI, IDragHandler, IPointerDownHandler, IPointerU
 
     public override void OnPress()
     {
+        audioLogic.PlayAudio("Select");
         transform.localScale = Vector3.one * 0.8f;
         image.raycastTarget = false;
 
@@ -37,6 +40,8 @@ public class Cameo : InteractiveUI, IDragHandler, IPointerDownHandler, IPointerU
 
     public override void OnUnlash(GameObject gameObject)
     {
+        audioLogic.PlayAudio("Embed");
+
         Vector3 targetPos = new Vector3();
 
         transform.localScale = Vector3.one;

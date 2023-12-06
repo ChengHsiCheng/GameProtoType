@@ -646,6 +646,7 @@ MonoBehaviour:
   id: 9
   contain: 0
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 0}
 --- !u!1 &1658171894903405825
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +660,7 @@ GameObject:
   - component: {fileID: 1658171894903405829}
   - component: {fileID: 1658171894903405826}
   - component: {fileID: 1658171894903405827}
+  - component: {fileID: 111074602063389186}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -796,6 +798,24 @@ MonoBehaviour:
   id: 6
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 111074602063389186}
+--- !u!114 &111074602063389186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171894903405825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171895165676363
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,6 +829,7 @@ GameObject:
   - component: {fileID: 1658171895165676367}
   - component: {fileID: 1658171895165676364}
   - component: {fileID: 1658171895165676365}
+  - component: {fileID: 8761573384848781264}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -946,6 +967,24 @@ MonoBehaviour:
   id: 8
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 8761573384848781264}
+--- !u!114 &8761573384848781264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171895165676363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171895175202741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1125,7 @@ GameObject:
   - component: {fileID: 1658171895254769494}
   - component: {fileID: 1658171895254769495}
   - component: {fileID: 1658171895254769492}
+  - component: {fileID: 6167443628963691981}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -1223,6 +1263,24 @@ MonoBehaviour:
   id: 5
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 6167443628963691981}
+--- !u!114 &6167443628963691981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171895254769490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171895333384586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,6 +1421,7 @@ GameObject:
   - component: {fileID: 1658171895603213504}
   - component: {fileID: 1658171895603213505}
   - component: {fileID: 1658171895603213534}
+  - component: {fileID: 4235111675843524846}
   m_Layer: 5
   m_Name: Klotski
   m_TagString: Untagged
@@ -1410,6 +1469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 0}
   lastSelected: {fileID: 0}
+  audioLogic: {fileID: 4235111675843524846}
   finalPiece: {fileID: 1658171895614733997}
 --- !u!223 &1658171895603213504
 Canvas:
@@ -1430,7 +1490,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1658171895603213505
 MonoBehaviour:
@@ -1472,6 +1532,27 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &4235111675843524846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171895603213533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: OpenRiddle
+    audios:
+    - {fileID: 8300000, guid: b8c7f74a6b087b24d92662ffcec9d2a7, type: 3}
+    audioVolume: 0
+  - name: ClosureRiddle
+    audios:
+    - {fileID: 8300000, guid: fff8c008b618ef64eae28bf378ce859b, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171895614733994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1485,6 +1566,7 @@ GameObject:
   - component: {fileID: 1658171895614733999}
   - component: {fileID: 1658171895614733997}
   - component: {fileID: 1658171895614733996}
+  - component: {fileID: 7032256692615777455}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -1563,6 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotOriginParent: {fileID: 1658171895802215183}
+  audioLogic: {fileID: 7032256692615777455}
 --- !u!225 &1658171895614733996
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1575,6 +1658,27 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7032256692615777455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171895614733994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Success
+    audios:
+    - {fileID: 8300000, guid: 074285a5c39aa444ca7e1330d782f01a, type: 3}
+    audioVolume: 0
+  - name: Fail
+    audios:
+    - {fileID: 8300000, guid: 927fd6553557cbb49abcd7fd38afcb77, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171895670709764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1910,7 @@ GameObject:
   - component: {fileID: 1658171895980476511}
   - component: {fileID: 1658171895980476508}
   - component: {fileID: 1658171895980476509}
+  - component: {fileID: 999185740472167454}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -1943,6 +2048,24 @@ MonoBehaviour:
   id: 1
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 999185740472167454}
+--- !u!114 &999185740472167454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171895980476507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171896010822989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,6 +2316,8 @@ GameObject:
   - component: {fileID: 1658171896226789034}
   - component: {fileID: 1658171896226789035}
   - component: {fileID: 1658171896226789032}
+  - component: {fileID: 6604689944895164304}
+  - component: {fileID: 1880723591586386914}
   m_Layer: 11
   m_Name: KlotskiRiddle
   m_TagString: Untagged
@@ -2260,6 +2385,128 @@ MonoBehaviour:
   trigger: {fileID: 1658171896226789035}
   passedMode: {fileID: 7004195088371518111}
   originalMode: {fileID: 4711206664625978134}
+--- !u!114 &6604689944895164304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896226789030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e0114ad4ff1941903316e344f8a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 1880723591586386914}
+  logic:
+  - {fileID: 4235111675843524846}
+  - {fileID: 999185740472167454}
+  - {fileID: 2677940385023653012}
+  - {fileID: 6966613552974276682}
+  - {fileID: 5337888846031488285}
+  - {fileID: 6167443628963691981}
+  - {fileID: 111074602063389186}
+  - {fileID: 8881095165241370688}
+  - {fileID: 8761573384848781264}
+  - {fileID: 1815338255601381192}
+  - {fileID: 7032256692615777455}
+--- !u!82 &1880723591586386914
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896226789030}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: be453b1fa5258a640bf07b4c3841b238,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1658171896332638349
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2686,7 @@ GameObject:
   - component: {fileID: 1658171896366067772}
   - component: {fileID: 1658171896366067773}
   - component: {fileID: 1658171896366067770}
+  - component: {fileID: 1815338255601381192}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -2575,6 +2823,24 @@ MonoBehaviour:
   id: 9
   contain: 0
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 1815338255601381192}
+--- !u!114 &1815338255601381192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896366067768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171896372201085
 GameObject:
   m_ObjectHideFlags: 0
@@ -2678,6 +2944,7 @@ GameObject:
   - component: {fileID: 1658171896463128772}
   - component: {fileID: 1658171896463128773}
   - component: {fileID: 1658171896463128770}
+  - component: {fileID: 6966613552974276682}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -2815,6 +3082,24 @@ MonoBehaviour:
   id: 3
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 6966613552974276682}
+--- !u!114 &6966613552974276682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896463128768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171896545571589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2938,6 +3223,7 @@ GameObject:
   - component: {fileID: 1658171896558868398}
   - component: {fileID: 1658171896558868399}
   - component: {fileID: 1658171896558868396}
+  - component: {fileID: 2677940385023653012}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -3075,6 +3361,24 @@ MonoBehaviour:
   id: 2
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 2677940385023653012}
+--- !u!114 &2677940385023653012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896558868394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171896597665465
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,6 +3429,7 @@ GameObject:
   - component: {fileID: 1658171896641730169}
   - component: {fileID: 1658171896641730166}
   - component: {fileID: 1658171896641730167}
+  - component: {fileID: 5337888846031488285}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -3262,6 +3567,24 @@ MonoBehaviour:
   id: 4
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 5337888846031488285}
+--- !u!114 &5337888846031488285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896641730165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1658171896657137764
 GameObject:
   m_ObjectHideFlags: 0
@@ -3312,6 +3635,7 @@ GameObject:
   - component: {fileID: 1658171896670110964}
   - component: {fileID: 1658171896670110965}
   - component: {fileID: 1658171896670110962}
+  - component: {fileID: 8881095165241370688}
   m_Layer: 5
   m_Name: SlotItem
   m_TagString: Untagged
@@ -3449,6 +3773,24 @@ MonoBehaviour:
   id: 7
   contain: 1
   klotskiControll: {fileID: 1658171895603213535}
+  audioLogic: {fileID: 8881095165241370688}
+--- !u!114 &8881095165241370688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658171896670110960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Slip
+    audios:
+    - {fileID: 8300000, guid: 267473c922fbcef41a7a851bb506d47c, type: 3}
+    audioVolume: 0
 --- !u!1 &1929792523634453933
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,7 +4407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

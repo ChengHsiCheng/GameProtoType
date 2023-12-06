@@ -10,6 +10,7 @@ public class LevelMeunContorller : UIManager
 
     [SerializeField] private UIManager[] BossUIs;
     [SerializeField] private GameObject[] levelBoss;
+    [SerializeField] private AudioLogic audioLogic;
 
     [SerializeField] private GameObject KeyPrompt;
     private int count;
@@ -24,6 +25,8 @@ public class LevelMeunContorller : UIManager
 
         KeyPrompt.SetActive(true);
 
+        audioLogic.PlayAudio("OpenRiddle");
+
         input.OnArrowKeyEvent += ChooseLevel;
         input.OnCheckEvent += OnCheckLevel;
     }
@@ -33,6 +36,8 @@ public class LevelMeunContorller : UIManager
         GameManager.sceneController.cinemachineController.SwitchCamera(CameraMode.Lobby);
 
         KeyPrompt.SetActive(false);
+
+        audioLogic.PlayAudio("ClosureRiddle");
 
         input.OnArrowKeyEvent -= ChooseLevel;
         input.OnCheckEvent -= OnCheckLevel;
@@ -65,5 +70,7 @@ public class LevelMeunContorller : UIManager
     private void OnCheckLevel()
     {
         GameManager.sceneController.UIController.AddUI(BossUIs[count]);
+
+        audioLogic.PlayAudio("OpenRiddle");
     }
 }

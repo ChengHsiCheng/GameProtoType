@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1031,6 +1031,7 @@ GameObject:
   - component: {fileID: 4263622865632850786}
   - component: {fileID: 4263622865632850789}
   - component: {fileID: 4263622865632850788}
+  - component: {fileID: 6458267854570792893}
   m_Layer: 5
   m_Name: Candle1
   m_TagString: Untagged
@@ -1113,6 +1114,24 @@ MonoBehaviour:
   <fire>k__BackingField: {fileID: 4263622866814525358}
   id: 1
   isOnClick: 0
+  audioLogic: {fileID: 6458267854570792893}
+--- !u!114 &6458267854570792893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622865632850790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Ignite
+    audios:
+    - {fileID: 8300000, guid: c3832e04c6bd5e146b22900b8c171305, type: 3}
+    audioVolume: 0
 --- !u!1 &4263622865842303184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1144,7 @@ GameObject:
   - component: {fileID: 4263622865842303212}
   - component: {fileID: 4263622865842303215}
   - component: {fileID: 4263622865842303214}
+  - component: {fileID: 224906296833335556}
   m_Layer: 5
   m_Name: Candle3
   m_TagString: Untagged
@@ -1207,6 +1227,24 @@ MonoBehaviour:
   <fire>k__BackingField: {fileID: 4263622865859883865}
   id: 3
   isOnClick: 0
+  audioLogic: {fileID: 224906296833335556}
+--- !u!114 &224906296833335556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622865842303184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Ignite
+    audios:
+    - {fileID: 8300000, guid: c3832e04c6bd5e146b22900b8c171305, type: 3}
+    audioVolume: 0
 --- !u!1 &4263622865844856848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1507,6 +1545,7 @@ GameObject:
   - component: {fileID: 4263622866040637731}
   - component: {fileID: 4263622866040637730}
   - component: {fileID: 4263622866040637733}
+  - component: {fileID: 4197217024326911822}
   m_Layer: 5
   m_Name: Candle
   m_TagString: Untagged
@@ -1552,6 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 4263622865936999971}
   lastSelected: {fileID: 0}
+  audioLogic: {fileID: 4197217024326911822}
   passOrder: 14253
 --- !u!223 &4263622866040637731
 Canvas:
@@ -1572,7 +1612,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &4263622866040637730
 MonoBehaviour:
@@ -1614,6 +1654,35 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &4197217024326911822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622866040637734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: OpenRiddle
+    audios:
+    - {fileID: 8300000, guid: b8c7f74a6b087b24d92662ffcec9d2a7, type: 3}
+    audioVolume: 0
+  - name: ClosureRiddle
+    audios:
+    - {fileID: 8300000, guid: fff8c008b618ef64eae28bf378ce859b, type: 3}
+    audioVolume: 0
+  - name: Success
+    audios:
+    - {fileID: 8300000, guid: cd2be77ef9deebb40a9b481151aad137, type: 3}
+    audioVolume: 0
+  - name: Fail
+    audios:
+    - {fileID: 8300000, guid: 81f481168e7d4c248b9c3a2da241656d, type: 3}
+    audioVolume: 0
 --- !u!1 &4263622866075320492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,6 +1830,7 @@ GameObject:
   - component: {fileID: 4263622866152475450}
   - component: {fileID: 4263622866152475453}
   - component: {fileID: 4263622866152475452}
+  - component: {fileID: 6736174430720429982}
   m_Layer: 5
   m_Name: Candle5
   m_TagString: Untagged
@@ -1843,6 +1913,24 @@ MonoBehaviour:
   <fire>k__BackingField: {fileID: 4263622865258283280}
   id: 5
   isOnClick: 0
+  audioLogic: {fileID: 6736174430720429982}
+--- !u!114 &6736174430720429982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622866152475454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Ignite
+    audios:
+    - {fileID: 8300000, guid: c3832e04c6bd5e146b22900b8c171305, type: 3}
+    audioVolume: 0
 --- !u!1 &4263622866183130349
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,6 +2019,7 @@ GameObject:
   - component: {fileID: 4263622866189752337}
   - component: {fileID: 4263622866189752336}
   - component: {fileID: 4263622866189752339}
+  - component: {fileID: 7786687189871945492}
   m_Layer: 5
   m_Name: Candle2
   m_TagString: Untagged
@@ -2013,6 +2102,24 @@ MonoBehaviour:
   <fire>k__BackingField: {fileID: 4263622867026506620}
   id: 2
   isOnClick: 0
+  audioLogic: {fileID: 7786687189871945492}
+--- !u!114 &7786687189871945492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622866189752341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Ignite
+    audios:
+    - {fileID: 8300000, guid: c3832e04c6bd5e146b22900b8c171305, type: 3}
+    audioVolume: 0
 --- !u!1 &4263622866557220097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,6 +2689,8 @@ GameObject:
   - component: {fileID: 4263622867161163169}
   - component: {fileID: 4263622867161163168}
   - component: {fileID: 4263622867161163171}
+  - component: {fileID: 5430613451971428476}
+  - component: {fileID: 5499788451251317947}
   m_Layer: 11
   m_Name: CandleRiddle
   m_TagString: Untagged
@@ -2649,6 +2758,123 @@ MonoBehaviour:
   trigger: {fileID: 4263622867161163168}
   passedMode: {fileID: 3652474895405315738}
   originalMode: {fileID: 2665003099461428364}
+--- !u!114 &5430613451971428476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622867161163173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e0114ad4ff1941903316e344f8a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 5499788451251317947}
+  logic:
+  - {fileID: 4197217024326911822}
+  - {fileID: 6458267854570792893}
+  - {fileID: 7786687189871945492}
+  - {fileID: 224906296833335556}
+  - {fileID: 5194672213967978122}
+  - {fileID: 6736174430720429982}
+--- !u!82 &5499788451251317947
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622867161163173}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: be453b1fa5258a640bf07b4c3841b238,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4263622867244743523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,6 +2887,7 @@ GameObject:
   - component: {fileID: 4263622867244743551}
   - component: {fileID: 4263622867244743550}
   - component: {fileID: 4263622867244743521}
+  - component: {fileID: 5194672213967978122}
   m_Layer: 5
   m_Name: Candle4
   m_TagString: Untagged
@@ -2743,6 +2970,24 @@ MonoBehaviour:
   <fire>k__BackingField: {fileID: 4263622865844856848}
   id: 4
   isOnClick: 0
+  audioLogic: {fileID: 5194672213967978122}
+--- !u!114 &5194672213967978122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4263622867244743523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Ignite
+    audios:
+    - {fileID: 8300000, guid: c3832e04c6bd5e146b22900b8c171305, type: 3}
+    audioVolume: 0
 --- !u!1 &4440586429317270948
 GameObject:
   m_ObjectHideFlags: 0
