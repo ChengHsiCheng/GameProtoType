@@ -14,6 +14,8 @@ public class PlayerHealState : PlayerBaseState
     private float timer;
     private bool isPlayAnimator;
 
+    private VFXLiveTime vfx;
+
     public PlayerHealState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -42,7 +44,7 @@ public class PlayerHealState : PlayerBaseState
             stateMachine.Book.PlayerAnimation();
             isPlayAnimator = true;
 
-            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("HealVFX"), stateMachine.Book.transform);
+            vfx = MonoBehaviour.Instantiate(stateMachine.GetVFXByName("HealVFX"), stateMachine.Book.transform).GetComponent<VFXLiveTime>();
 
         }
 
@@ -55,7 +57,8 @@ public class PlayerHealState : PlayerBaseState
         {
             stateMachine.Animator.SetTrigger("OnCast");
             stateMachine.Info.Healing(30);
-            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Heal"), stateMachine.transform);
+            MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Heal"),
+                stateMachine.transform.position + Vector3.up, Quaternion.identity).transform.parent = stateMachine.transform;
 
             stateMachine.AudioLogic.PlayAudio("SkillCast");
 
@@ -86,5 +89,6 @@ public class PlayerHealState : PlayerBaseState
 
         stateMachine.AudioLogic.StopLoopAudio();
 
+        vfx.Stop();
     }
 }
