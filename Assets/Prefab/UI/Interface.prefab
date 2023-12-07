@@ -3937,7 +3937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6266831088211932442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3959,7 +3959,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -112}
-  m_SizeDelta: {x: 476, y: 530}
+  m_SizeDelta: {x: 478, y: 414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7408959890712433109
 CanvasRenderer:
@@ -3989,7 +3989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65cd03c2dd9f4da4b821d5b366ada364, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bf7ed821edcc974599cc429f9fd103c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4454,21 +4454,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 747592729982437345}
     m_Modifications:
-    - target: {fileID: 3524464887343833532, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3524464887343833532, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3524464887343833532, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3524464888136555602, guid: f94cb51edf353f747864eccbd7e18606,
         type: 3}
       propertyPath: m_Name
@@ -4577,16 +4562,6 @@ PrefabInstance:
     - target: {fileID: 3524464888136555614, guid: f94cb51edf353f747864eccbd7e18606,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3524464888209515951, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3524464888209515951, guid: f94cb51edf353f747864eccbd7e18606,
-        type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
