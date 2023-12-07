@@ -47,7 +47,7 @@ public class SlideshowContorller : MonoBehaviour
 
         }
 
-        storyImage[count].color = new Color(1, 1, 1, timer / (time / 2));
+        storyImage[count].color = new Color(1, 1, 1, MathF.Min(timer, 1));
     }
 
     public void OnStart()
