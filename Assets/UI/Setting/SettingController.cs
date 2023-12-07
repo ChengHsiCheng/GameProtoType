@@ -23,6 +23,7 @@ public class SettingController : MonoBehaviour
     private Dropdown screenResolution;
     private Dropdown screenMod;
 
+    [Obsolete]
     private void Start()
     {
         volume.profile.TryGet<ColorAdjustments>(out brightness);
@@ -76,6 +77,7 @@ public class SettingController : MonoBehaviour
         GameManager.sceneController.UIInputReader.OnRightTriggerEvent += SwitchRightSetting;
     }
 
+    [Obsolete]
     private void OnDisable()
     {
         GameManager.sceneController.UIInputReader.OnLeftTriggerEvent -= SwitchLeftSetting;

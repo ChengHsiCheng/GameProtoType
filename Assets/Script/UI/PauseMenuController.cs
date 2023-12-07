@@ -6,6 +6,7 @@ using UnityEngine;
 public class PauseMenuController : UIManager
 {
     public Action onSettingEvent;
+    public Action onTutorialEvent;
 
     public void OnContinue()
     {
@@ -16,6 +17,12 @@ public class PauseMenuController : UIManager
     {
         onSettingEvent?.Invoke();
     }
+
+    public void OnTutorial()
+    {
+        onTutorialEvent?.Invoke();
+    }
+
 
     public void OnMenu()
     {

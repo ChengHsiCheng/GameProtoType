@@ -7,10 +7,18 @@ public class InterfaceController : MonoBehaviour
 {
     [SerializeField] private PauseMenuController pauseMenu;
     [SerializeField] private SettingController setting;
+    [SerializeField] private SwitchUI tutorialUI;
 
     private void OnEnable()
     {
         pauseMenu.onSettingEvent += OnSetting;
+        pauseMenu.onTutorialEvent += OnTutorial;
+    }
+
+    private void OnDisable()
+    {
+        pauseMenu.onSettingEvent -= OnSetting;
+        pauseMenu.onTutorialEvent -= OnTutorial;
     }
 
     public void OnPauseMenu()
@@ -21,5 +29,10 @@ public class InterfaceController : MonoBehaviour
     public void OnSetting()
     {
         setting.OpenSetting();
+    }
+
+    public void OnTutorial()
+    {
+        tutorialUI.OpenUI();
     }
 }
