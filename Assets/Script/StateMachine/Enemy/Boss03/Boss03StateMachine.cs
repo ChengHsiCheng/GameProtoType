@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Boss03StateMachine : StateMachine, Enemy
 {
@@ -18,6 +19,7 @@ public class Boss03StateMachine : StateMachine, Enemy
     [field: SerializeField] public Boss03Crystal Crystal { get; private set; }
     [field: SerializeField] public List<Boss03Crystal> Crystals { get; private set; } = new List<Boss03Crystal>() { };
     public Boss03SceneController sceneController { get; private set; }
+    [field: SerializeField] public VisualEffect vfx { get; private set; }
 
 
 

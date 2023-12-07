@@ -23,21 +23,18 @@ public class Boss02FaintState : Boss02BaseState
     {
         timer += deltaTime;
 
-        if (timer >= 5 && !RepairShield)
+        if (timer < 5)
+            return;
+
+        if (!RepairShield)
         {
             stateMachine.Animator.CrossFadeInFixedTime("RepairShield", 0.1f);
             RepairShield = true;
             return;
         }
 
-        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "");
-
-        if (normalizedTime >= 1)
-        {
-            stateMachine.SwitchState(new Boss02IdleState(stateMachine));
-            return;
-        }
-
+        stateMachine.SwitchState(new Boss02IdleState(stateMachine));
+        return;
     }
 
     public override void Exit()

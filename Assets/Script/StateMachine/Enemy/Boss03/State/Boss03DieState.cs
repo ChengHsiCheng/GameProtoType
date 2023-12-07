@@ -22,6 +22,8 @@ public class Boss03DieState : Boss03BaseState
         stateMachine.BigRing.GetComponent<Collider>().enabled = true;
         stateMachine.SmallRing.GetComponent<Rigidbody>().isKinematic = false;
         stateMachine.SmallRing.GetComponent<Collider>().enabled = true;
+
+        stateMachine.vfx.Stop();
     }
 
     public override void Tick(float deltaTime)
