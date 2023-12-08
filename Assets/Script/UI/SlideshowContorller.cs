@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,19 +33,21 @@ public class SlideshowContorller : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (timer >= time)
+        if (count == storyImage.Length - 1)
         {
-            timer = 0;
-            count++;
-
-            if (count == storyImage.Length)
+            if (timer >= 2)
             {
                 isStarting = false;
                 OnSwicthScene?.Invoke("GameLobby");
                 GameManager.sceneController.UIInputReader.OnCheckEvent += NextImage;
                 return;
             }
+        }
 
+        if (timer >= time)
+        {
+            timer = 0;
+            count++;
         }
 
         storyImage[count].color = new Color(1, 1, 1, MathF.Min(timer, 1));
