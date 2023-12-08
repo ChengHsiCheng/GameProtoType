@@ -25,6 +25,7 @@ public static class GameManager
     public static bool isPauseGame { private set; get; } = false; // 遊戲暫停
     public static bool isSetting { private set; get; } = false;
     public static string nowScenes { private set; get; } = SceneManager.GetActiveScene().name; // 目前場景
+    public static string nextScenes { private set; get; }
 
     public static float brightness { private set; get; } // 亮度
     public static float audioVolume { private set; get; } = -10;  // 音量
@@ -81,10 +82,15 @@ public static class GameManager
 
     public static void SwitchScene(string scenesName)
     {
-        nowScenes = scenesName;
+        nextScenes = scenesName;
         TogglePause(false);
         sceneController.UIController.CloseUI();
-        SceneManager.LoadScene(scenesName);
+        SceneManager.LoadScene("Loading");
+    }
+
+    public static void SetNowScene(string scenesName)
+    {
+        nowScenes = scenesName;
     }
 
     public static void SetScreenMod(FullScreenMode _screenMode)
