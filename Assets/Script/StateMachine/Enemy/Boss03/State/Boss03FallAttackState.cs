@@ -6,6 +6,7 @@ public class Boss03FallAttackState : Boss03BaseState
 {
     private Vector3 targetPos;
     private bool isPlayVFX;
+    private bool isPlaySFX;
 
     public Boss03FallAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
@@ -25,6 +26,15 @@ public class Boss03FallAttackState : Boss03BaseState
         stateMachine.SetMeleeStateTimer(stateMachine.meleeStateTimer + deltaTime);
 
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+
+        if (normalizedTime > 0.9f)
+        {
+            if (!isPlaySFX)
+            {
+                stateMachine.AudioLogic.PlayAudio("FallAttack");
+                isPlaySFX = true;
+            }
+        }
 
         if (normalizedTime < 0.95f)
         {

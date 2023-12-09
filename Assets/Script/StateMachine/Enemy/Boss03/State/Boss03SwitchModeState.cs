@@ -13,6 +13,10 @@ public class Boss03SwitchModeState : Boss03BaseState
     public override void Enter()
     {
         timer = 0;
+
+        stateMachine.AudioLogic.PlayAudio("Switch");
+
+        stateMachine.WeaponHendler.DisableWeapon(0);
     }
 
     public override void Tick(float deltaTime)

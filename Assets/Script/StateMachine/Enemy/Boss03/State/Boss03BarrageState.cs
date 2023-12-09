@@ -25,8 +25,6 @@ public class Boss03BarrageState : Boss03BaseState
         skill = stateMachine.BarrageSkills;
         laserSkill = stateMachine.LaserSkill;
 
-        // isBarraheMode = Random.Range(0, 2) == 0;
-
         if (isBarraheMode)
         {
             wave = Random.Range(10, 15);
@@ -76,6 +74,8 @@ public class Boss03BarrageState : Boss03BaseState
                     _skill.skill.castTransform = stateMachine.Eye.transform;
                     _skill.skill.UseSkill();
                 }
+
+                stateMachine.AudioLogic.PlayAudio("BarrageShoot");
             }
             else
             {

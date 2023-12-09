@@ -18,6 +18,7 @@ public class Boss03ChargeAttackState : Boss03BaseState
     private int index;
 
     private bool isVFX;
+    private bool isPlaySFX;
 
     public Boss03ChargeAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
@@ -47,6 +48,7 @@ public class Boss03ChargeAttackState : Boss03BaseState
             {
                 targetPos = stateMachine.sceneController.Points[Random.Range(0, stateMachine.sceneController.Points.Length)];
                 stage = Stage.ToTagetPoint;
+
             }
 
             return;
@@ -66,6 +68,10 @@ public class Boss03ChargeAttackState : Boss03BaseState
                 stage = Stage.Charge;
 
                 stateMachine.WeaponHendler.EnableWeapon(0);
+
+                stateMachine.AudioLogic.PlayAudio("ChargeAttack");
+
+
             }
             return;
         }
@@ -83,6 +89,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
             if (stateMachine.transform.position.x > 18.5f || stateMachine.transform.position.x < -18.5f
             || stateMachine.transform.position.z > 18.5f || stateMachine.transform.position.z < -18.5f)
             {
+                stateMachine.AudioLogic.PlayAudio("ChargeAttackHit");
+
                 // 近戰模式計時切換到彈幕模式
                 if (!stateMachine.isBarrageState)
                 {

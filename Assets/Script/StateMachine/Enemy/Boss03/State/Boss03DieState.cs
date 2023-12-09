@@ -24,6 +24,8 @@ public class Boss03DieState : Boss03BaseState
         stateMachine.SmallRing.GetComponent<Collider>().enabled = true;
 
         stateMachine.vfx.Stop();
+
+        stateMachine.AudioLogic.PlayAudio("Die");
     }
 
     public override void Tick(float deltaTime)

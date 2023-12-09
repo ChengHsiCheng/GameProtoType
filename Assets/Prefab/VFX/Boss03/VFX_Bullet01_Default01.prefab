@@ -130,7 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBeDistroy: 1
-  hitVFX: []
+  hitVFX:
+  - {fileID: 3652694329993916880, guid: 40c6b3ff368d4c648aa3b88315ab4cba, type: 3}
   vfx: {fileID: -9042237355202592953}
 --- !u!114 &-9042237355202592953
 MonoBehaviour:
@@ -145,7 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   liveTime: 10
-  vfxs: []
+  vfxs:
+  - {fileID: 3489074752157704319}
   particles: []
   trigger: {fileID: 0}
 --- !u!114 &1260475861012452504

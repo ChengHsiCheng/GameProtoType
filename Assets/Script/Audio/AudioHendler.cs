@@ -18,8 +18,6 @@ public class AudioHendler : MonoBehaviour
             logic[i].OnPlayLoopAudio += StartAudios;
             logic[i].OnStopLoopAudio += StopAudios;
         }
-
-        GameManager.audios.Add(this);
     }
 
     private void OnDestroy()
@@ -30,8 +28,6 @@ public class AudioHendler : MonoBehaviour
             logic[i].OnPlayLoopAudio -= StartAudios;
             logic[i].OnStopLoopAudio -= StopAudios;
         }
-
-        GameManager.audios.Remove(this);
     }
 
     private void PlayAudios(AudioClip clip)

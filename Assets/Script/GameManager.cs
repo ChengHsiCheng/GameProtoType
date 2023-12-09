@@ -78,6 +78,17 @@ public static class GameManager
             else
                 audio.PauseEnded();
         }
+
+        AudioSource[] AudioSources = GameObject.FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource Sources in AudioSources)
+        {
+            if (isPauseGame)
+                Sources.Pause();
+            else
+                Sources.Play();
+        }
+
     }
 
     public static void SwitchScene(string scenesName)

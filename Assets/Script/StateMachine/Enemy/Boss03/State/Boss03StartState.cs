@@ -13,6 +13,7 @@ public class Boss03StartState : Boss03BaseState
     {
         stateMachine.Animator.CrossFadeInFixedTime("Start", 0.1f);
 
+        stateMachine.AudioLogic.PlayAudio("Start");
     }
 
     public override void Tick(float deltaTime)

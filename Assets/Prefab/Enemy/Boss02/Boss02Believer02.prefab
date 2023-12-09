@@ -300,6 +300,8 @@ GameObject:
   - component: {fileID: 817499122689955708}
   - component: {fileID: 7154906617244003262}
   - component: {fileID: 3477609294230407545}
+  - component: {fileID: 8353480501385741787}
+  - component: {fileID: 7289886130243099754}
   m_Layer: 7
   m_Name: Boss02Believer02
   m_TagString: Enemy
@@ -475,6 +477,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHealth>k__BackingField: 20
+--- !u!82 &8353480501385741787
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977993790793600080}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: be453b1fa5258a640bf07b4c3841b238,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7289886130243099754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977993790793600080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18e0114ad4ff1941903316e344f8a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 8353480501385741787}
+  logic:
+  - {fileID: 4715152675491254923}
 --- !u!1 &1258936213676049831
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1652,7 @@ GameObject:
   - component: {fileID: 2800130866982382321}
   - component: {fileID: 7379074593094878850}
   - component: {fileID: 5952643471787729394}
+  - component: {fileID: 4715152675491254923}
   m_Layer: 0
   m_Name: MS_Enemy00_Default01
   m_TagString: Untagged
@@ -1663,6 +1778,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponLogic:
   - {fileID: 8375960775590936955}
+--- !u!114 &4715152675491254923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164296280342937610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Attack
+    audios:
+    - {fileID: 8300000, guid: 0d5db429bf5679b4390505ede4b30377, type: 3}
+    - {fileID: 8300000, guid: f928fb757214a824cb480064e671e1f0, type: 3}
+    - {fileID: 8300000, guid: e6091f158bd1b8545b07afcf4b79bd4b, type: 3}
+    audioVolume: 0
+  - name: Die
+    audios:
+    - {fileID: 8300000, guid: d32b6b97bad950c44853c8764c47c4a1, type: 3}
+    audioVolume: 0
+  - name: Footsteps
+    audios:
+    - {fileID: 8300000, guid: 2d5137a89122aaf4cac506a7c006ade0, type: 3}
+    - {fileID: 8300000, guid: f1d8a5fbb409494458c118b735cc7364, type: 3}
+    - {fileID: 8300000, guid: ff5ce2d0e53784b4d8976ff03cb26d07, type: 3}
+    audioVolume: 0
 --- !u!1 &7293914416889812010
 GameObject:
   m_ObjectHideFlags: 0

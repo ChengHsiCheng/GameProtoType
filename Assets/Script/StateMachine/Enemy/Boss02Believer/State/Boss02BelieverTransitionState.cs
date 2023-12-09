@@ -21,7 +21,7 @@ public class Boss02BelieverTransitionState : Boss02BelieverBaseState
 
     public override void Tick(float deltaTime)
     {
-        stateMachine.Animator.SetFloat(MoveSpeedString, 0.5f, AnimatorDampTime, deltaTime);
+        stateMachine.Animator.SetFloat(MoveSpeedString, 0.5f, 0, deltaTime);
 
         stateMachine.SetCoolDown(Mathf.Max(0, stateMachine.attackCoolDown - deltaTime));
 
