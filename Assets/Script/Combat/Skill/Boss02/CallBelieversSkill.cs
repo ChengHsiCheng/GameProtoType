@@ -11,7 +11,7 @@ public class CallBelieversSkill : Skill
     {
         for (int i = 0; i < 4; i++)
         {
-            Instantiate(believers[0], new Vector3(Random.Range(-8f, 8f), 0, Random.Range(-8f, 8f)), Quaternion.identity);
+            Instantiate(believers[0], new Vector3(Random.Range(-6f, 6f), 0, Random.Range(-6f, 6f)), Quaternion.identity);
         }
 
         for (int i = 0; i < pos.Length; i++)

@@ -26,7 +26,6 @@ public class MainMenuController : UIManager
     private void Start()
     {
         GameManager.sceneController.UIController.AddUI(this);
-        Debug.Log("ADD");
     }
 
     public void OnNewGmae()

@@ -9,6 +9,8 @@ public class SaveUI : UIManager
     [SerializeField] private GameObject isSave01;
     [SerializeField] private GameObject isSave02;
 
+    SlideshowContorller slideshow { get => FindAnyObjectByType<SlideshowContorller>(); }
+
     public override void OnOpen()
     {
         base.OnOpen();
@@ -52,8 +54,6 @@ public class SaveUI : UIManager
 
         if (SaveSystem.GetData("IsSave") != 1)
             return;
-
-        GameManager.SwitchScene("GameLobby");
     }
 
     public void OnSave(int count)
@@ -69,7 +69,7 @@ public class SaveUI : UIManager
         else
         {
             SaveSystem.SaveData("IsSave", 1, GameManager.nowSavePath);
-            GameManager.SwitchScene("GameLobby");
+            slideshow.OnStart();
         }
     }
 }
