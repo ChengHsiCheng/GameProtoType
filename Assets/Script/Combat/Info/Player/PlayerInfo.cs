@@ -39,11 +39,15 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         sanRecoveryTimer += Time.deltaTime;
 
 
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            DealSanDamage(6);
+        }
+
         if (sanRecoveryTimer >= sanRecoveryTime && san > 0)
         {
             SanHealing(sanRecoverySpeed * Time.deltaTime);
         }
-
 
         if (isInvulnerable == false || invulnerableTime == 0)
             return;
@@ -110,9 +114,30 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         if (isInvulnerable)
             return;
 
+        float sanPercentage = san / maxSan;
+        float reducedDamagePercentage;
+
+        if (sanPercentage <= 0.3f && sanPercentage > 0.1f)
+        {
+            reducedDamagePercentage = sanPercentage;
+        }
+        else if (sanPercentage <= 0.1f)
+        {
+            reducedDamagePercentage = 0.1f;
+        }
+        else
+        {
+            reducedDamagePercentage = 1f;
+        }
+
+        // 計算實際傷害
+        float finalDamage = damage * reducedDamagePercentage;
+
+        Debug.Log(finalDamage);
+
         sanRecoveryTimer = 0;
 
-        san = Mathf.Max(san - damage, 0);
+        san = Mathf.Max(san - finalDamage, 0);
 
         OnUpdateSan?.Invoke();
 

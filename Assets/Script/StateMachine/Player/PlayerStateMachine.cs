@@ -200,8 +200,11 @@ public class PlayerStateMachine : StateMachine
         UIManager.SetHpBar(healthPercent);
         UIManager.SetSanBar(sanPercent);
 
+        if (sanPercent == 1)
+            return;
+
         if (sanPercent != 0)
-            SetVolume((1 - sanPercent) * 0.6f);
+            SetVolume(1 - sanPercent * 0.8f);
         else
             SetVolume(1);
 
