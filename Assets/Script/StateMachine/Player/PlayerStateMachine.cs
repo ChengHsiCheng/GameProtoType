@@ -18,7 +18,6 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerUIManager UIManager { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
-    [field: SerializeField] public SanCheck SanCheck { get; private set; }
     [field: SerializeField] public Volume volume { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
@@ -32,12 +31,13 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float moveSmooth { get; private set; } // 移動加速度起始值
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
+    [field: SerializeField] public int totalHealCount { get; private set; }
+    public int healCount { get; private set; }
 
     [SerializeField] private AudioSource SanAudio;
 
     public bool canAction { get; private set; } = true;
     public bool canCancel { get; private set; } = true;
-    public bool haveCrown;
 
     private float GetVFXTimer;
     private bool isSanCheck;
@@ -53,7 +53,6 @@ public class PlayerStateMachine : StateMachine
 
     private void Start()
     {
-        // Debug.Log(SceneManager.GetActiveScene().name);
         SwitchState(new PlayerMovingState(this));
 
         MainCameraTransform = Camera.main.transform;
@@ -75,6 +74,8 @@ public class PlayerStateMachine : StateMachine
 
         InputReader.RollEvent += OnRoll;
         InputReader.HealEvent += OnHeal;
+
+        SetlHealCount(totalHealCount);
     }
 
 
@@ -127,9 +128,23 @@ public class PlayerStateMachine : StateMachine
         if (!canAction)
             return;
 
+        if (healCount <= 0)
+            return;
+
         SwitchState(new PlayerHealState(this));
     }
 
+    public void SetTotalHealCount(int count)
+    {
+        totalHealCount = count;
+        UIManager.SetHealCountText(healCount, totalHealCount);
+    }
+
+    public void SetlHealCount(int count)
+    {
+        healCount = count;
+        UIManager.SetHealCountText(healCount, totalHealCount);
+    }
 
     private void OnRoll()
     {

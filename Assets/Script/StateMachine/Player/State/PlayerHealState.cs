@@ -62,6 +62,8 @@ public class PlayerHealState : PlayerBaseState
 
             stateMachine.AudioLogic.PlayAudio("SkillCast");
 
+            stateMachine.SetlHealCount(stateMachine.healCount - 1);
+
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
 
             return;

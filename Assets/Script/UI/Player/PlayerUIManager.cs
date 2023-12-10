@@ -14,6 +14,9 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public GameObject HealUI { get; private set; }
     [field: SerializeField] public GameObject Victory { get; private set; }
 
+    [SerializeField] private Text healCount;
+    [SerializeField] private Text totalHealCount;
+
     [SerializeField] private float hurtUIAlphaDecayRate;
     private float hurtUIAlpha = 0;
 
@@ -89,5 +92,11 @@ public class PlayerUIManager : UIManager
             return;
 
         HintUI.gameObject.SetActive(value);
+    }
+
+    public void SetHealCountText(int _healCount, int _totalHealCount)
+    {
+        healCount.text = _healCount.ToString();
+        totalHealCount.text = _totalHealCount.ToString();
     }
 }

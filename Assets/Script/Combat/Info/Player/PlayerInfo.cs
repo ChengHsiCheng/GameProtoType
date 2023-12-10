@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInfo : MonoBehaviour, Info, Health, San
 {
@@ -37,12 +38,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
             return;
 
         sanRecoveryTimer += Time.deltaTime;
-
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            DealSanDamage(6);
-        }
 
         if (sanRecoveryTimer >= sanRecoveryTime && san > 0)
         {
@@ -153,9 +148,7 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         OnUpdateSan?.Invoke();
         OnUpdateUI?.Invoke();
     }
-    public void SanCheckSuccess()
-    {
-        maxHealth = 1;
-        health = 1;
-    }
+
+
+
 }
