@@ -54,6 +54,8 @@ public class SaveUI : UIManager
 
         if (SaveSystem.GetData("IsSave") != 1)
             return;
+
+        GameManager.SwitchScene("GameLobby");
     }
 
     public void OnSave(int count)
