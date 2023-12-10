@@ -88,15 +88,15 @@ public static class GameManager
                 audio.PauseEnded();
         }
 
-        AudioSource[] AudioSources = GameObject.FindObjectsOfType<AudioSource>();
+        // AudioSource[] AudioSources = GameObject.FindObjectsOfType<AudioSource>();
 
-        foreach (AudioSource Sources in AudioSources)
-        {
-            if (isPauseGame)
-                Sources.Pause();
-            else
-                Sources.Play();
-        }
+        // foreach (AudioSource Sources in AudioSources)
+        // {
+        //     if (isPauseGame)
+        //         Sources.Pause();
+        //     else
+        //         Sources.Play();
+        // }
 
     }
 
