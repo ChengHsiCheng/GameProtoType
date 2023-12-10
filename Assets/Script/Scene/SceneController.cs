@@ -40,7 +40,6 @@ public class SceneController : MonoBehaviour
 
     private void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("SceneLoaded");
     }
 
     private void SceneUnloaded(Scene scene)

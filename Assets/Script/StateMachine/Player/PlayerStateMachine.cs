@@ -224,11 +224,13 @@ public class PlayerStateMachine : StateMachine
         {
             SetVolume(1 - sanPercent * 0.8f);
             SanAudio.volume = 1 - sanPercent * 0.8f;
+            UIManager.SetLowSanUI(1 - sanPercent * 0.8f);
         }
         else
         {
             SetVolume(1);
             SanAudio.volume = 1;
+            UIManager.SetLowSanUI(1);
         }
 
     }

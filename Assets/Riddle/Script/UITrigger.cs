@@ -14,6 +14,11 @@ public class UITrigger : MonoBehaviour
         player = GameManager.player.GetComponent<PlayerStateMachine>();
     }
 
+    public void DisableTrigger()
+    {
+        trigger.enabled = false;
+    }
+
     private void OnDisable()
     {
         if (player.UI.Count != 0)

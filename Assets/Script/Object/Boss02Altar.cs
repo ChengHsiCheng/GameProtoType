@@ -25,6 +25,8 @@ public class Boss02Altar : MonoBehaviour, Health
     [field: SerializeField] public float maxHealth { get; private set; }
     [field: SerializeField] public float health { get; private set; }
 
+    [SerializeField] private AudioLogic audioLogic;
+
     private void Start()
     {
         ShieldRepair();
@@ -66,6 +68,7 @@ public class Boss02Altar : MonoBehaviour, Health
         if (isBossDie)
             return;
 
+        audioLogic.PlayAudio("Damage");
         shieldBrokenCount++;
 
         isShieldColor = true;
@@ -79,6 +82,8 @@ public class Boss02Altar : MonoBehaviour, Health
     private void ShieldBroken()
     {
         shield.Stop();
+        audioLogic.PlayAudio("Broken");
+
         Invulnerable = false;
         OnShieldBrokenEvent?.Invoke();
         shieldBrokenCount = 0;
@@ -98,6 +103,9 @@ public class Boss02Altar : MonoBehaviour, Health
     {
         shield.Play();
         Invulnerable = true;
+
+        audioLogic.PlayAudio("Repair");
+
 
         Boss02BelieverStateMachine[] Believers = GameObject.FindObjectsOfType<Boss02BelieverStateMachine>();
 

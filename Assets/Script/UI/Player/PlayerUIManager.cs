@@ -10,6 +10,7 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public UIManager DiedUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
+    [field: SerializeField] public Image LowSanUI { get; private set; }
     [field: SerializeField] public GameObject HintUI { get; private set; }
     [field: SerializeField] public GameObject HealUI { get; private set; }
     [field: SerializeField] public GameObject Victory { get; private set; }
@@ -64,6 +65,11 @@ public class PlayerUIManager : UIManager
     public void SetSanBar(float value)
     {
         SanBar.SetBar(value);
+    }
+
+    public void SetLowSanUI(float value)
+    {
+        LowSanUI.color = new Color(HurtUI.color.r, HurtUI.color.g, HurtUI.color.b, value);
     }
 
     public void SetDiedUI()

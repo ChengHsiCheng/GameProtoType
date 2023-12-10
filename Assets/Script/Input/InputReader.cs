@@ -131,7 +131,6 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public void OnInventoryUIController(InputAction.CallbackContext context)
     {
         InventoryUIControllerEvent?.Invoke((int)context.ReadValue<Vector2>().y);
-        Debug.Log(context.ReadValue<Vector2>().y);
     }
 
 }

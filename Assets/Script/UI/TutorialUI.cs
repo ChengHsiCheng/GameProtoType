@@ -9,6 +9,7 @@ public class TutorialUI : UIManager
     private float Arrow;
     private float uiCount;
     [SerializeField] private GameObject[] uis;
+    [SerializeField] private AudioLogic audioLogic;
 
     private void OnEnable()
     {
@@ -34,6 +35,8 @@ public class TutorialUI : UIManager
 
     private void SwicthUI()
     {
+        audioLogic?.PlayAudio("Click");
+
         Arrow = GameManager.sceneController.UIInputReader.Arrow.x;
         uiCount += Arrow;
 

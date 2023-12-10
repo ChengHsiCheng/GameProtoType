@@ -8,6 +8,8 @@ public class MainMenuController : UIManager
     [SerializeField] Animator animator;
     [SerializeField] SettingController setting;
     [SerializeField] SlideshowContorller slideshow;
+    [SerializeField] UIManager SaveUi;
+    [SerializeField] UIManager LoadUi;
 
     string switchScene;
 
@@ -29,14 +31,18 @@ public class MainMenuController : UIManager
 
     public void OnNewGmae()
     {
-        slideshow.OnStart();
+        GameManager.sceneController.UIController.AddUI(SaveUi);
+    }
+
+    public void OnContinue()
+    {
+        GameManager.sceneController.UIController.AddUI(LoadUi);
     }
 
     public void OnSwitchScene(string sceneName)
     {
         animator.SetTrigger("Switch");
         switchScene = sceneName;
-
     }
 
     public void OnSetting()

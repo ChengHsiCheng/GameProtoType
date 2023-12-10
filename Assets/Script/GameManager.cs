@@ -10,6 +10,11 @@ public enum ControlMethod
     Keyboard, Gamepad
 }
 
+public enum Language
+{
+    English, Chinese
+}
+
 
 public static class GameManager
 {
@@ -18,9 +23,9 @@ public static class GameManager
     public static List<Enemy> enemys = new List<Enemy>(); // 場上的敵人
     public static List<AudioHendler> audios = new List<AudioHendler>(); // 場上的敵人
     public static ControlMethod controlMethod; // 操控裝置
+    public static Language language;
 
     public static event Action OnSwicthControlMethodEvent;
-
 
     public static bool isPauseGame { private set; get; } = false; // 遊戲暫停
     public static bool isSetting { private set; get; } = false;
@@ -34,6 +39,10 @@ public static class GameManager
     public static int screenVertical { private set; get; } // 螢幕大小_縱向
 
     public static FullScreenMode screenMode { private set; get; } // 螢幕模式
+
+    public static List<MainSaveData> mainSaveData;
+    public static int nowSavePath;
+
 
     public static void TogglePause(bool isPause)
     {
@@ -117,8 +126,6 @@ public static class GameManager
         Screen.SetResolution(horizontal, vertical, screenMode);
         screenHorizontal = horizontal;
         screenVertical = vertical;
-
-        Debug.Log(screenHorizontal + " , " + screenVertical);
     }
 
     public static void SetBrightness(float volume)

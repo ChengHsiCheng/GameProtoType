@@ -12,6 +12,7 @@ public abstract class Riddle : UIManager, IUIElement
     public virtual void OnPass()
     {
         OnPassEvent?.Invoke();
+        GameManager.sceneController.UIController.CloseUI();
     }
 
     public void OnQuit()

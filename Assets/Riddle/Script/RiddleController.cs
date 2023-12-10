@@ -12,18 +12,32 @@ public class RiddleController : MonoBehaviour
     [SerializeField] private GameObject passedMode;
     [SerializeField] private GameObject originalMode;
 
+    [SerializeField] private string riddleName;
+
     private void OnEnable()
     {
         riddle.OnPassEvent += PassEvent;
         riddle.gameObject.SetActive(false);
-        SetIsPass(false);
+
+        int isPass = SaveSystem.GetData(riddleName);
+
+        if (isPass == 1)
+        {
+            PassEvent();
+        }
+        else
+        {
+            SetIsPass(false);
+        }
+
     }
 
     private void PassEvent()
     {
         SetIsPass(true);
-        trigger.enabled = false;
-        GameManager.sceneController.UIController.CloseUI();
+        trigger.DisableTrigger();
+
+        SaveSystem.SaveData(riddleName, 1, GameManager.nowSavePath);
     }
 
     public void SetIsPass(bool value)

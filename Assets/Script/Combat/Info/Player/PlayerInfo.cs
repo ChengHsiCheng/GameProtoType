@@ -39,6 +39,12 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
 
         sanRecoveryTimer += Time.deltaTime;
 
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            DealSanDamage(6);
+        }
+
         if (sanRecoveryTimer >= sanRecoveryTime && san > 0)
         {
             SanHealing(sanRecoverySpeed * Time.deltaTime);

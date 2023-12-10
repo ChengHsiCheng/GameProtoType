@@ -23,6 +23,8 @@ public class SettingController : MonoBehaviour
     private Dropdown screenResolution;
     private Dropdown screenMod;
 
+    [SerializeField] private AudioLogic audioLogic;
+
     [Obsolete]
     private void Start()
     {
