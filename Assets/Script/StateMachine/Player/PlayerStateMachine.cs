@@ -33,6 +33,8 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float rollSpeed { get; private set; }
     [field: SerializeField] public float RotationDamping { get; private set; }
 
+    [SerializeField] private AudioSource SanAudio;
+
     public bool canAction { get; private set; } = true;
     public bool canCancel { get; private set; } = true;
     public bool haveCrown;
@@ -203,10 +205,16 @@ public class PlayerStateMachine : StateMachine
         if (sanPercent == 1)
             return;
 
-        if (sanPercent != 0)
+        if (sanPercent >= 0.2f)
+        {
             SetVolume(1 - sanPercent * 0.8f);
+            SanAudio.volume = 1 - sanPercent * 0.8f;
+        }
         else
+        {
             SetVolume(1);
+            SanAudio.volume = 1;
+        }
 
     }
 
