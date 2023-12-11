@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 850292005}
   - component: {fileID: 850292007}
   - component: {fileID: 850292006}
+  - component: {fileID: 6563273359748246330}
   m_Layer: 6
   m_Name: Back
   m_TagString: Untagged
@@ -328,6 +329,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &6563273359748246330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850292004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &872012859
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,6 +356,7 @@ GameObject:
   - component: {fileID: 872012860}
   - component: {fileID: 872012862}
   - component: {fileID: 872012861}
+  - component: {fileID: 6218233276817361952}
   m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
@@ -404,6 +422,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6218233276817361952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872012859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: 
+  ChineseText: 
+  EnglishImage: {fileID: 21300000, guid: 73052572e94311b4d8388b8c09f8eb9f, type: 3}
+  ChineseImage: {fileID: 21300000, guid: a6abde3993e304d459b14d13aa9510bb, type: 3}
 --- !u!1 &1116550660
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +449,7 @@ GameObject:
   - component: {fileID: 1116550661}
   - component: {fileID: 1116550663}
   - component: {fileID: 1116550662}
+  - component: {fileID: 206356143735298262}
   m_Layer: 6
   m_Name: Continue
   m_TagString: Untagged
@@ -484,6 +519,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Continue
+--- !u!114 &206356143735298262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116550660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Continue
+  ChineseText: "\u7E7C\u7E8C"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &1265188563
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +737,7 @@ GameObject:
   - component: {fileID: 1967369371}
   - component: {fileID: 1967369373}
   - component: {fileID: 1967369372}
+  - component: {fileID: 5035663430920410589}
   m_Layer: 6
   m_Name: Boss01
   m_TagString: Untagged
@@ -751,6 +803,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5035663430920410589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967369370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: 
+  ChineseText: 
+  EnglishImage: {fileID: 21300000, guid: 871cee804719cf841975ce948db53fb7, type: 3}
+  ChineseImage: {fileID: 21300000, guid: 5a5190013ff9d65418763eb297f28370, type: 3}
 --- !u!1 &177548799133920956
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1724,7 @@ GameObject:
   - component: {fileID: 4314288552235720294}
   - component: {fileID: 7268006702077235719}
   - component: {fileID: 5085592650178341192}
+  - component: {fileID: 124621133486355643}
   m_Layer: 6
   m_Name: Boss03
   m_TagString: Untagged
@@ -1721,6 +1790,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &124621133486355643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2256214895414877222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: 
+  ChineseText: 
+  EnglishImage: {fileID: 21300000, guid: acabbfc191efdba4f9a3b54c3251b359, type: 3}
+  ChineseImage: {fileID: 21300000, guid: 8268a7207372d8f45b7bea36d537b3a4, type: 3}
 --- !u!1 &2507463359696548688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,8 +2039,9 @@ GameObject:
   - component: {fileID: 6378637423382440274}
   - component: {fileID: 8082233190382889567}
   - component: {fileID: 1411117911871067354}
+  - component: {fileID: 4490942013578155146}
   m_Layer: 6
-  m_Name: ' interaction'
+  m_Name: interaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2023,6 +2109,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\rInteraction"
+--- !u!114 &4490942013578155146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2690843075377677628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Interaction
+  ChineseText: "\u4EA4\u4E92"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2782995535707246752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,7 +2753,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6629464650005525411
 MonoBehaviour:
@@ -2718,6 +2820,7 @@ MonoBehaviour:
   healCount: {fileID: 4028832135299696891}
   totalHealCount: {fileID: 1153579370737666213}
   hurtUIAlphaDecayRate: 100
+  isHint: 0
 --- !u!1 &4322021205148713872
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,6 +3387,7 @@ GameObject:
   - component: {fileID: 2523732886347082387}
   - component: {fileID: 7399163004016839681}
   - component: {fileID: 3096938451414260258}
+  - component: {fileID: 3774506632168519785}
   m_Layer: 6
   m_Name: Continue
   m_TagString: Untagged
@@ -3353,6 +3457,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Continue
+--- !u!114 &3774506632168519785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282506986332393921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Continue
+  ChineseText: "\u7E7C\u7E8C"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &5615297200886810503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,6 +3952,7 @@ GameObject:
   - component: {fileID: 7149645470748864330}
   - component: {fileID: 6001823612060828903}
   - component: {fileID: 1678659182597008189}
+  - component: {fileID: 3190680566928134650}
   m_Layer: 6
   m_Name: Back
   m_TagString: Untagged
@@ -3901,6 +4022,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &3190680566928134650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6807922783310243020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &6895644197884866250
 GameObject:
   m_ObjectHideFlags: 0

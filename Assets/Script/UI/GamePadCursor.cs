@@ -20,6 +20,8 @@ public class GamePadCursor : MonoBehaviour
 
     private void Update()
     {
+        UnityEngine.Cursor.visible = false;
+
         if (GameManager.controlMethod == ControlMethod.Keyboard)
             MouseOperate();
 
@@ -54,7 +56,6 @@ public class GamePadCursor : MonoBehaviour
     private void GamePadOperate()
     {
         transform.position += new Vector3(inputReader.Stick.x, inputReader.Stick.y, 0).normalized * speed * Time.deltaTime;
-        Debug.Log(inputReader.isClick);
 
         if (inputReader.isClick)
         {
@@ -87,6 +88,7 @@ public class GamePadCursor : MonoBehaviour
 
     private void OnPress()
     {
+        Debug.Log(CursorEvent(transform.position));
         interactiveUI = CursorEvent(transform.position).GetComponent<InteractiveUI>();
 
         if (interactiveUI)
@@ -97,7 +99,6 @@ public class GamePadCursor : MonoBehaviour
 
     private void OnHold()
     {
-
         if (interactiveUI)
         {
             interactiveUI.OnHold(transform.position);
@@ -106,7 +107,6 @@ public class GamePadCursor : MonoBehaviour
 
     private void OnUnlash()
     {
-
         if (interactiveUI)
         {
             interactiveUI.OnUnlash(CursorEvent(transform.position));

@@ -17,7 +17,7 @@ public class UITrigger : MonoBehaviour
     public void DisableTrigger()
     {
         trigger.enabled = false;
-        player.RemoveUI(UI);
+        player?.RemoveUI(UI);
     }
 
     private void OnTriggerEnter(Collider other)

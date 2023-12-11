@@ -140,6 +140,8 @@ public class SettingController : MonoBehaviour
                 GameManager.SetScreenMod(FullScreenMode.Windowed);
                 break;
         }
+
+        UnityEngine.Debug.Log(i);
     }
 
     public void OpenSetting()

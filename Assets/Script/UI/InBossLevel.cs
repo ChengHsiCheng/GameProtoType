@@ -20,13 +20,13 @@ public class InBossLevel : MonoBehaviour
     {
         switch (level)
         {
-            case 1:
+            case 0:
                 GameManager.SwitchScene("Boss01Scenes");
                 break;
-            case 2:
+            case 1:
                 GameManager.SwitchScene("Boss02Scenes");
                 break;
-            case 3:
+            case 2:
                 GameManager.SwitchScene("Boss03Scenes");
                 break;
         }

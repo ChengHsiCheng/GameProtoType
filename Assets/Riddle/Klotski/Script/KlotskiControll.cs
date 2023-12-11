@@ -13,7 +13,6 @@ public class KlotskiControll : Riddle
     private void OnEnable()
     {
         finalPiece.OnPassEvent += OnPass;
-
     }
 
     private void OnDisable()

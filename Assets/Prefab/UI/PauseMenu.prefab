@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5169813944527674849}
   - component: {fileID: 7271493689925093301}
   - component: {fileID: 859618206833169935}
+  - component: {fileID: 5830545638282015717}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -206,6 +207,22 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &5830545638282015717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245874184019371445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Setting
+  ChineseText: "\u8A2D\u5B9A"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &546937761657767882
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +237,7 @@ GameObject:
   - component: {fileID: 8808281534371233173}
   - component: {fileID: 3811224296078035241}
   - component: {fileID: 6700669065965895449}
+  - component: {fileID: 2973470767458163850}
   m_Layer: 5
   m_Name: Tutorial
   m_TagString: Untagged
@@ -410,6 +428,22 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2973470767458163850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546937761657767882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Tutorial
+  ChineseText: "\u6559\u5B78"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2620182022078661957
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +458,7 @@ GameObject:
   - component: {fileID: 1841960317206069754}
   - component: {fileID: 7711713800500829586}
   - component: {fileID: 6422990938687868908}
+  - component: {fileID: 3323757641345981004}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -614,6 +649,22 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3323757641345981004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620182022078661957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Menu
+  ChineseText: "\u4E3B\u756B\u9762"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3731865471418109529
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +679,7 @@ GameObject:
   - component: {fileID: 6421498514757012197}
   - component: {fileID: 984040220962228357}
   - component: {fileID: 7571561733351446658}
+  - component: {fileID: 3600936237477463596}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -830,6 +882,22 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &3600936237477463596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3731865471418109529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Continue
+  ChineseText: "\u7E7C\u7E8C"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3957189453814819857
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Language : MonoBehaviour
 {
     private Text Text { get => GetComponent<Text>(); }
-    [SerializeField] private string EnglishText;
-    [SerializeField] private string ChineseText;
+    [SerializeField, MultilineAttribute(2)] private string EnglishText;
+    [SerializeField, MultilineAttribute(2)] private string ChineseText;
 
     private Image image { get => GetComponent<Image>(); }
     [SerializeField] private Sprite EnglishImage;
@@ -26,8 +26,6 @@ public class Language : MonoBehaviour
 
     public void SwicthLanguage()
     {
-        Debug.Log(GameManager.language);
-
         if (GameManager.language == Languages.Chinese)
         {
             if (Text)

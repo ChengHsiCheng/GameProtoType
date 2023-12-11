@@ -24,6 +24,7 @@ public class SlideshowContorller : UIManager
         {
             image.color = new Color(1, 1, 1, 0);
         }
+
     }
 
     private void Update()
@@ -39,7 +40,7 @@ public class SlideshowContorller : UIManager
             {
                 isStarting = false;
                 OnSwicthScene?.Invoke("GameLobby");
-                GameManager.sceneController.UIInputReader.OnCheckEvent += NextImage;
+                GameManager.sceneController.UIInputReader.OnCheckEvent -= NextImage;
                 return;
             }
         }
@@ -48,6 +49,7 @@ public class SlideshowContorller : UIManager
         {
             timer = 0;
             count++;
+            Debug.Log(count);
         }
 
         storyImage[count].color = new Color(1, 1, 1, MathF.Min(timer, 1));

@@ -18,6 +18,7 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public event Action SanCheckEvent;
     public event Action InteractionEvent;
     public event Action<int> InventoryUIControllerEvent;
+    public event Action OnDamageBOSSEvent;
 
     private void OnEnable()
     {
@@ -133,4 +134,11 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         InventoryUIControllerEvent?.Invoke((int)context.ReadValue<Vector2>().y);
     }
 
+    public void OnDamageBOSS(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        OnDamageBOSSEvent?.Invoke();
+    }
 }

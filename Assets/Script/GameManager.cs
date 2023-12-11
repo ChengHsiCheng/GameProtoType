@@ -157,7 +157,18 @@ public static class GameManager
     public static void SwitchControlMethod(ControlMethod _controlMethod)
     {
         controlMethod = _controlMethod;
+
         OnSwicthControlMethodEvent?.Invoke();
+
+        if (controlMethod == ControlMethod.Gamepad)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 
     public static void SwitchLanguages(Languages _language)

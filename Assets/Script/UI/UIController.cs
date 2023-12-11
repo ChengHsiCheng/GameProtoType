@@ -35,7 +35,10 @@ public class UIController : MonoBehaviour
         if (UIElements.Count == 0)
         {
             GameManager.ToggleUI(true);
-            Cursor.visible = true;
+
+            if (GameManager.controlMethod == ControlMethod.Keyboard)
+                Cursor.visible = true;
+
             OnOpenUIEvent?.Invoke();
         }
         else
@@ -77,6 +80,7 @@ public class UIController : MonoBehaviour
         if (UIElements.Count == 0)
         {
             Cursor.visible = false;
+
             OnCloseUIEvent?.Invoke();
 
             if (GameManager.isPauseGame)

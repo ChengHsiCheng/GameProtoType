@@ -74,6 +74,7 @@ public class PlayerStateMachine : StateMachine
 
         InputReader.RollEvent += OnRoll;
         InputReader.HealEvent += OnHeal;
+        InputReader.OnDamageBOSSEvent += DamageBOSS;
 
         SetlHealCount(totalHealCount);
     }
@@ -289,6 +290,16 @@ public class PlayerStateMachine : StateMachine
 
         UIManager.isHint = false;
         UIManager.SetHint(false);
+    }
+
+    private void DamageBOSS()
+    {
+        EnemyInfo[] enemys = GameObject.FindObjectsOfType<EnemyInfo>();
+
+        foreach (EnemyInfo enemy in enemys)
+        {
+            enemy.DealHealthDamage(100, false);
+        }
     }
 
     public override void SetCanMove(bool value) { }

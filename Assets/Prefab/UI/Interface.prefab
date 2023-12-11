@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 4436351624595977206}
   - component: {fileID: 228048340786570789}
   - component: {fileID: 5558897804676230344}
+  - component: {fileID: 35444838049289518}
   m_Layer: 5
   m_Name: Guide
   m_TagString: Untagged
@@ -236,6 +237,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Guide
+--- !u!114 &35444838049289518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326434270287957157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Guide
+  ChineseText: "\u8AAA\u660E"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &474022755763267504
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +341,7 @@ GameObject:
   - component: {fileID: 4156401241011368799}
   - component: {fileID: 3966700888148040851}
   - component: {fileID: 3832047280190030851}
+  - component: {fileID: 1725909019354997413}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -393,6 +411,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Next
+--- !u!114 &1725909019354997413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518275838517165660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Next
+  ChineseText: "\u4E0B\u4E00\u9801"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &524151413868247614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1211,7 @@ GameObject:
   - component: {fileID: 4772366668914035500}
   - component: {fileID: 8818211467516340486}
   - component: {fileID: 5722345619322272175}
+  - component: {fileID: 3482495632103071122}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1246,6 +1281,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &3482495632103071122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289062418468046196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2293841959837801736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,6 +1787,7 @@ GameObject:
   - component: {fileID: 7020991402066281655}
   - component: {fileID: 2916001067318705969}
   - component: {fileID: 8885960256965343271}
+  - component: {fileID: 3396364779138480238}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1805,6 +1857,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &3396364779138480238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848134505950000382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3155186757480401995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2324,7 @@ GameObject:
   - component: {fileID: 4951717052222153368}
   - component: {fileID: 3820953624612590657}
   - component: {fileID: 5672809353782739872}
+  - component: {fileID: 3074384780878447738}
   m_Layer: 5
   m_Name: How To Play
   m_TagString: Untagged
@@ -2325,6 +2394,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: How To Play
+--- !u!114 &3074384780878447738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4143093319051369694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: How To Play
+  ChineseText: "\u73A9\u6CD5"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4368199914071906191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2421,7 @@ GameObject:
   - component: {fileID: 1847680766032391687}
   - component: {fileID: 5678506425234695288}
   - component: {fileID: 4702345483881563892}
+  - component: {fileID: 2855613684753099473}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -2405,6 +2491,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &2855613684753099473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4368199914071906191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4410920240115613068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,6 +2675,7 @@ GameObject:
   - component: {fileID: 7673324420264348746}
   - component: {fileID: 2664134536975970335}
   - component: {fileID: 346167040169608281}
+  - component: {fileID: 469398012089055589}
   m_Layer: 5
   m_Name: Guide
   m_TagString: Untagged
@@ -2642,6 +2745,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Guide
+--- !u!114 &469398012089055589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659849629075680180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Guide
+  ChineseText: "\u8AAA\u660E"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4699825198598567468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,6 +2937,7 @@ GameObject:
   - component: {fileID: 6588310620037492106}
   - component: {fileID: 3039238661290965619}
   - component: {fileID: 1237221492574890294}
+  - component: {fileID: 5534264149079071395}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -2889,6 +3009,24 @@ MonoBehaviour:
   m_Text: "Note that under special attacks and useing skills will decrease the San
     value.\n But it will auto-recover slowly so don\u2019t worry, just be careful
     of the frequency of use."
+--- !u!114 &5534264149079071395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4946629127328639784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: "Note that under special attacks and useing skills will decrease the
+    San value.\n But it will auto-recover slowly so don\u2019t worry, just be careful
+    of the frequency of use."
+  ChineseText: "\u53D7\u5230\u7279\u6B8A\u653B\u64CA\u6642\u6703\u9020\u6210San\u503C\u964D\u4F4E\u3002\n\u7576San\u503C\u6B78\u96F6\u5373\u6B7B\u4EA1\uFF0C\u4E0D\u904E\u5225\u64D4\u5FC3\uFF0CSan\u503C\u6703\u81EA\u52D5\u6162\u901F\u56DE\u5FA9\uFF0C\u53EA\u9700\u8981\u6CE8\u610F\u4F7F\u7528\u983B\u7387\u3002"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &5548684877006590593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,6 +3648,7 @@ GameObject:
   - component: {fileID: 5117290661133323347}
   - component: {fileID: 6799223418183591910}
   - component: {fileID: 2926542918848618003}
+  - component: {fileID: 4744852927699218721}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -3579,6 +3718,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'You can use the book abilities to heal yourself. '
+--- !u!114 &4744852927699218721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601176717945070605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: 'You can use the book abilities to heal yourself. '
+  ChineseText: "\u53EF\u4EE5\u4F7F\u7528\u66F8\u672C\u80FD\u529B\u4EE5\u6CBB\u7652\u81EA\u5DF1\u3002"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &6701881295429892427
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,6 +4144,7 @@ GameObject:
   - component: {fileID: 3497468569689438854}
   - component: {fileID: 5750391285342537309}
   - component: {fileID: 5090211779931678845}
+  - component: {fileID: 6717150523198708976}
   m_Layer: 5
   m_Name: How To Play
   m_TagString: Untagged
@@ -4058,6 +4214,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: How To Play
+--- !u!114 &6717150523198708976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7927349442425551197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: How To Play
+  ChineseText: "\u73A9\u6CD5"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &8065703820137019961
 GameObject:
   m_ObjectHideFlags: 0
@@ -4148,6 +4320,7 @@ GameObject:
   - component: {fileID: 8418062468543895412}
   - component: {fileID: 2424398414275016638}
   - component: {fileID: 2840033396209291325}
+  - component: {fileID: 922938314922921004}
   m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
@@ -4217,6 +4390,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Next
+--- !u!114 &922938314922921004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116045184325297018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Next
+  ChineseText: "\u4E0B\u4E00\u9801"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &8137676903134132720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4435,6 +4624,7 @@ GameObject:
   - component: {fileID: 8911861937548121170}
   - component: {fileID: 6738144832514927447}
   - component: {fileID: 8271600645829634361}
+  - component: {fileID: 2044283651024392892}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -4505,6 +4695,23 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Identify the Boss's behavior patterns to defeat the Boss and progress to
     the next level.
+--- !u!114 &2044283651024392892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053995848753780977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Identify the Boss's behavior patterns to defeat the Boss and progress
+    to the next level.
+  ChineseText: "\u627E\u51FA\u6575\u4EBA\u7684\u884C\u70BA\u6A21\u5F0F\u4E26\u4E14\u64CA\u6557\u4ED6!"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &9191967800750461650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,6 +4723,7 @@ GameObject:
   - component: {fileID: 5599894966353132011}
   - component: {fileID: 1505717959047817997}
   - component: {fileID: 7720053106376096075}
+  - component: {fileID: 1328530403337363962}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -4585,6 +4793,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &1328530403337363962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9191967800750461650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1001 &747592731682744157
 PrefabInstance:
   m_ObjectHideFlags: 0

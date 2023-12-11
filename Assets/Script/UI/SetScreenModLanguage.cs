@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SetScreenModLanguage : MonoBehaviour
 {
-    private Dropdown dropdown { get => GetComponent<Dropdown>(); }
+    private UnityEngine.UI.Dropdown dropdown { get => GetComponent<Dropdown>(); }
     [SerializeField] private Text text;
     [SerializeField] private string[] ChineseTexts;
     [SerializeField] private string[] EnglishTexts;
@@ -31,6 +29,8 @@ public class SetScreenModLanguage : MonoBehaviour
             }
 
             text.font = GameManager.ChineseFont;
+            dropdown.captionText.font = GameManager.ChineseFont;
+            dropdown.captionText.text = ChineseTexts[dropdown.value];
         }
         else
         {
@@ -40,10 +40,8 @@ public class SetScreenModLanguage : MonoBehaviour
             }
 
             text.font = GameManager.EnglishFont;
+            dropdown.captionText.font = GameManager.EnglishFont;
+            dropdown.captionText.text = EnglishTexts[dropdown.value];
         }
-
-        dropdown.Show();
-
-        dropdown.Hide();
     }
 }
