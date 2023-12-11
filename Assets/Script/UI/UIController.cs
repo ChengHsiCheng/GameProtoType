@@ -67,6 +67,9 @@ public class UIController : MonoBehaviour
         if (UIElements.Last().name == "GameOver")
             return;
 
+        if (UIElements.Last().name == "StorySlideshow")
+            return;
+
         UIElements.Last().OnClosure();
         UIElements.Last().gameObject.SetActive(false);
         UIElements.Remove(UIElements.Last());

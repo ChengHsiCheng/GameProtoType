@@ -60,6 +60,9 @@ public class CinemachineController : MonoBehaviour
             return;
         }
 
+        if (GameManager.sceneController.UIInputReader.enabled == true)
+            return;
+
         GameManager.sceneController.InputReader.enabled = true;
 
     }

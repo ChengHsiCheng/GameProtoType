@@ -15,6 +15,16 @@ public class InterfaceController : MonoBehaviour
         pauseMenu.onTutorialEvent += OnTutorial;
     }
 
+    private void Start()
+    {
+        Debug.Log(SaveSystem.GetData("isTutorial"));
+        if (SaveSystem.GetData("isTutorial") != 1)
+        {
+            OnTutorial();
+            SaveSystem.SaveData("isTutorial", 1, GameManager.nowSavePath);
+        }
+    }
+
     private void OnDisable()
     {
         pauseMenu.onSettingEvent -= OnSetting;

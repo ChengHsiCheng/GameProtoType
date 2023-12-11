@@ -69,6 +69,8 @@ public class LevelMeunContorller : UIManager
 
     private void OnCheckLevel()
     {
+        Debug.Log(count);
+
         GameManager.sceneController.UIController.AddUI(BossUIs[count]);
 
         audioLogic.PlayAudio("OpenRiddle");

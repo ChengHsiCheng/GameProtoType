@@ -99,7 +99,6 @@ public class PlayerUIManager : UIManager
 
     public void SetHint(bool value)
     {
-        Debug.Log(value);
         HintUI.gameObject.SetActive(value);
     }
 

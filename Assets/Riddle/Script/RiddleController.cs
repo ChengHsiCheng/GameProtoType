@@ -18,7 +18,10 @@ public class RiddleController : MonoBehaviour
     {
         riddle.OnPassEvent += PassEvent;
         riddle.gameObject.SetActive(false);
+    }
 
+    private void Start()
+    {
         int isPass = SaveSystem.GetData(riddleName);
 
         if (isPass == 1)
@@ -29,7 +32,6 @@ public class RiddleController : MonoBehaviour
         {
             SetIsPass(false);
         }
-
     }
 
     private void PassEvent()

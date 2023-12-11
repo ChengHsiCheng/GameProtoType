@@ -6,7 +6,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlideshowContorller : MonoBehaviour
+public class SlideshowContorller : UIManager
 {
     [SerializeField] bool isStarting;
     [SerializeField] float time;
@@ -56,6 +56,8 @@ public class SlideshowContorller : MonoBehaviour
     public void OnStart()
     {
         isStarting = true;
+
+        GameManager.sceneController.UIController.AddUI(this);
 
         foreach (Image image in storyImage)
         {
