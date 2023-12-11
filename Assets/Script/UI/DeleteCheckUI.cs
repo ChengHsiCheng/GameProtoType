@@ -9,7 +9,7 @@ public class DeleteCheckUI : MonoBehaviour
         GameManager.sceneController.UIController.CloseUI();
     }
 
-    public void OnCover()
+    public void OnDelete()
     {
         SaveSystem.DeleteData(GameManager.nowSavePath);
         GameManager.sceneController.UIController.CloseUI();
