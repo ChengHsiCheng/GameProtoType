@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using System.IO;
 
 public enum ControlMethod
 {
     Keyboard, Gamepad
 }
 
-public enum Language
+public enum Languages
 {
     English, Chinese
 }
@@ -23,9 +24,13 @@ public static class GameManager
     public static List<Enemy> enemys = new List<Enemy>(); // 場上的敵人
     public static List<AudioHendler> audios = new List<AudioHendler>(); // 場上的敵人
     public static ControlMethod controlMethod; // 操控裝置
-    public static Language language;
+    public static Languages language;
+
+    public static Font ChineseFont = Resources.Load<Font>("ChineseText");
+    public static Font EnglishFont = Resources.Load<Font>("EnglishText");
 
     public static event Action OnSwicthControlMethodEvent;
+    public static event Action OnSwicthLanguage;
 
     public static bool isPauseGame { private set; get; } = false; // 遊戲暫停
     public static bool isSetting { private set; get; } = false;
@@ -153,5 +158,11 @@ public static class GameManager
     {
         controlMethod = _controlMethod;
         OnSwicthControlMethodEvent?.Invoke();
+    }
+
+    public static void SwitchLanguages(Languages _language)
+    {
+        language = _language;
+        OnSwicthLanguage?.Invoke();
     }
 }
