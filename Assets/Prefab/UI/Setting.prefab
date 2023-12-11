@@ -4966,7 +4966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnglishText: SetBGMVolume
+  EnglishText: BGM Volume
   ChineseText: "\u97F3\u6A02\u97F3\u91CF"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
@@ -12554,6 +12554,7 @@ GameObject:
   - component: {fileID: 556749113830063540}
   - component: {fileID: 6487512248331162191}
   - component: {fileID: 8730998956232680345}
+  - component: {fileID: 891335417117650974}
   m_Layer: 5
   m_Name: SetScreenMod
   m_TagString: Untagged
@@ -12741,6 +12742,27 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &891335417117650974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8654030473156854047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93c24c802bdad448ba2ba3affde95e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7316641128926007625}
+  ChineseTexts:
+  - "\u5168\u87A2\u5E55"
+  - "\u7121\u908A\u6846\u8996\u7A97"
+  - "\u8996\u7A97"
+  EnglishTexts:
+  - FullScreenWindow
+  - MaximizedWindow
+  - Windowed
 --- !u!1 &8685165331827157865
 GameObject:
   m_ObjectHideFlags: 0

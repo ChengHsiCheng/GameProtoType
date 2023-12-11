@@ -16,10 +16,6 @@ public class Language : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnSwicthLanguage += SwicthLanguage;
-    }
-
-    private void Start()
-    {
         SwicthLanguage();
     }
 
