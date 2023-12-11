@@ -271,6 +271,7 @@ public class PlayerStateMachine : StateMachine
     {
         UI.Add(ui);
 
+        UIManager.isHint = true;
         UIManager.SetHint(true);
     }
 
@@ -283,10 +284,10 @@ public class PlayerStateMachine : StateMachine
                 UI?.RemoveAt(i);
             }
         }
-
         if (UI.Count != 0)
             return;
 
+        UIManager.isHint = false;
         UIManager.SetHint(false);
     }
 

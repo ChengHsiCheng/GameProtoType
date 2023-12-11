@@ -21,6 +21,8 @@ public class PlayerUIManager : UIManager
     [SerializeField] private float hurtUIAlphaDecayRate;
     private float hurtUIAlpha = 0;
 
+    public bool isHint;
+
     private void Start()
     {
         GameManager.sceneController.UIController.OnOpenUIEvent += CloseHint;
@@ -84,6 +86,9 @@ public class PlayerUIManager : UIManager
 
     public void OpenHint()
     {
+        if (!isHint)
+            return;
+
         SetHint(true);
     }
 
@@ -94,9 +99,7 @@ public class PlayerUIManager : UIManager
 
     public void SetHint(bool value)
     {
-        if (!HintUI)
-            return;
-
+        Debug.Log(value);
         HintUI.gameObject.SetActive(value);
     }
 
