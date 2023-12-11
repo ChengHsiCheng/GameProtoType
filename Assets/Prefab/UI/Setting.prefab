@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 1107160002}
   - component: {fileID: 1107160004}
   - component: {fileID: 1107160003}
+  - component: {fileID: 4487357748097895780}
   m_Layer: 5
   m_Name: Choose
   m_TagString: Untagged
@@ -272,6 +273,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Choose
+--- !u!114 &4487357748097895780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107160001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Choose
+  ChineseText: "\u9078\u64C7"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &1453605010
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +338,7 @@ GameObject:
   - component: {fileID: 1746322394}
   - component: {fileID: 1746322396}
   - component: {fileID: 1746322395}
+  - component: {fileID: 5454830951146712882}
   m_Layer: 5
   m_Name: Choose
   m_TagString: Untagged
@@ -390,6 +408,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Choose
+--- !u!114 &5454830951146712882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746322393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Choose
+  ChineseText: "\u9078\u64C7"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &1934177418
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +872,7 @@ GameObject:
   - component: {fileID: 8751314332650059285}
   - component: {fileID: 3867342041113054313}
   - component: {fileID: 5167512822369809397}
+  - component: {fileID: 4415168936926696151}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -907,6 +942,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &4415168936926696151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593301272951257308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &716853695360104905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,6 +1125,7 @@ GameObject:
   - component: {fileID: 6431424930607758527}
   - component: {fileID: 5748712700447647940}
   - component: {fileID: 7526090221221249051}
+  - component: {fileID: 1647729322966845021}
   m_Layer: 5
   m_Name: Attack
   m_TagString: Untagged
@@ -1094,7 +1146,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1143,6 +1195,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Attack
+--- !u!114 &1647729322966845021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882422651213423136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Attack
+  ChineseText: "\u653B\u64CA"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &935633679234472833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1349,7 @@ GameObject:
   - component: {fileID: 5248512988524144308}
   - component: {fileID: 3872062541661853403}
   - component: {fileID: 3189343068606506341}
+  - component: {fileID: 9079966225317757781}
   m_Layer: 5
   m_Name: Choose
   m_TagString: Untagged
@@ -1350,6 +1419,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Choose
+--- !u!114 &9079966225317757781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016803617410810786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Choose
+  ChineseText: "\u9078\u64C7"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &1035762207393572745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,86 +1627,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &1181996984144720473
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5400174718988912142}
-  - component: {fileID: 68556781869088762}
-  - component: {fileID: 7405033135713340871}
-  m_Layer: 5
-  m_Name: Skill
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5400174718988912142
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181996984144720473}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -448, y: 48}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &68556781869088762
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181996984144720473}
-  m_CullTransparentMesh: 1
---- !u!114 &7405033135713340871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181996984144720473}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 5
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Skill
 --- !u!1 &1345758011711018497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,6 +1718,7 @@ GameObject:
   - component: {fileID: 9120977417557807283}
   - component: {fileID: 4695876489144435907}
   - component: {fileID: 2566615126433734419}
+  - component: {fileID: 7415042357031125066}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1733,7 +1739,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1782,6 +1788,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &7415042357031125066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506033235246151727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &1541755906199714150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,6 +1980,7 @@ GameObject:
   - component: {fileID: 6036989701609913175}
   - component: {fileID: 2043794892522030336}
   - component: {fileID: 4337041132686568444}
+  - component: {fileID: 6611006483096155465}
   m_Layer: 5
   m_Name: Visual
   m_TagString: Untagged
@@ -2027,6 +2050,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Visual
+--- !u!114 &6611006483096155465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589757065676622130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Visual
+  ChineseText: "\u986F\u793A"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &1630119934884950840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,6 +2630,7 @@ GameObject:
   - component: {fileID: 5162165669432167464}
   - component: {fileID: 3436213626769316740}
   - component: {fileID: 2997724460379905620}
+  - component: {fileID: 8698682169087776849}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -2660,6 +2700,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &8698682169087776849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2159641872789808649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2215376585436526228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,6 +2727,7 @@ GameObject:
   - component: {fileID: 4445774007582850612}
   - component: {fileID: 6034019748192843208}
   - component: {fileID: 7196073598718154462}
+  - component: {fileID: 927228048178585577}
   m_Layer: 5
   m_Name: Attack/Interaction
   m_TagString: Untagged
@@ -2740,6 +2797,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Attack/Interaction
+--- !u!114 &927228048178585577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2215376585436526228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Attack/Interaction
+  ChineseText: "\u653B\u64CA/\u4E92\u52D5"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2267019527302889431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,6 +2984,7 @@ GameObject:
   - component: {fileID: 7956423846055554131}
   - component: {fileID: 3811130303225918204}
   - component: {fileID: 3889120461341800620}
+  - component: {fileID: 4777548520396154179}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -2980,6 +3054,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Audio
+--- !u!114 &4777548520396154179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461944170545990869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Audio
+  ChineseText: "\u97F3\u6548"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2525392047178716264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,6 +3234,7 @@ GameObject:
   - component: {fileID: 115090477079153146}
   - component: {fileID: 2937347860261303705}
   - component: {fileID: 3922609070888222084}
+  - component: {fileID: 1700992679796593660}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -3213,6 +3304,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &1700992679796593660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2624175788464240004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2723194293796197297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,6 +3511,7 @@ GameObject:
   - component: {fileID: 346139424559837963}
   - component: {fileID: 2266657517614723749}
   - component: {fileID: 3251471056951335152}
+  - component: {fileID: 2501851383608361935}
   m_Layer: 5
   m_Name: Move
   m_TagString: Untagged
@@ -3473,6 +3581,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Move
+--- !u!114 &2501851383608361935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879901641855116200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Move
+  ChineseText: "\u79FB\u52D5"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &2910168457439844695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3503,7 +3627,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5400174718988912142}
   - {fileID: 454552062425980746}
   - {fileID: 1428575886024151850}
   - {fileID: 1104191565719421683}
@@ -3911,6 +4034,7 @@ GameObject:
   - component: {fileID: 9009798499600328792}
   - component: {fileID: 6350415092492310776}
   - component: {fileID: 4659681134048176040}
+  - component: {fileID: 2990076614089430218}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -3982,6 +4106,22 @@ MonoBehaviour:
   m_Text: 'SFX Volume
 
 '
+--- !u!114 &2990076614089430218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419844048944761455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: 'SFX Volume '
+  ChineseText: "\u97F3\u6548\u97F3\u91CF"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3432624661995832551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,6 +4133,7 @@ GameObject:
   - component: {fileID: 6555096633292840860}
   - component: {fileID: 7015852013519635980}
   - component: {fileID: 1144143368351532427}
+  - component: {fileID: 3049630503166308387}
   m_Layer: 5
   m_Name: Visual
   m_TagString: Untagged
@@ -4062,6 +4203,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Visual
+--- !u!114 &3049630503166308387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432624661995832551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Visual
+  ChineseText: "\u986F\u793A"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3524464886439526987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4725,6 +4882,7 @@ GameObject:
   - component: {fileID: 3524464887130020602}
   - component: {fileID: 3524464887130020580}
   - component: {fileID: 3524464887130020603}
+  - component: {fileID: 2320451478772281926}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -4796,6 +4954,22 @@ MonoBehaviour:
   m_Text: 'BGM Volume
 
 '
+--- !u!114 &2320451478772281926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524464887130020601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: SetBGMVolume
+  ChineseText: "\u97F3\u6A02\u97F3\u91CF"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3524464887314895000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,8 +5155,8 @@ RectTransform:
   m_Father: {fileID: 3524464886496994828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5187,6 +5361,7 @@ GameObject:
   - component: {fileID: 3524464887900893677}
   - component: {fileID: 3524464887900893679}
   - component: {fileID: 3524464887900893678}
+  - component: {fileID: 502749306815250056}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -5256,6 +5431,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Brightness
+--- !u!114 &502749306815250056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3524464887900893676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Brightness
+  ChineseText: "\u4EAE\u5EA6"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3524464887930987439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,7 +5781,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5719,6 +5910,7 @@ GameObject:
   - component: {fileID: 1428575886024151850}
   - component: {fileID: 121021762907036520}
   - component: {fileID: 9034727816294932561}
+  - component: {fileID: 243420906327768076}
   m_Layer: 5
   m_Name: Interaction
   m_TagString: Untagged
@@ -5739,7 +5931,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5788,6 +5980,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Interaction
+--- !u!114 &243420906327768076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3636621266327956774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Interaction
+  ChineseText: "\u4E92\u52D5"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3724573016395689483
 GameObject:
   m_ObjectHideFlags: 0
@@ -5875,6 +6083,7 @@ GameObject:
   - component: {fileID: 8062190889048151354}
   - component: {fileID: 9172707708810249056}
   - component: {fileID: 2177505302761929137}
+  - component: {fileID: 5348845888323022159}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -5944,6 +6153,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Audio
+--- !u!114 &5348845888323022159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758217886999551235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Audio
+  ChineseText: "\u97F3\u6548"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &3807869338616990982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6347,6 +6572,7 @@ GameObject:
   - component: {fileID: 6625568045044003959}
   - component: {fileID: 3620096539110017525}
   - component: {fileID: 289063027285695729}
+  - component: {fileID: 4992239843585725539}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -6416,6 +6642,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &4992239843585725539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4030931876221251227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4072766091061933656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6613,6 +6855,7 @@ GameObject:
   - component: {fileID: 3781644295619823252}
   - component: {fileID: 8765359272258802517}
   - component: {fileID: 6626383102506508382}
+  - component: {fileID: 4346507829379975779}
   m_Layer: 5
   m_Name: Choose
   m_TagString: Untagged
@@ -6682,6 +6925,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Choose
+--- !u!114 &4346507829379975779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126818793227943984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Choose
+  ChineseText: "\u9078\u64C7"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4337217701540671521
 GameObject:
   m_ObjectHideFlags: 0
@@ -6846,6 +7105,7 @@ GameObject:
   - component: {fileID: 8635269617388386040}
   - component: {fileID: 1891522876839954597}
   - component: {fileID: 2601328632091769686}
+  - component: {fileID: 7232188300233762247}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -6915,6 +7175,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Controls
+--- !u!114 &7232188300233762247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4422665520802983770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Controls
+  ChineseText: "\u64CD\u4F5C"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4440838261339252024
 GameObject:
   m_ObjectHideFlags: 0
@@ -6963,6 +7239,7 @@ GameObject:
   - component: {fileID: 6653110593836066428}
   - component: {fileID: 7722640629350110490}
   - component: {fileID: 613397686627185112}
+  - component: {fileID: 3594480589381669032}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -7034,6 +7311,22 @@ MonoBehaviour:
   m_Text: 'ScreenMod
 
 '
+--- !u!114 &3594480589381669032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4562435394293733969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: 'ScreenMod '
+  ChineseText: "\u87A2\u5E55\u6A21\u5F0F"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &4567570914934786274
 GameObject:
   m_ObjectHideFlags: 0
@@ -7471,6 +7764,7 @@ GameObject:
   - component: {fileID: 4262256777346945466}
   - component: {fileID: 1230477275122157081}
   - component: {fileID: 8713992651028059459}
+  - component: {fileID: 5063193932221710749}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -7540,6 +7834,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &5063193932221710749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964876082586307029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &5195370286539204937
 GameObject:
   m_ObjectHideFlags: 0
@@ -8247,6 +8557,7 @@ GameObject:
   - component: {fileID: 3730999596094263358}
   - component: {fileID: 178485959045471951}
   - component: {fileID: 3486815390938930381}
+  - component: {fileID: 1909408330279999507}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -8316,6 +8627,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Back
+--- !u!114 &1909408330279999507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540558081679457364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Back
+  ChineseText: "\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &5590700674874323696
 GameObject:
   m_ObjectHideFlags: 0
@@ -8597,6 +8924,7 @@ GameObject:
   - component: {fileID: 1640451668888328443}
   - component: {fileID: 1718407290233651883}
   - component: {fileID: 5175760009835227279}
+  - component: {fileID: 9114468165597088112}
   m_Layer: 5
   m_Name: Roll/Back
   m_TagString: Untagged
@@ -8666,6 +8994,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Roll/Back
+--- !u!114 &9114468165597088112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707600256939426943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Roll/Back
+  ChineseText: "\u7FFB\u6EFE/\u8FD4\u56DE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &5728459606524468156
 GameObject:
   m_ObjectHideFlags: 0
@@ -9142,6 +9486,7 @@ GameObject:
   - component: {fileID: 4529723246898098750}
   - component: {fileID: 324049743646927907}
   - component: {fileID: 4314326994647868812}
+  - component: {fileID: 1233408706526733767}
   m_Layer: 5
   m_Name: Visual
   m_TagString: Untagged
@@ -9211,6 +9556,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Visual
+--- !u!114 &1233408706526733767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998295955187610862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Visual
+  ChineseText: "\u986F\u793A"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &6080278665433123772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9611,6 +9972,7 @@ GameObject:
   - component: {fileID: 454552062425980746}
   - component: {fileID: 7267139984580616318}
   - component: {fileID: 5795327452822838997}
+  - component: {fileID: 7519529045807784711}
   m_Layer: 5
   m_Name: Move
   m_TagString: Untagged
@@ -9631,7 +9993,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9680,6 +10042,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Move
+--- !u!114 &7519529045807784711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403871204838954464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Move
+  ChineseText: "\u79FB\u52D5"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &6465928401993303449
 GameObject:
   m_ObjectHideFlags: 0
@@ -9782,6 +10160,7 @@ GameObject:
   - component: {fileID: 1104191565719421683}
   - component: {fileID: 6321660795318372719}
   - component: {fileID: 8592486564996433615}
+  - component: {fileID: 8153857758086038935}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -9802,7 +10181,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9851,6 +10230,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Heal
+--- !u!114 &8153857758086038935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557094412179508108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Heal
+  ChineseText: "\u56DE\u5FA9"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &6561776269550725306
 GameObject:
   m_ObjectHideFlags: 0
@@ -9942,6 +10337,7 @@ GameObject:
   - component: {fileID: 1608101422907836200}
   - component: {fileID: 4309052731822643908}
   - component: {fileID: 614006308787057859}
+  - component: {fileID: 8809714939185717255}
   m_Layer: 5
   m_Name: Skill/ Confirm
   m_TagString: Untagged
@@ -10010,7 +10406,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Skill/\rConfirm"
+  m_Text: Confirm
+--- !u!114 &8809714939185717255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662966120475690883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Confirm
+  ChineseText: "\u78BA\u8A8D"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &6759832855471706581
 GameObject:
   m_ObjectHideFlags: 0
@@ -10255,6 +10667,7 @@ GameObject:
   - component: {fileID: 545144744664760571}
   - component: {fileID: 7162552309920590194}
   - component: {fileID: 547377819880884458}
+  - component: {fileID: 4532453330117008591}
   m_Layer: 5
   m_Name: Choose
   m_TagString: Untagged
@@ -10324,6 +10737,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Choose
+--- !u!114 &4532453330117008591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6983246595544875548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Choose
+  ChineseText: "\u9078\u64C7"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &7039518610230286723
 GameObject:
   m_ObjectHideFlags: 0
@@ -10932,6 +11361,7 @@ GameObject:
   - component: {fileID: 2738661931494191642}
   - component: {fileID: 2958842355398237178}
   - component: {fileID: 4051729538021187571}
+  - component: {fileID: 5230698802384567632}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -11001,6 +11431,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Controls
+--- !u!114 &5230698802384567632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714698693960993997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Controls
+  ChineseText: "\u64CD\u4F5C"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &7863679714640556703
 GameObject:
   m_ObjectHideFlags: 0
@@ -11156,6 +11602,7 @@ GameObject:
   - component: {fileID: 3083316607939213448}
   - component: {fileID: 4795394080735316935}
   - component: {fileID: 2246303951236288991}
+  - component: {fileID: 3381761162541738158}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -11225,6 +11672,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Audio
+--- !u!114 &3381761162541738158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7951342077336106345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Audio
+  ChineseText: "\u97F3\u6548"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &7968184684502678100
 GameObject:
   m_ObjectHideFlags: 0
@@ -11236,6 +11699,7 @@ GameObject:
   - component: {fileID: 8265984070437069903}
   - component: {fileID: 5098394241967411162}
   - component: {fileID: 3659622004066471640}
+  - component: {fileID: 2723005486155265501}
   m_Layer: 5
   m_Name: Heal
   m_TagString: Untagged
@@ -11305,6 +11769,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Heal
+--- !u!114 &2723005486155265501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7968184684502678100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Heal
+  ChineseText: "\u56DE\u5FA9"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &7981848887930465067
 GameObject:
   m_ObjectHideFlags: 0
@@ -11316,6 +11796,7 @@ GameObject:
   - component: {fileID: 3963518788298518647}
   - component: {fileID: 6509572397831054729}
   - component: {fileID: 8263288229203575799}
+  - component: {fileID: 3184969463115610681}
   m_Layer: 5
   m_Name: Left
   m_TagString: Untagged
@@ -11385,6 +11866,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Left
+--- !u!114 &3184969463115610681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981848887930465067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Left
+  ChineseText: "\u5DE6"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &7991431134231081941
 GameObject:
   m_ObjectHideFlags: 0
@@ -11456,6 +11953,7 @@ GameObject:
   - component: {fileID: 7156602405919364966}
   - component: {fileID: 5272052969215278856}
   - component: {fileID: 6555459886957870230}
+  - component: {fileID: 1651785014406001486}
   m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
@@ -11525,6 +12023,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Right
+--- !u!114 &1651785014406001486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8009011306693486691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Right
+  ChineseText: "\u53F3"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &8029655625183943181
 GameObject:
   m_ObjectHideFlags: 0
@@ -12238,6 +12752,7 @@ GameObject:
   - component: {fileID: 7622442372483556821}
   - component: {fileID: 809014746845627277}
   - component: {fileID: 1224303749296454658}
+  - component: {fileID: 3797622795101409289}
   m_Layer: 5
   m_Name: Choose
   m_TagString: Untagged
@@ -12307,6 +12822,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Choose
+--- !u!114 &3797622795101409289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8685165331827157865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Choose
+  ChineseText: "\u9078\u64C7"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &8687267014023203646
 GameObject:
   m_ObjectHideFlags: 0
@@ -12647,6 +13178,7 @@ GameObject:
   - component: {fileID: 7683302823286649065}
   - component: {fileID: 7359502985994341786}
   - component: {fileID: 6758084345022987343}
+  - component: {fileID: 3048672069152600823}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -12716,6 +13248,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Resolution
+--- !u!114 &3048672069152600823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9048863347382588523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Resolution
+  ChineseText: "\u89E3\u6790\u5EA6"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &9063370660902021620
 GameObject:
   m_ObjectHideFlags: 0
@@ -12727,6 +13275,7 @@ GameObject:
   - component: {fileID: 5149626215687644189}
   - component: {fileID: 2405798276068543896}
   - component: {fileID: 6951133014166428602}
+  - component: {fileID: 9031165373099420192}
   m_Layer: 5
   m_Name: Controls
   m_TagString: Untagged
@@ -12796,6 +13345,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Controls
+--- !u!114 &9031165373099420192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063370660902021620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Controls
+  ChineseText: "\u64CD\u4F5C"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
 --- !u!1 &9177962548129171835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12807,8 +13372,9 @@ GameObject:
   - component: {fileID: 6038407257446216837}
   - component: {fileID: 8038380775096353762}
   - component: {fileID: 8850548463074355692}
+  - component: {fileID: 5493294988195045531}
   m_Layer: 5
-  m_Name: Skill/ Confirm
+  m_Name: Roll/Confirm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12827,7 +13393,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6654732318997630851}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -12876,3 +13442,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Roll/\rConfirm"
+--- !u!114 &5493294988195045531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9177962548129171835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: Roll/Confirm
+  ChineseText: "\u7FFB\u6EFE/\u78BA\u8A8D"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}

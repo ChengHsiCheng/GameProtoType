@@ -1,3 +1,4 @@
+using System.Dynamic;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,6 +58,14 @@ public class MainMenuController : UIManager
     private void SwitchScene()
     {
         GameManager.SwitchScene(switchScene);
+    }
+
+    public void SwicthLanguage()
+    {
+        if (GameManager.language == Languages.English)
+            GameManager.SwitchLanguages(Languages.Chinese);
+        else
+            GameManager.SwitchLanguages(Languages.English);
     }
 
 }
