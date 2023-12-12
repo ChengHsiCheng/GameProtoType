@@ -20,6 +20,7 @@ public class SettingController : MonoBehaviour
 
     [SerializeField] private Slider brightnessSlider;
     [SerializeField] private Slider audioVolumeSlider;
+    [SerializeField] private Slider BGMVolumeSlider;
     private Dropdown screenResolution;
     private Dropdown screenMod;
 
@@ -32,6 +33,7 @@ public class SettingController : MonoBehaviour
 
         brightnessSlider.value = GameManager.brightness;
         audioVolumeSlider.value = GameManager.audioVolume;
+        BGMVolumeSlider.value = GameManager.BGMVolume;
 
         switch (GameManager.screenMode)
         {
