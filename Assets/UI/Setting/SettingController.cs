@@ -13,7 +13,7 @@ public class SettingController : MonoBehaviour
 {
     [SerializeField] private Volume volume;
     [SerializeField] private AudioMixer mixer;
-    [SerializeField] private AudioMixer sfxMixer;
+    [SerializeField] private AudioMixer bgmMixer;
     [field: SerializeField] public UIManager[] settingUIs { get; private set; }
     private int uiCount;
     private ColorAdjustments brightness;
@@ -74,6 +74,7 @@ public class SettingController : MonoBehaviour
 
         SetBrightness(GameManager.brightness);
         SetAudioVolume(GameManager.audioVolume);
+        SetBGMVolume(GameManager.BGMVolume);
 
         GameManager.sceneController.UIInputReader.OnLeftTriggerEvent += SwitchLeftSetting;
         GameManager.sceneController.UIInputReader.OnRightTriggerEvent += SwitchRightSetting;
@@ -101,13 +102,13 @@ public class SettingController : MonoBehaviour
         mixer.SetFloat("AudioVolume", GameManager.audioVolume);
     }
 
-    public void SetSFXVolume(float volume)
+    public void SetBGMVolume(float volume)
     {
         if (volume <= -40)
             volume = -80;
 
-        GameManager.SetAudioVolume(volume);
-        sfxMixer.SetFloat("AudioVolume", GameManager.audioVolume);
+        GameManager.SetBGMVolume(volume);
+        bgmMixer.SetFloat("AudioVolume", GameManager.BGMVolume);
     }
 
     public void SetScreenResolution(int i)

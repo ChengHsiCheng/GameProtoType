@@ -39,6 +39,7 @@ public static class GameManager
 
     public static float brightness { private set; get; } // 亮度
     public static float audioVolume { private set; get; } = -10;  // 音量
+    public static float BGMVolume { private set; get; } = -10;  // 音量
 
     public static int screenHorizontal { private set; get; } // 螢幕大小_橫向
     public static int screenVertical { private set; get; } // 螢幕大小_縱向
@@ -141,6 +142,11 @@ public static class GameManager
     public static void SetAudioVolume(float volume)
     {
         audioVolume = volume;
+    }
+
+    public static void SetBGMVolume(float volume)
+    {
+        BGMVolume = volume;
     }
 
     public static void SetIsSetting(bool _isSetting)
