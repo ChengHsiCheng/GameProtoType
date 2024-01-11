@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerRollState : PlayerBaseState
 {
     private readonly int RollHash = Animator.StringToHash("Roll");
-    private const float CrossFadeDuration = 0.1f;
+    private const float CrossFadeDuration = 0f;
 
     Vector3 faceDis;
 

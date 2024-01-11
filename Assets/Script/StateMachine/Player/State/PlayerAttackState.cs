@@ -59,19 +59,38 @@ public class PlayerAttackState : PlayerBaseState
             }
         }
 
-        if (normalizedTime <= attack.minCancelTime)
-            return;
+        // if (normalizedTime <= attack.PreCancelTime)
+        // {
+        //     if (stateMachine.canCancel)
+        //         stateMachine.SetCanCancel(false);
 
-        if (stateMachine.canCancel)
-            stateMachine.SetCanCancel(false);
+        //     return;
+        // }
+        // else if (normalizedTime < attack.PostCancelTime)
+        // {
+        //     if (!stateMachine.canCancel)
+        //         stateMachine.SetCanCancel(true);
 
-        if (normalizedTime < attack.MinComboAttackTime + 0.1f)
+        //     return;
+        // }
+
+        if (normalizedTime < attack.PreCancelTime || normalizedTime > attack.PostCancelTime)
+        {
+            if (!stateMachine.canCancel)
+                stateMachine.SetCanCancel(true);
+        }
+        else
+        {
+            if (stateMachine.canCancel)
+                stateMachine.SetCanCancel(false);
+
             return;
+        }
 
         if (!CanAction)
             stateMachine.SetCanAction(true);
 
-        if (stateMachine.InputReader.MovementValue != Vector2.zero || normalizedTime >= 1f)
+        if (normalizedTime >= 1f)
         {
             stateMachine.SwitchState(new PlayerMovingState(stateMachine));
         }
