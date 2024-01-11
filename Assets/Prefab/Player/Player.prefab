@@ -2974,6 +2974,7 @@ GameObject:
   - component: {fileID: 521592334977888240}
   - component: {fileID: 6078049451270060355}
   - component: {fileID: 6284431554732261952}
+  - component: {fileID: 337199192}
   m_Layer: 10
   m_Name: WeaponLogic
   m_TagString: Untagged
@@ -3040,6 +3041,7 @@ MonoBehaviour:
   myCollider: {fileID: 2080221946}
   Collider: {fileID: 7534961677611394137}
   audioLogic: {fileID: 6284431554732261952}
+  impulseSource: {fileID: 337199192}
   hitVFX: {fileID: 4318664076542662784, guid: 15c55ba0c2c355447bbb473de8a94f07, type: 3}
   alreadyCollidedWith: []
 --- !u!114 &6284431554732261952
@@ -3061,6 +3063,59 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4660bab7401a07e489b970c8086a4bc1, type: 3}
     - {fileID: 8300000, guid: 42bea0a3cd2c1884e82aeec2b90dda9f, type: 3}
     audioVolume: 0
+--- !u!114 &337199192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4644412982043613105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: -1
+    m_ImpulseShape: 4
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 3
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 0.5
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.1
+      m_DecayTime: 0.3
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &5009468972583274404
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,6 +4901,7 @@ MonoBehaviour:
     <MoveTime>k__BackingField: 0.24
     <MoveForce>k__BackingField: 10
     <Damage>k__BackingField: 10
+    <ShockingPower>k__BackingField: 2
     Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack2
     <AttackTimeByAnimation>k__BackingField: 0.18
@@ -4858,6 +4914,7 @@ MonoBehaviour:
     <MoveTime>k__BackingField: 0.15
     <MoveForce>k__BackingField: 10
     <Damage>k__BackingField: 15
+    <ShockingPower>k__BackingField: 2
     Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack3
     <AttackTimeByAnimation>k__BackingField: 0.216
@@ -4870,6 +4927,7 @@ MonoBehaviour:
     <MoveTime>k__BackingField: 0.22
     <MoveForce>k__BackingField: 15
     <Damage>k__BackingField: 30
+    <ShockingPower>k__BackingField: 5
     Model: {fileID: 5009468972583274404}
   <Skills>k__BackingField:
   - name: PetrochemicalSkill

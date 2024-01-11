@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private Collider myCollider;
     [SerializeField] private Collider Collider;
     [SerializeField] private AudioLogic audioLogic;
+    [SerializeField] private CinemachineImpulseSource impulseSource;
+    private float shockingPower;
     private float damage; // 傷害
     private float sanDamage;
     private float impact;
@@ -33,6 +36,11 @@ public class WeaponDamage : MonoBehaviour
         alreadyCollidedWith.Add(other.gameObject);
 
         audioLogic?.PlayAudio("Hit");
+
+        if (impulseSource)
+        {
+            impulseSource.GenerateImpulse(Vector3.one * shockingPower);
+        }
 
         if (hitVFX)
         {
@@ -84,9 +92,15 @@ public class WeaponDamage : MonoBehaviour
 
     public void SetAttack(float damage, float impact, float sanDamage)
     {
+        SetAttack(damage, impact, sanDamage, 0);
+    }
+
+    public void SetAttack(float damage, float impact, float sanDamage, float shockingPower)
+    {
         this.damage = damage;
         this.impact = impact;
         this.sanDamage = sanDamage;
+        this.shockingPower = shockingPower;
     }
 
 }
