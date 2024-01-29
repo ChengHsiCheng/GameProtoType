@@ -22,6 +22,11 @@ public class PlayerAttackState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
 
         stateMachine.Weapon.SetAttack(attack.Damage + (attack.Damage * stateMachine.sanScalingDamage), 0, 0, attack.ShockingPower);
+
+        if (attack.AnimationName == "Attack3")
+            stateMachine.Weapon.SetStuckFrame(0.1f);
+        else
+            stateMachine.Weapon.SetStuckFrame();
     }
 
     public override void Tick(float deltaTime)

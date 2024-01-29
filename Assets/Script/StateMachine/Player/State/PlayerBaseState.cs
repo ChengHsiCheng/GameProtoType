@@ -7,8 +7,6 @@ public abstract class PlayerBaseState : State
     protected PlayerStateMachine stateMachine;
     protected float moveSmooth = 0.4f;
 
-    private Vector3 lastMovement;
-
     protected bool CanAction => stateMachine.canAction;
 
 

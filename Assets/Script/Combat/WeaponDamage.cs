@@ -14,6 +14,8 @@ public class WeaponDamage : MonoBehaviour
     private float damage; // 傷害
     private float sanDamage;
     private float impact;
+    private bool isStuckFrame;
+    private float stuckFrameTime;
 
     [SerializeField] private GameObject hitVFX;
     [SerializeField] private List<GameObject> alreadyCollidedWith = new List<GameObject>(); // 已經碰撞過的碰撞器列表
@@ -32,6 +34,11 @@ public class WeaponDamage : MonoBehaviour
 
         if (alreadyCollidedWith.Contains(other.gameObject))
             return;
+
+        if (isStuckFrame)
+        {
+            StartCoroutine(StuckFrame());
+        }
 
         alreadyCollidedWith.Add(other.gameObject);
 
@@ -101,6 +108,27 @@ public class WeaponDamage : MonoBehaviour
         this.impact = impact;
         this.sanDamage = sanDamage;
         this.shockingPower = shockingPower;
+    }
+
+    public void SetStuckFrame()
+    {
+        SetStuckFrame(0.05f);
+    }
+
+    public void SetStuckFrame(float stuckFrameTime)
+    {
+        isStuckFrame = true;
+        this.stuckFrameTime = stuckFrameTime;
+    }
+
+    private IEnumerator StuckFrame()
+    {
+        GameManager.TogglePause(true);
+
+        yield return new WaitForSeconds(stuckFrameTime);
+
+        GameManager.TogglePause(false);
+        isStuckFrame = false;
     }
 
 }

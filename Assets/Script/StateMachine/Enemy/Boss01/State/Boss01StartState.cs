@@ -17,7 +17,6 @@ public class Boss01StartState : Boss01BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(RoarAnimatorString, AnimatorDampTime);
-
     }
 
     public override void Tick(float deltaTime)
