@@ -24,9 +24,9 @@ public class PlayerAttackState : PlayerBaseState
         stateMachine.Weapon.SetAttack(attack.Damage + (attack.Damage * stateMachine.sanScalingDamage), 0, 0, attack.ShockingPower);
 
         if (attack.AnimationName == "Attack3")
-            stateMachine.Weapon.SetStuckFrame(0.1f);
+            stateMachine.Weapon.SetStuckFrame(0.2f);
         else
-            stateMachine.Weapon.SetStuckFrame();
+            stateMachine.Weapon.SetStuckFrame(0.1f);
     }
 
     public override void Tick(float deltaTime)
