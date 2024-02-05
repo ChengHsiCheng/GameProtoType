@@ -37,10 +37,21 @@ public class PlayerAttackState : PlayerBaseState
 
         Vector3 movemnt = CalculateMovement();
 
-        if (normalizedTime >= attack.AttackTimeByAnimation && !isAttack)
+        if (normalizedTime >= attack.AttackEndTimeByAnimation)
         {
-            stateMachine.WeaponHendler.EnableWeapon(0);
-            isAttack = true;
+            if (isAttack)
+            {
+                stateMachine.WeaponHendler.DisableWeapon(0);
+                isAttack = false;
+            }
+        }
+        else if (normalizedTime >= attack.AttackTimeByAnimation)
+        {
+            if (!isAttack)
+            {
+                stateMachine.WeaponHendler.EnableWeapon(0);
+                isAttack = true;
+            }
         }
 
         if (normalizedTime <= attack.RotateTime && movemnt != Vector3.zero)
@@ -104,9 +115,8 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void Exit()
     {
-        attack.Model.transform.position = stateMachine.transform.position;
-
         stateMachine.SetCanCancel(true);
+        stateMachine.WeaponHendler.DisableWeapon(0);
     }
 
     /// <summary>

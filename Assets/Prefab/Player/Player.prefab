@@ -4475,15 +4475,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7298461433966329733}
-  m_LocalRotation: {x: 0.37907737, y: -0.51521504, z: -0.5099564, w: 0.5751506}
-  m_LocalPosition: {x: -0.0006, y: 0.0253, z: 0.0153}
-  m_LocalScale: {x: 0.30000007, y: 0.3, z: 1}
+  m_LocalRotation: {x: 0.4688413, y: -0.5679272, z: -0.43067533, w: 0.5216948}
+  m_LocalPosition: {x: 0.014, y: 0.056, z: 0.006}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4434235351814223057}
   m_Father: {fileID: 7664695101045310217}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -5.13, y: -79.488, z: -78.857}
+  m_LocalEulerAnglesHint: {x: 0, y: -94.859, z: -79.081}
 --- !u!1 &7455492848778999276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5080,6 +5080,7 @@ MonoBehaviour:
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <AttackTimeByAnimation>k__BackingField: 0.26
+    <AttackEndTimeByAnimation>k__BackingField: 0.39
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 1
     <RotateTime>k__BackingField: 0.2
@@ -5091,9 +5092,9 @@ MonoBehaviour:
     <MoveForce>k__BackingField: 10
     <Damage>k__BackingField: 10
     <ShockingPower>k__BackingField: 2
-    Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack2
     <AttackTimeByAnimation>k__BackingField: 0.18
+    <AttackEndTimeByAnimation>k__BackingField: 0.25
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 2
     <RotateTime>k__BackingField: 0.15
@@ -5105,9 +5106,9 @@ MonoBehaviour:
     <MoveForce>k__BackingField: 10
     <Damage>k__BackingField: 15
     <ShockingPower>k__BackingField: 2
-    Model: {fileID: 5009468972583274404}
   - <AnimationName>k__BackingField: Attack3
     <AttackTimeByAnimation>k__BackingField: 0.216
+    <AttackEndTimeByAnimation>k__BackingField: 0.35
     <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: 0
     <RotateTime>k__BackingField: 0.2
@@ -5119,7 +5120,34 @@ MonoBehaviour:
     <MoveForce>k__BackingField: 15
     <Damage>k__BackingField: 30
     <ShockingPower>k__BackingField: 5
-    Model: {fileID: 5009468972583274404}
+  - <AnimationName>k__BackingField: TestAttack1
+    <AttackTimeByAnimation>k__BackingField: 0.255
+    <AttackEndTimeByAnimation>k__BackingField: 0.44
+    <TransitionDuration>k__BackingField: 0.2
+    <ComboStateIndex>k__BackingField: 4
+    <RotateTime>k__BackingField: 0.2
+    <PreCancelTime>k__BackingField: 0.2
+    <PostCancelTime>k__BackingField: 0.37
+    <MaxComboAttackTime>k__BackingField: 0.9
+    <MinComboAttackTime>k__BackingField: 0.5
+    <MoveTime>k__BackingField: 0.22
+    <MoveForce>k__BackingField: 7
+    <Damage>k__BackingField: 15
+    <ShockingPower>k__BackingField: 2
+  - <AnimationName>k__BackingField: TestAttack2
+    <AttackTimeByAnimation>k__BackingField: 0.22
+    <AttackEndTimeByAnimation>k__BackingField: 0.34
+    <TransitionDuration>k__BackingField: 0.2
+    <ComboStateIndex>k__BackingField: 3
+    <RotateTime>k__BackingField: 0.2
+    <PreCancelTime>k__BackingField: 0.2
+    <PostCancelTime>k__BackingField: 0.37
+    <MaxComboAttackTime>k__BackingField: 0.9
+    <MinComboAttackTime>k__BackingField: 0.4
+    <MoveTime>k__BackingField: 0.22
+    <MoveForce>k__BackingField: 7
+    <Damage>k__BackingField: 15
+    <ShockingPower>k__BackingField: 2
   <Skills>k__BackingField:
   - name: PetrochemicalSkill
     <ChargeTime>k__BackingField: 1
@@ -5713,22 +5741,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
@@ -5738,7 +5766,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0841
+      value: -0.226
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bcbf66a789dc2e4594f7293c277cc03,
         type: 3}
@@ -5828,17 +5856,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}

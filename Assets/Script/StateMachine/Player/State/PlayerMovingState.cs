@@ -32,7 +32,7 @@ public class PlayerMovingState : PlayerBaseState
     {
         if (stateMachine.InputReader.IsAttacking && stateMachine.canAction && GameManager.nowScenes != "GameLobby")
         {
-            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
+            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 3));
 
             return;
         }
