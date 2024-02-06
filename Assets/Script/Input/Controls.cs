@@ -55,6 +55,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""HeavyAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""0886c51a-f4c7-430e-8f2b-40cbda312165"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Skill"",
                     ""type"": ""Button"",
                     ""id"": ""1439fd4c-2983-4100-bf44-f0bceb224df9"",
@@ -459,6 +468,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""DamageBOSS"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d02bb9d3-a1ed-4b76-8901-21dc3944a57b"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""HeavyAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -948,6 +968,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_CombatLevel_Move = m_CombatLevel.FindAction("Move", throwIfNotFound: true);
         m_CombatLevel_Roll = m_CombatLevel.FindAction("Roll", throwIfNotFound: true);
         m_CombatLevel_Attack = m_CombatLevel.FindAction("Attack", throwIfNotFound: true);
+        m_CombatLevel_HeavyAttack = m_CombatLevel.FindAction("HeavyAttack", throwIfNotFound: true);
         m_CombatLevel_Skill = m_CombatLevel.FindAction("Skill", throwIfNotFound: true);
         m_CombatLevel_Heal = m_CombatLevel.FindAction("Heal", throwIfNotFound: true);
         m_CombatLevel_ESC = m_CombatLevel.FindAction("ESC", throwIfNotFound: true);
@@ -1029,6 +1050,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_CombatLevel_Move;
     private readonly InputAction m_CombatLevel_Roll;
     private readonly InputAction m_CombatLevel_Attack;
+    private readonly InputAction m_CombatLevel_HeavyAttack;
     private readonly InputAction m_CombatLevel_Skill;
     private readonly InputAction m_CombatLevel_Heal;
     private readonly InputAction m_CombatLevel_ESC;
@@ -1043,6 +1065,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_CombatLevel_Move;
         public InputAction @Roll => m_Wrapper.m_CombatLevel_Roll;
         public InputAction @Attack => m_Wrapper.m_CombatLevel_Attack;
+        public InputAction @HeavyAttack => m_Wrapper.m_CombatLevel_HeavyAttack;
         public InputAction @Skill => m_Wrapper.m_CombatLevel_Skill;
         public InputAction @Heal => m_Wrapper.m_CombatLevel_Heal;
         public InputAction @ESC => m_Wrapper.m_CombatLevel_ESC;
@@ -1068,6 +1091,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnAttack;
+                @HeavyAttack.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnHeavyAttack;
+                @HeavyAttack.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnHeavyAttack;
+                @HeavyAttack.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnHeavyAttack;
                 @Skill.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSkill;
                 @Skill.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSkill;
                 @Skill.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSkill;
@@ -1102,6 +1128,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @HeavyAttack.started += instance.OnHeavyAttack;
+                @HeavyAttack.performed += instance.OnHeavyAttack;
+                @HeavyAttack.canceled += instance.OnHeavyAttack;
                 @Skill.started += instance.OnSkill;
                 @Skill.performed += instance.OnSkill;
                 @Skill.canceled += instance.OnSkill;
@@ -1255,6 +1284,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnHeavyAttack(InputAction.CallbackContext context);
         void OnSkill(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);

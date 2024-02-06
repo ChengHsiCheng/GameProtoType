@@ -30,11 +30,19 @@ public class PlayerMovingState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (stateMachine.InputReader.IsAttacking && stateMachine.canAction && GameManager.nowScenes != "GameLobby")
+        if (stateMachine.canAction && GameManager.nowScenes != "GameLobby")
         {
-            stateMachine.SwitchState(new PlayerAttackState(stateMachine, 3));
+            if (stateMachine.InputReader.IsAttacking)
+            {
+                stateMachine.SwitchState(new PlayerAttackState(stateMachine, 0));
+                return;
+            }
 
-            return;
+            if (stateMachine.InputReader.IsHeavyAttacking)
+            {
+                stateMachine.SwitchState(new PlayerAttackState(stateMachine, 2));
+                return;
+            }
         }
 
         Move(deltaTime);

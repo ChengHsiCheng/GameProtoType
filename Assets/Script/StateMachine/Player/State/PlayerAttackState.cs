@@ -69,7 +69,14 @@ public class PlayerAttackState : PlayerBaseState
         {
             if (stateMachine.InputReader.IsAttacking)
             {
-                TryComboAttack(normalizedTime);
+                TrylightComboAttack(normalizedTime);
+
+                return;
+            }
+
+            if (stateMachine.InputReader.IsHeavyAttacking)
+            {
+                TryHeavyComboAttack(normalizedTime);
 
                 return;
             }
@@ -120,17 +127,31 @@ public class PlayerAttackState : PlayerBaseState
     }
 
     /// <summary>
-    /// 嘗試繼續攻擊
+    /// 嘗試輕攻擊
     /// </summary>
-    private void TryComboAttack(float normalizedTime)
+    private void TrylightComboAttack(float normalizedTime)
     {
-        if (attack.ComboStateIndex == -1)
+        if (attack.lightComboStateIndex == -1)
             return;
 
         if (normalizedTime < attack.MinComboAttackTime || normalizedTime > attack.MaxComboAttackTime)
             return;
 
-        stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.ComboStateIndex));
+        stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.lightComboStateIndex));
+    }
+
+    /// <summary>
+    /// 嘗試重攻擊
+    /// </summary>
+    private void TryHeavyComboAttack(float normalizedTime)
+    {
+        if (attack.HeavyComboStateIndex == -1)
+            return;
+
+        if (normalizedTime < attack.MinComboAttackTime || normalizedTime > attack.MaxComboAttackTime)
+            return;
+
+        stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.HeavyComboStateIndex));
     }
 
 }

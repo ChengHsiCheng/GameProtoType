@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
 {
     public bool IsAttacking { get; private set; }
+    public bool IsHeavyAttacking { get; private set; }
 
     private Controls controls;
     public Vector2 MovementValue { get; private set; }
@@ -74,6 +75,20 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         else if (context.canceled)
         {
             IsAttacking = false;
+        }
+
+        SetControlMethod(context);
+    }
+
+    public void OnHeavyAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            IsHeavyAttacking = true;
+        }
+        else if (context.canceled)
+        {
+            IsHeavyAttacking = false;
         }
 
         SetControlMethod(context);
