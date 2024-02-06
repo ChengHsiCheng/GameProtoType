@@ -7,7 +7,9 @@ public class PlayerAttackState : PlayerBaseState
     private readonly float previousFrameTime; // 上一幀的正規化時間
     private readonly Attack attack; // 攻擊的資訊
     private bool isMoved;
+    private bool isAudio;
     private bool isAttack;
+    private int nextAttack = -1;
 
 
     public PlayerAttackState(PlayerStateMachine stateMachine, int attackIndex) : base(stateMachine)
@@ -54,6 +56,12 @@ public class PlayerAttackState : PlayerBaseState
             }
         }
 
+        if (normalizedTime >= attack.AudioTime && !isAudio)
+        {
+            stateMachine.AudioLogic.PlayAudio("SwingSword");
+            isAudio = true;
+        }
+
         if (normalizedTime <= attack.RotateTime && movemnt != Vector3.zero)
         {
             FaceMovementDirection(movemnt, deltaTime);
@@ -70,43 +78,36 @@ public class PlayerAttackState : PlayerBaseState
             if (stateMachine.InputReader.IsAttacking)
             {
                 TrylightComboAttack(normalizedTime);
-
-                return;
             }
 
             if (stateMachine.InputReader.IsHeavyAttacking)
             {
                 TryHeavyComboAttack(normalizedTime);
-
-                return;
             }
         }
-
-        // if (normalizedTime <= attack.PreCancelTime)
-        // {
-        //     if (stateMachine.canCancel)
-        //         stateMachine.SetCanCancel(false);
-
-        //     return;
-        // }
-        // else if (normalizedTime < attack.PostCancelTime)
-        // {
-        //     if (!stateMachine.canCancel)
-        //         stateMachine.SetCanCancel(true);
-
-        //     return;
-        // }
 
         if (normalizedTime < attack.PreCancelTime || normalizedTime > attack.PostCancelTime)
         {
             if (!stateMachine.canCancel)
+            {
                 stateMachine.SetCanCancel(true);
+                Debug.Log(stateMachine.canCancel);
+            }
         }
         else
         {
             if (stateMachine.canCancel)
+            {
                 stateMachine.SetCanCancel(false);
+                Debug.Log(stateMachine.canCancel);
+            }
 
+            return;
+        }
+
+        if (nextAttack != -1)
+        {
+            ComboAttack();
             return;
         }
 
@@ -137,7 +138,7 @@ public class PlayerAttackState : PlayerBaseState
         if (normalizedTime < attack.MinComboAttackTime || normalizedTime > attack.MaxComboAttackTime)
             return;
 
-        stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.lightComboStateIndex));
+        nextAttack = attack.lightComboStateIndex;
     }
 
     /// <summary>
@@ -151,7 +152,12 @@ public class PlayerAttackState : PlayerBaseState
         if (normalizedTime < attack.MinComboAttackTime || normalizedTime > attack.MaxComboAttackTime)
             return;
 
-        stateMachine.SwitchState(new PlayerAttackState(stateMachine, attack.HeavyComboStateIndex));
+        nextAttack = attack.HeavyComboStateIndex;
+    }
+
+    private void ComboAttack()
+    {
+        stateMachine.SwitchState(new PlayerAttackState(stateMachine, nextAttack));
     }
 
 }

@@ -5078,76 +5078,70 @@ MonoBehaviour:
   <WeaponHendler>k__BackingField: {fileID: 8006189402794753334}
   <volume>k__BackingField: {fileID: 1668972552}
   <Attacks>k__BackingField:
-  - <AnimationName>k__BackingField: Attack1
-    <AttackTimeByAnimation>k__BackingField: 0.26
-    <AttackEndTimeByAnimation>k__BackingField: 0.39
+  - <AnimationName>k__BackingField: lightAttack1
+    <AttackTimeByAnimation>k__BackingField: 0.255
+    <AttackEndTimeByAnimation>k__BackingField: 0.44
     <TransitionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: 1
+    <lightComboStateIndex>k__BackingField: 1
+    <HeavyComboStateIndex>k__BackingField: 3
     <RotateTime>k__BackingField: 0.2
-    <PreCancelTime>k__BackingField: 0.3
-    <PostCancelTime>k__BackingField: 0.42
+    <PreCancelTime>k__BackingField: 0.2
+    <PostCancelTime>k__BackingField: 0.4
     <MaxComboAttackTime>k__BackingField: 0.9
-    <MinComboAttackTime>k__BackingField: 0.45
-    <MoveTime>k__BackingField: 0.24
-    <MoveForce>k__BackingField: 10
-    <Damage>k__BackingField: 10
-    <ShockingPower>k__BackingField: 2
-  - <AnimationName>k__BackingField: Attack2
-    <AttackTimeByAnimation>k__BackingField: 0.18
-    <AttackEndTimeByAnimation>k__BackingField: 0.25
-    <TransitionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: 2
-    <RotateTime>k__BackingField: 0.15
-    <PreCancelTime>k__BackingField: 0.15
-    <PostCancelTime>k__BackingField: 0.33
-    <MaxComboAttackTime>k__BackingField: 0.7
-    <MinComboAttackTime>k__BackingField: 0.4
-    <MoveTime>k__BackingField: 0.15
-    <MoveForce>k__BackingField: 10
+    <MinComboAttackTime>k__BackingField: 0.3
+    <MoveTime>k__BackingField: 0.3
+    <MoveForce>k__BackingField: 7
     <Damage>k__BackingField: 15
     <ShockingPower>k__BackingField: 2
-  - <AnimationName>k__BackingField: Attack3
+    <AudioTime>k__BackingField: 0.255
+  - <AnimationName>k__BackingField: lightAttack2
+    <AttackTimeByAnimation>k__BackingField: 0.22
+    <AttackEndTimeByAnimation>k__BackingField: 0.34
+    <TransitionDuration>k__BackingField: 0.2
+    <lightComboStateIndex>k__BackingField: 0
+    <HeavyComboStateIndex>k__BackingField: 2
+    <RotateTime>k__BackingField: 0.15
+    <PreCancelTime>k__BackingField: 0.15
+    <PostCancelTime>k__BackingField: 0.4
+    <MaxComboAttackTime>k__BackingField: 0.9
+    <MinComboAttackTime>k__BackingField: 0.2
+    <MoveTime>k__BackingField: 0.22
+    <MoveForce>k__BackingField: 7
+    <Damage>k__BackingField: 15
+    <ShockingPower>k__BackingField: 2
+    <AudioTime>k__BackingField: 0.22
+  - <AnimationName>k__BackingField: HeavyAttack1
     <AttackTimeByAnimation>k__BackingField: 0.216
     <AttackEndTimeByAnimation>k__BackingField: 0.35
     <TransitionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: 0
-    <RotateTime>k__BackingField: 0.2
-    <PreCancelTime>k__BackingField: 0.2
-    <PostCancelTime>k__BackingField: 0.37
+    <lightComboStateIndex>k__BackingField: 1
+    <HeavyComboStateIndex>k__BackingField: 3
+    <RotateTime>k__BackingField: 0.15
+    <PreCancelTime>k__BackingField: 0.15
+    <PostCancelTime>k__BackingField: 0.45
     <MaxComboAttackTime>k__BackingField: 0.9
-    <MinComboAttackTime>k__BackingField: 0.7
+    <MinComboAttackTime>k__BackingField: 0.3
     <MoveTime>k__BackingField: 0.22
     <MoveForce>k__BackingField: 15
     <Damage>k__BackingField: 30
     <ShockingPower>k__BackingField: 5
-  - <AnimationName>k__BackingField: TestAttack1
-    <AttackTimeByAnimation>k__BackingField: 0.255
-    <AttackEndTimeByAnimation>k__BackingField: 0.44
+    <AudioTime>k__BackingField: 0.22
+  - <AnimationName>k__BackingField: HeavyAttack2
+    <AttackTimeByAnimation>k__BackingField: 0.15
+    <AttackEndTimeByAnimation>k__BackingField: 0.28
     <TransitionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: 4
-    <RotateTime>k__BackingField: 0.2
-    <PreCancelTime>k__BackingField: 0.2
-    <PostCancelTime>k__BackingField: 0.37
+    <lightComboStateIndex>k__BackingField: 0
+    <HeavyComboStateIndex>k__BackingField: 2
+    <RotateTime>k__BackingField: 0.1
+    <PreCancelTime>k__BackingField: 0.1
+    <PostCancelTime>k__BackingField: 0.4
     <MaxComboAttackTime>k__BackingField: 0.9
-    <MinComboAttackTime>k__BackingField: 0.5
-    <MoveTime>k__BackingField: 0.22
-    <MoveForce>k__BackingField: 7
-    <Damage>k__BackingField: 15
-    <ShockingPower>k__BackingField: 2
-  - <AnimationName>k__BackingField: TestAttack2
-    <AttackTimeByAnimation>k__BackingField: 0.22
-    <AttackEndTimeByAnimation>k__BackingField: 0.34
-    <TransitionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: 3
-    <RotateTime>k__BackingField: 0.2
-    <PreCancelTime>k__BackingField: 0.2
-    <PostCancelTime>k__BackingField: 0.37
-    <MaxComboAttackTime>k__BackingField: 0.9
-    <MinComboAttackTime>k__BackingField: 0.4
-    <MoveTime>k__BackingField: 0.22
-    <MoveForce>k__BackingField: 7
-    <Damage>k__BackingField: 15
-    <ShockingPower>k__BackingField: 2
+    <MinComboAttackTime>k__BackingField: 0.25
+    <MoveTime>k__BackingField: 0.2
+    <MoveForce>k__BackingField: 15
+    <Damage>k__BackingField: 30
+    <ShockingPower>k__BackingField: 5
+    <AudioTime>k__BackingField: 0.17
   <Skills>k__BackingField:
   - name: PetrochemicalSkill
     <ChargeTime>k__BackingField: 1
@@ -5235,6 +5229,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 13cddf4727789634c9ca26733751a22d, type: 3}
     - {fileID: 8300000, guid: 503c9d01f0ca48c4cac90169650dd342, type: 3}
     - {fileID: 8300000, guid: 1bafb7d452829da41bdb69200bce8da0, type: 3}
+    audioVolume: 0
+  - name: SwingSword
+    audios:
+    - {fileID: 8300000, guid: e4116b4036a475f4ea923a2f60428ea7, type: 3}
+    - {fileID: 8300000, guid: f02839fa3ec46e147a9e836821411372, type: 3}
+    - {fileID: 8300000, guid: 86000fb850c2cca4185fe261a75ea505, type: 3}
     audioVolume: 0
 --- !u!82 &3538165117384406344
 AudioSource:
@@ -6292,12 +6292,6 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a71cdd876fa0f81479ae6b93f737b7c0, type: 3}
     - {fileID: 8300000, guid: 1c0cc38e8b6ff174284e4135a2517f5b, type: 3}
     - {fileID: 8300000, guid: 810c917352558f2409a821b8539f7866, type: 3}
-    audioVolume: 0
-  - name: SwingSword
-    audios:
-    - {fileID: 8300000, guid: e4116b4036a475f4ea923a2f60428ea7, type: 3}
-    - {fileID: 8300000, guid: f02839fa3ec46e147a9e836821411372, type: 3}
-    - {fileID: 8300000, guid: 86000fb850c2cca4185fe261a75ea505, type: 3}
     audioVolume: 0
   - name: Roll
     audios:

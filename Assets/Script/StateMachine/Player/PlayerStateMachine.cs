@@ -23,7 +23,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerSkill[] Skills { get; private set; }
     [field: SerializeField] public List<ObjectEntry> VFXList { get; private set; } = new List<ObjectEntry>();
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
-    [field: SerializeField] public List<UIManager> UI = new List<UIManager>();
+    public List<UIManager> UI = new List<UIManager>();
 
     [SerializeField] private InterfaceController interfaceController;
 

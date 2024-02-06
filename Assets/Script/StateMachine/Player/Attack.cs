@@ -21,4 +21,5 @@ public class Attack
     [field: SerializeField, HeaderAttribute("移動力量")] public float MoveForce { get; private set; } // 移動力量
     [field: SerializeField, HeaderAttribute("傷害值")] public int Damage { get; private set; } // 傷害值
     [field: SerializeField, HeaderAttribute("畫面震動力量")] public int ShockingPower { get; private set; }
+    [field: SerializeField, HeaderAttribute("播放音效時間")] public float AudioTime { get; private set; }
 }
