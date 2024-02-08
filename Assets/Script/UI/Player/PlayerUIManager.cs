@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -77,6 +78,16 @@ public class PlayerUIManager : UIManager
     public void SetDiedUI()
     {
         GameManager.sceneController.UIController.AddUI(DiedUI, false);
+
+        StartCoroutine(SetUIInputReader());
+    }
+
+    private IEnumerator SetUIInputReader()
+    {
+        GameManager.sceneController.UIInputReader.enabled = false;
+        yield return new WaitForSeconds(1f);
+        GameManager.sceneController.UIInputReader.enabled = true;
+        yield return null;
     }
 
     public void SetVictoryUI()
