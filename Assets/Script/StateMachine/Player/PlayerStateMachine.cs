@@ -273,7 +273,10 @@ public class PlayerStateMachine : StateMachine
         UI.Add(ui);
 
         UIManager.isHint = true;
-        UIManager.SetHint(true);
+
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(ui.transform.parent.position);
+
+        UIManager.SetHint(true, screenPos);
     }
 
     public void RemoveUI(UIManager ui)

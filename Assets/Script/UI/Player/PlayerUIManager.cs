@@ -113,6 +113,13 @@ public class PlayerUIManager : UIManager
         HintUI.gameObject.SetActive(value);
     }
 
+    public void SetHint(bool value, Vector3 targetPos)
+    {
+        HintUI.gameObject.SetActive(value);
+
+        HintUI.transform.position = targetPos;
+    }
+
     public void SetHealCountText(int _healCount, int _totalHealCount)
     {
         healCount.text = _healCount.ToString();
