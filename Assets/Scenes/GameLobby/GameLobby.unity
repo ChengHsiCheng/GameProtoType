@@ -4901,6 +4901,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626798388777098619, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3538165117998946884, guid: ce15dc99e8321f549ad8340fdec4674a,
         type: 3}
       propertyPath: m_RootOrder
@@ -4960,6 +4965,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066509569236184133, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729680611445253968, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8912463774391896943, guid: ce15dc99e8321f549ad8340fdec4674a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce15dc99e8321f549ad8340fdec4674a, type: 3}
@@ -8031,7 +8051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1605297463
 RectTransform:
   m_ObjectHideFlags: 0

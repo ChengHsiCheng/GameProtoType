@@ -24,6 +24,7 @@ public class SceneController : MonoBehaviour
         UIInputReader = this.AddComponent<UIInputReader>();
         UIController = this.AddComponent<UIController>();
 
+        InputReader.enabled = false;
         UIInputReader.enabled = false;
     }
 

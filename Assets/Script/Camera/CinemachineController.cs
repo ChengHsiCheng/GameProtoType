@@ -12,6 +12,7 @@ public enum CameraMode
 public class CinemachineController : MonoBehaviour
 {
     [field: SerializeField] public CinemachineVirtualCamera[] Cameras { get; private set; }
+    [SerializeField] private CameraMode startMode = CameraMode.Initial;
 
 
     private void Start()
@@ -27,7 +28,7 @@ public class CinemachineController : MonoBehaviour
         }
         else
         {
-            SwitchCamera(CameraMode.Combat);
+            SwitchCamera(startMode);
         }
 
     }
@@ -54,17 +55,25 @@ public class CinemachineController : MonoBehaviour
             }
         }
 
-        if (cameraMode == CameraMode.BossStart || cameraMode == CameraMode.ChooseLevel)
+        StartCoroutine(SetInputReader(cameraMode));
+    }
+
+    private IEnumerator SetInputReader(CameraMode cameraMode)
+    {
+        Debug.Log(cameraMode);
+
+        yield return new WaitForSeconds(1f);
+
+        if (cameraMode == CameraMode.BossStart || cameraMode == CameraMode.ChooseLevel || cameraMode == CameraMode.Initial)
         {
             GameManager.sceneController.InputReader.enabled = false;
-            return;
+            yield break;
         }
 
         if (GameManager.sceneController.UIInputReader.enabled == true)
-            return;
+            yield break;
 
         GameManager.sceneController.InputReader.enabled = true;
-
     }
 
 }
