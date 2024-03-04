@@ -91,15 +91,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""SanCheck"",
-                    ""type"": ""Button"",
-                    ""id"": ""72cb478d-a3d5-469a-965c-ced846189445"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Interaction"",
                     ""type"": ""Button"",
                     ""id"": ""3ec2746a-7b73-4839-8c8c-eea82fddebf7"",
@@ -290,28 +281,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""ESC"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b604179e-4293-44e9-9038-ebebc53d606a"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keybord && Mouse"",
-                    ""action"": ""SanCheck"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9be02315-88ab-49a3-b063-1dcaa66567eb"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""SanCheck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -983,7 +952,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_CombatLevel_Skill = m_CombatLevel.FindAction("Skill", throwIfNotFound: true);
         m_CombatLevel_Heal = m_CombatLevel.FindAction("Heal", throwIfNotFound: true);
         m_CombatLevel_ESC = m_CombatLevel.FindAction("ESC", throwIfNotFound: true);
-        m_CombatLevel_SanCheck = m_CombatLevel.FindAction("SanCheck", throwIfNotFound: true);
         m_CombatLevel_Interaction = m_CombatLevel.FindAction("Interaction", throwIfNotFound: true);
         m_CombatLevel_InventoryUIController = m_CombatLevel.FindAction("InventoryUIController", throwIfNotFound: true);
         m_CombatLevel_DamageBOSS = m_CombatLevel.FindAction("DamageBOSS", throwIfNotFound: true);
@@ -1065,7 +1033,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_CombatLevel_Skill;
     private readonly InputAction m_CombatLevel_Heal;
     private readonly InputAction m_CombatLevel_ESC;
-    private readonly InputAction m_CombatLevel_SanCheck;
     private readonly InputAction m_CombatLevel_Interaction;
     private readonly InputAction m_CombatLevel_InventoryUIController;
     private readonly InputAction m_CombatLevel_DamageBOSS;
@@ -1080,7 +1047,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Skill => m_Wrapper.m_CombatLevel_Skill;
         public InputAction @Heal => m_Wrapper.m_CombatLevel_Heal;
         public InputAction @ESC => m_Wrapper.m_CombatLevel_ESC;
-        public InputAction @SanCheck => m_Wrapper.m_CombatLevel_SanCheck;
         public InputAction @Interaction => m_Wrapper.m_CombatLevel_Interaction;
         public InputAction @InventoryUIController => m_Wrapper.m_CombatLevel_InventoryUIController;
         public InputAction @DamageBOSS => m_Wrapper.m_CombatLevel_DamageBOSS;
@@ -1114,9 +1080,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ESC.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
                 @ESC.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
                 @ESC.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnESC;
-                @SanCheck.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSanCheck;
-                @SanCheck.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSanCheck;
-                @SanCheck.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnSanCheck;
                 @Interaction.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
@@ -1151,9 +1114,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @ESC.started += instance.OnESC;
                 @ESC.performed += instance.OnESC;
                 @ESC.canceled += instance.OnESC;
-                @SanCheck.started += instance.OnSanCheck;
-                @SanCheck.performed += instance.OnSanCheck;
-                @SanCheck.canceled += instance.OnSanCheck;
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
@@ -1299,7 +1259,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSkill(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
-        void OnSanCheck(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
         void OnInventoryUIController(InputAction.CallbackContext context);
         void OnDamageBOSS(InputAction.CallbackContext context);

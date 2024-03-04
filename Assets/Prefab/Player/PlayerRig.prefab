@@ -1245,6 +1245,7 @@ MonoBehaviour:
   - {fileID: 3538165118061036172}
   - {fileID: 2123244345}
   - {fileID: 105932581}
+  startMode: 0
 --- !u!1 &3538165118496669100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2235,6 +2236,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3538165117998946884}
     m_Modifications:
+    - target: {fileID: 776931819714699798, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2690843075377677628, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872921988296435971, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218310308336161576, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
       propertyPath: interfaceController

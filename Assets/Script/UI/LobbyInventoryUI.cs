@@ -13,7 +13,7 @@ public class LobbyInventoryUI : MonoBehaviour
 
     private void Start()
     {
-        GameManager.sceneController.InputReader.InventoryUIControllerEvent += SelectNextItem;
+        // GameManager.sceneController.InputReader.InventoryUIControllerEvent += SelectNextItem;
         GameManager.sceneController.InputReader.HealEvent += OpenPuzzleHint;
     }
 

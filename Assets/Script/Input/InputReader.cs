@@ -124,15 +124,6 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         TogglePauseEvent?.Invoke();
     }
 
-    public void OnSanCheck(InputAction.CallbackContext context)
-    {
-        if (!context.performed)
-            return;
-
-        SetControlMethod(context);
-
-        SanCheckEvent?.Invoke();
-    }
 
     public void OnInteraction(InputAction.CallbackContext context)
     {
