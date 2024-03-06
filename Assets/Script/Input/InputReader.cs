@@ -16,9 +16,7 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
     public event Action SkillEvent;
     public event Action HealEvent;
     public event Action TogglePauseEvent;
-    public event Action SanCheckEvent;
     public event Action InteractionEvent;
-    public event Action<int> InventoryUIControllerEvent;
     public event Action OnDamageBOSSEvent;
 
     private void OnEnable()
@@ -133,11 +131,6 @@ public class InputReader : MonoBehaviour, Controls.ICombatLevelActions
         SetControlMethod(context);
 
         InteractionEvent?.Invoke();
-    }
-
-    public void OnInventoryUIController(InputAction.CallbackContext context)
-    {
-        InventoryUIControllerEvent?.Invoke((int)context.ReadValue<Vector2>().y);
     }
 
     public void OnDamageBOSS(InputAction.CallbackContext context)

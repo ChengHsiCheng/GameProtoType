@@ -100,15 +100,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""InventoryUIController"",
-                    ""type"": ""Value"",
-                    ""id"": ""8d678659-6217-41e4-8bae-a2ad8e723fef"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""DamageBOSS"",
                     ""type"": ""Button"",
                     ""id"": ""9d4beffe-9f23-45a4-990e-7feea6741527"",
@@ -254,7 +245,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""199f4302-9627-41be-b074-caf28779e6c5"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -309,90 +300,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4aac1e73-17c9-432a-803d-db783425b488"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Skill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f8ff926b-ef4e-4149-ba9c-a21a61bfe70b"",
-                    ""path"": ""<Mouse>/scroll"",
-                    ""interactions"": ""SlowTap(pressPoint=0.1)"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""04ec8980-df3b-4e9d-90ed-6eee061fe489"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": ""SlowTap(pressPoint=0.2)"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""groups"": """",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""a2d46cdb-2160-4769-8d2b-e1593c4385db"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keybord && Mouse"",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3f36db98-f5c9-4fb0-8be2-12c28f797e96"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keybord && Mouse"",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""c38c2ffd-85c8-474c-8315-c2f5004b4269"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": ""SlowTap(pressPoint=0.2)"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""groups"": """",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""377fe86e-afe5-4b75-a4a3-35f8010926b3"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""17ce2ad9-e8f9-4b35-8d3c-af948be018a8"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""InventoryUIController"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -953,7 +867,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_CombatLevel_Heal = m_CombatLevel.FindAction("Heal", throwIfNotFound: true);
         m_CombatLevel_ESC = m_CombatLevel.FindAction("ESC", throwIfNotFound: true);
         m_CombatLevel_Interaction = m_CombatLevel.FindAction("Interaction", throwIfNotFound: true);
-        m_CombatLevel_InventoryUIController = m_CombatLevel.FindAction("InventoryUIController", throwIfNotFound: true);
         m_CombatLevel_DamageBOSS = m_CombatLevel.FindAction("DamageBOSS", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
@@ -1034,7 +947,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_CombatLevel_Heal;
     private readonly InputAction m_CombatLevel_ESC;
     private readonly InputAction m_CombatLevel_Interaction;
-    private readonly InputAction m_CombatLevel_InventoryUIController;
     private readonly InputAction m_CombatLevel_DamageBOSS;
     public struct CombatLevelActions
     {
@@ -1048,7 +960,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Heal => m_Wrapper.m_CombatLevel_Heal;
         public InputAction @ESC => m_Wrapper.m_CombatLevel_ESC;
         public InputAction @Interaction => m_Wrapper.m_CombatLevel_Interaction;
-        public InputAction @InventoryUIController => m_Wrapper.m_CombatLevel_InventoryUIController;
         public InputAction @DamageBOSS => m_Wrapper.m_CombatLevel_DamageBOSS;
         public InputActionMap Get() { return m_Wrapper.m_CombatLevel; }
         public void Enable() { Get().Enable(); }
@@ -1083,9 +994,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Interaction.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
                 @Interaction.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
                 @Interaction.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInteraction;
-                @InventoryUIController.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInventoryUIController;
-                @InventoryUIController.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInventoryUIController;
-                @InventoryUIController.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnInventoryUIController;
                 @DamageBOSS.started -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnDamageBOSS;
                 @DamageBOSS.performed -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnDamageBOSS;
                 @DamageBOSS.canceled -= m_Wrapper.m_CombatLevelActionsCallbackInterface.OnDamageBOSS;
@@ -1117,9 +1025,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Interaction.started += instance.OnInteraction;
                 @Interaction.performed += instance.OnInteraction;
                 @Interaction.canceled += instance.OnInteraction;
-                @InventoryUIController.started += instance.OnInventoryUIController;
-                @InventoryUIController.performed += instance.OnInventoryUIController;
-                @InventoryUIController.canceled += instance.OnInventoryUIController;
                 @DamageBOSS.started += instance.OnDamageBOSS;
                 @DamageBOSS.performed += instance.OnDamageBOSS;
                 @DamageBOSS.canceled += instance.OnDamageBOSS;
@@ -1260,7 +1165,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnHeal(InputAction.CallbackContext context);
         void OnESC(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
-        void OnInventoryUIController(InputAction.CallbackContext context);
         void OnDamageBOSS(InputAction.CallbackContext context);
     }
     public interface IMenuActions

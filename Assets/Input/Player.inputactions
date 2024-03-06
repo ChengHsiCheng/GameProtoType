@@ -78,15 +78,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InventoryUIController",
-                    "type": "Value",
-                    "id": "8d678659-6217-41e4-8bae-a2ad8e723fef",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "DamageBOSS",
                     "type": "Button",
                     "id": "9d4beffe-9f23-45a4-990e-7feea6741527",
@@ -232,7 +223,7 @@
                 {
                     "name": "",
                     "id": "199f4302-9627-41be-b074-caf28779e6c5",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -287,90 +278,13 @@
                 {
                     "name": "",
                     "id": "4aac1e73-17c9-432a-803d-db783425b488",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Skill",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f8ff926b-ef4e-4149-ba9c-a21a61bfe70b",
-                    "path": "<Mouse>/scroll",
-                    "interactions": "SlowTap(pressPoint=0.1)",
-                    "processors": "NormalizeVector2",
-                    "groups": "Gamepad",
-                    "action": "InventoryUIController",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "04ec8980-df3b-4e9d-90ed-6eee061fe489",
-                    "path": "2DVector",
-                    "interactions": "SlowTap(pressPoint=0.2)",
-                    "processors": "NormalizeVector2",
-                    "groups": "",
-                    "action": "InventoryUIController",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "a2d46cdb-2160-4769-8d2b-e1593c4385db",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keybord && Mouse",
-                    "action": "InventoryUIController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "3f36db98-f5c9-4fb0-8be2-12c28f797e96",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keybord && Mouse",
-                    "action": "InventoryUIController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "c38c2ffd-85c8-474c-8315-c2f5004b4269",
-                    "path": "2DVector",
-                    "interactions": "SlowTap(pressPoint=0.2)",
-                    "processors": "NormalizeVector2",
-                    "groups": "",
-                    "action": "InventoryUIController",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "377fe86e-afe5-4b75-a4a3-35f8010926b3",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "InventoryUIController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "17ce2ad9-e8f9-4b35-8d3c-af948be018a8",
-                    "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "InventoryUIController",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",

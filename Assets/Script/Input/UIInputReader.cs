@@ -30,6 +30,8 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
 
         // 啟用輸入控制
         controls.Menu.Enable();
+
+
     }
 
     private void OnDisable()

@@ -32,6 +32,8 @@ public class UIController : MonoBehaviour
 
     public void AddUI(UIManager ui, bool PauseGame)
     {
+        Debug.Log(ui);
+
         if (UIElements.Count == 0)
         {
             GameManager.ToggleUI(true);

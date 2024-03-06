@@ -16,7 +16,6 @@ public class GamePadCursor : MonoBehaviour
     private void Start()
     {
         inputReader = GameManager.sceneController.UIInputReader;
-
     }
 
     private void Update()

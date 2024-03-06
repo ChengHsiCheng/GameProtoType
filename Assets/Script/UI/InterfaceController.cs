@@ -43,6 +43,7 @@ public class InterfaceController : MonoBehaviour
 
     public void OnTutorial()
     {
+        Debug.Log("ASD");
         tutorialUI.OpenUI();
     }
 }
