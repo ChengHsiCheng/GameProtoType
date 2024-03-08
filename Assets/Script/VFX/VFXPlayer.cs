@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class VFXPlayer : MonoBehaviour
 {
+    [SerializeField]
+    private bool isParent = false;
     [SerializeField] private List<ObjectEntry> VFXList = new List<ObjectEntry>();
 
     public void PlayVFX(string name)
     {
-        Instantiate(GetVFXByName(name), transform.position, transform.rotation);
+        GameObject @object = Instantiate(GetVFXByName(name), transform.position, transform.rotation);
+
+        if (isParent)
+            @object.transform.parent = this.gameObject.transform;
     }
 
     // 使用名稱查找對應的物件
