@@ -16,16 +16,20 @@ public class Boss01IdleState : Boss01BaseState
     public Boss01IdleState(Boss01StateMachine stateMachine, float transitionTime) : base(stateMachine)
     {
         this.transitionTime = transitionTime;
+
+        Debug.Log(transitionTime);
     }
 
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(MovingBlendTreeHash, CrossFadeDuration);
+        stateMachine.OnGetHitEvent += OnGetHit;
     }
 
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
+        stateMachine.cooldownTime -= deltaTime;
 
         if (timer >= transitionTime)
         {
@@ -41,5 +45,11 @@ public class Boss01IdleState : Boss01BaseState
         stateMachine.Animator.SetFloat(MoveSpeedString, 0);
 
         stateMachine.cooldownTime = 0;
+        stateMachine.OnGetHitEvent -= OnGetHit;
+    }
+
+    private void OnGetHit()
+    {
+        stateMachine.SwitchState(new Boss01ImpactState(stateMachine));
     }
 }

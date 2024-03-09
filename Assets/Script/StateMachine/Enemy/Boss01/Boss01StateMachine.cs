@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
@@ -34,6 +35,8 @@ public class Boss01StateMachine : StateMachine, Enemy
     public float cooldownTime;
 
     public GameObject Player { get; private set; }
+
+    public event Action OnGetHitEvent;
 
     private void Start()
     {
@@ -89,6 +92,8 @@ public class Boss01StateMachine : StateMachine, Enemy
     private void HandleTakeDamage()
     {
         Animator.SetTrigger("GetHit");
+
+        OnGetHitEvent?.Invoke();
 
         float healthPercent = Health.health / Health.maxHealth;
 
