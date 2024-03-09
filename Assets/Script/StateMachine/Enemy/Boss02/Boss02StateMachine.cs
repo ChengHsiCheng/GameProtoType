@@ -12,7 +12,9 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public GameObject CameraTarget { get; private set; }
     [field: SerializeField] public float CooldDown { get; private set; }
 
-    [SerializeField] private Boss02Altar Altarobj;
+    public bool canCallBelievers { get; private set; } = true;
+
+    [SerializeField] private Boss02Altar AltarPrefab;
     public Boss02Altar Altar { get; private set; }
 
     protected PlayerStateMachine player;
@@ -24,7 +26,7 @@ public class Boss02StateMachine : StateMachine, Enemy
 
         SwitchState(new Boss02StartState(this));
 
-        Altar = Instantiate(Altarobj, new Vector3(-9, 0, 9), Quaternion.identity);
+        Altar = Instantiate(AltarPrefab, new Vector3(-9, 0, 9), Quaternion.identity);
 
         Altar.OnTakeDamageEvent += DealHealthDamage;
         Altar.OnShieldBrokenEvent += OnShieldBroken;
@@ -71,6 +73,11 @@ public class Boss02StateMachine : StateMachine, Enemy
     public void SetCooldDown(float value)
     {
         CooldDown = value;
+    }
+
+    public void SetCanCallBelievers(bool value)
+    {
+        canCallBelievers = value;
     }
 
     public void BePetrify()

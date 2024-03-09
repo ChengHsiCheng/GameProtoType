@@ -33,6 +33,7 @@ public class Boss02FaintState : Boss02BaseState
             return;
         }
 
+        stateMachine.SetCanCallBelievers(true);
         stateMachine.SwitchState(new Boss02IdleState(stateMachine));
         return;
     }

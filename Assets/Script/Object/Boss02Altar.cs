@@ -125,6 +125,11 @@ public class Boss02Altar : MonoBehaviour, Health
         health = MathF.Max(health - damage, 0);
     }
 
+    public void SetShieldBrokenDemand(int count)
+    {
+        shieldBrokenDemand = count;
+    }
+
     public void Healing(float value)
     {
     }

@@ -20,7 +20,7 @@ public class Boss02Soul : MonoBehaviour
         if (GameManager.isPauseGame)
             return;
 
-        transform.position += (targetPos - transform.position).normalized * speed * Time.deltaTime;
+        transform.position += (targetPos - transform.position + Vector3.up * Mathf.Sin(Time.time * 5) * 3).normalized * speed * Time.deltaTime;
 
         if (Vector3.Distance(transform.position, targetPos) <= 0.5f && !isBroken)
         {

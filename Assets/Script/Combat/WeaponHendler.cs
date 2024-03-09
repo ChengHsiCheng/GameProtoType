@@ -17,6 +17,8 @@ public class WeaponHendler : MonoBehaviour
     public void EnableWeapon(int Index)
     {
         weaponLogic[Index]?.SetCollider(true);
+
+        Debug.Log("EnableWeapon");
     }
 
     /// <summary>
@@ -25,6 +27,7 @@ public class WeaponHendler : MonoBehaviour
     public void DisableWeapon(int Index)
     {
         weaponLogic[Index]?.SetCollider(false);
+        Debug.Log("DisableWeapon");
     }
 
     public void DisableWeapon()

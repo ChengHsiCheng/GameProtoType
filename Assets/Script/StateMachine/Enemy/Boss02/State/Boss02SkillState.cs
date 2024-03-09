@@ -6,6 +6,7 @@ public class Boss02SkillState : Boss02BaseState
 {
     private EnemySkill skill;
     private bool useSkill;
+    private CallBelieversSkill callBelieversSkill;
 
     public Boss02SkillState(Boss02StateMachine stateMachine, int skillCount) : base(stateMachine)
     {
@@ -15,6 +16,7 @@ public class Boss02SkillState : Boss02BaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(skill.AnimationName, 0.1f);
+        callBelieversSkill = skill.skill.GetComponent<CallBelieversSkill>();
     }
 
     public override void Tick(float deltaTime)
@@ -23,8 +25,9 @@ public class Boss02SkillState : Boss02BaseState
 
         if (normalizedTime > skill.UseTimeByAnimation && !useSkill)
         {
-            skill.skill.UseSkill();
+            callBelieversSkill.UseSkill();
             useSkill = true;
+            stateMachine.SetCanCallBelievers(false);
         }
 
         if (normalizedTime >= 1)

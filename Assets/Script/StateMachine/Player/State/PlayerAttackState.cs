@@ -91,7 +91,6 @@ public class PlayerAttackState : PlayerBaseState
             if (!stateMachine.canCancel)
             {
                 stateMachine.SetCanCancel(true);
-                Debug.Log(stateMachine.canCancel);
             }
         }
         else
@@ -99,7 +98,6 @@ public class PlayerAttackState : PlayerBaseState
             if (stateMachine.canCancel)
             {
                 stateMachine.SetCanCancel(false);
-                Debug.Log(stateMachine.canCancel);
             }
 
             return;
