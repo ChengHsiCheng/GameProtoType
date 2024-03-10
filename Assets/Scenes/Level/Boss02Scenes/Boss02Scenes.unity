@@ -288,7 +288,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.000003, y: 1, z: 10}
+  m_Size: {x: 10.000003, y: 2, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &135603643
 GameObject:
@@ -1745,7 +1745,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 1, z: 10}
+  m_Size: {x: 10, y: 2, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2024169055
 GameObject:
@@ -1954,11 +1954,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss02
       objectReference: {fileID: 0}
-    - target: {fileID: 3833537233334749547, guid: fa4a84c556b8d8b479efb0332615d744,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3833537233334749550, guid: fa4a84c556b8d8b479efb0332615d744,
         type: 3}
       propertyPath: m_RootOrder
@@ -2013,11 +2008,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5047481555674565730, guid: fa4a84c556b8d8b479efb0332615d744,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4a84c556b8d8b479efb0332615d744, type: 3}

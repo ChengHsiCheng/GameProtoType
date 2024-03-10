@@ -134,8 +134,6 @@ public class PlayerInfo : MonoBehaviour, Info, Health, San
         // 計算實際傷害
         float finalDamage = damage * reducedDamagePercentage;
 
-        Debug.Log(finalDamage);
-
         sanRecoveryTimer = 0;
 
         san = Mathf.Max(san - finalDamage, 0);

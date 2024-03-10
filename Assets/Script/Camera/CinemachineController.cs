@@ -60,7 +60,7 @@ public class CinemachineController : MonoBehaviour
 
     private IEnumerator SetInputReader(CameraMode cameraMode)
     {
-        Debug.Log(cameraMode);
+        // Debug.Log(cameraMode);
 
         yield return new WaitForSeconds(1f);
 

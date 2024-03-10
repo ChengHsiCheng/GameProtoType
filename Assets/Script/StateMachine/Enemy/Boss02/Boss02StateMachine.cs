@@ -10,7 +10,6 @@ public class Boss02StateMachine : StateMachine, Enemy
     [field: SerializeField] public EnemyInfo info { get; private set; }
     [field: SerializeField] public BarController bar { get; private set; }
     [field: SerializeField] public GameObject CameraTarget { get; private set; }
-    [field: SerializeField] public float CooldDown { get; private set; }
 
     public bool canCallBelievers { get; private set; } = true;
 
@@ -68,11 +67,6 @@ public class Boss02StateMachine : StateMachine, Enemy
     private void OnDie()
     {
         SwitchState(new Boss02DieState(this));
-    }
-
-    public void SetCooldDown(float value)
-    {
-        CooldDown = value;
     }
 
     public void SetCanCallBelievers(bool value)

@@ -24,8 +24,6 @@ public class SwitchUI : MonoBehaviour
 
     public void OpenUI()
     {
-        Debug.Log("ASDF");
-
         uiCount = 0;
 
         GameManager.sceneController.UIController.AddUI(settingUIs[uiCount]);
