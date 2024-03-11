@@ -33,14 +33,14 @@ public class Boss02BeloeverRetreatState : Boss02BelieverBaseState
             return;
         }
 
-        if (Vector3.Distance(playerPos, stateMachine.transform.position) >= stateMachine.attackRange + 2)
+        if (Vector3.Distance(playerPos, stateMachine.transform.position) >= stateMachine.attackRange + 1.5f)
         {
             stateMachine.Animator.SetFloat(MoveSpeedString, 0.5f, AnimatorDampTime, deltaTime);
             return;
         }
 
         stateMachine.Animator.SetFloat(MoveSpeedString, 0f, AnimatorDampTime, deltaTime);
-        MoveToTarget(stateMachine.transform.position - playerPos, stateMachine.movementSpeed, deltaTime);
+        MoveToTarget(stateMachine.transform.position - playerPos, stateMachine.movementSpeed / 2, deltaTime);
     }
 
     public override void Exit()
