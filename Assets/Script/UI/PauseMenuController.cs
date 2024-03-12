@@ -8,6 +8,8 @@ public class PauseMenuController : UIManager
     public Action onSettingEvent;
     public Action onTutorialEvent;
 
+    public UIManager CreditsList;
+
     public void OnContinue()
     {
         GameManager.sceneController.UIController.CloseUI();
@@ -23,6 +25,10 @@ public class PauseMenuController : UIManager
         onTutorialEvent?.Invoke();
     }
 
+    public void OnCreditsList()
+    {
+        GameManager.sceneController.UIController.AddUI(CreditsList);
+    }
 
     public void OnMenu()
     {

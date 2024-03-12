@@ -2209,11 +2209,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4867476669002299139, guid: 1244fa640b076064199f9ba7e6e75e22,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1244fa640b076064199f9ba7e6e75e22, type: 3}
 --- !u!114 &805979533 stripped
@@ -2313,38 +2308,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29c30bd884e038f42ac514f40eb9a0ff, type: 3}
---- !u!1 &496857016121502584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6349395713508205867, guid: 29c30bd884e038f42ac514f40eb9a0ff,
-    type: 3}
-  m_PrefabInstance: {fileID: 6843401122265058899}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8997866913749645637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496857016121502584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e9f3355f8ae38b408016b006f477ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isParent: 1
-  VFXList:
-  - name: LightAttack01
-    gameObject: {fileID: 6291914012836980896, guid: ee0f550321107794da95c9b8bfb5d4f1,
-      type: 3}
-  - name: LightAttack02
-    gameObject: {fileID: 6291914012836980896, guid: d996db4f365438d469d92becfdf59b81,
-      type: 3}
-  - name: HeavyAttack01
-    gameObject: {fileID: 6291914012836980896, guid: 3cccca7c87d41354291b4ebf54c8e162,
-      type: 3}
-  - name: HeavyAttack02
-    gameObject: {fileID: 6291914012836980896, guid: 8d4a8b9a9bcb45a4aa4c5c4e53ba7e18,
-      type: 3}
 --- !u!4 &3538165117836084978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8062203635239618721, guid: 29c30bd884e038f42ac514f40eb9a0ff,

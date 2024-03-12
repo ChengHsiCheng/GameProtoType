@@ -18,7 +18,7 @@ public class Boss03ChargeAttackState : Boss03BaseState
     private int index;
 
     private bool isVFX;
-    private bool isPlaySFX;
+    private float upTime;
 
     public Boss03ChargeAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
@@ -28,6 +28,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
     {
         loopIndex = Random.Range(2, 6);
         stateMachine.weapons[0].SetAttack(15, 15);
+
+        upTime = Time.time;
     }
 
     public override void Tick(float deltaTime)
@@ -38,6 +40,8 @@ public class Boss03ChargeAttackState : Boss03BaseState
 
         if (stage == Stage.Up)
         {
+            if (Time.time - upTime < 2) return;
+
             Whirling(Vector3.one, 1, deltaTime);
 
             targetPos = salfPos;
@@ -107,6 +111,7 @@ public class Boss03ChargeAttackState : Boss03BaseState
                 {
                     index++;
                     timer = 0;
+                    upTime = Time.time;
                     stage = Stage.Up;
                     return;
                 }

@@ -2812,6 +2812,7 @@ MonoBehaviour:
   <HpBar>k__BackingField: {fileID: 8036512598182053970}
   <SanBar>k__BackingField: {fileID: 1725354042426514945}
   <DiedUI>k__BackingField: {fileID: 2245275963052651437}
+  <CreditsUI>k__BackingField: {fileID: 0}
   <HurtUI>k__BackingField: {fileID: 7279624412903843068}
   <LowSanUI>k__BackingField: {fileID: 5870950477772444455}
   <HintUI>k__BackingField: {fileID: 5218310308336161576}
@@ -7063,6 +7064,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponLogic:
   - {fileID: 770861946741943494}
+--- !u!114 &8997866913749645637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6349395713508205867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e9f3355f8ae38b408016b006f477ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isParent: 1
+  VFXList:
+  - name: LightAttack01
+    gameObject: {fileID: 6291914012836980896, guid: ee0f550321107794da95c9b8bfb5d4f1,
+      type: 3}
+  - name: LightAttack02
+    gameObject: {fileID: 6291914012836980896, guid: d996db4f365438d469d92becfdf59b81,
+      type: 3}
+  - name: HeavyAttack01
+    gameObject: {fileID: 6291914012836980896, guid: 3cccca7c87d41354291b4ebf54c8e162,
+      type: 3}
+  - name: HeavyAttack02
+    gameObject: {fileID: 6291914012836980896, guid: 8d4a8b9a9bcb45a4aa4c5c4e53ba7e18,
+      type: 3}
 --- !u!4 &7119350233613806515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3896175813265159113, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,

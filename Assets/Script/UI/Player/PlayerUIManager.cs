@@ -10,6 +10,7 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public BarController HpBar { get; private set; }
     [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public UIManager DiedUI { get; private set; }
+    [field: SerializeField] public UIManager CreditsUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
     [field: SerializeField] public Image LowSanUI { get; private set; }
     [field: SerializeField] public GameObject HintUI { get; private set; }

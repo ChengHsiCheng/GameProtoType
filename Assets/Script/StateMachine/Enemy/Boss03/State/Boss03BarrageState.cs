@@ -47,13 +47,24 @@ public class Boss03BarrageState : Boss03BaseState
             return;
         }
 
-        timer += deltaTime;
-
         if (!stateMachine.isBarrageState)
         {
             stateMachine.SwitchState(new Boss03IdleState(stateMachine));
             return;
         }
+
+        Mode01(deltaTime);
+
+    }
+
+    public override void Exit()
+    {
+        // stateMachine.SetCoolDown(Random.Range(skill[0].MinCooldownTime, skill[0].MaxCooldownTime));
+    }
+
+    private void Mode01(float deltaTime)
+    {
+        timer += deltaTime;
 
         if (timer >= interval)
         {
@@ -102,11 +113,6 @@ public class Boss03BarrageState : Boss03BaseState
             }
         }
 
-    }
-
-    public override void Exit()
-    {
-        // stateMachine.SetCoolDown(Random.Range(skill[0].MinCooldownTime, skill[0].MaxCooldownTime));
     }
 
 }
