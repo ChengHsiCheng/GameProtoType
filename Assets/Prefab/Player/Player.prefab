@@ -2815,7 +2815,7 @@ MonoBehaviour:
   <CreditsUI>k__BackingField: {fileID: 0}
   <HurtUI>k__BackingField: {fileID: 7279624412903843068}
   <LowSanUI>k__BackingField: {fileID: 5870950477772444455}
-  <HintUI>k__BackingField: {fileID: 5218310308336161576}
+  <HintUI>k__BackingField: {fileID: 6745633747534341087}
   <HealUI>k__BackingField: {fileID: 692845663156410922}
   <Victory>k__BackingField: {fileID: 1265188563}
   healCount: {fileID: 4028832135299696891}
@@ -3380,6 +3380,7 @@ GameObject:
   - component: {fileID: 8190712433567041690}
   - component: {fileID: 8436651933725897765}
   - component: {fileID: 6492455418802753571}
+  - component: {fileID: 6745633747534341087}
   m_Layer: 5
   m_Name: HintUI
   m_TagString: Untagged
@@ -3432,6 +3433,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyboard: {fileID: 8228483906830425722}
   gamePad: {fileID: 329920879731456599}
+--- !u!114 &6745633747534341087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5218310308336161576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 834322f5dbecf5e408ec013057b2e233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &5282506986332393921
 GameObject:
   m_ObjectHideFlags: 0

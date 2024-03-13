@@ -10,10 +10,9 @@ public class PlayerUIManager : UIManager
     [field: SerializeField] public BarController HpBar { get; private set; }
     [field: SerializeField] public BarController SanBar { get; private set; }
     [field: SerializeField] public UIManager DiedUI { get; private set; }
-    [field: SerializeField] public UIManager CreditsUI { get; private set; }
     [field: SerializeField] public Image HurtUI { get; private set; }
     [field: SerializeField] public Image LowSanUI { get; private set; }
-    [field: SerializeField] public GameObject HintUI { get; private set; }
+    [field: SerializeField] public HintUI HintUI { get; private set; }
     [field: SerializeField] public GameObject HealUI { get; private set; }
     [field: SerializeField] public GameObject Victory { get; private set; }
 
@@ -112,13 +111,13 @@ public class PlayerUIManager : UIManager
     public void SetHint(bool value)
     {
         HintUI.gameObject.SetActive(value);
+        HintUI.target = null;
     }
 
-    public void SetHint(bool value, Vector3 targetPos)
+    public void SetHint(bool value, GameObject target)
     {
         HintUI.gameObject.SetActive(value);
-
-        HintUI.transform.position = targetPos;
+        HintUI.target = target;
     }
 
     public void SetHealCountText(int _healCount, int _totalHealCount)
