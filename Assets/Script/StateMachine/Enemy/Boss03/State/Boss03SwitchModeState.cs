@@ -22,7 +22,6 @@ public class Boss03SwitchModeState : Boss03BaseState
     public override void Tick(float deltaTime)
     {
         timer += deltaTime;
-        Debug.Log(timer);
 
         Whirling(Vector3.one, 10 * timer, deltaTime);
 

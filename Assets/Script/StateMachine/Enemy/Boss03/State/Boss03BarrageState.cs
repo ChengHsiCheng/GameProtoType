@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Boss03BarrageState : Boss03BaseState
 {
+    private enum BarrageMode
+    {
+        a, b
+    }
+
+    private BarrageMode barrageMode = BarrageMode.b;
+
     private EnemySkill[] skill;
     private EnemySkill laserSkill;
 
@@ -11,6 +18,7 @@ public class Boss03BarrageState : Boss03BaseState
     private int waveCount;
     private float interval;
     private float timer;
+    private int mdoeWave;
 
     private bool isBarraheMode = true;
 
@@ -53,7 +61,10 @@ public class Boss03BarrageState : Boss03BaseState
             return;
         }
 
-        Mode01(deltaTime);
+        if (barrageMode is BarrageMode.a)
+            ModeA(deltaTime);
+        else
+            ModeB(deltaTime);
 
     }
 
@@ -62,7 +73,7 @@ public class Boss03BarrageState : Boss03BaseState
         // stateMachine.SetCoolDown(Random.Range(skill[0].MinCooldownTime, skill[0].MaxCooldownTime));
     }
 
-    private void Mode01(float deltaTime)
+    private void ModeA(float deltaTime)
     {
         timer += deltaTime;
 
@@ -101,7 +112,68 @@ public class Boss03BarrageState : Boss03BaseState
         if (waveCount >= wave)
         {
             waveCount = 0;
-            isBarraheMode = !isBarraheMode;
+            mdoeWave++;
+
+            if (mdoeWave == 2)
+            {
+                wave = 8;
+                mdoeWave = 0;
+                barrageMode = BarrageMode.b;
+            }
+            else
+            {
+                isBarraheMode = !isBarraheMode;
+                if (isBarraheMode)
+                {
+                    wave = Random.Range(12, 19);
+                }
+                else
+                {
+                    wave = Random.Range(2, 5);
+                }
+            }
+
+
+        }
+
+    }
+
+    private void ModeB(float deltaTime)
+    {
+        isBarraheMode = true;
+
+        timer += deltaTime;
+
+        if (timer >= interval)
+        {
+            EnemySkill _skill = null;
+
+            if (waveCount == 0 || waveCount == 3 || waveCount == 6)
+            {
+                _skill = skill[3];
+            }
+            else if (waveCount == 1 || waveCount == 4 || waveCount == 7)
+            {
+                _skill = skill[4];
+            }
+            else
+            {
+                _skill = skill[2];
+            }
+
+            _skill.skill.castTransform = stateMachine.Eye.transform;
+            _skill.skill.UseSkill();
+            interval = _skill.MinCooldownTime;
+
+            stateMachine.AudioLogic.PlayAudio("BarrageShoot");
+
+            timer = 0;
+            waveCount++;
+        }
+
+        if (waveCount >= wave)
+        {
+            waveCount = 0;
 
             if (isBarraheMode)
             {
@@ -111,6 +183,7 @@ public class Boss03BarrageState : Boss03BaseState
             {
                 wave = Random.Range(2, 5);
             }
+            barrageMode = BarrageMode.a;
         }
 
     }

@@ -17,10 +17,10 @@ public class BarrageController : MonoBehaviour
     [SerializeField] private float startAngleY;
     [SerializeField] private float endAngleY;
     [SerializeField] private float shootInterval;
+
     [SerializeField] private bool back;
 
     private int count;
-    private int angleCount;
 
     private void Start()
     {
@@ -32,15 +32,6 @@ public class BarrageController : MonoBehaviour
         Debug.Log("Shoot");
         count = 0;
 
-        if (back)
-        {
-            angleCount = quantity;
-        }
-        else
-        {
-            angleCount = 0;
-        }
-
         if (barrageMode == BarrageMode.ScatterShoot)
         {
             for (int i = 0; i < quantity; i++)
@@ -50,17 +41,22 @@ public class BarrageController : MonoBehaviour
         }
         else if (barrageMode == BarrageMode.ContinuousShoot)
         {
-            Debug.Log("ShootProjectile");
-            InvokeRepeating("ShootProjectile", 0, shootInterval);
+            InvokeRepeating("ShootProjectile", 0, 0.1f);
         }
 
     }
 
     private void ShootProjectile()
     {
-        float rotationAmount;
-
-        rotationAmount = ((endAngleY - startAngleY) / quantity) * count + transform.eulerAngles.y;
+        float rotationAmount = 0;
+        if (!back)
+        {
+            rotationAmount = ((endAngleY - startAngleY) / quantity) * count + transform.eulerAngles.y;
+        }
+        else
+        {
+            rotationAmount = ((startAngleY - endAngleY) / quantity) * count + transform.eulerAngles.y + 180;
+        }
 
         Quaternion rotation = Quaternion.Euler(0, startAngleY + rotationAmount, 0);
         ProjectileControls _projectile = Instantiate(projectile, InstantiatePos, rotation);
@@ -71,7 +67,11 @@ public class BarrageController : MonoBehaviour
         {
             CancelInvoke("ShootProjectile");
         }
+    }
 
+    private IEnumerator ContinuousShoot()
+    {
+        yield return null;
     }
 
 

@@ -40,9 +40,9 @@ public class Boss03ChargeAttackState : Boss03BaseState
 
         if (stage == Stage.Up)
         {
-            if (Time.time - upTime < 2) return;
-
             Whirling(Vector3.one, 1, deltaTime);
+
+            if (Time.time - upTime < 1) return;
 
             targetPos = salfPos;
             targetPos.y = 8;

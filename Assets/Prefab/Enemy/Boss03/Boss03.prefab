@@ -539,6 +539,7 @@ MonoBehaviour:
   myCollider: {fileID: 4601318827384342260}
   Collider: {fileID: 4601318826517433952}
   audioLogic: {fileID: 0}
+  impulseSource: {fileID: 0}
   hitVFX: {fileID: 0}
   alreadyCollidedWith: []
 --- !u!135 &4601318826517433952
@@ -759,6 +760,24 @@ MonoBehaviour:
     <MinCooldownTime>k__BackingField: 1
     <MaxCooldownTime>k__BackingField: 1
     <Impact>k__BackingField: 0
+  - <SkillName>k__BackingField: 
+    <skill>k__BackingField: {fileID: 112597929961213178, guid: 8e1af8122d2f9af4282fa563ea2dbc89,
+      type: 3}
+    <spawnPoint>k__BackingField: {fileID: 0}
+    <AnimationName>k__BackingField: 
+    <UseTimeByAnimation>k__BackingField: 0
+    <MinCooldownTime>k__BackingField: 1.5
+    <MaxCooldownTime>k__BackingField: 1.5
+    <Impact>k__BackingField: 0
+  - <SkillName>k__BackingField: 
+    <skill>k__BackingField: {fileID: 112597929961213178, guid: 56efecb9f89c3174fa430743b7261a47,
+      type: 3}
+    <spawnPoint>k__BackingField: {fileID: 0}
+    <AnimationName>k__BackingField: 
+    <UseTimeByAnimation>k__BackingField: 0
+    <MinCooldownTime>k__BackingField: 1.5
+    <MaxCooldownTime>k__BackingField: 1.5
+    <Impact>k__BackingField: 0
   <LaserSkill>k__BackingField:
     <SkillName>k__BackingField: 
     <skill>k__BackingField: {fileID: 3957232976169384185, guid: ab545052ed0855b4c908d07a3c632175,
@@ -823,6 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9f3355f8ae38b408016b006f477ba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isParent: 0
   VFXList:
   - name: FallAttack
     gameObject: {fileID: 234993126553790158, guid: b6d0162ffe8f6f0419b27fd0b6a1de81,
