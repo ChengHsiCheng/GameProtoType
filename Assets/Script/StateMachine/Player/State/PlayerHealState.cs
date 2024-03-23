@@ -58,7 +58,7 @@ public class PlayerHealState : PlayerBaseState
             stateMachine.Animator.SetTrigger("OnCast");
             stateMachine.Info.Healing(30);
             MonoBehaviour.Instantiate(stateMachine.GetVFXByName("Heal"),
-                stateMachine.transform.position + Vector3.up, Quaternion.identity).transform.parent = stateMachine.transform;
+                stateMachine.Book.transform/*stateMachine.transform.position + Vector3.up, Quaternion.identity*/)/*.transform.parent = stateMachine.transform*/;
 
             stateMachine.AudioLogic.PlayAudio("SkillCast");
 
