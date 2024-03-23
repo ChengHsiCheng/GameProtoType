@@ -2232,6 +2232,161 @@ Transform:
   m_Father: {fileID: 8062203635239618721}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3154768662545587953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5189175781348601573}
+  - component: {fileID: 2337132777533447370}
+  - component: {fileID: 3504947563705918218}
+  - component: {fileID: 7095119546965821162}
+  - component: {fileID: 8897385901343798912}
+  - component: {fileID: 7702447540780416986}
+  m_Layer: 10
+  m_Name: HeavyWeaponLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5189175781348601573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154768662545587953}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6005063493248302993}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2337132777533447370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154768662545587953}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 7, y: 2, z: 3}
+  m_Center: {x: 0, y: 1, z: 1.5}
+--- !u!54 &3504947563705918218
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154768662545587953}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7095119546965821162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154768662545587953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5995981eb517a84bac716ec3d1a2c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCollider: {fileID: 2080221946}
+  Collider: {fileID: 2337132777533447370}
+  audioLogic: {fileID: 8897385901343798912}
+  impulseSource: {fileID: 7702447540780416986}
+  hitVFX: {fileID: 4318664076542662784, guid: 15c55ba0c2c355447bbb473de8a94f07, type: 3}
+  alreadyCollidedWith: []
+--- !u!114 &8897385901343798912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154768662545587953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b0d30e61ddc6e42a3830c798fb0572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audios:
+  - name: Hit
+    audios:
+    - {fileID: 8300000, guid: ea44ca86c762d65409925e2ba1a65369, type: 3}
+    - {fileID: 8300000, guid: 4660bab7401a07e489b970c8086a4bc1, type: 3}
+    - {fileID: 8300000, guid: 42bea0a3cd2c1884e82aeec2b90dda9f, type: 3}
+    audioVolume: 0
+--- !u!114 &7702447540780416986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154768662545587953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: -1
+    m_ImpulseShape: 4
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 3
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 0.5
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.1
+      m_DecayTime: 0.3
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &3280299327478181024
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,7 +2967,6 @@ MonoBehaviour:
   <HpBar>k__BackingField: {fileID: 8036512598182053970}
   <SanBar>k__BackingField: {fileID: 1725354042426514945}
   <DiedUI>k__BackingField: {fileID: 2245275963052651437}
-  <CreditsUI>k__BackingField: {fileID: 0}
   <HurtUI>k__BackingField: {fileID: 7279624412903843068}
   <LowSanUI>k__BackingField: {fileID: 5870950477772444455}
   <HintUI>k__BackingField: {fileID: 6745633747534341087}
@@ -3842,7 +3996,7 @@ GameObject:
   - component: {fileID: 1153249661728176417}
   - component: {fileID: 1710878098831049213}
   m_Layer: 10
-  m_Name: WeaponLogic
+  m_Name: LightWeaponLogic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3860,8 +4014,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4434235351814223057}
-  m_RootOrder: 0
+  m_Father: {fileID: 6005063493248302993}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &76991926871157353
 BoxCollider:
@@ -3874,8 +4028,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0.4}
+  m_Size: {x: 5, y: 2, z: 2.5}
+  m_Center: {x: 0, y: 1, z: 1.25}
 --- !u!54 &8145737937524618729
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5109,6 +5263,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 15
     <ShockingPower>k__BackingField: 2
     <AudioTime>k__BackingField: 0.255
+    <AttackDamageCount>k__BackingField: 0
   - <AnimationName>k__BackingField: lightAttack2
     <AttackTimeByAnimation>k__BackingField: 0.22
     <AttackEndTimeByAnimation>k__BackingField: 0.34
@@ -5125,6 +5280,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 15
     <ShockingPower>k__BackingField: 2
     <AudioTime>k__BackingField: 0.22
+    <AttackDamageCount>k__BackingField: 0
   - <AnimationName>k__BackingField: HeavyAttack1
     <AttackTimeByAnimation>k__BackingField: 0.216
     <AttackEndTimeByAnimation>k__BackingField: 0.35
@@ -5141,6 +5297,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 30
     <ShockingPower>k__BackingField: 5
     <AudioTime>k__BackingField: 0.22
+    <AttackDamageCount>k__BackingField: 1
   - <AnimationName>k__BackingField: HeavyAttack2
     <AttackTimeByAnimation>k__BackingField: 0.15
     <AttackEndTimeByAnimation>k__BackingField: 0.28
@@ -5157,6 +5314,7 @@ MonoBehaviour:
     <Damage>k__BackingField: 30
     <ShockingPower>k__BackingField: 5
     <AudioTime>k__BackingField: 0.17
+    <AttackDamageCount>k__BackingField: 1
   <Skills>k__BackingField:
   - name: PetrochemicalSkill
     <ChargeTime>k__BackingField: 1
@@ -7078,6 +7236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponLogic:
   - {fileID: 770861946741943494}
+  - {fileID: 7095119546965821162}
 --- !u!114 &8997866913749645637
 MonoBehaviour:
   m_ObjectHideFlags: 0

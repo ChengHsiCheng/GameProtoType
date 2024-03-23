@@ -43,7 +43,7 @@ public class PlayerAttackState : PlayerBaseState
         {
             if (isAttack)
             {
-                stateMachine.WeaponHendler.DisableWeapon(0);
+                stateMachine.WeaponHendler.DisableWeapon(attack.AttackDamageCount);
                 isAttack = false;
             }
         }
@@ -51,7 +51,7 @@ public class PlayerAttackState : PlayerBaseState
         {
             if (!isAttack)
             {
-                stateMachine.WeaponHendler.EnableWeapon(0);
+                stateMachine.WeaponHendler.EnableWeapon(attack.AttackDamageCount);
                 isAttack = true;
             }
         }
