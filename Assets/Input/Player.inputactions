@@ -447,6 +447,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PuzzleHint",
+                    "type": "Button",
+                    "id": "5ca2c6f7-1132-4fa3-9f52-0edfa45314be",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -799,6 +808,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "91ece715-c2d3-457b-bec0-764179c85966",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keybord && Mouse",
+                    "action": "PuzzleHint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5776c2dc-32b0-4b2b-aac2-ac4ca0fadfb4",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "PuzzleHint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

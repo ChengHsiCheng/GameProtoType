@@ -114,7 +114,7 @@ public class PlayerStateMachine : StateMachine
 
         if (UI.Count != 0)
         {
-            GameManager.sceneController.UIController.AddUI(UI[0]);
+            GameManager.sceneController.UIController.AddUI(UI.Last());
             return;
         }
     }
@@ -273,7 +273,6 @@ public class PlayerStateMachine : StateMachine
         UI.Add(ui);
 
         UIManager.isHint = true;
-
 
         UIManager.SetHint(true, ui.gameObject);
     }

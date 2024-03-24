@@ -111,7 +111,7 @@ public class PlayerUIManager : UIManager
     public void SetHint(bool value)
     {
         HintUI.gameObject.SetActive(value);
-        HintUI.target = null;
+        HintUI.target = HintUI.gameObject;
     }
 
     public void SetHint(bool value, GameObject target)

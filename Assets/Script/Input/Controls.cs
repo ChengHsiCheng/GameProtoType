@@ -469,6 +469,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PuzzleHint"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ca2c6f7-1132-4fa3-9f52-0edfa45314be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -823,6 +832,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91ece715-c2d3-457b-bec0-764179c85966"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keybord && Mouse"",
+                    ""action"": ""PuzzleHint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5776c2dc-32b0-4b2b-aac2-ac4ca0fadfb4"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""PuzzleHint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -880,6 +911,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Menu_Point = m_Menu.FindAction("Point", throwIfNotFound: true);
         m_Menu_Click = m_Menu.FindAction("Click", throwIfNotFound: true);
         m_Menu_Reset = m_Menu.FindAction("Reset", throwIfNotFound: true);
+        m_Menu_PuzzleHint = m_Menu.FindAction("PuzzleHint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1046,6 +1078,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menu_Point;
     private readonly InputAction m_Menu_Click;
     private readonly InputAction m_Menu_Reset;
+    private readonly InputAction m_Menu_PuzzleHint;
     public struct MenuActions
     {
         private @Controls m_Wrapper;
@@ -1060,6 +1093,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Point => m_Wrapper.m_Menu_Point;
         public InputAction @Click => m_Wrapper.m_Menu_Click;
         public InputAction @Reset => m_Wrapper.m_Menu_Reset;
+        public InputAction @PuzzleHint => m_Wrapper.m_Menu_PuzzleHint;
         public InputActionMap Get() { return m_Wrapper.m_Menu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1099,6 +1133,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Reset.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
                 @Reset.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
                 @Reset.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnReset;
+                @PuzzleHint.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnPuzzleHint;
+                @PuzzleHint.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnPuzzleHint;
+                @PuzzleHint.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnPuzzleHint;
             }
             m_Wrapper.m_MenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1133,6 +1170,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Reset.started += instance.OnReset;
                 @Reset.performed += instance.OnReset;
                 @Reset.canceled += instance.OnReset;
+                @PuzzleHint.started += instance.OnPuzzleHint;
+                @PuzzleHint.performed += instance.OnPuzzleHint;
+                @PuzzleHint.canceled += instance.OnPuzzleHint;
             }
         }
     }
@@ -1179,5 +1219,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnPoint(InputAction.CallbackContext context);
         void OnClick(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
+        void OnPuzzleHint(InputAction.CallbackContext context);
     }
 }

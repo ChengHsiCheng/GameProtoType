@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     public event Action OnCloseUIEvent;
     private UIInputReader inputReader;
 
-    [SerializeField] public List<UIManager> UIElements { get; private set; } = new List<UIManager>();
+    [field: SerializeField] public List<UIManager> UIElements { get; private set; } = new List<UIManager>();
 
 
     private void Start()

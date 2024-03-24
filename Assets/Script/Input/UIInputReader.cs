@@ -20,6 +20,7 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
     public event Action OnLeftTriggerEvent;
     public event Action OnRightTriggerEvent;
     public event Action OnLeftClickEvent;
+    public event Action OnPuzzleHintEvent;
 
 
 
@@ -156,5 +157,13 @@ public class UIInputReader : MonoBehaviour, Controls.IMenuActions
         SetControlMethod(context);
 
         OnResetEvent?.Invoke();
+    }
+
+    public void OnPuzzleHint(InputAction.CallbackContext context)
+    {
+        if (!context.performed)
+            return;
+
+        OnPuzzleHintEvent?.Invoke();
     }
 }
