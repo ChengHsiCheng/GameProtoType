@@ -13,6 +13,9 @@ public class Language : MonoBehaviour
     [SerializeField] private Sprite EnglishImage;
     [SerializeField] private Sprite ChineseImage;
 
+    [SerializeField] private GameObject EnglishObj;
+    [SerializeField] private GameObject ChineseObj;
+
     private void OnEnable()
     {
         GameManager.OnSwicthLanguage += SwicthLanguage;
@@ -38,7 +41,11 @@ public class Language : MonoBehaviour
             if (image)
             {
                 image.sprite = ChineseImage;
+                return;
             }
+
+            EnglishObj.SetActive(false);
+            ChineseObj.SetActive(true);
 
         }
         else
@@ -53,7 +60,11 @@ public class Language : MonoBehaviour
             if (image)
             {
                 image.sprite = EnglishImage;
+                return;
             }
+
+            EnglishObj.SetActive(true);
+            ChineseObj.SetActive(false);
         }
     }
 }
