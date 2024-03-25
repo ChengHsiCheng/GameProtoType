@@ -8,6 +8,9 @@ public class Boss03FallAttackState : Boss03BaseState
     private bool isPlayVFX;
     private bool isPlaySFX;
 
+    private float lightningTimer;
+    private float lightningTime;
+
     public Boss03FallAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
     }
@@ -19,10 +22,25 @@ public class Boss03FallAttackState : Boss03BaseState
         stateMachine.weapons[0].SetAttack(20, 25);
         stateMachine.WeaponHendler.EnableWeapon(0);
 
+        lightningTime = Random.Range(0.1f, 0.5f);
+
         stateMachine.SetFallAttack(false);
     }
     public override void Tick(float deltaTime)
     {
+        lightningTimer += deltaTime;
+
+        if (lightningTimer >= lightningTime)
+        {
+            int r = Random.Range(0, 4);
+            for (int i = 0; i < r; i++)
+            {
+                GameObject.Instantiate(stateMachine.LightningSkill, Vector3.zero, Quaternion.identity);
+            }
+            lightningTime = Random.Range(0.1f, 0.5f);
+            lightningTimer = 0;
+        }
+
         stateMachine.SetMeleeStateTimer(stateMachine.meleeStateTimer + deltaTime);
 
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
@@ -77,7 +95,7 @@ public class Boss03FallAttackState : Boss03BaseState
 
     public override void Exit()
     {
-        stateMachine.SetCoolDown(Random.Range(3, 6));
+        stateMachine.SetCoolDown(Random.Range(3.5f, 6f));
 
         stateMachine.WeaponHendler.DisableWeapon(0);
     }

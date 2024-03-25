@@ -33,13 +33,20 @@ public class Boss03BarrageState : Boss03BaseState
         skill = stateMachine.BarrageSkills;
         laserSkill = stateMachine.LaserSkill;
 
-        if (isBarraheMode)
+        if (barrageMode == BarrageMode.a)
         {
-            wave = Random.Range(10, 15);
+            if (isBarraheMode)
+            {
+                wave = Random.Range(10, 15);
+            }
+            else
+            {
+                wave = Random.Range(2, 5);
+            }
         }
         else
         {
-            wave = Random.Range(2, 5);
+            wave = 8;
         }
     }
 
@@ -147,7 +154,7 @@ public class Boss03BarrageState : Boss03BaseState
         if (timer >= interval)
         {
             EnemySkill _skill = null;
-
+            Debug.Log(waveCount);
             if (waveCount == 0 || waveCount == 3 || waveCount == 6)
             {
                 _skill = skill[3];

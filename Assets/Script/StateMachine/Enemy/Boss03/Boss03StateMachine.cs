@@ -21,8 +21,7 @@ public class Boss03StateMachine : StateMachine, Enemy
     public Boss03SceneController sceneController { get; private set; }
     [field: SerializeField] public VisualEffect vfx { get; private set; }
     [field: SerializeField] public AudioLogic AudioLogic { get; private set; }
-
-
+    [field: SerializeField] public GameObject LightningSkill { get; private set; }
 
     [field: SerializeField] public bool isBarrageState { get; private set; }
     [field: SerializeField] public bool isFallAttack { get; private set; }

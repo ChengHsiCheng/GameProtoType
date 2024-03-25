@@ -20,20 +20,38 @@ public class Boss03ChargeAttackState : Boss03BaseState
     private bool isVFX;
     private float upTime;
 
+    private float lightningTimer;
+    private float lightningTime;
+
     public Boss03ChargeAttackState(Boss03StateMachine stateMachine) : base(stateMachine)
     {
     }
 
     public override void Enter()
     {
-        loopIndex = Random.Range(2, 6);
+        loopIndex = Random.Range(2, 4);
         stateMachine.weapons[0].SetAttack(15, 15);
+
+        lightningTime = Random.Range(0.1f, 0.5f);
 
         upTime = Time.time;
     }
 
     public override void Tick(float deltaTime)
     {
+        lightningTimer += deltaTime;
+
+        if (lightningTimer >= lightningTime)
+        {
+            int r = Random.Range(0, 4);
+            for (int i = 0; i < r; i++)
+            {
+                GameObject.Instantiate(stateMachine.LightningSkill, Vector3.zero, Quaternion.identity);
+            }
+            lightningTime = Random.Range(0.1f, 0.5f);
+            lightningTimer = 0;
+        }
+
         stateMachine.SetMeleeStateTimer(stateMachine.meleeStateTimer + deltaTime);
 
         salfPos = stateMachine.transform.position;
@@ -132,7 +150,6 @@ public class Boss03ChargeAttackState : Boss03BaseState
             targetPos.Normalize();
 
             stateMachine.transform.position += targetPos * 60 * deltaTime;
-
             return;
         }
     }
@@ -142,6 +159,5 @@ public class Boss03ChargeAttackState : Boss03BaseState
         stateMachine.SetCoolDown(1);
         stateMachine.SetFallAttack(true);
     }
-
 
 }

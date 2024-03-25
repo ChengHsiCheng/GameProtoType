@@ -7,6 +7,9 @@ public class SingleDamage : MonoBehaviour
     [SerializeField] private float damage; // 傷害
     [SerializeField] private float sanDamage;
     [SerializeField] private float impact;
+    [SerializeField] private float endTime = 0;
+
+    private float timer;
 
     private Health health { get => GameManager.player.GetComponent<Health>(); }
     private San san { get => GameManager.player.GetComponent<San>(); }
@@ -14,9 +17,20 @@ public class SingleDamage : MonoBehaviour
 
     private bool hasDamaged = false;
 
+    private void Update()
+    {
+        if (GameManager.isPauseGame)
+            return;
+
+        timer += Time.deltaTime;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (hasDamaged)
+            return;
+
+        if (endTime != 0 && timer > endTime)
             return;
 
         if (other.tag == "Player")
