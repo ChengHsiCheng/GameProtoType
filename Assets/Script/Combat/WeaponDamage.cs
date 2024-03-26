@@ -35,8 +35,6 @@ public class WeaponDamage : MonoBehaviour
         if (alreadyCollidedWith.Contains(other.gameObject))
             return;
 
-        Debug.Log(other.name);
-
         if (isStuckFrame)
         {
             StartCoroutine(StuckFrame());

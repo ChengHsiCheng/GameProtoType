@@ -17,6 +17,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public PlayerInfo Info { get; private set; }
     [field: SerializeField] public PlayerUIManager UIManager { get; private set; }
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
+    [field: SerializeField] public WeaponDamage HeavyWeapon { get; private set; }
     [field: SerializeField] public WeaponHendler WeaponHendler { get; private set; }
     [field: SerializeField] public Volume volume { get; private set; }
     [field: SerializeField] public Attack[] Attacks { get; private set; }

@@ -2256,6 +2256,11 @@ PrefabInstance:
       propertyPath: <Book>k__BackingField
       value: 
       objectReference: {fileID: 1048084178}
+    - target: {fileID: 8062203635239618720, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+        type: 3}
+      propertyPath: <HeavyWeapon>k__BackingField
+      value: 
+      objectReference: {fileID: 4363505022601414841}
     - target: {fileID: 8062203635239618721, guid: 29c30bd884e038f42ac514f40eb9a0ff,
         type: 3}
       propertyPath: m_RootOrder
@@ -2324,6 +2329,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6843401122265058899}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4363505022601414841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7095119546965821162, guid: 29c30bd884e038f42ac514f40eb9a0ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 6843401122265058899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5995981eb517a84bac716ec3d1a2c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8259758576121188279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3195352011875729892, guid: 29c30bd884e038f42ac514f40eb9a0ff,
