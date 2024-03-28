@@ -2342,9 +2342,11 @@ MonoBehaviour:
   audios:
   - name: Hit
     audios:
-    - {fileID: 8300000, guid: ea44ca86c762d65409925e2ba1a65369, type: 3}
-    - {fileID: 8300000, guid: 4660bab7401a07e489b970c8086a4bc1, type: 3}
-    - {fileID: 8300000, guid: 42bea0a3cd2c1884e82aeec2b90dda9f, type: 3}
+    - {fileID: 8300000, guid: d7e68a57365c3644095dc7a5511e7d99, type: 3}
+    - {fileID: 8300000, guid: 8bf6bcf0f164c96488a32b41c38fd759, type: 3}
+    - {fileID: 8300000, guid: 6988f2c6d5ce7c64ab1359f9b8bc44f8, type: 3}
+    - {fileID: 8300000, guid: f102bd47e5885734694d1e058dde7542, type: 3}
+    - {fileID: 8300000, guid: c3e4108a53e4da341ac20ada5f16aaf4, type: 3}
     audioVolume: 0
 --- !u!114 &7702447540780416986
 MonoBehaviour:
@@ -4093,9 +4095,11 @@ MonoBehaviour:
   audios:
   - name: Hit
     audios:
-    - {fileID: 8300000, guid: ea44ca86c762d65409925e2ba1a65369, type: 3}
-    - {fileID: 8300000, guid: 4660bab7401a07e489b970c8086a4bc1, type: 3}
-    - {fileID: 8300000, guid: 42bea0a3cd2c1884e82aeec2b90dda9f, type: 3}
+    - {fileID: 8300000, guid: d7e68a57365c3644095dc7a5511e7d99, type: 3}
+    - {fileID: 8300000, guid: 8bf6bcf0f164c96488a32b41c38fd759, type: 3}
+    - {fileID: 8300000, guid: 6988f2c6d5ce7c64ab1359f9b8bc44f8, type: 3}
+    - {fileID: 8300000, guid: f102bd47e5885734694d1e058dde7542, type: 3}
+    - {fileID: 8300000, guid: c3e4108a53e4da341ac20ada5f16aaf4, type: 3}
     audioVolume: 0
 --- !u!114 &1710878098831049213
 MonoBehaviour:
@@ -5260,6 +5264,7 @@ MonoBehaviour:
   <Info>k__BackingField: {fileID: 8553720373103377966}
   <UIManager>k__BackingField: {fileID: 1554696469}
   <Weapon>k__BackingField: {fileID: 770861946741943494}
+  <HeavyWeapon>k__BackingField: {fileID: 7095119546965821162}
   <WeaponHendler>k__BackingField: {fileID: 8006189402794753334}
   <volume>k__BackingField: {fileID: 1668972552}
   <Attacks>k__BackingField:
@@ -5395,6 +5400,7 @@ MonoBehaviour:
   logic:
   - {fileID: 55128076896472846}
   - {fileID: 1153249661728176417}
+  - {fileID: 8897385901343798912}
   - {fileID: 38722080951117676}
 --- !u!114 &38722080951117676
 MonoBehaviour:
@@ -6790,7 +6796,7 @@ PrefabInstance:
     - target: {fileID: 4708894237395454436, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.06027532
+      value: 0.060275335
       objectReference: {fileID: 0}
     - target: {fileID: 4708894237395454436, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
@@ -6800,7 +6806,7 @@ PrefabInstance:
     - target: {fileID: 4708894237395454436, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.061912525
+      value: 0.06191254
       objectReference: {fileID: 0}
     - target: {fileID: 4708894237395454436, guid: 87716c1a8a0ebee4eb22c1f9e87fc27f,
         type: 3}
