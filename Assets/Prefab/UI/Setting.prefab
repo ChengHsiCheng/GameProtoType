@@ -289,6 +289,8 @@ MonoBehaviour:
   ChineseText: "\u9078\u64C7"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &1453605010
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +426,8 @@ MonoBehaviour:
   ChineseText: "\u9078\u64C7"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &1934177418
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +962,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &716853695360104905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1120,105 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: LB
+--- !u!1 &839890832284592474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2487083103159531260}
+  - component: {fileID: 1045494912528909414}
+  - component: {fileID: 6222550978352982468}
+  - component: {fileID: 7576063435800366200}
+  m_Layer: 5
+  m_Name: HeavyAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2487083103159531260
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839890832284592474}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4897582684842371532}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 340, y: 187}
+  m_SizeDelta: {x: 190.58, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1045494912528909414
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839890832284592474}
+  m_CullTransparentMesh: 1
+--- !u!114 &6222550978352982468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839890832284592474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: HeavyAttack
+--- !u!114 &7576063435800366200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839890832284592474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: HeavyAttack
+  ChineseText: "\u91CD\u653B\u64CA"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &882422651213423136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,7 +1232,7 @@ GameObject:
   - component: {fileID: 7526090221221249051}
   - component: {fileID: 1647729322966845021}
   m_Layer: 5
-  m_Name: Attack
+  m_Name: lightAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1150,7 +1255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 647, y: 50}
+  m_AnchoredPosition: {x: 722, y: 93}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5748712700447647940
@@ -1194,7 +1299,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attack
+  m_Text: lightAttack
 --- !u!114 &1647729322966845021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1207,10 +1312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnglishText: Attack
-  ChineseText: "\u653B\u64CA"
+  EnglishText: lightAttack
+  ChineseText: "\u8F15\u653B\u64CA"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &935633679234472833
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1542,8 @@ MonoBehaviour:
   ChineseText: "\u9078\u64C7"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &1035762207393572745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -508, y: 98}
+  m_AnchoredPosition: {x: -539, y: 118}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4695876489144435907
@@ -1804,6 +1913,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &1541755906199714150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2177,8 @@ MonoBehaviour:
   ChineseText: "\u986F\u793A"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &1630119934884950840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,6 +2829,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &2215376585436526228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2844,7 @@ GameObject:
   - component: {fileID: 7196073598718154462}
   - component: {fileID: 927228048178585577}
   m_Layer: 5
-  m_Name: Attack/Interaction
+  m_Name: Interaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2752,7 +2867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 628, y: 96}
+  m_AnchoredPosition: {x: 579, y: 42}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6034019748192843208
@@ -2796,7 +2911,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Attack/Interaction
+  m_Text: Interaction
 --- !u!114 &927228048178585577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2809,10 +2924,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnglishText: Attack/Interaction
-  ChineseText: "\u653B\u64CA/\u4E92\u52D5"
+  EnglishText: Interaction
+  ChineseText: "\u4E92\u52D5"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &2267019527302889431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3070,6 +3187,8 @@ MonoBehaviour:
   ChineseText: "\u97F3\u6548"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &2525392047178716264
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3439,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &2723194293796197297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3536,7 +3657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -427, y: 66}
+  m_AnchoredPosition: {x: -427, y: 49}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2266657517614723749
@@ -3597,6 +3718,8 @@ MonoBehaviour:
   ChineseText: "\u79FB\u52D5"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &2910168457439844695
 GameObject:
   m_ObjectHideFlags: 0
@@ -3633,13 +3756,14 @@ RectTransform:
   - {fileID: 6431424930607758527}
   - {fileID: 9120977417557807283}
   - {fileID: 6038407257446216837}
+  - {fileID: 8842925444362862724}
   m_Father: {fileID: 7840946901232883043}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24, y: 0}
-  m_SizeDelta: {x: 827, y: 357}
+  m_AnchoredPosition: {x: -39, y: 0}
+  m_SizeDelta: {x: 998, y: 561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1333479232367406701
 CanvasRenderer:
@@ -3669,7 +3793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b162e4db18e871e48a6c62a025367d74, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32073c4cf4ead70499cac18cf50a9191, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4122,6 +4246,8 @@ MonoBehaviour:
   ChineseText: "\u97F3\u6548\u97F3\u91CF"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &3432624661995832551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,6 +4345,8 @@ MonoBehaviour:
   ChineseText: "\u986F\u793A"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &3524464886439526987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4970,6 +5098,8 @@ MonoBehaviour:
   ChineseText: "\u97F3\u6A02\u97F3\u91CF"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &3524464887314895000
 GameObject:
   m_ObjectHideFlags: 0
@@ -5447,6 +5577,8 @@ MonoBehaviour:
   ChineseText: "\u4EAE\u5EA6"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &3524464887930987439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5936,7 +6068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -342, y: 157}
+  m_AnchoredPosition: {x: -403, y: 195}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &121021762907036520
@@ -5997,6 +6129,8 @@ MonoBehaviour:
   ChineseText: "\u4E92\u52D5"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &3724573016395689483
 GameObject:
   m_ObjectHideFlags: 0
@@ -6170,6 +6304,8 @@ MonoBehaviour:
   ChineseText: "\u97F3\u6548"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &3807869338616990982
 GameObject:
   m_ObjectHideFlags: 0
@@ -6659,6 +6795,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &4072766091061933656
 GameObject:
   m_ObjectHideFlags: 0
@@ -6942,6 +7080,107 @@ MonoBehaviour:
   ChineseText: "\u9078\u64C7"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
+--- !u!1 &4286086782010521927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8842925444362862724}
+  - component: {fileID: 2050106025426244505}
+  - component: {fileID: 5540617435151176715}
+  - component: {fileID: 3275680651573852062}
+  m_Layer: 5
+  m_Name: HeavyAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8842925444362862724
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286086782010521927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6654732318997630851}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 744, y: -69}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2050106025426244505
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286086782010521927}
+  m_CullTransparentMesh: 1
+--- !u!114 &5540617435151176715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286086782010521927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.18039216, g: 0.16078432, b: 0.19607845, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: HeavyAttack
+--- !u!114 &3275680651573852062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4286086782010521927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: HeavyAttack
+  ChineseText: "\u91CD\u653B\u64CA"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &4337217701540671521
 GameObject:
   m_ObjectHideFlags: 0
@@ -7192,6 +7431,8 @@ MonoBehaviour:
   ChineseText: "\u64CD\u4F5C"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &4440838261339252024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7328,6 +7569,8 @@ MonoBehaviour:
   ChineseText: "\u87A2\u5E55\u6A21\u5F0F"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &4567570914934786274
 GameObject:
   m_ObjectHideFlags: 0
@@ -7717,6 +7960,105 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &4866686760281309901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7379569133009804928}
+  - component: {fileID: 3204306997331635989}
+  - component: {fileID: 755740236955319020}
+  - component: {fileID: 6716389915185896766}
+  m_Layer: 5
+  m_Name: Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7379569133009804928
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866686760281309901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4897582684842371532}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -423, y: 3}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3204306997331635989
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866686760281309901}
+  m_CullTransparentMesh: 1
+--- !u!114 &755740236955319020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866686760281309901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.09411766, g: 0.1137255, b: 0.13333334, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9, type: 3}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 5
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\rMenu"
+--- !u!114 &6716389915185896766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866686760281309901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnglishText: "\rMenu"
+  ChineseText: "\u9078\u55AE"
+  EnglishImage: {fileID: 0}
+  ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &4944298527139072247
 GameObject:
   m_ObjectHideFlags: 0
@@ -7851,6 +8193,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &5195370286539204937
 GameObject:
   m_ObjectHideFlags: 0
@@ -8644,6 +8988,8 @@ MonoBehaviour:
   ChineseText: "\u8FD4\u56DE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &5590700674874323696
 GameObject:
   m_ObjectHideFlags: 0
@@ -8927,7 +9273,7 @@ GameObject:
   - component: {fileID: 5175760009835227279}
   - component: {fileID: 9114468165597088112}
   m_Layer: 5
-  m_Name: Roll/Back
+  m_Name: Roll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8950,7 +9296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 617, y: 21}
+  m_AnchoredPosition: {x: 549, y: 7}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1718407290233651883
@@ -8994,7 +9340,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Roll/Back
+  m_Text: Roll
 --- !u!114 &9114468165597088112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9007,10 +9353,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnglishText: Roll/Back
-  ChineseText: "\u7FFB\u6EFE/\u8FD4\u56DE"
+  EnglishText: Roll
+  ChineseText: "\u7FFB\u6EFE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &5728459606524468156
 GameObject:
   m_ObjectHideFlags: 0
@@ -9573,6 +9921,8 @@ MonoBehaviour:
   ChineseText: "\u986F\u793A"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &6080278665433123772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9998,7 +10348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -432, y: -32}
+  m_AnchoredPosition: {x: -521, y: -36}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7267139984580616318
@@ -10059,6 +10409,8 @@ MonoBehaviour:
   ChineseText: "\u79FB\u52D5"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &6465928401993303449
 GameObject:
   m_ObjectHideFlags: 0
@@ -10186,7 +10538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 426, y: 133}
+  m_AnchoredPosition: {x: 511, y: 168}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6321660795318372719
@@ -10247,6 +10599,8 @@ MonoBehaviour:
   ChineseText: "\u56DE\u5FA9"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &6561776269550725306
 GameObject:
   m_ObjectHideFlags: 0
@@ -10327,103 +10681,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 1920 x 1080
---- !u!1 &6662966120475690883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1608101422907836200}
-  - component: {fileID: 4309052731822643908}
-  - component: {fileID: 614006308787057859}
-  - component: {fileID: 8809714939185717255}
-  m_Layer: 5
-  m_Name: Skill/ Confirm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1608101422907836200
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662966120475690883}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4897582684842371532}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 598, y: -19}
-  m_SizeDelta: {x: 500, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &4309052731822643908
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662966120475690883}
-  m_CullTransparentMesh: 1
---- !u!114 &614006308787057859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662966120475690883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.53333336, g: 0.27058825, b: 0.23529413, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 3
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Confirm
---- !u!114 &8809714939185717255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6662966120475690883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnglishText: Confirm
-  ChineseText: "\u78BA\u8A8D"
-  EnglishImage: {fileID: 0}
-  ChineseImage: {fileID: 0}
 --- !u!1 &6759832855471706581
 GameObject:
   m_ObjectHideFlags: 0
@@ -10754,6 +11011,8 @@ MonoBehaviour:
   ChineseText: "\u9078\u64C7"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &7039518610230286723
 GameObject:
   m_ObjectHideFlags: 0
@@ -11448,6 +11707,8 @@ MonoBehaviour:
   ChineseText: "\u64CD\u4F5C"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &7863679714640556703
 GameObject:
   m_ObjectHideFlags: 0
@@ -11689,6 +11950,8 @@ MonoBehaviour:
   ChineseText: "\u97F3\u6548"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &7968184684502678100
 GameObject:
   m_ObjectHideFlags: 0
@@ -11725,7 +11988,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 602, y: 59}
+  m_AnchoredPosition: {x: 567, y: -33}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5098394241967411162
@@ -11786,103 +12049,8 @@ MonoBehaviour:
   ChineseText: "\u56DE\u5FA9"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
---- !u!1 &7981848887930465067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3963518788298518647}
-  - component: {fileID: 6509572397831054729}
-  - component: {fileID: 8263288229203575799}
-  - component: {fileID: 3184969463115610681}
-  m_Layer: 5
-  m_Name: Left
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3963518788298518647
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981848887930465067}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4897582684842371532}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -409, y: 183}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6509572397831054729
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981848887930465067}
-  m_CullTransparentMesh: 1
---- !u!114 &8263288229203575799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981848887930465067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 66d8a43eb4a0eff47b461b0c5376f3f9, type: 3}
-    m_FontSize: 30
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 5
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Left
---- !u!114 &3184969463115610681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7981848887930465067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnglishText: Left
-  ChineseText: "\u5DE6"
-  EnglishImage: {fileID: 0}
-  ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &7991431134231081941
 GameObject:
   m_ObjectHideFlags: 0
@@ -11956,7 +12124,7 @@ GameObject:
   - component: {fileID: 6555459886957870230}
   - component: {fileID: 1651785014406001486}
   m_Layer: 5
-  m_Name: Right
+  m_Name: lightAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11975,12 +12143,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4897582684842371532}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 291, y: 183}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 400, y: 123}
+  m_SizeDelta: {x: 190.58, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5272052969215278856
 CanvasRenderer:
@@ -12023,7 +12191,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Right
+  m_Text: lightAttack
 --- !u!114 &1651785014406001486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12036,10 +12204,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnglishText: Right
-  ChineseText: "\u53F3"
+  EnglishText: lightAttack
+  ChineseText: "\u8F15\u653B\u64CA"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &8029655625183943181
 GameObject:
   m_ObjectHideFlags: 0
@@ -12861,6 +13031,8 @@ MonoBehaviour:
   ChineseText: "\u9078\u64C7"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &8687267014023203646
 GameObject:
   m_ObjectHideFlags: 0
@@ -13060,19 +13232,19 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3963518788298518647}
   - {fileID: 7156602405919364966}
+  - {fileID: 2487083103159531260}
   - {fileID: 346139424559837963}
   - {fileID: 4445774007582850612}
   - {fileID: 8265984070437069903}
   - {fileID: 1640451668888328443}
-  - {fileID: 1608101422907836200}
+  - {fileID: 7379569133009804928}
   m_Father: {fileID: 7840946901232883043}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -83, y: 0}
+  m_AnchoredPosition: {x: -38, y: 0}
   m_SizeDelta: {x: 777, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2046479859395634316
@@ -13103,7 +13275,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6807c747d2d82864183c9aa76d2e7b5a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 639134ce5fb5ecd44bf98b5210889089, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13287,6 +13459,8 @@ MonoBehaviour:
   ChineseText: "\u89E3\u6790\u5EA6"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &9063370660902021620
 GameObject:
   m_ObjectHideFlags: 0
@@ -13384,6 +13558,8 @@ MonoBehaviour:
   ChineseText: "\u64CD\u4F5C"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
 --- !u!1 &9177962548129171835
 GameObject:
   m_ObjectHideFlags: 0
@@ -13397,7 +13573,7 @@ GameObject:
   - component: {fileID: 8850548463074355692}
   - component: {fileID: 5493294988195045531}
   m_Layer: 5
-  m_Name: Roll/Confirm
+  m_Name: Roll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13420,7 +13596,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -458, y: -138}
+  m_AnchoredPosition: {x: -532, y: -166}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8038380775096353762
@@ -13464,7 +13640,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Roll/\rConfirm"
+  m_Text: Roll
 --- !u!114 &5493294988195045531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13477,7 +13653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3a2b8e1b6db38478bcb6ef8083a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnglishText: Roll/Confirm
-  ChineseText: "\u7FFB\u6EFE/\u78BA\u8A8D"
+  EnglishText: Roll
+  ChineseText: "\u7FFB\u6EFE"
   EnglishImage: {fileID: 0}
   ChineseImage: {fileID: 0}
+  EnglishObj: {fileID: 0}
+  ChineseObj: {fileID: 0}
